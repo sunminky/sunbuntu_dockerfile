@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  portainer:
+    image: portainer/portainer-ce:alpine
+    container_name: portainer
+    restart: always
+    ports:
+      - 9000:9000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  
+#docker-compose up -d
+
+#docker run -d -v /var/run/docker.sock:/var/run/docker.sock --restart=always --name portainer --network web_bridge --ip 172.19.0.3 portainer/portainer
