@@ -23,4 +23,4 @@ EXPOSE 80
 ADD default.conf /etc/nginx/conf.d/default.conf
 
 #Run Command
-#docker run -itd --restart always --name nginx_s --network web_bridge --ip 172.19.0.2 -p 80:80 -p 443:443 -v "/home/sunbuntu/certification:/home/certification:ro" nginx_s:0.0.1
+#docker run -itd --restart always --name nginx_s --network web_bridge --ip 172.19.0.2 -p 80:80 -p 443:443 -v "/home/sunbuntu/certification:/home/certification:ro" nginx_s:latest
