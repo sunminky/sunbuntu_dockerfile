@@ -21,7 +21,7 @@ RUN adduser --system --group qbittorrent-nox
 RUN mkdir -p /home/qbitorrent-nox/download
 
 #Run qbittorrent
-ENTRYPOINT qbittorrent-nox
+ENTRYPOINT echo "y" | qbittorrent-nox
 
 #Run Command
 #docker run -itd -m 512M --restart always --name torrent --network web_bridge --ip 172.19.0.4 -v /media/sunbuntu/1tb/1tb/임시파일:/root/Downloads torrent:0.0.2

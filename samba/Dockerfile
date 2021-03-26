@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:20.04
 
 MAINTAINER Minky
 
@@ -19,7 +19,7 @@ RUN useradd -m smbuser -p 1111
 RUN (echo 1111; echo 1111) | smbpasswd -a -s smbuser
 
 #Run Samba
-CMD service samba restart && bash
+CMD service smbd start && service nmbd start && bash
 
 #Run Command
-#docker run -itd -m 128M --restart always --name samba --net host -itd -v /media/sunbuntu/1tb/1tb:/home/samba/1tb samba:0.0.1
+#docker run -itd --memory 128M --restart always --name samba --net host -itd -v /media/sunbuntu/1tb/1tb:/home/samba/1tb samba:0.0.1

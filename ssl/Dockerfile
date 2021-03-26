@@ -14,15 +14,18 @@ RUN locale-gen ko_KR.UTF-8
 ENV LC_ALL=C.UTF-8
 
 #Install certbot
-RUN apt-get -y install certbot
+RUN apt-get update && apt-get -y install certbot
 
 #for cron
-RUN apt-get update && apt-get -y install cron && rm -rf /var/lib/apt/lists/*
-ADD certbot-cron /etc/cron.d/certbot-cron
-RUN crontab /etc/cron.d/certbot-cron
+#RUN apt-get update && apt-get -y install cron && rm -rf /var/lib/apt/lists/*
+#ADD certbot-cron /etc/cron.d/certbot-cron
+#RUN crontab /etc/cron.d/certbot-cron
 
 #Run Auto_renewal
-CMD ["cron", "-f"]
+CMD ["bash"]
 
 #Run Command
 #docker run -itd --restart always --net host --name ssl -v /home/sunbuntu/certification:/etc/letsencrypt ssl:0.0.1
+######################################################################################################################
+#certbot certonly --manual --preferred-challenges dns -d "*.sunbuntu.duckdns.org" -d "sunbuntu.duckdns.org"
+#curl "https://www.duckdns.org/update?domains={도메인}&token={선분투토큰}&txt={새토큰값}"
