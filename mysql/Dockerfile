@@ -1,3 +1,1 @@
 #docker run -d --restart always -e MYSQL_ROOT_PASSWORD=$(echo 'password') --name mysql --network web_bridge --ip 172.19.0.101 -v /media/sunbuntu/dockImg/volumes/mysql_repository/_data:/var/lib/mysql mysql:latest --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
-
-#docker run --name myadmin -d --restart always --network web_bridge --ip 172.19.0.7 --link mysql:db phpmyadmin
