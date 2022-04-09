@@ -1,0 +1,18 @@
+version: "3"
+
+networks: 
+  web_bridge: 
+    external: 
+      name: web_bridge
+
+services:
+  swagger:
+    image: swaggerapi/swagger-editor
+    restart: always
+    container_name: swagger
+    networks:
+      web_bridge:
+        ipv4_address: 172.19.0.8
+      
+    environment:
+      - URL=https://petstore3.swagger.io/api/v3/openapi.json

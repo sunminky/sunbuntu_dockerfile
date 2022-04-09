@@ -21,6 +21,6 @@ RUN curl -LO https://github.com/microsoft/vscode-cpptools/releases/download/1.1.
 RUN sudo apt-get update && sudo apt-get -y install build-essential
 
 #Run Command
-#docker run -itd --restart always --name code-server --network web_bridge --ip 172.19.0.6 -v /media/sunbuntu/1tb/private/C_Programing:/home/coder -e PASSWORD=$(echo 'password') code-server_s:latest
+#docker run -itd --restart always --name code-server --network web_bridge --ip 172.19.0.6 -v /media/sunbuntu/1tb/private/C_Programing:/home/coder -v /usr/src/linux-headers-$(uname -r)/include:/usr/src/linux-headers-$(uname -r)/include:ro -e PASSWORD=$(echo 'password') code-server_s:latest
 
 #docker run -itd --restart always --name code-server --network web_bridge --ip 172.19.0.6 -v "/media/sunbuntu/1tb/private/C_Programing:/home/coder" -u "$(id -u):$(id -g)" -e "DOCKER_USER=$USER" -e PASSWORD=$(echo 'password') code-server_s:latest
