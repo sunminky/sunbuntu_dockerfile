@@ -40,7 +40,7 @@ services:
       timeout: 10s
       retries: 5
     volumes:
-      - /media/sunbuntu/1tb/1tb/tt:/mnt/data
+      - /media/sunbuntu/1tb/owncloud:/mnt/data
 
   mariadb:
     image: mariadb:10.5
