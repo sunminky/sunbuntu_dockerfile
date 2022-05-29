@@ -9,59 +9,59 @@
  *
  */
 
-#ifndef IIllIIIll
-#define IIllIIIll
+#ifndef lIIllllll
+#define lIIllllll
 #ifdef _USBD_ENABLE_STUB_
-struct llIII{struct list_head lIlIII;struct IIIIII*lllll;struct kref lIIlll;u16 
-vid;u16 IlIIlIl;u16 llIlllI;char bus_id[BUS_ID_SIZE];struct usb_device*IIlll;
-char*lIIIlIll;int llIllll;int IIIlIlIl;int lIIlIIlI;int llIIlIII;int lllIlll;int
- IIlIllll;int IIllIlII;
-int Illlllll[(0x3f6+3446-0x115c)];int IIllIIIl[(0x1a4+1972-0x948)];int lIlllIIIl
-[(0x1633+1214-0x1ae1)];int llIlIlIlI[(0x1173+4401-0x2294)];wait_queue_head_t 
-IIIIlI;spinlock_t lIlllI;struct list_head IIlllII;spinlock_t lllIIll;struct 
-list_head IIIIIIIl;struct list_head IIllllII;
-int lIIlIIIl;int lllIlIlI;int lllIlllI;
-int Illllll;int lIlIlIlI;int IIlllIlI;int lIlIIlIl;int IIlIII;
-spinlock_t lIIIll;struct IIIllI*IIllIII;};int lllIIIllI(void);void lllllIIII(
-void);struct llIII*IIIlllllI(struct usb_device*IlIII);void IIIllIII(struct llIII
-*IlIlI);const char*IllIlllll(void*context);const char*lIIlIlllI(void*context);
-int lIIIlIIl(struct usb_device*IlIII);int llIIIIII(struct usb_device*IlIII);int 
-lllllIIl(struct usb_device*IlIII);int lIIIlIlII(struct usb_interface*IllllI,int 
-lllIIIIIl);void lIIlllIlI(struct usb_interface*IllllI);struct llIII*IlllIlIl(
-struct usb_device*IlIII);void lllIIIIll(struct llIII*IlIlI);void llllIlIIl(
-struct llIII*IlIlI);int lIIIlllIl(struct llIII*IlIlI);void llllIIlII(struct 
-llIII*IlIlI);void lllllIllI(struct llIII*IlIlI,int llIllIl);void IllIllllI(
-struct llIII*IlIlI,int llIllIl);int IIllIlIIl(struct llIII*IlIlI,int pipe);int 
-lIIIIlIl(struct llIII*IlIlI,int pipe);void lIlllIllI(struct llIII*IlIlI,int pipe
-);int IIlIlIIl(struct llIII*IlIlI,int pipe);void IIIllIll(struct llIII*IlIlI,int
- pipe,int lIIIllI);int IllIlIIl(struct usb_device*IIlll,IIIlll endpoint);void 
-IIlIIIlII(struct llIII*IlIlI,struct usb_interface*IIIIll,struct IIlII*lIIIlIl,
-int lIllIIl);void lIIIIIlII(struct llIII*IlIlI,int endpoint,struct IIlII*lIIIlIl
-);void IIlIIIII(struct llIII*IlIlI,struct IIlII*lIIIlIl,int IIIIIIIll,int 
-lIllIIl);void IllIIllII(struct llIII*IlIlI,lllIII lllIl,struct IIlII*lIIIlIl);
-void lIlIIlIll(struct kref*IIIIllI);static inline struct llIII*IlIIlIII(struct 
-llIII*IlIlI){kref_get(&IlIlI->lIIlll);return IlIlI;}static inline void IlIllIl(
-struct llIII*IlIlI){kref_put(&IlIlI->lIIlll,lIlIIlIll);}
+struct IIlll{struct list_head IIIIll;struct IIIlll*lllll;struct kref IllIll;u16 
+vid;u16 IlIlIII;u16 lIlIlll;char bus_id[BUS_ID_SIZE];struct usb_device*llIII;
+char*IIIIIlIl;int lIlllIl;int llIllIIl;int lllIIlIl;int lIIllIl;int IIllIIl;int 
+IIllllIl;int lllIlIlI;
+int lIIlllll[(0x187b+1605-0x1eb0)];int IlIIlIll[(0x523+6558-0x1eb1)];int 
+llIIIIIll[(0x14d4+2574-0x1ed2)];int IlIIIIIII[(0x58d+6921-0x2086)];
+wait_queue_head_t lIIllI;spinlock_t IIlIlI;struct list_head IllIIlI;spinlock_t 
+lIIIIll;struct list_head llIlIlIl;struct list_head IIIllIIl;
+int lIlIIII;int IIIIIIIl;int IIIlIlIl;
+int llllIIl;int IlIlIllI;int lIlIIIll;int lIllllII;int lIlIlI;
+spinlock_t lIIlIl;struct llIIll*IlIllII;};int lIIlIllll(void);void llIIlIllI(
+void);struct IIlll*IIlIIllIl(struct usb_device*IlIIl);void lIIIlIIl(struct IIlll
+*IIIll);const char*IllIIllII(void*context);const char*llIIlIIII(void*context);
+int IIIIIIll(struct usb_device*IlIIl);int lIIllIll(struct usb_device*IlIIl);int 
+IIIlIIIl(struct usb_device*IlIIl);int IlIIlIIIl(struct usb_interface*IIIIII,int 
+IlIllllIII);void IIllIlIll(struct usb_interface*IIIIII);struct IIlll*IIIIllIl(
+struct usb_device*IlIIl);void IIlIIllll(struct IIlll*IIIll);void IIllIIllI(
+struct IIlll*IIIll);int lIlllllIl(struct IIlll*IIIll);void llIlIIIlI(struct 
+IIlll*IIIll);void IIIlIlIll(struct IIlll*IIIll,int IIIllIl);void llllIIlII(
+struct IIlll*IIIll,int IIIllIl);int IIIlIllll(struct IIlll*IIIll,int pipe);int 
+IIIlIllI(struct IIlll*IIIll,int pipe);void lIIllllII(struct IIlll*IIIll,int pipe
+);int llllIllI(struct IIlll*IIIll,int pipe);void IlllIIlI(struct IIlll*IIIll,int
+ pipe,int llllIII);int IIllllIII(struct usb_device*llIII,lIllIl endpoint);void 
+llIIllIll(struct IIlll*IIIll,struct usb_interface*llIlII,struct lIIll*IIlIIIl,
+int IIIIlIl);void llIIlIIll(struct IIlll*IIIll,int endpoint,struct lIIll*IIlIIIl
+);void IllllIII(struct IIlll*IIIll,struct lIIll*IIlIIIl,int lIIIIIIlI,int 
+IIIIlIl);void IlllIIlII(struct IIlll*IIIll,llIIII lIlIl,struct lIIll*IIlIIIl);
+void IllIlIIII(struct kref*IIllIlI);static inline struct IIlll*lIIlIlll(struct 
+IIlll*IIIll){kref_get(&IIIll->IllIll);return IIIll;}static inline void lIIIllII(
+struct IIlll*IIIll){kref_put(&IIIll->IllIll,IllIlIIII);}
 
 
 #pragma pack(push,1)
 
 
-struct lllllIlI{lllII lIIIlIIIl;lllII IlIlllIIll;lllII IIlllIlII;IIIlll 
-IllIIIllI;IIIlll IIIIllIlll;IIIlll llIllIlIl;IIIlll IIlllIlIlI[
-(0xc05+3146-0x183f)];}__attribute__((packed));
+struct llIlIIII{__le32 lllIIlIll;__u32 IIlllIIlll;__le32 IllIIlIII;__u8 
+IIIllIIII;__u8 llIIIlIllI;__u8 lIIIIlllIl;__u8 IIIlllllII[(0xd3d+4049-0x1cfe)];}
+__attribute__((packed));
 
-struct llIIIIlIl{lllII lIlIlIIIII;lllII lIlIlIIIlI;lllII lIIIIlIlIl;IIIlll 
-llIIIlIlII;}__attribute__((packed));
+struct IIIIIlIll{__le32 lIlIIllIlI;__u32 lllIIllIII;__le32 lllIllIIll;__u8 
+lIIllIllII;}__attribute__((packed));
 #pragma pack(pop)
-#define lIlIIIIIl (0x2631+43-0x245c)
-struct IIIllI{struct llIII*IlIlI;int ep_in;int ep_out;lllIII lIIIlllll;lllIII 
-llIlllIII;lllIII IllIIIlI;struct IIlII*IllIIl;struct IIlII*IlIllI;lllII lIIlIlII
-;int IlIllIlI;int status;struct kref lIIlll;struct urb*lIlll;void*IllIl;
-int IIlllllI;
-int llIlIlI;int lIllIIl;};enum llIllIIlI{llllIIII=(0x1984+2055-0x218b),IIlIllllI
-,lIllllll,lllIlIllI,IIIllIlI,IlIlIIl};int lIlIIIIl(struct llIII*IlIlI);int 
-IlIIIIlIl(struct IIlII*lIlII,gfp_t IlIIl);
+#define IIlIlllII (0x22c7+837-0x240c)
+struct llIIll{struct IIlll*IIIll;int ep_in;int ep_out;llIIII IlIlllIII;llIIII 
+llllIllIl;llIIII IIIIIllll;struct lIIll*IlllII;struct lIIll*IlIlll;lllII 
+lllIIIIl;int IlIIIIII;int status;struct kref IllIll;struct urb*IlllI;void*llIIl;
+int IlIllIll;
+int IlllllI;int IIIIlIl;};enum IlIIllIlll{IllllIIl=(0x87c+5470-0x1dda),lIIlIIIlI
+,IlllIlII,llIIIIlll,llIIIllI,llIIIll};int lIllIlll(struct IIlll*IIIll);int 
+lIlIIIIII(struct lIIll*lIlII,gfp_t llllI);
 #endif 
 #endif 
 

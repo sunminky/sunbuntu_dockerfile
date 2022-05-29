@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  torrent:
+    image: torrent
+    container_name: torrent
+    restart: always
+    networks:
+      web_bridge:
+        ipv4_address: 172.19.0.4
+    volumes:
+      - /media/sunbuntu/1tb/1tb/임시파일:/root/Downloads
+    mem_limit: "512m"
+      
+networks:
+  web_bridge:
+    external: true
+  
+# docker-compose up -d
+
+#docker run -itd -m 512M --restart always --name torrent --network web_bridge --ip 172.19.0.4 -v /media/sunbuntu/1tb/1tb/임시파일:/root/Downloads torrent:0.0.2

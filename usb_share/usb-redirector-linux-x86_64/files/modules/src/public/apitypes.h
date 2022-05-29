@@ -9,44 +9,44 @@
  *
  */
 
-#ifndef IllllIllI
-#define IllllIllI
+#ifndef lIlllIllI
+#define lIlllIllI
 
 #ifdef __KERNEL__
 #include <linux/types.h>
 #else
 #include <stdint.h>
 #endif
-typedef int8_t lIllIIlIlI;typedef int16_t IlIlIIllll;typedef int32_t lllIIllII;
-typedef int64_t IlIIIllllI;typedef uint8_t IIIlll;typedef uint16_t lIlIlI;
-typedef uint32_t lllII;typedef uint64_t lllIII;typedef int BOOL;
+typedef int8_t IIlllIllII;typedef int16_t IIIIIllllI;typedef int32_t llllllIlll;
+typedef int64_t IlIlIlIlII;typedef uint8_t lIllIl;typedef uint16_t lIllll;
+typedef uint32_t lllII;typedef uint64_t llIIII;typedef int BOOL;
 #ifndef __KERNEL__
 #include <semaphore.h>
-typedef sem_t*IIlIllllIl;
+typedef sem_t*lIIIllllII;
 #endif
 #ifndef TRUE
-#define TRUE (0x15a7+2951-0x212d)
+#define TRUE (0x81+9538-0x25c2)
 #endif
 #ifndef FALSE
-#define FALSE (0x1368+4278-0x241e)
+#define FALSE (0x1052+4081-0x2043)
 #endif
 #ifndef __KERNEL__
 #include <endian.h>
 #include <byteswap.h>
 #if __BYTE_ORDER == __BIG_ENDIAN
-#define IllllIIII(IllIll) lIlIIlllI((IllIll))
-#define IllIIIIll(IllIll) IIllIllll((IllIll))
-#define IIllIIIlI(IllIll) IllIIllll((IllIll))
-#define lIIIlIlll(IllIll) lIlIIlllI((IllIll))
-#define llllIlIlI(IllIll) IIllIllll((IllIll))
-#define lIlIlIllI(IllIll) IllIIllll((IllIll))
+#define lIIIIlIII(IIIIlI) lIIlIIlll((IIIIlI))
+#define lIllIIllI(IIIIlI) llllIIlllI((IIIIlI))
+#define IIlllIlII(IIIIlI) lllIIIIII((IIIIlI))
+#define IIllIIIlI(IIIIlI) lIIlIIlll((IIIIlI))
+#define IIlIIlllI(IIIIlI) llllIIlllI((IIIIlI))
+#define lllIIlIlI(IIIIlI) lllIIIIII((IIIIlI))
 #else
-#define IllllIIII(IllIll) (IllIll)
-#define IllIIIIll(IllIll) (IllIll)
-#define IIllIIIlI(IllIll) (IllIll)
-#define lIIIlIlll(IllIll) (IllIll)
-#define llllIlIlI(IllIll) (IllIll)
-#define lIlIlIllI(IllIll) (IllIll)
+#define lIIIIlIII(IIIIlI) (IIIIlI)
+#define lIllIIllI(IIIIlI) (IIIIlI)
+#define IIlllIlII(IIIIlI) (IIIIlI)
+#define IIllIIIlI(IIIIlI) (IIIIlI)
+#define IIlIIlllI(IIIIlI) (IIIIlI)
+#define lllIIlIlI(IIIIlI) (IIIIlI)
 #endif
 # endif
 #endif 

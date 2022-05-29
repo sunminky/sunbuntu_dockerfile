@@ -9,111 +9,111 @@
  *
  */
 
-#ifndef IlIIIllIl
-#define IlIIIllIl
+#ifndef IIIlllIII
+#define IIIlllIII
 #include "urb_chain.h"
 #include "sg.h"
 
-#define IIIIIIlI		(0x1a88+2099-0x22bb)
-#define IIIIIlI		(0x4dc+7064-0x2073)
-#define llIlIII		(0x1853+2812-0x234d)
-#define lllIIllIl	(0xbc1+1198-0x106c)
-#define lIIllll		(0xd26+4656-0x1f52)
+#define IIlllIIl		(0xdc9+2797-0x18b6)
+#define IIIIlll		(0x8fb+3870-0x1818)
+#define IIIlIlI		(0x2032+1326-0x255e)
+#define lllIlllIl	(0x799+6968-0x22ce)
+#define IllIlII		(0xd8c+3919-0x1cd7)
 
-#define lIllIll		(0x437+2764-0xf03) 
-#define IllIIlI	(0x1f12+504-0x2109) 
-#if KERNEL_GT_EQ((0x1f12+329-0x2059),(0x16b+1062-0x58b),(0x7aa+5683-0x1dbe))
-#define llIllII			(0x11e4+4380-0x22fe) 
+#define lIlIIlI		(0x1372+285-0x148f) 
+#define IlIIIlI	(0x16a+5314-0x162b) 
+#if KERNEL_GT_EQ((0x454+3213-0x10df),(0xc1b+5062-0x1fdb),(0x68+8517-0x218e))
+#define IIlIIII			(0xaf1+3443-0x1862) 
 #endif
-struct IIlII{size_t lllllI;struct kref lIIlll;atomic_t state;lllIII lllIl;int 
-lIIIII;
-lIIIIlIIl IIIlIIl;IIIlll endpoint;
-struct list_head lIlIIl;struct llIII*IlIlI;union{struct{struct urb*lIlll;
-void*IllIl;
-}Illlll;struct{struct lllIlI*IIIlllI;
-struct llIIlIl*lIIIlI;
-}llllII;
-#if KERNEL_GT_EQ((0x1071+5040-0x241f),(0x1a7f+1895-0x21e0),(0xd16+2602-0x1721))
-struct{struct urb*lIlll;
-struct IIlIlIl sg;}IIIIIIl;
+struct lIIll{size_t IlIll;struct kref IllIll;atomic_t state;llIIII lIlIl;int 
+IlllIl;
+llIlIllIl lIlIlII;lIllIl endpoint;
+struct list_head llllIl;struct IIlll*IIIll;union{struct{struct urb*IlllI;
+void*llIIl;
+}lIIIll;struct{struct IlIlII*llIIlIl;
+struct lIIIllI*lIIlll;
+}lIllII;
+#if KERNEL_GT_EQ((0xe7a+1773-0x1565),(0x59+4217-0x10cc),(0x9e5+6620-0x23a2))
+struct{struct urb*IlllI;
+struct IIIlllIl sg;}IlIIIII;
 #endif
-};char llIlIlI:(0x37a+4576-0x1559);
-char lIllIIl:(0x130c+2625-0x1d4c);
+};char IlllllI:(0x789+1090-0xbca);
+char IIIIlIl:(0x622+3711-0x14a0);
 
 
 
-};struct IlIlIlII{struct list_head lIlIII;
-lllIII lllIl;int llIlllIlI;int IlIIIlIII;};
+};struct llIlIllI{struct list_head IIIIll;
+llIIII lIlIl;int llllllIll;int IlIlIIIII;};
 #ifdef _USBD_DEBUG_MEMORY_
-extern atomic_t IlIIIIlll;extern atomic_t IlIlllIlI;extern atomic_t lllIllIl;
-extern atomic_t lllIlIlIl;
+extern atomic_t llIlllllI;extern atomic_t IlllIIlll;extern atomic_t lIIlllIl;
+extern atomic_t llIlllIlI;
 #ifdef ATOMIC64_INIT
-extern atomic64_t lIlIIIlI;
+extern atomic64_t IlIlIIIl;
 #endif
-static inline struct urb*lIlllIl(int IlIllIlIl,gfp_t IlIIl){atomic_inc(&
-IlIIIIlll);return usb_alloc_urb(IlIllIlIl,IlIIl);}static inline void lIllIIlI(
-struct urb*urb){atomic_inc(&IlIlllIlI);usb_free_urb(urb);}static inline void*
-lIlIlll(size_t lllllI,int flags){atomic_inc(&lllIllIl);
+static inline struct urb*lIlIIlIl(int IIlIIIIll,gfp_t llllI){atomic_inc(&
+llIlllllI);return usb_alloc_urb(IIlIIIIll,llllI);}static inline void lllllIlI(
+struct urb*urb){atomic_inc(&IlllIIlll);usb_free_urb(urb);}static inline void*
+IllIllI(size_t IlIll,int flags){atomic_inc(&lIIlllIl);
 #ifdef ATOMIC64_INIT
-atomic64_add(lllllI,&lIlIIIlI);
+atomic64_add(IlIll,&IlIlIIIl);
 #endif
-return kmalloc(lllllI,flags);}static inline void*IIIlIll(size_t lllllI,int flags
-){atomic_inc(&lllIllIl);
+return kmalloc(IlIll,flags);}static inline void*lIllllI(size_t IlIll,int flags){
+atomic_inc(&lIIlllIl);
 #ifdef ATOMIC64_INIT
-atomic64_add(lllllI,&lIlIIIlI);
+atomic64_add(IlIll,&IlIlIIIl);
 #endif
-return kzalloc(lllllI,flags);}static inline void IlIIIl(const void*IIllIlIlI){
-atomic_inc(&lllIlIlIl);return kfree(IIllIlIlI);}
+return kzalloc(IlIll,flags);}static inline void lIlIll(const void*llIIlllII){
+atomic_inc(&llIlllIlI);return kfree(llIIlllII);}
 #else 
-#define	lIlllIl	usb_alloc_urb
-#define	lIllIIlI	usb_free_urb
-#define	lIlIlll		kmalloc
-#define	IIIlIll		kzalloc
-#define	IlIIIl			kfree
+#define	lIlIIlIl	usb_alloc_urb
+#define	lllllIlI	usb_free_urb
+#define	IllIllI		kmalloc
+#define	lIllllI		kzalloc
+#define	lIlIll			kfree
 #endif 
 #ifdef _USBD_ENABLE_STUB_
-struct IIlII*IlIIllIll(struct llIII*IlIlI,const void __user*IIIIl,size_t llllllI
-);int IlllIIlII(struct IIlII*lIlII,void __user*IIIIl,size_t llllllI);struct 
-IIlII*lllllllII(struct IIlII*lIlII,gfp_t IlIIl);void IIllIIl(struct IIlII*lIlII)
-;void IllIlIll(struct kref*IIIIllI);
+struct lIIll*llIlIIllI(struct IIlll*IIIll,const void __user*IllIl,size_t lIlllII
+);int IIIIlllIl(struct lIIll*lIlII,void __user*IllIl,size_t lIlllII);struct 
+lIIll*IllIIlIlI(struct lIIll*lIlII,gfp_t llllI);void IllIlll(struct lIIll*lIlII)
+;void lIlIIIIl(struct kref*IIllIlI);
 #endif
-void lIIlIIllI(struct usb_device*IlIII,u8*llIlIlIl,u8*IIIIIlll,u8*lIllllII);
-const char*lIlIIIII(unsigned long llllIIl);const char*IIIIlIlII(unsigned long 
-llllIIl);void lIlIIlIIl(struct urb*lIlll,lllIII lllIl);void lllIlIl(IllII IIlIl)
+void IIlllIlIl(struct usb_device*IlIIl,u8*IIlIllll,u8*IllIllIl,u8*IlIIIlll);
+const char*lllllIlll(unsigned long IlIlllI);const char*llIIlIIlI(unsigned long 
+IlIlllI);void IIIlIIIll(struct urb*IlllI,llIIII lIlIl);void llIlIIl(IIlII IIlIl)
 ;
 #ifdef _USBD_ENABLE_VHCI_
-int IlllllIII(struct list_head*lIllIlI,lllIII lllIl,void*IllIl,size_t IIlIll);
-int llllIIlIl(IllII IIlIl,struct list_head*lIllIlI,int*status);
+int llIlIlllI(struct list_head*llllllI,llIIII lIlIl,void*llIIl,size_t IlIIIl);
+int IIIllIlIl(IIlII IIlIl,struct list_head*llllllI,int*status);
 #endif
-int llllIlIl(lllII status);int IllllIlll(void*llIIIlIlI,struct vm_area_struct*
-IIllllI);lllIII llIlIIIlI(void);size_t IllIlIlI(struct usb_iso_packet_descriptor
-*lIlllII,int llIIl,void*lllIllI,void*IIllII,int IllIIlII);size_t lIllIllI(struct
- usb_iso_packet_descriptor*lIlllII,int llIIl,int IllIIlII);void lllllllll(
-dma_addr_t lllIllI,void*IIllII,unsigned long IIlIIl);void IIIllllIl(void*lllIllI
-,dma_addr_t IIllII,unsigned long IIlIIl);char*llIIIllI(struct kobject*kobj,gfp_t
- IIIIllIII);void lIIlIIIIl(char*llllIll);int IIIIlIIlI(struct device*dev);int 
-llIlllII(struct device*dev);int IlIlIIlII(struct device*dev);
-#if KERNEL_GT_EQ((0x4e9+6264-0x1d5f),(0x421+2836-0xf2f),(0x20b+4605-0x13f2))
-void lIIIIIII(struct device*dev,int IIlIllIl);int lIllIlII(struct device*dev);
+int lIllllIl(lllII status);int lIIIIIIII(void*llIlIIIIl,struct vm_area_struct*
+llIIIlI);llIIII lIllIIlll(void);size_t IlIIIllI(struct usb_iso_packet_descriptor
+*lllllIll,int IIIIl,void*IIIIIll,void*lllIll,int IIlIlIlI);size_t IlIIIllll(
+struct usb_iso_packet_descriptor*lllllIll,int IIIIl,int IIlIlIlI);void lIIIlIlII
+(dma_addr_t IIIIIll,void*lllIll,unsigned long IIlIIl);void llIlIIlIl(void*
+IIIIIll,dma_addr_t lllIll,unsigned long IIlIIl);char*lIllIIII(struct kobject*
+kobj,gfp_t lIlllIlII);void IlIlIllII(char*IIlIlll);int llIlllIII(struct device*
+dev);int IIIIlIlII(struct device*dev);int IIIIlIIII(struct device*dev);
+#if KERNEL_GT_EQ((0xf82+2097-0x17b1),(0x5f1+1879-0xd42),(0xe2+8704-0x22cc))
+void llIllllI(struct device*dev,int llIllIlI);int IIlIIllI(struct device*dev);
 #endif
-#if KERNEL_GT_EQ((0x61+603-0x2ba),(0x22c+669-0x4c3),(0x4e1+2986-0x106d))
-#define lIllll(IllIIllIl) dev_name((IllIIllIl))
+#if KERNEL_GT_EQ((0x1231+342-0x1385),(0x6e9+4681-0x192c),(0x1277+2709-0x1cee))
+#define llIIIl(llIllllII) dev_name((llIllllII))
 #else
-#define lIllll(IllIIllIl) (IllIIllIl)->bus_id
+#define llIIIl(llIllllII) (llIllllII)->bus_id
 #endif
-#if KERNEL_GT_EQ((0x936+2974-0x14d0),(0xb65+6475-0x24a4),(0xf3+980-0x4c7))
-#define IIIIIlIl(IIllIIll) ((IIllIIll)->bus->controller->driver ? \
-			(IIllIIll)->bus->controller->driver->name : (IIllIIll)->bus->sysdev->driver->\
+#if KERNEL_GT_EQ((0x2ab+1041-0x6b8),(0x3e0+7597-0x2181),(0x7f3+7173-0x23f8))
+#define IlIllIlI(lIIIllIl) ((lIIIllIl)->bus->controller->driver ? \
+			(lIIIllIl)->bus->controller->driver->name : (lIIIllIl)->bus->sysdev->driver->\
 name)
 #else
-#define IIIIIlIl(IIllIIll) ((IIllIIll)->bus->controller->driver->name)
+#define IlIllIlI(lIIIllIl) ((lIIIllIl)->bus->controller->driver->name)
 #endif
-#if KERNEL_LT_EQ((0x1f96+1392-0x2504),(0xacc+1202-0xf78),(0x161c+3899-0x2548))
+#if KERNEL_LT_EQ((0x11c6+3892-0x20f8),(0x1012+128-0x108c),(0x21f1+905-0x256b))
 #include <asm/semaphore.h>
-struct mutex{struct semaphore lIlllllI;};static inline void mutex_init(struct 
-mutex*mutex){sema_init(&mutex->lIlllllI,(0x100+2252-0x9cb));}static inline void 
-mutex_lock(struct mutex*mutex){down(&mutex->lIlllllI);}static inline void 
-mutex_unlock(struct mutex*mutex){up(&mutex->lIlllllI);}
+struct mutex{struct semaphore IIlIllIlI;};static inline void mutex_init(struct 
+mutex*mutex){sema_init(&mutex->IIlIllIlI,(0x16e7+1454-0x1c94));}static inline 
+void mutex_lock(struct mutex*mutex){down(&mutex->IIlIllIlI);}static inline void 
+mutex_unlock(struct mutex*mutex){up(&mutex->IIlIllIlI);}
 #endif
 #endif 
 

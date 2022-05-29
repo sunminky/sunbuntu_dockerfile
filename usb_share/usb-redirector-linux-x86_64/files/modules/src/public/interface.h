@@ -9,87 +9,106 @@
  *
  */
 
-#ifndef IllIIlIIl
-#define IllIIlIIl
-struct IllIllI{lllII IIllIll;};
+#ifndef lIlIlIIll
+#define lIlIlIIll
+struct IIllllI{lllII lIlllll;};
 
 
-#define IlllIllll			_IO(((char)(0x1501+4118-0x24d7)), (0xe0+2687-0xabf))
-#define IIIIlllII			_IO(((char)(0x424+7443-0x20f7)), (0xeda+5753-0x24b2))
-#define IIIlIIIII			_IO(((char)(0x124a+4787-0x24bd)), (0x1d3+1276-0x62d))
-#define llIllIlll	_IO(((char)(0x649+6574-0x1fb7)), (0x26d+7422-0x1ec8))
-#define IIIlIIlIl		_IO(((char)(0x1581+3415-0x2298)), (0xaeb+6819-0x24ea))
-#define lllIIlIll			_IO(((char)(0x14b7+4316-0x2553)), (0x22a0+719-0x24ca))
-#define lIllIllII				_IO(((char)(0x1cf6+264-0x1dbe)), (0x1129+1846-0x17b9))
-#define IIIllIIll	_IO(((char)(0x181+1616-0x791)), (0xa68+5222-0x1e27))
-struct IlIIllIlI{struct IllIllI llIllI;lllII busnum;lllII devnum;};struct 
-IIlllIIII{struct IllIllI llIllI;lllII llIllIl;};struct IlIlllIll{struct IllIllI 
-llIllI;lllII llIIlIII;};struct IlIllIllI{struct IllIllI llIllI;};struct 
-lIIIIllll{struct IllIllI llIllI;lllII lIlIlIIl;};
+#define llIIlIlII			_IO(((char)(0x1776+2830-0x2244)), (0x4c5+5005-0x17b2))
+#define IllIIIlII			_IO(((char)(0xbe0+1195-0x104b)), (0xb00+6520-0x23d7))
+#define lIIIIIlIl			_IO(((char)(0x54b+609-0x76c)), (0xabf+5654-0x2033))
+#define IllllIllI	_IO(((char)(0x343+2770-0xdd5)), (0x1599+2862-0x2024))
+#define IlIllIlIl		_IO(((char)(0xd7c+1988-0x1500)), (0xd50+2650-0x1706))
+#define IlIllIIlll			_IO(((char)(0x1186+1975-0x18fd)), (0x274+2909-0xd2c))
+#define IIIllIIIl				_IO(((char)(0x44+9366-0x249a)), (0x31c+393-0x3ff))
+#define IIIlIIlIl	_IO(((char)(0x6b1+1834-0xd9b)), (0x1482+3569-0x21cc))
+struct IIlllIIll{struct IIllllI lIIlII;lllII busnum;lllII devnum;};struct 
+lIlIlllII{struct IIllllI lIIlII;lllII IIIllIl;};struct lllIllllI{struct IIllllI 
+lIIlII;lllII lIIllIl;};struct lIlIIlIll{struct IIllllI lIIlII;};struct 
+IIlIIlIlII{struct IIllllI lIIlII;lllII IlIlllIl;};
 
 
-#define llIIlIlIl	(0x116c+277-0x1281)
-#define lIIlIIIIII		(0x99d+0-0x99c)
-#define lIIlIlIll		(0x22f9+580-0x253b)
-#define IlIIIllIIl		(0xfd7+3393-0x1d15)
-#define IIIIlllIl		(0x105f+635-0x12d7)
-
-
-
-#define lIIIlllII				(0x1a5+5427-0x16d7)	
-#define IIIllIllll	(0xea6+6245-0x2709)	
-#define IIlllllll		(0x1c34+193-0x1cf1)	
+#define IllIlIIIl	(0xbc1+5776-0x2251)
+#define IIlllIlIII		(0x26+4115-0x1038)
+#define lIlIlllll		(0x12e5+3499-0x208e)
+#define lIllllIII		(0x67a+5644-0x1c83)
+#define IlllIlIll		(0xa54+2750-0x150f)
 
 
 
 
 
 
-#define IIIIIIlll						((IIIlll)(0x281+1656-0x8f9))
-#define IIlIIlllI					((IIIlll)(0x141a+2179-0x1c9c))
-#define IllIlIlIl					((IIIlll)(0x445+5361-0x1934))
-#define IlIIlIIlI					((IIIlll)(0xa69+2647-0x14bd))
-#define lIlIllllI		_IO(((char)(0x4b4+2924-0xfe0)), (0x4ea+3517-0x11f3))
-#define lIIIIlIII		_IO(((char)(0xd89+5759-0x23c8)), (0xb01+1937-0x11dd))
-#define llIIllIIl		_IO(((char)(0xd90+4207-0x1dbf)), (0x1902+3111-0x2473))
-struct llIlIIlIl{struct IllIllI llIllI;lllII lIIlIlIlI;lIlIlI lIIIlIII;lIlIlI 
-lllIIIll;lIlIlI lIIIllIl;lIlIlI IIIllIlII;IIIlll llIllIIII;
-};struct lllllIlll{struct IllIllI llIllI;lllII lIIlIlIlI;};struct IIlIIIIlI{
-struct IllIllI llIllI;};
+#define IIllllIll						((lIllIl)(0x2d1+3207-0xf58))
+#define IIIlIIIII					((lIllIl)(0x225+3550-0x1002))
+#define lIIIllIII					((lIllIl)(0x52b+1587-0xb5c))
+#define IIIllIlII					((lIllIl)(0xabb+1321-0xfe1))
+#define lIIIlIIIl					((lIllIl)-(0x635+3204-0x12b8))
+#define lIlIlIIlI		_IO(((char)(0x4a0+1052-0x87c)), (0x16d0+4162-0x265e))
+#define llIIllllI		_IO(((char)(0x430+535-0x607)), (0x11d1+279-0x1233))
+#define IlIllllIl		_IO(((char)(0x256+3525-0xfdb)), (0x559+7068-0x203f))
+struct llIIlllll{struct IIllllI lIIlII;lllII lllllIlII;lIllll llIIIlII;lIllll 
+IIIIllll;lIllll IlIIllIl;lIllll IIllIllI;lIllIl lIlIllIII;
+};struct IlIllIIll{struct IIllllI lIIlII;lllII lllllIlII;};struct IlIlIIllI{
+struct IIllllI lIIlII;};
 
 
-#define IIlIIlIIl		_IO(((char)(0x1bd+9214-0x257b)), (0x253d+239-0x2564))
-#define lllIIIIII		_IO(((char)(0x303+5417-0x17ec)), (0x401+4475-0x14b3))
-#define IIIIIIIlI		_IO(((char)(0x87a+6563-0x21dd)), (0x3f4+3902-0x1268))
-#define IllllIIll		_IO(((char)(0x1daf+2055-0x2576)), (0x1034+1086-0x13a7))
-#define IIlIIllII		_IO(((char)(0xabb+3758-0x1929)), (0x68d+204-0x68d))
-#define IIlIlIIlI	_IO(((char)(0x15a4+3130-0x219e)), (0xc00+4028-0x1aef))
-struct llIllIlII{struct IllIllI llIllI;lllII IlllIllIl;
-};struct IlIlllIIl{struct IllIllI llIllI;};struct lllllllIl{struct IllIllI 
-llIllI;IIIlll IlIIIIIII;char llIlIl[(0x1250+1421-0x17bc)];
-};struct lIlIlIlIl{struct IllIllI llIllI;IIIlll IlIlIlll;char llIlIl[
-(0x3cd+4866-0x16ae)];
-};struct lllIllllI{struct IllIllI llIllI;char llIlIl[(0x1b87+628-0x1dda)];
-};struct llIlIIIII{struct IllIllI llIllI;char llIlIl[(0x113c+3422-0x1e79)];
+#define IIIlIIIlll		_IO(((char)(0x822+7826-0x2674)), (0x872+3022-0x1378))
+#define IlllIlIIl		_IO(((char)(0x1107+2435-0x1a4a)), (0x101c+2890-0x1a9d))
+#define IIIIllllI		_IO(((char)(0x289+6356-0x1b1d)), (0x16a4+3757-0x2487))
+#define IIIlIllII		_IO(((char)(0x1598+3862-0x246e)), (0x345+5248-0x16fa))
+#define IIllIlIlI		_IO(((char)(0x1038+1793-0x16f9)), (0x451+6246-0x1beb))
+#define IIIlIIIIl	_IO(((char)(0x3b4+6786-0x1df6)), (0x396+4839-0x15b0))
+#define IIllIIlIl	_IO(((char)(0x68d+7657-0x2436)), (0x4ec+8541-0x257b))
+#define IIIlIIlII		_IO(((char)(0x6f+2771-0xb02)), (0xa18+1851-0x1084))
+#define IlllIIIII		_IO(((char)(0x1172+67-0x1175)), (0x81d+1635-0xdb0))
+struct IlIIlIIlI{struct IIllllI lIIlII;lllII lIIlIIII;
+};struct llllIIlIl{struct IIllllI lIIlII;};struct llllIIIlI{struct IIllllI 
+lIIlII;lIllIl IlIIIIlIl;char IIllI[(0x1df2+1533-0x23ce)];
+};struct llIIIlIII{struct IIllllI lIIlII;lIllIl IlIIIIlI;char IIllI[
+(0x22d2+524-0x24bd)];
+};struct IllllIIlI{struct IIllllI lIIlII;char IIllI[(0x14c1+709-0x1765)];
+};struct IIIlIIIlI{struct IIllllI lIIlII;char IIllI[(0x12af+1159-0x1715)];
 
-};
+};struct IlllllllI{struct IIllllI lIIlII;char IIllI[(0xf7b+5812-0x260e)];
+
+};struct IIlllllll{struct IIllllI lIIlII;lllII lIIlIIII;
+};struct IllllllII{struct IIllllI lIIlII;};
+#if (0xa4c+1932-0x11d8)
+struct IIIIIIlll{struct IIllllI lIIlII;char IIllI[(0x1ea4+315-0x1fbe)];
+lIllll llIIIlII;lIllll IIIIllll;lIllll IlIIllIl;lIllll IIllIllI;lIllIl lIIIIIIl;
+lIllIl lIlllllI;lIllIl lllIIlII;lIllIl lIlIllIII;
+lIllIl lllIIIllII;lIllIl lIIIIllIIl;char IIIlIII[(0xba2+5403-0x1fbd)];char 
+serial[(0x86c+1060-0xb90)];char lIIIIlIllI[(0x365+5596-0x1841)];char description
+[(0x16e4+2709-0x2079)];};
+#endif
 
 
 
-#define IIlIllIIl			(0xc65+2357-0x1599)
-#define IlIlllllI			(0x3d3+915-0x764)
-#define lllIIlIlI			(0x190c+2378-0x2252)
-#define lIIlIlIII		(0xaf8+3852-0x19fc)
-#define llIlIllII	(0x7a+6690-0x1a8c)
-#define lIlIlIIlI	(0x641+6766-0x208f)
-#define IIIIIllll		(0x1038+5139-0x240b)
-#define IIIIlIIII		(0xc31+4830-0x1e8f)
-#define IIIllIlIl		536870912
-#define lIIllIIll		1073741824
-typedef struct IIlIIIIl{lllII IIlIIlI;lllII llIIllIl;lllII IlllIIlI;
-lIlIlI lIIIlIII;lIlIlI lllIIIll;lIlIlI lIIIllIl;IIIlll IIllIlllI;IIIlll 
-IIIIlIlll;IIIlll lIIlllllI;
 
-}lIIllllII,*lIlIIIIllI;
+#define llllIlIlI			(0x103f+5585-0x260f)
+#define IllIllIII			(0xdc4+2362-0x16fc)
+#define lIIlllIll			(0x1a87+1091-0x1ec6)
+#define lIIllIIIlI		(0xb59+1998-0x131f)
+#define lIllllIll	(0x1b5d+2677-0x25c2)
+#define IlllIllII	(0xfca+3123-0x1bdd)
+#define llIIIlIlI		(0x771+2626-0x1173)
+#define IlllllIIl		(0x2044+1275-0x24bf)
+
+#define IlIlIIlII	268435456
+#define IIlllllII		536870912
+#define llllllIlI		1073741824
+typedef struct IIlIIIll{lllII IIlllIl;lllII lllIIIl;lllII lIIllIIl;lllII 
+IllIlllI;lIllll llIIIlII;lIllll IIIIllll;lIllll IlIIllIl;lIllIl lIIIIIIl;lIllIl 
+lIlllllI;lIllIl lllIIlII;
+
+
+}lIIlIlIlIl,*lIIlIIlIlI;
+
+
+
+#define lIllllIIlI		(0x380+2120-0xbc6)
+typedef struct IIllllll{lIllll llIIIlII;lIllll IIIIllll;lllII lIIlIllIl;}
+llllIIIIlI,*lIlIlIIIlI;
 #endif 
 

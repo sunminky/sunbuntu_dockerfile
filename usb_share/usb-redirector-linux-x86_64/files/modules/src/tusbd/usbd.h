@@ -28,37 +28,37 @@
 #include <linux/vmalloc.h>
 #include <linux/module.h>
 #include <asm/uaccess.h>
-#define KERNEL_GT(IIIIIII,IlIlll,IllIIIll)			(LINUX_VERSION_CODE > \
-KERNEL_VERSION((IIIIIII),(IlIlll),(IllIIIll)))
-#define KERNEL_LT(IIIIIII,IlIlll,IllIIIll)			(LINUX_VERSION_CODE < \
-KERNEL_VERSION((IIIIIII),(IlIlll),(IllIIIll)))
-#define KERNEL_EQ(IIIIIII,IlIlll,IllIIIll)			(LINUX_VERSION_CODE == \
-KERNEL_VERSION((IIIIIII),(IlIlll),(IllIIIll)))
-#define KERNEL_GT_EQ(IIIIIII,IlIlll,IllIIIll)			(LINUX_VERSION_CODE >= \
-KERNEL_VERSION((IIIIIII),(IlIlll),(IllIIIll)))
-#define KERNEL_LT_EQ(IIIIIII,IlIlll,IllIIIll)			(LINUX_VERSION_CODE <= \
-KERNEL_VERSION((IIIIIII),(IlIlll),(IllIIIll)))
+#define KERNEL_GT(IIIlllI,IIIIIII,IlIIIlIl)			(LINUX_VERSION_CODE > \
+KERNEL_VERSION((IIIlllI),(IIIIIII),(IlIIIlIl)))
+#define KERNEL_LT(IIIlllI,IIIIIII,IlIIIlIl)			(LINUX_VERSION_CODE < \
+KERNEL_VERSION((IIIlllI),(IIIIIII),(IlIIIlIl)))
+#define KERNEL_EQ(IIIlllI,IIIIIII,IlIIIlIl)			(LINUX_VERSION_CODE == \
+KERNEL_VERSION((IIIlllI),(IIIIIII),(IlIIIlIl)))
+#define KERNEL_GT_EQ(IIIlllI,IIIIIII,IlIIIlIl)			(LINUX_VERSION_CODE >= \
+KERNEL_VERSION((IIIlllI),(IIIIIII),(IlIIIlIl)))
+#define KERNEL_LT_EQ(IIIlllI,IIIIIII,IlIIIlIl)			(LINUX_VERSION_CODE <= \
+KERNEL_VERSION((IIIlllI),(IIIIIII),(IlIIIlIl)))
 #if defined(RHEL_RELEASE_CODE) 
-#define RHEL_RELEASE_GT(IIIIIII,IlIlll) 		(RHEL_RELEASE_CODE > \
-RHEL_RELEASE_VERSION((IIIIIII),(IlIlll)))
-#define RHEL_RELEASE_LT(IIIIIII,IlIlll)		(RHEL_RELEASE_CODE < \
-RHEL_RELEASE_VERSION((IIIIIII),(IlIlll)))
-#define RHEL_RELEASE_EQ(IIIIIII,IlIlll)		(RHEL_RELEASE_CODE == \
-RHEL_RELEASE_VERSION((IIIIIII),(IlIlll)))
-#define RHEL_RELEASE_GT_EQ(IIIIIII,IlIlll)		(RHEL_RELEASE_CODE >= \
-RHEL_RELEASE_VERSION((IIIIIII),(IlIlll)))
-#define RHEL_RELEASE_LT_EQ(IIIIIII,IlIlll)		(RHEL_RELEASE_CODE <= \
-RHEL_RELEASE_VERSION((IIIIIII),(IlIlll)))
+#define RHEL_RELEASE_GT(IIIlllI,IIIIIII) 		(RHEL_RELEASE_CODE > \
+RHEL_RELEASE_VERSION((IIIlllI),(IIIIIII)))
+#define RHEL_RELEASE_LT(IIIlllI,IIIIIII)		(RHEL_RELEASE_CODE < \
+RHEL_RELEASE_VERSION((IIIlllI),(IIIIIII)))
+#define RHEL_RELEASE_EQ(IIIlllI,IIIIIII)		(RHEL_RELEASE_CODE == \
+RHEL_RELEASE_VERSION((IIIlllI),(IIIIIII)))
+#define RHEL_RELEASE_GT_EQ(IIIlllI,IIIIIII)		(RHEL_RELEASE_CODE >= \
+RHEL_RELEASE_VERSION((IIIlllI),(IIIIIII)))
+#define RHEL_RELEASE_LT_EQ(IIIlllI,IIIIIII)		(RHEL_RELEASE_CODE <= \
+RHEL_RELEASE_VERSION((IIIlllI),(IIIIIII)))
 #else
-#define RHEL_RELEASE_GT(IIIIIII,IlIlll) 		(0x517+8133-0x24dc)
-#define RHEL_RELEASE_LT(IIIIIII,IlIlll)		(0x658+1857-0xd99)
-#define RHEL_RELEASE_EQ(IIIIIII,IlIlll)		(0xa1a+7060-0x25ae)
-#define RHEL_RELEASE_GT_EQ(IIIIIII,IlIlll)		(0x2b7+2859-0xde2)
-#define RHEL_RELEASE_LT_EQ(IIIIIII,IlIlll)		(0x2f6+4516-0x149a)
+#define RHEL_RELEASE_GT(IIIlllI,IIIIIII) 		(0x1d44+1638-0x23aa)
+#define RHEL_RELEASE_LT(IIIlllI,IIIIIII)		(0x17b7+3410-0x2509)
+#define RHEL_RELEASE_EQ(IIIlllI,IIIIIII)		(0x868+1481-0xe31)
+#define RHEL_RELEASE_GT_EQ(IIIlllI,IIIIIII)		(0x460+5536-0x1a00)
+#define RHEL_RELEASE_LT_EQ(IIIlllI,IIIIIII)		(0x1612+4052-0x25e6)
 #endif
 
 #ifndef BUS_ID_SIZE
-#define BUS_ID_SIZE (0x14a+9665-0x26f7)
+#define BUS_ID_SIZE (0x24+5359-0x14ff)
 #endif
 #include "../public/pubstt2.h"
 #include "../public/apitypes.h"
@@ -77,39 +77,39 @@ RHEL_RELEASE_VERSION((IIIIIII),(IlIlll)))
 #include "urb_chain.h"
 #include "sg.h"
 
-#if KERNEL_LT_EQ((0x1f3+2850-0xd13),(0x1af2+237-0x1bd9),(0x10b2+1768-0x178b))
-#define IlllIIlll __stringify(KBUILD_MODNAME)
+#if KERNEL_LT_EQ((0x60+6435-0x1981),(0x1847+2004-0x2015),(0x4d+2899-0xb91))
+#define IIIIIlIlI __stringify(KBUILD_MODNAME)
 #else
-#define IlllIIlll KBUILD_MODNAME
+#define IIIIIlIlI KBUILD_MODNAME
 #endif
 
 #ifndef CONFIG_PRINTK_TIME
-#define llIIIIll(lIlIlIl, IlIlIlI...) printk(KERN_DEBUG \
-"\x5b\x25\x30\x39\x75\x5d\x20\x25\x73\x3a\x20" lIlIlIl, jiffies_to_msecs(jiffies\
-), IlllIIlll, ## IlIlIlI)
+#define llIlIlII(IIlIllI, lIIllll...) printk(KERN_DEBUG \
+"\x5b\x25\x30\x39\x75\x5d\x20\x25\x73\x3a\x20" IIlIllI, jiffies_to_msecs(jiffies\
+), IIIIIlIlI, ## lIIllll)
 #else
-#define llIIIIll(lIlIlIl, IlIlIlI...) printk(KERN_DEBUG "\x25\x73\x3a\x20" \
-lIlIlIl, IlllIIlll, ## IlIlIlI)
+#define llIlIlII(IIlIllI, lIIllll...) printk(KERN_DEBUG "\x25\x73\x3a\x20" \
+IIlIllI, IIIIIlIlI, ## lIIllll)
 #endif
 
 #ifdef _USBD_DEBUG_
-#define IlllI(lIlIlIl, IlIlIlI...) llIIIIll(lIlIlIl, ##IlIlIlI)
-#define llIll(lIlIlIl, IlIlIlI...) llIIIIll("\x25\x73\x3a\x20" lIlIlIl, __func__\
-, ##IlIlIlI)
+#define lIlll(IIlIllI, lIIllll...) llIlIlII(IIlIllI, ##lIIllll)
+#define lIIIl(IIlIllI, lIIllll...) llIlIlII("\x25\x73\x3a\x20" IIlIllI, __func__\
+, ##lIIllll)
 #else
-#define IlllI(lIlIlIl, IlIlIlI...) do {} while((0x184f+2981-0x23f4))
-#define llIll(lIlIlIl, IlIlIlI...) do {} while((0x10ef+3043-0x1cd2))
+#define lIlll(IIlIllI, lIIllll...) do {} while((0x28c+7200-0x1eac))
+#define lIIIl(IIlIllI, lIIllll...) do {} while((0x77+2143-0x8d6))
 #endif
 
-#define IlIIlI(lIlIlIl, IlIlIlI...) llIIIIll(lIlIlIl, ##IlIlIlI)
-extern size_t lIlllll;
-#if KERNEL_LT_EQ((0xbb1+2974-0x174d),(0x2fc+3559-0x10dd),(0x13c4+2838-0x1ec3))
+#define IIllIl(IIlIllI, lIIllll...) llIlIlII(IIlIllI, ##lIIllll)
+extern size_t IIlIIlI;
+#if KERNEL_LT_EQ((0x1a8b+745-0x1d72),(0xf4d+5821-0x2604),(0x200c+304-0x2125))
 typedef unsigned long uintptr_t;
 #endif
-#if KERNEL_LT_EQ((0xd57+164-0xdf9),(0x1774+1579-0x1d99),(0x5d6+1288-0xacf))
-#define atomic_xchg(IlIlIllIl, new) (xchg(&((IlIlIllIl)->counter), new))
+#if KERNEL_LT_EQ((0x4a7+1227-0x970),(0x461+4449-0x15bc),(0x720+3833-0x160a))
+#define atomic_xchg(lllIIIIIl, new) (xchg(&((lllIIIIIl)->counter), new))
 #endif
-#if KERNEL_LT((0x1a2a+1262-0x1f15),(0x408+1908-0xb6a),(0x1157+4698-0x23b1))
+#if KERNEL_LT((0x9+9078-0x237c),(0xdcd+262-0xec1),(0x1046+4386-0x2168))
 
 
 

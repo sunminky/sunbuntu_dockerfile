@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  usb:
+    image: usb
+    tty: true
+    privileged: true
+    cap_add:
+      - ALL
+    container_name: usb
+    restart: always
+    networks:
+      web_bridge:
+        ipv4_address: 172.19.0.97
+    volumes:
+      - /lib/modules:/lib/modules:ro
+      
+networks:
+  web_bridge:
+    external: true
+  
+# docker-compose up -d
+
+# docker run -it --restart always --name usb --privileged --cap-add=all -v /lib/modules:/lib/modules:ro usb
+
+# docker network create --gateway 172.19.0.1 --subnet 172.19.0.0/16 web_bridge

@@ -1,0 +1,28 @@
+THIS PATCH IS FOR FreeRDP 2.0.0 to 2.3.2 (excluding 2.0.0-rc3 and 2.0.0-rc4 which are not supported)
+Newer versions might work also, but they need testing.
+
+1. Copy ./channels directory into FreeRDP source code directory.
+
+2. Compile and install FreeRDP.
+
+   Below are very basic instructions that allow compiling FreeRDP in default
+   configuration. Please see FreeRDP compilation guide for more details and 
+   options: https://github.com/FreeRDP/FreeRDP/wiki/Compilation
+
+   It is not necessary to install the whole FreeRDP if you already have it 
+   installed. It is enough to copy ./channels/usbrdr/client/usbrdr-client.a
+   module into FreeRDP plugins directory (usually /usr/local/lib/<system type>/freerdp2).
+
+   Generate makefiles with default settings:
+   cmake -GNinja .
+
+   Compile:
+   cmake --build .
+
+   Install on the current system:
+   cmake --build . --target install
+
+   Build installation package for installing on another system:
+   cmake --build . --target package
+
+3. Start FreeRDP with '/vc:usbrdr' option.

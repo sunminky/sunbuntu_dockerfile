@@ -11,7 +11,7 @@
 
 #include "usbd.h"
 
-#if KERNEL_LT((0x975+4617-0x1b7c),(0x1a79+125-0x1af0),(0xcb8+1486-0x1277))
+#if KERNEL_LT((0xeef+1688-0x1585),(0x16aa+3063-0x229b),(0x1aa+8123-0x2156))
 #error This module requires kernel version 2.6.15 or newer
 #endif
 
@@ -19,7 +19,7 @@
 #error This module requires kernel to be compiled with USB support (CONFIG_USB)
 #endif
 
-#if KERNEL_LT((0x8d5+2803-0x13c5),(0xd1c+1847-0x144b),(0xf17+5960-0x265f)) && !\
+#if KERNEL_LT((0x4b+4521-0x11f1),(0x895+5095-0x1c74),(0x541+3713-0x13c2)) && !\
 defined(CONFIG_HOTPLUG)
 #error\
  This module requires kernel to be compiled with hotplug support (CONFIG_HOTPLUG)
@@ -30,8 +30,8 @@ defined(CONFIG_HOTPLUG)
  This module requires kernel to be compiled with networking support (CONFIG_NET)
 #endif
 
-#if KERNEL_LT_EQ((0x1109+3312-0x1df7),(0xa52+4638-0x1c6a),(0x73+4348-0x1160)) &&\
- !defined(CONFIG_KOBJECT_UEVENT)
+#if KERNEL_LT_EQ((0x14c9+4096-0x24c7),(0x5f5+7768-0x2447),(0x87b+7733-0x26a1)) \
+&& !defined(CONFIG_KOBJECT_UEVENT)
 #error\
  This module requires kernel to be compiled with uevent support (CONFIG_KOBJECT_UEVENT)
 #endif
@@ -41,117 +41,117 @@ defined(CONFIG_HOTPLUG)
  This module requires kernel to be compiled with Unix domain sockets support (CONFIG_UNIX)
 #endif
 #ifdef _USBD_DEBUG_MEMORY_
-atomic_t IlIIIIlll=ATOMIC_INIT((0xe6b+361-0xfd4));atomic_t IlIlllIlI=ATOMIC_INIT
-((0x1461+1707-0x1b0c));atomic_t lllIllIl=ATOMIC_INIT((0x13f4+4038-0x23ba));
-atomic_t lllIlIlIl=ATOMIC_INIT((0x2e0+715-0x5ab));
+atomic_t llIlllllI=ATOMIC_INIT((0x1f5+2701-0xc82));atomic_t IlllIIlll=
+ATOMIC_INIT((0x1870+1158-0x1cf6));atomic_t lIIlllIl=ATOMIC_INIT(
+(0x1382+3891-0x22b5));atomic_t llIlllIlI=ATOMIC_INIT((0x10f+3941-0x1074));
 #ifdef ATOMIC64_INIT
-atomic64_t lIlIIIlI=ATOMIC64_INIT((0x528+6743-0x1f7f));
+atomic64_t IlIlIIIl=ATOMIC64_INIT((0x73d+3361-0x145e));
 #endif
-atomic_t lIlIllll=ATOMIC_INIT((0x1be3+2022-0x23c9));atomic_t lIlllIIll=
-ATOMIC_INIT((0x2c0+5785-0x1959));atomic_t IIllllIII=ATOMIC_INIT(
-(0x1e4c+1145-0x22c5));atomic_t IIIllIllI=ATOMIC_INIT((0x36d+5829-0x1a32));
-atomic_t IIIIlllll=ATOMIC_INIT((0x5d4+3271-0x129b));atomic_t lIlIllIII=
-ATOMIC_INIT((0x235+3157-0xe8a));atomic_t llIlIlIll=ATOMIC_INIT((0xcb5+518-0xebb)
-);atomic_t IIlIlIIll=ATOMIC_INIT((0x7cf+4005-0x1774));atomic_t IlIIIIII=
-ATOMIC_INIT((0xe31+498-0x1023));atomic_t IIIllllII=ATOMIC_INIT(
-(0x144c+3480-0x21e4));atomic_t IIIIIllII=ATOMIC_INIT((0x107+5083-0x14e2));
-atomic_t llIIIlIl=ATOMIC_INIT((0x3b7+2006-0xb8d));atomic_t IlIlIllll=ATOMIC_INIT
-((0x13b+8253-0x2178));
+atomic_t llIIIIII=ATOMIC_INIT((0x4a4+5293-0x1951));atomic_t IIIllIllI=
+ATOMIC_INIT((0x9e8+5611-0x1fd3));atomic_t IIIllllIl=ATOMIC_INIT(
+(0xbdd+4097-0x1bde));atomic_t llIllIIll=ATOMIC_INIT((0xcb3+5799-0x235a));
+atomic_t lllllllll=ATOMIC_INIT((0x1741+143-0x17d0));atomic_t lIlIIlIIl=
+ATOMIC_INIT((0x151b+3560-0x2303));atomic_t IllllllIl=ATOMIC_INIT(
+(0x269+8855-0x2500));atomic_t lllIIIIll=ATOMIC_INIT((0xfb2+363-0x111d));atomic_t
+ IIIIllII=ATOMIC_INIT((0x10b1+3425-0x1e12));atomic_t lIIlIIlII=ATOMIC_INIT(
+(0x1364+5-0x1369));atomic_t Illllllll=ATOMIC_INIT((0x4bc+2595-0xedf));atomic_t 
+IlIIlllI=ATOMIC_INIT((0x1492+1639-0x1af9));atomic_t IIlIlIIll=ATOMIC_INIT(
+(0xf2b+3059-0x1b1e));
 #endif 
 
-size_t lIlllll=32768;static int lllllllI=(0xd15+3041-0x18f6);module_param(
-lllllllI,int,(0x103f+5374-0x253d));static int __init IlIllllIl(void){int IIIll;
-int llIIlllll=(0x232+7639-0x2009);
+size_t IIlIIlI=32768;static int IIIIlIIl=(0x1c9a+2414-0x2608);module_param(
+IIIIlIIl,int,(0x120+9453-0x260d));static int __init IllIIIlIl(void){int IlIlI;
+int lIlIlIlll=(0x169f+3801-0x2578);
 #ifdef _USBD_ENABLE_STUB_
-int IlIIIIlII=(0x18d6+304-0x1a06);
+int lIIIlIIll=(0xdab+287-0xeca);
 #endif
 #ifdef _USBD_ENABLE_VHCI_
-int IIlllIIlI=(0x1ac4+2538-0x24ae);
+int lIllIlIlI=(0x15a0+2321-0x1eb1);
 #endif
-IlllI("\x75\x73\x62\x64\x5f\x69\x6e\x69\x74\x3a\x20\x2b\x2b" "\n");do{struct 
-sysinfo lllIIIl;if(lllllllI){IlllI(
+lIlll("\x75\x73\x62\x64\x5f\x69\x6e\x69\x74\x3a\x20\x2b\x2b" "\n");do
+{struct sysinfo lIlIIll;if(IIIIlIIl){lIlll(
 "\x75\x73\x62\x64\x5f\x69\x6e\x69\x74\x3a\x20\x70\x72\x6f\x62\x65\x2d\x6f\x6e\x6c\x79\x20\x6d\x6f\x64\x65" "\n"
-);IIIll=(0x1ac9+1885-0x2226);break;}si_meminfo(&lllIIIl);
+);IlIlI=(0x5dd+6303-0x1e7c);break;}si_meminfo(&lIlIIll);
 
 
-if(lllIIIl.totalram*lllIIIl.mem_unit<=1LL*1024LL*1024LL*1024LL)
-{lIlllll=(0x189+8127-0x2128)*(0x145f+2455-0x19f6);}else if(lllIIIl.totalram*
-lllIIIl.mem_unit<=2LL*1024LL*1024LL*1024LL)
-{lIlllll=(0x654+4611-0x1827)*(0x1068+3533-0x1a35);}else if(lllIIIl.totalram*
-lllIIIl.mem_unit<=4LL*1024LL*1024LL*1024LL)
-{lIlllll=(0x526+3485-0x1283)*(0x432+5625-0x162b);}else
-{lIlllll=(0x739+4573-0x1896)*(0x893+4810-0x175d);}IlllI(
+if(lIlIIll.totalram*lIlIIll.mem_unit<=1LL*1024LL*1024LL*1024LL)
+{IIlIIlI=(0x9fb+5162-0x1e05)*(0x14ba+2720-0x1b5a);}else if(lIlIIll.totalram*
+lIlIIll.mem_unit<=2LL*1024LL*1024LL*1024LL)
+{IIlIIlI=(0x8dc+6067-0x205f)*(0x2271+1283-0x2374);}else if(lIlIIll.totalram*
+lIlIIll.mem_unit<=4LL*1024LL*1024LL*1024LL)
+{IIlIIlI=(0x846+6911-0x2305)*(0x1703+1860-0x1a47);}else
+{IIlIIlI=(0x23d+5458-0x170f)*(0x97b+7512-0x22d3);}lIlll(
 "\x75\x73\x62\x64\x5f\x69\x6e\x69\x74\x3a\x20\x73\x75\x67\x67\x65\x73\x74\x65\x64\x20\x6d\x61\x78\x20\x61\x6c\x6c\x6f\x63\x61\x74\x69\x6f\x6e\x20\x73\x69\x7a\x65\x20\x25\x6c\x75\x4b\x42" "\n"
-,(unsigned long)lIlllll/(0x19a0+499-0x1793));IIIll=IIIlIllIl();if(IIIll!=
-(0xe5f+3715-0x1ce2)){IlllI(
+,(unsigned long)IIlIIlI/(0x5a0+182-0x256));IlIlI=lIIlllllI();if(IlIlI!=
+(0x270+9336-0x26e8)){lIlll(
 "\x75\x73\x62\x64\x5f\x69\x6e\x69\x74\x3a\x20\x75\x73\x62\x64\x5f\x63\x64\x65\x76\x5f\x69\x6e\x69\x74\x5f\x6d\x6f\x64\x75\x6c\x65\x20\x66\x61\x69\x6c\x65\x64\x2e\x20\x45\x72\x72\x6f\x72\x20\x6e\x75\x6d\x62\x65\x72\x20\x25\x64" "\n"
-,IIIll);break;}llIIlllll=(0x2fa+1818-0xa13);
+,IlIlI);break;}lIlIlIlll=(0x14cf+3925-0x2423);
 #ifdef _USBD_ENABLE_STUB_
-IIIll=lllIIIllI();if(IIIll!=(0x71f+4553-0x18e8)){IlllI(
+IlIlI=lIIlIllll();if(IlIlI!=(0x6f0+176-0x7a0)){lIlll(
 "\x75\x73\x62\x64\x5f\x69\x6e\x69\x74\x3a\x20\x75\x73\x62\x64\x5f\x73\x74\x75\x62\x5f\x69\x6e\x69\x74\x5f\x6d\x6f\x64\x75\x6c\x65\x20\x66\x61\x69\x6c\x65\x64\x2e\x20\x45\x72\x72\x6f\x72\x20\x6e\x75\x6d\x62\x65\x72\x20\x25\x64" "\n"
-,IIIll);break;}IlIIIIlII=(0x326+3534-0x10f3);
+,IlIlI);break;}lIIIlIIll=(0x1c72+2163-0x24e4);
 #endif
 #ifdef _USBD_ENABLE_VHCI_
-IIIll=IlIlIlIll();if(IIIll!=(0xba4+1678-0x1232)){IlllI(
+IlIlI=IlIIlIlII();if(IlIlI!=(0x1835+3263-0x24f4)){lIlll(
 "\x75\x73\x62\x64\x5f\x69\x6e\x69\x74\x3a\x20\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x69\x6e\x69\x74\x5f\x6d\x6f\x64\x75\x6c\x65\x20\x66\x61\x69\x6c\x65\x64\x2e\x20\x45\x72\x72\x6f\x72\x20\x6e\x75\x6d\x62\x65\x72\x20\x25\x64" "\n"
-,IIIll);break;}IIlllIIlI=(0x9b6+1864-0x10fd);
+,IlIlI);break;}lIllIlIlI=(0x7a+8949-0x236e);
 #endif
-}while((0x4f0+5788-0x1b8c));if(IIIll!=(0x862+772-0xb66)){
+}while((0xce0+4794-0x1f9a));if(IlIlI!=(0x9c1+4502-0x1b57)){
 #ifdef _USBD_ENABLE_VHCI_
-if(IIlllIIlI)lIIllIlI();
+if(lIllIlIlI){IllIIIlI();}
 #endif
 #ifdef _USBD_ENABLE_STUB_
-if(IlIIIIlII)lllllIIII();
+if(lIIIlIIll){llIIlIllI();}
 #endif
-if(llIIlllll)llllllII();}IlllI(
-"\x75\x73\x62\x64\x5f\x69\x6e\x69\x74\x3a\x20\x2d\x2d" "\n");return IIIll;}
-static void __exit usbd_exit(void){if(lllllllI){IlllI(
+if(lIlIlIlll){IIIIIIIll();}}lIlll(
+"\x75\x73\x62\x64\x5f\x69\x6e\x69\x74\x3a\x20\x2d\x2d" "\n");return IlIlI;}
+static void __exit usbd_exit(void){if(IIIIlIIl){lIlll(
 "\x75\x73\x62\x64\x5f\x65\x78\x69\x74\x3a\x20\x70\x72\x6f\x62\x65\x2d\x6f\x6e\x6c\x79\x20\x6d\x6f\x64\x65" "\n"
 );return;}
 #ifdef _USBD_ENABLE_VHCI_
-lIIllIlI();
+IllIIIlI();
 #endif
 #ifdef _USBD_ENABLE_STUB_
-lllllIIII();
+llIIlIllI();
 #endif
-llllllII();
+IIIIIIIll();
 #ifdef _USBD_DEBUG_MEMORY_
-IlIIlI("\x73\x74\x61\x74\x73\x3a" "\n");IlIIlI(
+IIllIl("\x73\x74\x61\x74\x73\x3a" "\n");IIllIl(
 "\x75\x72\x62\x20\x61\x6c\x6c\x6f\x63\x3a\x20\x25\x64" "\n",atomic_read(&
-IlIIIIlll));IlIIlI("\x75\x72\x62\x20\x66\x72\x65\x65\x3a\x20\x25\x64" "\n",
-atomic_read(&IlIlllIlI));IlIIlI(
+llIlllllI));IIllIl("\x75\x72\x62\x20\x66\x72\x65\x65\x3a\x20\x25\x64" "\n",
+atomic_read(&IlllIIlll));IIllIl(
 "\x6d\x65\x6d\x20\x61\x6c\x6c\x6f\x63\x3a\x20\x25\x64" "\n",atomic_read(&
-lllIllIl));IlIIlI("\x6d\x65\x6d\x20\x66\x72\x65\x65\x3a\x20\x25\x64" "\n",
-atomic_read(&lllIlIlIl));
+lIIlllIl));IIllIl("\x6d\x65\x6d\x20\x66\x72\x65\x65\x3a\x20\x25\x64" "\n",
+atomic_read(&llIlllIlI));
 #ifdef ATOMIC64_INIT
-IlIIlI("\x6d\x65\x6d\x20\x73\x69\x7a\x65\x3a\x20\x25\x6c\x6c\x64" "\n",(long 
-long)atomic64_read(&lIlIIIlI));
+IIllIl("\x6d\x65\x6d\x20\x73\x69\x7a\x65\x3a\x20\x25\x6c\x6c\x64" "\n",(long 
+long)atomic64_read(&IlIlIIIl));
 #endif
-IlIIlI("\x75\x72\x65\x71\x20\x63\x72\x65\x61\x74\x65\x3a\x20\x25\x64" "\n",
-atomic_read(&lIlIllll));IlIIlI(
+IIllIl("\x75\x72\x65\x71\x20\x63\x72\x65\x61\x74\x65\x3a\x20\x25\x64" "\n",
+atomic_read(&llIIIIII));IIllIl(
 "\x75\x72\x65\x71\x20\x66\x72\x65\x65\x3a\x20\x25\x64" "\n",atomic_read(&
-lIlllIIll));IlIIlI(
+IIIllIllI));IIllIl(
 "\x75\x72\x65\x71\x20\x64\x65\x73\x74\x72\x6f\x79\x3a\x20\x25\x64" "\n",
-atomic_read(&IIllllIII));IlIIlI(
+atomic_read(&IIIllllIl));IIllIl(
 "\x74\x72\x61\x6e\x73\x61\x63\x74\x69\x6f\x6e\x20\x61\x6c\x6c\x6f\x63\x3a\x20\x25\x64" "\n"
-,atomic_read(&IIIllIllI));IlIIlI(
+,atomic_read(&llIllIIll));IIllIl(
 "\x74\x72\x61\x6e\x73\x61\x63\x74\x69\x6f\x6e\x20\x64\x65\x73\x74\x72\x6f\x79\x3a\x20\x25\x64" "\n"
-,atomic_read(&IIIIlllll));IlIIlI(
+,atomic_read(&lllllllll));IIllIl(
 "\x76\x72\x65\x71\x20\x63\x72\x65\x61\x74\x65\x3a\x20\x25\x64" "\n",atomic_read(
-&lIlIllIII));IlIIlI("\x76\x72\x65\x71\x20\x66\x72\x65\x65\x3a\x20\x25\x64" "\n",
-atomic_read(&llIlIlIll));IlIIlI(
+&lIlIIlIIl));IIllIl("\x76\x72\x65\x71\x20\x66\x72\x65\x65\x3a\x20\x25\x64" "\n",
+atomic_read(&IllllllIl));IIllIl(
 "\x73\x74\x75\x62\x20\x63\x72\x65\x61\x74\x65\x3a\x20\x25\x64" "\n",atomic_read(
-&IIlIlIIll));IlIIlI(
+&lllIIIIll));IIllIl(
 "\x73\x74\x75\x62\x20\x72\x65\x6d\x6f\x76\x65\x3a\x20\x25\x64" "\n",atomic_read(
-&IlIIIIII));IlIIlI(
+&IIIIllII));IIllIl(
 "\x73\x74\x75\x62\x20\x64\x65\x73\x74\x72\x6f\x79\x3a\x20\x25\x64" "\n",
-atomic_read(&IIIllllII));IlIIlI(
+atomic_read(&lIIlIIlII));IIllIl(
 "\x76\x73\x74\x75\x62\x20\x63\x72\x65\x61\x74\x65\x3a\x20\x25\x64" "\n",
-atomic_read(&IIIIIllII));IlIIlI(
+atomic_read(&Illllllll));IIllIl(
 "\x76\x73\x74\x75\x62\x20\x72\x65\x6d\x6f\x76\x65\x3a\x20\x25\x64" "\n",
-atomic_read(&llIIIlIl));IlIIlI(
+atomic_read(&IlIIlllI));IIllIl(
 "\x76\x73\x74\x75\x62\x20\x64\x65\x73\x74\x72\x6f\x79\x3a\x20\x25\x64" "\n",
-atomic_read(&IlIlIllll));
+atomic_read(&IIlIlIIll));
 #endif 
-IlllI("\x75\x73\x62\x64\x5f\x65\x78\x69\x74" "\n");}module_init(IlIllllIl);
+lIlll("\x75\x73\x62\x64\x5f\x65\x78\x69\x74" "\n");}module_init(IllIIIlIl);
 module_exit(usbd_exit);MODULE_LICENSE("\x47\x50\x4c");

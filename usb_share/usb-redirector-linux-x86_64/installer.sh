@@ -2,7 +2,7 @@
 #
 # IncentivesPro USB Redirector for Linux installation script
 #
-# Copyright (c) 2008-2017, SimplyCore LLC
+# Copyright (c) 2008-2021, SimplyCore LLC
 #
 
 # Target directories (can be changed to customize the installation)
@@ -22,6 +22,7 @@ KERNELDIR=/lib/modules/`uname -r`/build
 # Proxmox VE: apt-get install build-essential pve-headers-`uname -r`
 # SuSE: sudo zypper in make gcc kernel-devel
 # Raspbian: sudo apt-get install make gcc raspberrypi-kernel-headers-`dpkg-query -f='${Version}' --show raspberrypi-kernel`
+# Arch,Manjaro: sudo pacman -Syu make gcc linux-headers
 
 # File names
 PIDFILE=/var/run/usbsrvd.pid
@@ -30,9 +31,8 @@ DAEMONNAME=usbsrvd                 # name of the daemon executable
 SHELLNAME=usbsrv                   # name of the shell executable
 CLIENTSHELLNAME=usbclnt            # name of the client shell executable
 INITSCRIPTNAME=rc.usbsrvd          # init script name
+SYSTEMDUNITNAME=usbsrvd.service    # systemd unit name
 UNINSTALLERNAME=uninstall.sh       # uninstaller script name
-TMPINITSCRIPTNAME=init.tmp         # temporary init script name
-TMPUNINSTALLERNAME=uninst.tmp      # temporary uninstaller script name
 
 # System requirements
 KERNELMIN="2.6.15"
@@ -98,8 +98,14 @@ set_tag()
   # Convert '\' to '\/'
   value=`echo "$value" | sed 's/\//\\\\\//g'`
   # Replace tag "$tag" with "$value" in file $file
-  sed s/$tag/$value/ $file_path > settag.tmp
+  sed s/$tag/$value/g $file_path > settag.tmp
   mv -f settag.tmp ${file_path}
+}
+
+# $1 command name to check
+syscall_exists()
+{
+  command -v "$1" >/dev/null 2>&1
 }
 
 ###############################################################################
@@ -110,16 +116,16 @@ check_distrib_syscalls()
 {
   # RedHat/Fedora/Mandriva
   if [ "$SYS_DISTRIB_NAME" = "redhat" ] || [ "$SYS_DISTRIB_NAME" = "fedora" ] || [ "$SYS_DISTRIB_NAME" = "mandriva" ]; then
-    [ ! -x /sbin/chkconfig ] && ERROR_MESSAGE="/sbin/chkconfig not found" && return 1
+    ! syscall_exists "/sbin/chkconfig" && ERROR_MESSAGE="/sbin/chkconfig not found" && return 1
   # Debian/Ubuntu
   elif [ "$SYS_DISTRIB_NAME" = "debian" ] || [ "$SYS_DISTRIB_NAME" = "ubuntu" ]; then
-    [ ! -x `which update-rc.d` ] && ERROR_MESSAGE="update-rc.d not found" && return 1
+    ! syscall_exists "update-rc.d" && ERROR_MESSAGE="update-rc.d not found" && return 1
   # SuSE
   elif [ "$SYS_DISTRIB_NAME" = "suse" ]; then
-    [ ! -x /sbin/insserv ] && ERROR_MESSAGE="/sbin/insserv not found" && return 1
+    ! syscall_exists "/sbin/insserv" && ERROR_MESSAGE="/sbin/insserv not found" && return 1
   # Gentoo
   elif [ "$SYS_DISTRIB_NAME" = "gentoo" ]; then
-    [ ! -x `which rc-update` ] && ERROR_MESSAGE="rc-update not found" && return 1
+    ! syscall_exists "rc-update" && ERROR_MESSAGE="rc-update not found" && return 1
   fi
   return 0
 }
@@ -267,14 +273,28 @@ detect_distrib()
     fi
   fi
 
+  if [ -d /run/systemd/system ] && syscall_exists "systemctl"; then
+    # When systemd is present and running, prefer it over other init types
+    if [ -d /lib/systemd/system ]; then
+      SYS_DISTRIB_INIT_TYPE=systemd
+      SYS_DISTRIB_INIT_DIR=/lib/systemd/system
+    elif [ -d /usr/lib/systemd/system ]; then
+      SYS_DISTRIB_INIT_TYPE=systemd
+      SYS_DISTRIB_INIT_DIR=/usr/lib/systemd/system
+    fi
+  fi
+
   [ -z "$SYS_DISTRIB_INIT_TYPE" ] && return 1
 
-  if [ "$SYS_DISTRIB_INIT_TYPE" = "sysv" ]; then
+  if [ "$SYS_DISTRIB_INIT_TYPE" = "systemd" ]; then
+    [ -z "$SYS_DISTRIB_INIT_DIR" ] && return 1
+    [ ! -d "$SYS_DISTRIB_INIT_DIR" ] && return 1
+  elif [ "$SYS_DISTRIB_INIT_TYPE" = "sysv" ]; then
     [ -z "$SYS_DISTRIB_INIT_DIR" ] && return 1
     [ -z "$SYS_DISTRIB_RUNLEVEL_DIR" ] && return 1
     [ ! -d "$SYS_DISTRIB_INIT_DIR" ] && return 1
     [ ! -d "$SYS_DISTRIB_RUNLEVEL_DIR" ] && return 1
-  else
+  elif [ "$SYS_DISTRIB_INIT_TYPE" = "bsd" ]; then
     [ -z "$SYS_DISTRIB_INIT_RCLOCAL" ] && return 1
     [ ! -f "$SYS_DISTRIB_INIT_RCLOCAL" ] && return 1
   fi
@@ -282,7 +302,7 @@ detect_distrib()
   return 0
 }
 
-# $1 source init script path name
+# $1 source init script file path and name
 # $2 destination init script name
 # $3 start number (2 symbols)
 # $4 stop number (2 symbols)
@@ -347,7 +367,7 @@ install_init_script()
     echo "start it manually"
   # Slackware and others
   elif [ "$SYS_DISTRIB_INIT_TYPE" = "sysv" ]; then
-    # Should match with runlevels in uninstall_init_script()
+    # Must match with runlevels in uninstall_init_script()
     ln -fs "$dst_script_path" "$SYS_DISTRIB_RUNLEVEL_DIR/rc0.d/K$4$dst_script_name" >/dev/null 2>&1
     ln -fs "$dst_script_path" "$SYS_DISTRIB_RUNLEVEL_DIR/rc1.d/K$4$dst_script_name" >/dev/null 2>&1
     ln -fs "$dst_script_path" "$SYS_DISTRIB_RUNLEVEL_DIR/rc2.d/K$4$dst_script_name" >/dev/null 2>&1
@@ -360,7 +380,7 @@ install_init_script()
 }
 
 # $1 init script name
-# should match with uninstaller's uninstall_init_script()
+# Must match with uninstaller's uninstall_init_script()
 uninstall_init_script()
 {
   local dst_script_name=$1
@@ -404,7 +424,7 @@ uninstall_init_script()
     echo "" >/dev/null
   # Slackware and others
   elif [ "$SYS_DISTRIB_INIT_TYPE" = "sysv" ]; then
-    # Should match with runlevels in add_runlevels()
+    # Must match with runlevels in add_runlevels()
     rm "$SYS_DISTRIB_RUNLEVEL_DIR/rc0.d/K??$dst_script_name" >/dev/null 2>&1
     rm "$SYS_DISTRIB_RUNLEVEL_DIR/rc1.d/K??$dst_script_name" >/dev/null 2>&1
     rm "$SYS_DISTRIB_RUNLEVEL_DIR/rc2.d/K??$dst_script_name" >/dev/null 2>&1
@@ -439,7 +459,7 @@ start_init_script()
 }
 
 # $1 init script name
-# should match with uninstaller's stop_init_script()
+# Must match with uninstaller's stop_init_script()
 stop_init_script() 
 {
   local name=$1
@@ -462,6 +482,99 @@ stop_init_script()
   return 0
 }
 
+# $1 source unit file path and name
+# $2 destination unit name
+install_systemd_unit() 
+{
+  local src_unit_path=$1
+  local dst_unit_name=$2
+  local dst_unit_path
+
+  if [ "$SYS_DISTRIB_INIT_TYPE" = "systemd" ]; then
+    dst_unit_path="$SYS_DISTRIB_INIT_DIR/$dst_unit_name"
+  else
+    ERROR_MESSAGE="unknown init type"
+    return 1
+  fi
+
+  cp "$src_unit_path" "$dst_unit_path" 2>/dev/null
+
+  if [ ! $? -eq 0 ]; then
+    ERROR_MESSAGE="can not copy systemd unit file to $dst_unit_path"
+    return 1
+  fi
+
+  chmod 644 "$dst_unit_path" 2>/dev/null
+
+  if [ ! $? -eq 0 ]; then
+    ERROR_MESSAGE="can not chmod systemd unit file $dst_unit_path"
+    return 1
+  fi
+
+#  systemctl daemon-reload >/dev/null 2>&1
+  systemctl enable $dst_unit_name >/dev/null 2>&1
+
+  return 0
+}
+
+# $1 unit name
+# Must match with uninstaller's uninstall_systemd_unit()
+uninstall_systemd_unit() 
+{
+  local dst_unit_name=$1
+  local dst_unit_path
+
+  if [ "$SYS_DISTRIB_INIT_TYPE" = "systemd" ]; then
+    dst_unit_path="$SYS_DISTRIB_INIT_DIR/$dst_unit_name"
+  else
+    ERROR_MESSAGE="unknown init type"
+    return 1
+  fi
+
+#  systemctl stop $dst_unit_name >/dev/null 2>&1
+  systemctl disable $dst_unit_name >/dev/null 2>&1
+
+  rm -f /etc/systemd/system/$dst_unit_name >/dev/null 2>&1
+  rm -f /usr/lib/systemd/system/$dst_unit_name >/dev/null 2>&1
+  rm -f /lib/systemd/system/$dst_unit_name >/dev/null 2>&1
+  rm -f "$dst_unit_path" >/dev/null 2>&1
+
+#  systemctl daemon-reload >/dev/null 2>&1
+
+  return 0
+}
+
+
+# $1 unit name
+start_systemd_unit()
+{
+  local name=$1
+
+  if [ "$SYS_DISTRIB_INIT_TYPE" = "systemd" ]; then
+
+    systemctl start $name
+
+  else
+    ERROR_MESSAGE="unknown init type"
+    return 1
+  fi
+  return 0
+}
+
+# $1 unit name
+# Must match with uninstaller's stop_systemd_unit()
+stop_systemd_unit() 
+{
+  local name=$1
+
+  if [ "$SYS_DISTRIB_INIT_TYPE" = "systemd" ]; then
+    systemctl stop $name
+  else
+    ERROR_MESSAGE="unknown init type"
+    return 1
+  fi
+  return 0
+}
 
 ###############################################################################
 #
@@ -469,21 +582,21 @@ stop_init_script()
 
 usbsrv_check_syscalls()
 {
-  [ ! -x `which sed` ]   && ERROR_MESSAGE="sed not found"    && return 1
-  [ ! -x `which grep` ]  && ERROR_MESSAGE="grep not found"   && return 1
-  [ ! -x `which chmod` ] && ERROR_MESSAGE="chmod not found"  && return 1
-  [ ! -x `which ln` ]    && ERROR_MESSAGE="ln not found"     && return 1
-  [ ! -x /sbin/insmod ]  && ERROR_MESSAGE="insmod not found" && return 1
-  [ ! -x /sbin/rmmod ]   && ERROR_MESSAGE="rmmod not found"  && return 1
-  [ ! -x `which killall` ] && ERROR_MESSAGE="killall not found" && return 1
-  [ ! -x `which gcc` ] && ERROR_MESSAGE="gcc not found" && return 1
-  [ ! -x `which make` ] && ERROR_MESSAGE="make not found" && return 1
+  ! syscall_exists "sed" && ERROR_MESSAGE="'sed' not found" && return 1
+  ! syscall_exists "grep" && ERROR_MESSAGE="'grep' not found" && return 1
+  ! syscall_exists "chmod" && ERROR_MESSAGE="'chmod' not found" && return 1
+  ! syscall_exists "ln" && ERROR_MESSAGE="'ln' not found" && return 1
+  ! syscall_exists "/sbin/insmod" && ERROR_MESSAGE="'insmod' not found" && return 1
+  ! syscall_exists "/sbin/rmmod" && ERROR_MESSAGE="'rmmod' not found" && return 1
+  ! syscall_exists "killall" && ERROR_MESSAGE="'killall' not found" && return 1
+  ! syscall_exists "gcc" && ERROR_MESSAGE="'gcc' not found, please install and try again" && return 1
+  ! syscall_exists "make" && ERROR_MESSAGE="'make' not found, please install and try again" && return 1
   return 0
 }
 
 usbsrv_prepare_uninstaller()
 {
-  local tmpfile="$INSTALLDIR/$TMPUNINSTALLERNAME"
+  local tmpfile="$INSTALLDIR/$UNINSTALLERNAME.tmp"
 
   cp ./$FILESDIR/$UNINSTALLERNAME $tmpfile
 
@@ -495,6 +608,7 @@ usbsrv_prepare_uninstaller()
   set_tag "$tmpfile" "%CLIENTSHELLNAME_TAG%"   "$CLIENTSHELLNAME" || return 1
   set_tag "$tmpfile" "%UNINSTALLERNAME_TAG%"   "$UNINSTALLERNAME" || return 1
   set_tag "$tmpfile" "%INITSCRIPTNAME_TAG%"    "$INITSCRIPTNAME"  || return 1
+  set_tag "$tmpfile" "%SYSTEMDUNITNAME_TAG%"   "$SYSTEMDUNITNAME" || return 1
   set_tag "$tmpfile" "%SYS_DISTRIB_NAME_TAG%"          "$SYS_DISTRIB_NAME"         || return 1
   set_tag "$tmpfile" "%SYS_DISTRIB_MODVER_TAG%"        "$SYS_DISTRIB_MODVER"       || return 1
   set_tag "$tmpfile" "%SYS_DISTRIB_INIT_TYPE%"         "$SYS_DISTRIB_INIT_TYPE"    || return 1
@@ -508,9 +622,22 @@ usbsrv_prepare_uninstaller()
 
 usbsrv_prepare_init_script() 
 {
-  local tmpfile="$INSTALLDIR/$TMPINITSCRIPTNAME"
+  local tmpfile="$INSTALLDIR/$INITSCRIPTNAME.tmp"
 
   cp ./$FILESDIR/$INITSCRIPTNAME $tmpfile
+
+  set_tag "$tmpfile" "%INSTALLDIR_TAG%" "$INSTALLDIR" || return 1
+  set_tag "$tmpfile" "%PIDFILE_TAG%" "$PIDFILE" || return 1
+  set_tag "$tmpfile" "%STUBNAME_TAG%"   "$STUBNAME"   || return 1
+  set_tag "$tmpfile" "%DAEMONNAME_TAG%" "$DAEMONNAME" || return 1
+  return 0
+}
+
+usbsrv_prepare_systemd_unit() 
+{
+  local tmpfile="$INSTALLDIR/$SYSTEMDUNITNAME.tmp"
+
+  cp ./$FILESDIR/$SYSTEMDUNITNAME $tmpfile
 
   set_tag "$tmpfile" "%INSTALLDIR_TAG%" "$INSTALLDIR" || return 1
   set_tag "$tmpfile" "%PIDFILE_TAG%" "$PIDFILE" || return 1
@@ -543,6 +670,7 @@ usbsrv_check_source_files()
 {
   exit_on_file_not_exist ./$FILESDIR/$UNINSTALLERNAME
   exit_on_file_not_exist ./$FILESDIR/$INITSCRIPTNAME
+  exit_on_file_not_exist ./$FILESDIR/$SYSTEMDUNITNAME
 
   if [ $1 = 'both' ]; then
     exit_on_file_not_exist ./$FILESDIR/$SHELLNAME
@@ -579,7 +707,7 @@ usbsrv_copy_files()
   fi
   cp "$SYS_KERNEL_MODULE_DIR/$SYS_KERNEL_MODULE_NAME" $INSTALLDIR/bin/$STUBNAME.ko
   exit_on_error "Cannot copy file $SYS_KERNEL_MODULE_DIR/$SYS_KERNEL_MODULE_NAME"
-  cp $INSTALLDIR/$TMPUNINSTALLERNAME "$INSTALLDIR/$UNINSTALLERNAME"
+  cp $INSTALLDIR/$UNINSTALLERNAME.tmp "$INSTALLDIR/$UNINSTALLERNAME"
   exit_on_error "Cannot copy file $UNINSTALLERNAME"
 }
 
@@ -655,7 +783,7 @@ usbsrv_set_permissions()
   exit_on_error "Cannot chmod the uninstaller script"
 
   # Set SELinux labels
-  [ -x `which chcon` ] && chcon -u system_u -t modules_object_t $INSTALLDIR/bin/$STUBNAME.ko >/dev/null 2>&1
+  syscall_exists "chcon" && chcon -u system_u -t modules_object_t $INSTALLDIR/bin/$STUBNAME.ko >/dev/null 2>&1
 
   if ( [ $1 = 'both' ] || [ $1 = 'server' ] ); then
     chmod 755 $INSTALLDIR/bin/$SHELLNAME
@@ -678,6 +806,24 @@ usbsrv_set_permissions()
   fi
 }
 
+usbsrv_install_daemon()
+{
+  if [ "$SYS_DISTRIB_INIT_TYPE" = "systemd" ]; then
+    install_systemd_unit "$INSTALLDIR/$SYSTEMDUNITNAME.tmp" $SYSTEMDUNITNAME
+  else
+    install_init_script "$INSTALLDIR/$INITSCRIPTNAME.tmp" $INITSCRIPTNAME 99 01
+  fi
+}
+
+usbsrv_start_daemon()
+{
+  if [ "$SYS_DISTRIB_INIT_TYPE" = "systemd" ]; then
+    start_systemd_unit $SYSTEMDUNITNAME
+  else
+    start_init_script $INITSCRIPTNAME
+  fi
+}
+
 ###############################################################################
 #
 # Actual installer subroutine
@@ -685,7 +831,7 @@ usbsrv_set_permissions()
 usbsrv_install()
 {
   echo " "
-  echo "*** Installing USB Redirector for Linux v3.9.1"
+  echo "*** Installing USB Redirector for Linux v3.9.9"
   echo "***  Destination dir: $INSTALLDIR"
 
   echo "***  Checking installation..."
@@ -710,6 +856,7 @@ usbsrv_install()
   exit_on_error "Can not detect Linux distribution, possibly it is not supported."
 
   echo "***     distribution: $SYS_DISTRIB_NAME"
+  echo "***     init: $SYS_DISTRIB_INIT_TYPE"
 
   check_distrib_syscalls
   exit_on_error "Syscalls check failed: $ERROR_MESSAGE"
@@ -765,27 +912,32 @@ usbsrv_install()
   usbsrv_prepare_init_script
   exit_on_error "Can not prepare init script"
 
+  # Prepare systemd unit
+  usbsrv_prepare_systemd_unit
+  exit_on_error "Can not prepare systemd unit"
+
   echo "***  Copying files..."
   
   usbsrv_copy_files $1
   usbsrv_set_permissions $1
 
-  echo "***  Setting up init script..."
+  echo "***  Installing daemon..."
 
-  install_init_script "$INSTALLDIR/$TMPINITSCRIPTNAME" $INITSCRIPTNAME 99 01
-  exit_on_error "Init script installation error: $ERROR_MESSAGE"
+  usbsrv_install_daemon
+  exit_on_error "Can not install daemon: $ERROR_MESSAGE"
 
   echo "***  Starting daemon..."
 
-  start_init_script $INITSCRIPTNAME
-  exit_on_error "Cannot start daemon: $ERROR_MESSAGE"
+  usbsrv_start_daemon
+  exit_on_error "Can not start daemon: $ERROR_MESSAGE"
 
-  # Remove temporary scripts
-  rm -f $INSTALLDIR/$TMPINITSCRIPTNAME
-  rm -f $INSTALLDIR/$TMPUNINSTALLERNAME
+  # Remove temporary files
+  rm -f $INSTALLDIR/$INITSCRIPTNAME.tmp
+  rm -f $INSTALLDIR/$UNINSTALLERNAME.tmp
+  rm -f $INSTALLDIR/$SYSTEMDUNITNAME.tmp
 
   if ( [ $1 = 'both' ] || [ $1 = 'server' ] ); then
-    echo "***  Please allow incoming connections on 32032 port for USB Sever to be able to accept connections from remote clients."
+    echo "***  Please allow incoming connections on 32032 port for the USB server to be able to accept connections from remote clients."
   fi
 
   echo "***  INSTALLATION SUCCESSFUL! To uninstall, run $INSTALLDIR/$UNINSTALLERNAME"
@@ -814,9 +966,10 @@ usbsrv_cleanup()
     rm -f $SHELLLINKDIR/$CLIENTSHELLNAME 
   fi
 
-  # Remove temporary scripts
-  rm -f $INSTALLDIR/$TMPINITSCRIPTNAME
-  rm -f $INSTALLDIR/$TMPUNINSTALLERNAME
+  # Remove temporary files
+  rm -f $INSTALLDIR/$INITSCRIPTNAME.tmp
+  rm -f $INSTALLDIR/$UNINSTALLERNAME.tmp
+  rm -f $INSTALLDIR/$SYSTEMDUNITNAME.tmp
 
   # Remove program directories  
   rmdir $INSTALLDIR/bin 2> /dev/null
@@ -829,7 +982,7 @@ usbsrv_cleanup()
 # Script entry point
 
 if ( [ `whoami` != "root" ] ); then
-  echo "IncentivesPro USB Redirector for Linux v3.9.1 installation script"
+  echo "IncentivesPro USB Redirector for Linux v3.9.9 installation script"
   echo "This script is intended to be run under root account!"
   exit 255
 fi
@@ -845,7 +998,7 @@ case "$1" in
     usbsrv_install server
     ;;
   *)
-    echo "IncentivesPro USB Redirector for Linux v3.9.1 installation script"
+    echo "IncentivesPro USB Redirector for Linux v3.9.9 installation script"
     echo ""
     echo "Usage: installer.sh install           - install both client and server"
     echo "       installer.sh install-server    - install server only"

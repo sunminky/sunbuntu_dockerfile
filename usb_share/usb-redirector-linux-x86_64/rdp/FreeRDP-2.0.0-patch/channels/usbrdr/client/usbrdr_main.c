@@ -429,8 +429,8 @@ static VOID VCAPITYPE usbrdr_virtual_channel_open_event_ex(LPVOID lpUserParam, D
 			break;
 
 		case CHANNEL_EVENT_WRITE_COMPLETE:
-			// Starting from FreeRDP 2.0.0rc3, the Stream_Free is called by the core
-			// Stream_Free((wStream*)pData, TRUE);
+			// WARNING: in FreeRDP 2.0.0rc3 and 2.0.0rc4, the Stream_Free() is called by the core! Because of this, we do not support those versions.
+			Stream_Free((wStream*)pData, TRUE);
 			break;
 
 		case CHANNEL_EVENT_USER:

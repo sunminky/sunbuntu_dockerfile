@@ -17,218 +17,233 @@
 #include <linux/highmem.h>
 #include <asm/page.h>
 #include <asm/unaligned.h>
-struct IIIIII*IIllllIl=NULL;struct usb_hcd*llIIIIl=NULL;
-#if KERNEL_GT_EQ((0x14b2+3217-0x2141),(0x1326+1102-0x176e),(0x77c+1-0x756)) || \
-RHEL_RELEASE_GT_EQ((0x178c+2370-0x20c8),(0x15cb+886-0x193e)) 
-struct usb_hcd*IllIIII=NULL;
-#define IlllIlI(IllIll) (((IllIll)->speed == HCD_USB3) ? "\x75\x73\x62\x33" : \
+struct IIIlll*IlllIIll=NULL;struct usb_hcd*llIIIII=NULL;
+#if KERNEL_GT_EQ((0xd0c+3053-0x18f7),(0xa90+2583-0x14a1),(0x4c5+7296-0x211e)) ||\
+ RHEL_RELEASE_GT_EQ((0x930+3182-0x1598),(0x161b+3771-0x24d3)) 
+struct usb_hcd*lllIlIl=NULL;
+#define llllIlI(IIIIlI) (((IIIIlI)->speed == HCD_USB3) ? "\x75\x73\x62\x33" : \
 "\x75\x73\x62\x32")
 #else
-#define IlllIlI(IllIll) "\x55\x53\x42\x32"
+#define llllIlI(IIIIlI) "\x55\x53\x42\x32"
 #endif
 #if defined(CONFIG_X86_32) && !defined(_USBD_VHCI_NO_DMA_)
-int IlllIIII=(0x297+1277-0x794);
+int lllIIlll=(0x9a1+4558-0x1b6f);
 #endif
 #ifdef _USBD_DEBUG_MEMORY_
-extern atomic_t lIlIllIII;extern atomic_t llIlIlIll;extern atomic_t IIIIIllII;
-extern atomic_t llIIIlIl;extern atomic_t IlIlIllll;
+extern atomic_t lIlIIlIIl;extern atomic_t IllllllIl;extern atomic_t Illllllll;
+extern atomic_t IlIIlllI;extern atomic_t IIlIlIIll;
 #endif 
 
 
-static int IIlllIIIl(struct platform_device*);static int IIIlIIlll(struct 
-platform_device*);static void IllIlIlII(struct device*dev);static int lIllIIIll(
-struct usb_hcd*llIlI);static int lIlIlllII(struct usb_hcd*llIlI);static void 
-llIlIlIIl(struct usb_hcd*llIlI);static int lllllIIIl(struct usb_hcd*llIlI);
-#if KERNEL_LT((0x7f1+2371-0x1132),(0x46f+7974-0x238f),(0x1a20+8-0x1a10))
-static int IIllIIII(struct usb_hcd*llIlI,struct urb*urb);static int IIlllIIl(
-struct usb_hcd*llIlI,struct usb_host_endpoint*ep,struct urb*urb,gfp_t IlIIl);
+static int IlIllIllI(struct platform_device*);static int IlllIlllI(struct 
+platform_device*);static void IlllIIIIl(struct device*dev);static int IIllllIIl(
+struct usb_hcd*lllIl);static int IlIlIIlll(struct usb_hcd*lllIl);static void 
+lllIlIIIl(struct usb_hcd*lllIl);static int IIIllIIlI(struct usb_hcd*lllIl);
+#if KERNEL_LT((0x632+915-0x9c3),(0x17f7+1417-0x1d7a),(0x109+6808-0x1b89))
+static int lIlIIIlI(struct usb_hcd*lllIl,struct urb*urb);static int IIllIlll(
+struct usb_hcd*lllIl,struct usb_host_endpoint*ep,struct urb*urb,gfp_t llllI);
 #else
-static int IIllIIII(struct usb_hcd*llIlI,struct urb*urb,int status);static int 
-IIlllIIl(struct usb_hcd*llIlI,struct urb*urb,gfp_t IlIIl);
+static int lIlIIIlI(struct usb_hcd*lllIl,struct urb*urb,int status);static int 
+IIllIlll(struct usb_hcd*lllIl,struct urb*urb,gfp_t llllI);
 #endif
-static void IlIIIIIlI(struct usb_hcd*llIlI,struct usb_host_endpoint*ep);static 
-int IllIIIlll(struct usb_hcd*llIlI,u16 IIIlIllll,u16 wValue,u16 wIndex,char*
-IIIIl,u16 wLength);static int IIIlllIIl(struct usb_hcd*llIlI,char*IIIIl);static 
-int IIlIIllIl(struct usb_hcd*llIlI);static int lIlIlIlll(struct usb_hcd*llIlI);
-#if KERNEL_GT_EQ((0x864+1378-0xdc4),(0x1a69+1367-0x1fba),(0xaa6+4364-0x1b8b)) ||\
- RHEL_RELEASE_GT_EQ((0x109c+5282-0x2538),(0x80a+451-0x9ca)) 
-static int llIlIIllI(struct usb_hcd*llIlI,struct usb_device*IlIII,struct 
-usb_host_endpoint**lIIIIIIlI,unsigned int IIIIIlIlI,unsigned int lIllllllI,gfp_t
- IlIIl);static int llIIlIIll(struct usb_hcd*llIlI,struct usb_device*IlIII,struct
- usb_host_endpoint**lIIIIIIlI,unsigned int IIIIIlIlI,gfp_t IlIIl);
+static void IllllIlIl(struct usb_hcd*lllIl,struct usb_host_endpoint*ep);static 
+int IlllIlIII(struct usb_hcd*lllIl,u16 IIIIIIlII,u16 wValue,u16 wIndex,char*
+IllIl,u16 wLength);static int IIIIllIlI(struct usb_hcd*lllIl,char*IllIl);static 
+int lIllIIlII(struct usb_hcd*lllIl);static int IIlIIlIII(struct usb_hcd*lllIl);
+#if KERNEL_GT_EQ((0x3e7+683-0x690),(0x19f9+469-0x1bc8),(0x2231+490-0x23f4)) || \
+RHEL_RELEASE_GT_EQ((0x65b+2905-0x11ae),(0xe76+4441-0x1fcc)) 
+static int llllIlllI(struct usb_hcd*lllIl,struct usb_device*IlIIl,struct 
+usb_host_endpoint**lllllIIll,unsigned int lllIIIllI,unsigned int llIllllll,gfp_t
+ llllI);static int lllIlIlll(struct usb_hcd*lllIl,struct usb_device*IlIIl,struct
+ usb_host_endpoint**lllllIIll,unsigned int lllIIIllI,gfp_t llllI);
 #endif
-static int Illllllll(struct IIllIl*Illll,int lIIlI,int llIlIIl,int IIlIIII);
-static int lIlllllII(struct IIllIl*Illll,int lIIlI,int llIlIIl);static void 
-lIlIIlI(struct IIllIl*Illll,int lIIlI,int IlIlIII);static void IIlIlII(struct 
-IIllIl*Illll,int lIIlI,int IIlllI,int IIlIIII);
-#if KERNEL_GT_EQ((0xa42+2616-0x1478),(0xfe2+1110-0x1432),(0x3dc+4241-0x1446)) ||\
- RHEL_RELEASE_GT_EQ((0xc78+2816-0x1772),(0x451+5983-0x1bad)) 
-static int llIlIIlII(struct IIllIl*Illll,int lIIlI,int llIlIIl,int IIlIIII);
-static int llIIIIllI(struct IIllIl*Illll,int lIIlI,int llIlIIl);static void 
-IllIlIl(struct IIllIl*Illll,int lIIlI,int IIlllI,int IIlIIII);static void 
-llIIIlI(struct IIllIl*Illll,int lIIlI,int IlIlIII);static void llllIII(struct 
-IIllIl*Illll,int lIIlI,int llIllIIll);
+static int IllIllllI(struct lIIIII*Illll,int lIIlI,int IIIllll,int lIIIIII);
+static int IIlIlIlII(struct lIIIII*Illll,int lIIlI,int IIIllll);static void 
+llllIll(struct lIIIII*Illll,int lIIlI,int llllIlll);static void IlllIIl(struct 
+lIIIII*Illll,int lIIlI,int llllII,int lIIIIII);
+#if KERNEL_GT_EQ((0x44d+3412-0x119f),(0x135+8446-0x222d),(0x1532+3852-0x2417)) \
+|| RHEL_RELEASE_GT_EQ((0xea8+533-0x10b7),(0x34a+1988-0xb0b)) 
+static int IlIIIlIlI(struct lIIIII*Illll,int lIIlI,int IIIllll,int lIIIIII);
+static int lllIIIlIl(struct lIIIII*Illll,int lIIlI,int IIIllll);static void 
+IlIllll(struct lIIIII*Illll,int lIIlI,int llllII,int lIIIIII);static void 
+llIIllI(struct lIIIII*Illll,int lIIlI,int llllIlll);static void lllIIlI(struct 
+lIIIII*Illll,int lIIlI,int IlIIIIlII);
 #endif
-#define lllllIl(llIlI) ((struct IIllIl*)(llIlI->hcd_priv))
-static struct platform_driver IllIllll={.probe=IIlllIIIl,.remove=IIIlIIlll,.
-driver={.name=lllllll,.owner=THIS_MODULE,},};static struct platform_device 
-lIIllllI={.name=lllllll,.id=-(0x2cb+4769-0x156b),.dev={
-.release=IllIlIlII,},};static struct hc_driver lIllIIlll={.description=lllllll,.
+#define lIIllII(lllIl) ((struct lIIIII*)(lllIl->hcd_priv))
+static struct platform_driver lIIIIlIlI={.probe=IlIllIllI,.remove=IlllIlllI,.
+driver={.name=IlIlIIl,.owner=THIS_MODULE,},};static struct platform_device 
+llIlllII={.name=IlIlIIl,.id=-(0x1b8f+1494-0x2164),.dev={
+.release=IlllIIIIl,},};static struct hc_driver IlIIllIII={.description=IlIlIIl,.
 product_desc=
 "\x56\x69\x72\x74\x75\x61\x6c\x20\x55\x53\x42\x20\x48\x6f\x73\x74\x20\x43\x6f\x6e\x74\x72\x6f\x6c\x6c\x65\x72"
-,.hcd_priv_size=sizeof(struct IIllIl),
-#if KERNEL_GT_EQ((0x246b+268-0x2575),(0x1ba2+1630-0x21fa),(0xcff+3816-0x1bc0)) \
-|| RHEL_RELEASE_GT_EQ((0x694+5568-0x1c4e),(0x1015+4539-0x21cd)) 
+,.hcd_priv_size=sizeof(struct lIIIII),
+#if KERNEL_GT_EQ((0x3fb+1499-0x9d4),(0x4d3+6141-0x1cca),(0x4d2+8757-0x26e0)) || \
+RHEL_RELEASE_GT_EQ((0x1159+844-0x149f),(0x676+1571-0xc96)) 
 .flags=HCD_USB3|HCD_SHARED,
 #else
 .flags=HCD_USB2,
 #endif
-.reset=lIllIIIll,.start=lIlIlllII,.stop=llIlIlIIl,.urb_enqueue=IIlllIIl,.
-urb_dequeue=IIllIIII,.endpoint_disable=IlIIIIIlI,.get_frame_number=lllllIIIl,.
-hub_status_data=IIIlllIIl,.hub_control=IllIIIlll,.bus_suspend=IIlIIllIl,.
-bus_resume=lIlIlIlll,
-#if KERNEL_GT_EQ((0x661+1920-0xddf),(0x373+4267-0x1418),(0x1649+3212-0x22ae)) ||\
- RHEL_RELEASE_GT_EQ((0x974+4011-0x1919),(0x19c3+3151-0x260f)) 
-.alloc_streams=llIlIIllI,.free_streams=llIIlIIll,
+.reset=IIllllIIl,.start=IlIlIIlll,.stop=lllIlIIIl,.urb_enqueue=IIllIlll,.
+urb_dequeue=lIlIIIlI,.endpoint_disable=IllllIlIl,.get_frame_number=IIIllIIlI,.
+hub_status_data=IIIIllIlI,.hub_control=IlllIlIII,.bus_suspend=lIllIIlII,.
+bus_resume=IIlIIlIII,
+#if KERNEL_GT_EQ((0x109a+2099-0x18cb),(0xccf+456-0xe91),(0xc31+3060-0x17fe)) || \
+RHEL_RELEASE_GT_EQ((0x43a+3124-0x1068),(0xcc5+1981-0x147f)) 
+.alloc_streams=llllIlllI,.free_streams=lllIlIlll,
 #endif
-};static struct list_head lIIlIIl;static spinlock_t lIIIIl;
+};static struct list_head IIllIII;static spinlock_t IIlIII;
 #if defined(CONFIG_X86_32) && !defined(_USBD_VHCI_NO_DMA_)
-#  if KERNEL_LT((0xaf5+3132-0x172f),(0x142c+1715-0x1ad9),(0x1653+1177-0x1ad4))
-static u64 lIlIllIIl=DMA_32BIT_MASK;
+#  if KERNEL_LT((0x717+1661-0xd92),(0x1cdf+894-0x2057),(0xc0b+4378-0x1d0d))
+static u64 IllllIIII=DMA_32BIT_MASK;
 #  else
-static u64 lIlIllIIl=DMA_BIT_MASK((0xc99+1921-0x13fa));
+static u64 IllllIIII=DMA_BIT_MASK((0xed+7498-0x1e17));
 #  endif
 #endif
-static int IIlllIIIl(struct platform_device*IlIlII){struct IIllIl*Illll;int 
-IIIll=(0x10f+5938-0x1841);int i;IlllI(
+static int IlIllIllI(struct platform_device*IlIIll){struct lIIIII*Illll;int 
+IlIlI=(0x1e1+4596-0x13d5);int i;lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x70\x6c\x61\x74\x66\x6f\x72\x6d\x5f\x64\x72\x69\x76\x65\x72\x5f\x70\x72\x6f\x62\x65\x3a\x20\x2b\x2b" "\n"
-);do{
+);do
+{
 #if defined(CONFIG_X86_32) && !defined(_USBD_VHCI_NO_DMA_)
-if(IlllIIII)IlIlII->dev.dma_mask=&lIlIllIIl;
+if(lllIIlll){IlIIll->dev.dma_mask=&IllllIIII;}
 #endif
 
-llIIIIl=usb_create_hcd(&lIllIIlll,&IlIlII->dev,lIllll(&IlIlII->dev));if(llIIIIl
-==NULL){IIIll=-ENOMEM;break;}
-#if KERNEL_GT_EQ((0x19f9+1500-0x1fd3),(0x17ed+1365-0x1d3c),(0x33b+7635-0x20f4))
-llIIIIl->has_tt=(0x1447+1646-0x1ab4);
+llIIIII=usb_create_hcd(&IlIIllIII,&IlIIll->dev,llIIIl(&IlIIll->dev));if(llIIIII
+==NULL){IlIlI=-ENOMEM;break;}
+#if KERNEL_GT_EQ((0x4f4+209-0x5c3),(0xd54+4887-0x2065),(0x610+1807-0xd05))
+llIIIII->has_tt=(0xb07+3513-0x18bf);
 #endif
-Illll=lllllIl(llIIIIl);memset(Illll,(0x6ec+6723-0x212f),sizeof(*Illll));Illll->
-llIlI=llIIIIl;spin_lock_init(&Illll->lock);for(i=(0xcbc+4791-0x1f73);i<lIIllII;i
-++){IIlIlII(Illll,i,IlIlIIIl,(0xd1c+3950-0x1c8a));}IIIll=usb_add_hcd(llIIIIl,
-(0x1092+2065-0x18a3),(0x4b+3038-0xc29));if(IIIll!=(0x21e5+102-0x224b)){break;}
-#if KERNEL_GT_EQ((0xa47+5310-0x1f03),(0x660+6813-0x20f7),(0x452+496-0x61b)) || \
-RHEL_RELEASE_GT_EQ((0x49c+211-0x569),(0x646+7840-0x24e3)) 
+Illll=lIIllII(llIIIII);memset(Illll,(0xcb6+1459-0x1269),sizeof(*Illll));Illll->
+lllIl=llIIIII;spin_lock_init(&Illll->lock);for(i=(0x14d+4480-0x12cd);i<IllIIIl;i
+++){IlllIIl(Illll,i,IlIllllI,(0x1061+3561-0x1e4a));}IlIlI=usb_add_hcd(llIIIII,
+(0x362+1693-0x9ff),(0x167d+2543-0x206c));if(IlIlI!=(0xb5d+4273-0x1c0e)){break;}
+#if (KERNEL_GT_EQ((0x1a4b+2578-0x245a),(0x104+1933-0x891),(0x1090+477-0x126d)) \
+&& KERNEL_LT_EQ((0x9a4+2940-0x151d),(0x987+2896-0x14d4),(0xf6a+1525-0x155f))) ||\
+ (RHEL_RELEASE_GT_EQ((0x20dc+510-0x22d4),(0x118+4719-0x1384)) && RHEL_RELEASE_LT\
+((0xe12+4627-0x201e),(0x2443+114-0x24b5)))
 
-IllIIII=usb_create_shared_hcd(&lIllIIlll,&IlIlII->dev,lIllll(&IlIlII->dev),
-llIIIIl);if(IllIIII==NULL){IIIll=-ENOMEM;break;}Illll=lllllIl(IllIIII);memset(
-Illll,(0x8e9+1857-0x102a),sizeof(*Illll));Illll->llIlI=IllIIII;spin_lock_init(&
-Illll->lock);for(i=(0x9f3+1573-0x1018);i<lIIllII;i++){IllIlIl(Illll,i,IlIlIIIl,
-(0x7fc+2488-0x11b4));}IIIll=usb_add_hcd(IllIIII,(0xc82+3358-0x19a0),
-(0x4b+8603-0x21e6));if(IIIll!=(0x208+155-0x2a3)){break;}lllllIl(llIIIIl)->
-lIIIllll=IllIIII;lllllIl(IllIIII)->lIIIllll=llIIIIl;
+
+
+if(llIIIII->irq==(0x378+7740-0x21b4)){llIIIII->irq=-(0x18b6+2738-0x2367);}
+#endif
+#if KERNEL_GT_EQ((0x646+1398-0xbba),(0x9d3+387-0xb50),(0x7d9+4146-0x17e4)) || \
+RHEL_RELEASE_GT_EQ((0x1ca9+1314-0x21c5),(0x227+8452-0x2328)) 
+
+lllIlIl=usb_create_shared_hcd(&IlIIllIII,&IlIIll->dev,llIIIl(&IlIIll->dev),
+llIIIII);if(lllIlIl==NULL){IlIlI=-ENOMEM;break;}Illll=lIIllII(lllIlIl);memset(
+Illll,(0x17d2+460-0x199e),sizeof(*Illll));Illll->lllIl=lllIlIl;spin_lock_init(&
+Illll->lock);for(i=(0x233+619-0x49e);i<IllIIIl;i++){IlIllll(Illll,i,IlIllllI,
+(0x18aa+2691-0x232d));}IlIlI=usb_add_hcd(lllIlIl,(0x4a6+7403-0x2191),
+(0x2a5+4671-0x14e4));if(IlIlI!=(0x102+5069-0x14cf)){break;}lIIllII(llIIIII)->
+llllllll=lllIlIl;lIIllII(lllIlIl)->llllllll=llIIIII;
 #endif 
-}while((0x2d1+3463-0x1058));if(IIIll!=(0x1a71+2808-0x2569)){if(llIIIIl){
-usb_put_hcd(llIIIIl);llIIIIl=NULL;}
-#if KERNEL_GT_EQ((0x1769+1631-0x1dc6),(0x1295+4204-0x22fb),(0x12c2+2802-0x1d8d))\
- || RHEL_RELEASE_GT_EQ((0x9d5+4944-0x1d1f),(0xf17+585-0x115d)) 
-if(IllIIII){usb_put_hcd(IllIIII);IllIIII=NULL;}
+}while((0x105a+32-0x107a));if(IlIlI!=(0x9e9+647-0xc70)){if(llIIIII){usb_put_hcd(
+llIIIII);llIIIII=NULL;}
+#if KERNEL_GT_EQ((0x1e4b+941-0x21f6),(0x1132+4889-0x2445),(0x3bb+4372-0x14a8)) \
+|| RHEL_RELEASE_GT_EQ((0x50f+3616-0x1329),(0x473+4357-0x1575)) 
+if(lllIlIl){usb_put_hcd(lllIlIl);lllIlIl=NULL;}
 #endif
-}IlllI(
+}lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x70\x6c\x61\x74\x66\x6f\x72\x6d\x5f\x64\x72\x69\x76\x65\x72\x5f\x70\x72\x6f\x62\x65\x3a\x20\x2d\x2d\x20\x72\x65\x73\x75\x6c\x74\x20\x3d\x20\x25\x64" "\n"
-,IIIll);return IIIll;}static int IIIlIIlll(struct platform_device*IlIlII){struct
- usb_hcd*llIlI=platform_get_drvdata(IlIlII);struct IIllIl*Illll=lllllIl(llIlI);
-IlllI(
+,IlIlI);return IlIlI;}static int IlllIlllI(struct platform_device*IlIIll){struct
+ usb_hcd*lllIl=platform_get_drvdata(IlIIll);struct lIIIII*Illll=lIIllII(lllIl);
+lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x70\x6c\x61\x74\x66\x6f\x72\x6d\x5f\x64\x72\x69\x76\x65\x72\x5f\x72\x65\x6d\x6f\x76\x65\x5b\x25\x73\x5d\x3a\x20\x2b\x2b" "\n"
-,IlllIlI(llIlI));if(Illll->lIIIllll){usb_remove_hcd(Illll->lIIIllll);usb_put_hcd
-(Illll->lIIIllll);Illll->lIIIllll=NULL;}usb_remove_hcd(llIlI);usb_put_hcd(llIlI)
-;IlllI(
+,llllIlI(lllIl));if(Illll->llllllll){usb_remove_hcd(Illll->llllllll);usb_put_hcd
+(Illll->llllllll);Illll->llllllll=NULL;}usb_remove_hcd(lllIl);usb_put_hcd(lllIl)
+;lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x70\x6c\x61\x74\x66\x6f\x72\x6d\x5f\x64\x72\x69\x76\x65\x72\x5f\x72\x65\x6d\x6f\x76\x65\x3a\x20\x2d\x2d" "\n"
-);return(0x661+264-0x769);}static void IllIlIlII(struct device*dev){return;}
-static int lIllIIIll(struct usb_hcd*llIlI){IlllI(
+);return(0xbe0+3544-0x19b8);}static void IlllIIIIl(struct device*dev){return;}
+static int IIllllIIl(struct usb_hcd*lllIl){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x72\x65\x73\x65\x74\x5b\x25\x73\x5d" "\n"
-,IlllIlI(llIlI));
+,llllIlI(lllIl));
 
 
-#if KERNEL_GT_EQ((0x1c9c+491-0x1e85),(0x515+5701-0x1b54),(0x849+7583-0x25c1)) ||\
- RHEL_RELEASE_GT_EQ((0xcd0+3009-0x188b),(0xf75+2815-0x1a71)) 
-if(usb_hcd_is_primary_hcd(llIlI)){
-IlllI(
+#if KERNEL_GT_EQ((0x2051+354-0x21b1),(0xfda+5131-0x23df),(0x45+586-0x268)) || \
+RHEL_RELEASE_GT_EQ((0x2f1+896-0x66b),(0xed6+2274-0x17b5)) 
+if(usb_hcd_is_primary_hcd(lllIl)){
+lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x72\x65\x73\x65\x74\x3a\x20\x73\x65\x74\x74\x69\x6e\x67\x20\x75\x70\x20\x55\x53\x42\x32\x20\x68\x63\x64" "\n"
-);llIlI->speed=HCD_USB2;llIlI->self.root_hub->speed=USB_SPEED_HIGH;}
+);lllIl->speed=HCD_USB2;lllIl->self.root_hub->speed=USB_SPEED_HIGH;}
 #endif
-return(0xfe7+5855-0x26c6);}static int lIlIlllII(struct usb_hcd*llIlI){int i;
-IlllI(
+#if KERNEL_GT_EQ((0x228f+908-0x2618),(0xa08+5197-0x1e4f),(0x7a+3031-0xc51)) || \
+RHEL_RELEASE_GT_EQ((0xe1f+3160-0x1a70),(0x1197+3081-0x1da0))
+if(!usb_hcd_is_primary_hcd(lllIl)){
+
+lllIl->self.no_stop_on_short=(0x1442+4694-0x2697);}
+#endif
+return(0x1d04+1901-0x2471);}static int IlIlIIlll(struct usb_hcd*lllIl){int i;
+lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x73\x74\x61\x72\x74\x5b\x25\x73\x5d" "\n"
-,IlllIlI(llIlI));llIlI->power_budget=(0x18b3+196-0x1977);llIlI->state=
-HC_STATE_RUNNING;llIlI->uses_new_polling=(0x194+4683-0x13de);for(i=
-(0x186d+2202-0x2107);i<lIIllII;i++){
-#if KERNEL_GT_EQ((0x858+4472-0x19ce),(0xa1a+1169-0xea5),(0x1854+178-0x18df)) || \
-RHEL_RELEASE_GT_EQ((0x8fd+949-0xcac),(0x12ed+4954-0x2644)) 
-if(llIlI->speed==HCD_USB3){IllIlIl(lllllIl(llIlI),i,IIIlllll,(0x5a4+3250-0x1256)
+,llllIlI(lllIl));lllIl->power_budget=(0x2bd+5939-0x19f0);lllIl->state=
+HC_STATE_RUNNING;lllIl->uses_new_polling=(0x1bb+313-0x2f3);for(i=
+(0x11f+7764-0x1f73);i<IllIIIl;i++){
+#if KERNEL_GT_EQ((0x5d4+5880-0x1cca),(0x181+7768-0x1fd3),(0xf46+447-0x10de)) || \
+RHEL_RELEASE_GT_EQ((0x1506+897-0x1881),(0x1631+1644-0x1c9a)) 
+if(lllIl->speed==HCD_USB3){IlIllll(lIIllII(lllIl),i,lIllIlII,(0xdfa+6144-0x25fa)
 );}else
 #endif
-{IIlIlII(lllllIl(llIlI),i,IIIlllll,(0x882+5410-0x1da4));}}return
-(0x9d9+1560-0xff1);}static void llIlIlIIl(struct usb_hcd*llIlI){int i;IlllI(
+{IlllIIl(lIIllII(lllIl),i,lIllIlII,(0x17f9+2451-0x218c));}}return
+(0x96b+1213-0xe28);}static void lllIlIIIl(struct usb_hcd*lllIl){int i;lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x73\x74\x6f\x70\x5b\x25\x73\x5d" "\n",
-IlllIlI(llIlI));for(i=(0xb0+2915-0xc13);i<lIIllII;i++){
-#if KERNEL_GT_EQ((0x1c90+1644-0x22fa),(0x13f8+1414-0x1978),(0x6bc+2463-0x1034)) \
-|| RHEL_RELEASE_GT_EQ((0xb6a+6297-0x23fd),(0x319+7532-0x2082)) 
-if(llIlI->speed==HCD_USB3){IllIlIl(lllllIl(llIlI),i,lIllllIl,(0x1c2+2489-0xb7b))
-;}else
+llllIlI(lllIl));for(i=(0x13a3+3303-0x208a);i<IllIIIl;i++){
+#if KERNEL_GT_EQ((0xb7b+6991-0x26c8),(0x1887+1424-0x1e11),(0x1116+2377-0x1a38)) \
+|| RHEL_RELEASE_GT_EQ((0x464+3491-0x1201),(0x366+8460-0x246f)) 
+if(lllIl->speed==HCD_USB3){IlIllll(lIIllII(lllIl),i,IIlIIlII,(0x1aa+381-0x327));
+}else
 #endif
-{IIlIlII(lllllIl(llIlI),i,lIllllIl,(0xbb3+6832-0x2663));}}}static int lllllIIIl(
-struct usb_hcd*llIlI){IlllI(
+{IlllIIl(lIIllII(lllIl),i,IIlIIlII,(0x1d8+4944-0x1528));}}}static int IIIllIIlI(
+struct usb_hcd*lllIl){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x67\x65\x74\x5f\x66\x72\x61\x6d\x65\x5f\x6e\x75\x6d\x62\x65\x72\x5b\x25\x73\x5d" "\n"
-,IlllIlI(llIlI));return(0xdb7+1633-0x1418);}int IlIlIlIIl(struct IlIlIl*lIllI,
-struct llIIIl**IIlIlllI,struct urb*lIlll){IlllI(
+,llllIlI(lllIl));return(0x1367+4319-0x2446);}int IIllIlllI(struct lIlIIl*lIllI,
+struct lllIIl**lIllIIlI,struct urb*IlllI){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x61\x64\x64\x5f\x75\x72\x62\x3a\x20\x75\x72\x62\x3d\x25\x70" "\n"
-,lIlll);if(*IIlIlllI){struct IlIIIll*llIIll;IlllI(
+,IlllI);if(*lIllIIlI){struct lllllII*lIlIII;lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x61\x64\x64\x5f\x75\x72\x62\x3a\x20\x65\x78\x69\x73\x74\x69\x6e\x67\x20\x70\x76\x72\x65\x71" "\n"
-);llIIll=lIlIlll(sizeof(struct IlIIIll),GFP_ATOMIC);if(llIIll){llIIll->lIlll=
-lIlll;list_add_tail(&llIIll->lIlIII,&(*IIlIlllI)->IIIllIl);}else{IlllI(
+);lIlIII=IllIllI(sizeof(struct lllllII),GFP_ATOMIC);if(lIlIII){lIlIII->IlllI=
+IlllI;list_add_tail(&lIlIII->IIIIll,&(*lIllIIlI)->lllIlll);}else{lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x61\x64\x64\x5f\x75\x72\x62\x3a\x20\x6e\x6f\x20\x6d\x65\x6d\x6f\x72\x79\x20\x66\x6f\x72\x20\x75\x72\x62\x5f\x6c\x69\x73\x74" "\n"
-);return-ENOMEM;}}else{IlllI(
+);return-ENOMEM;}}else{lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x61\x64\x64\x5f\x75\x72\x62\x3a\x20\x6e\x65\x77\x20\x70\x76\x72\x65\x71" "\n"
-);*IIlIlllI=llIlllll(lIllI,GFP_ATOMIC);if(*IIlIlllI==NULL){IlllI(
+);*lIllIIlI=IIIIlllll(lIllI,GFP_ATOMIC);if(*lIllIIlI==NULL){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x61\x64\x64\x5f\x75\x72\x62\x3a\x20\x6e\x6f\x20\x6d\x65\x6d\x6f\x72\x79\x20\x66\x6f\x72\x20\x71\x75\x65\x75\x65\x5f\x65\x6e\x74\x72\x79" "\n"
-);return-ENOMEM;}else{(*IIlIlllI)->urb.lIlll=lIlll;list_add_tail(&(*IIlIlllI)->
-urb.lIlIII,&(*IIlIlllI)->IIIllIl);}}return(0x1502+607-0x1761);}
-#if KERNEL_LT((0x127d+4313-0x2354),(0x921+7011-0x247e),(0x2167+277-0x2264))
-static int IIlllIIl(struct usb_hcd*llIlI,struct usb_host_endpoint*ep,struct urb*
-urb,gfp_t IlIIl)
+);return-ENOMEM;}else{(*lIllIIlI)->urb.IlllI=IlllI;list_add_tail(&(*lIllIIlI)->
+urb.IIIIll,&(*lIllIIlI)->lllIlll);}}return(0x749+2161-0xfba);}
+#if KERNEL_LT((0x6bb+6680-0x20d1),(0x159a+4400-0x26c4),(0x862+512-0xa4a))
+static int IIllIlll(struct usb_hcd*lllIl,struct usb_host_endpoint*ep,struct urb*
+urb,gfp_t llllI)
 #else
-static int IIlllIIl(struct usb_hcd*llIlI,struct urb*urb,gfp_t IlIIl)
+static int IIllIlll(struct usb_hcd*lllIl,struct urb*urb,gfp_t llllI)
 #endif
-{int IIIll=-EINPROGRESS;struct IIllIl*Illll=lllllIl(llIlI);struct IlIlIl*lIllI=
-NULL;struct llIIIl*lIIll=NULL;unsigned long flags;int llIlIlllI=
-(0x4c3+2783-0xfa2);IlllI(
+{int IlIlI=-EINPROGRESS;struct lIIIII*Illll=lIIllII(lllIl);struct lIlIIl*lIllI=
+NULL;struct lllIIl*IllII=NULL;unsigned long flags;int IIIlllIlI=
+(0x19d4+3157-0x2629);lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x75\x72\x62\x5f\x65\x6e\x71\x75\x65\x75\x65\x5b\x25\x73\x5d\x3a\x20\x2b\x2b\x20\x75\x72\x62\x3d\x30\x78\x25\x70\x20\x75\x73\x62\x5f\x64\x65\x76\x69\x63\x65\x3d\x30\x78\x25\x70\x20\x70\x61\x72\x65\x6e\x74\x3d\x30\x78\x25\x70\x20\x64\x65\x76\x6e\x75\x6d\x3d\x25\x64\x20\x6e\x75\x6d\x5f\x73\x67\x73\x3d\x25\x64" "\n"
-,IlllIlI(llIlI),urb,urb->dev,urb->dev->dev.parent,urb->dev->devnum,
-#if KERNEL_GT_EQ((0xc41+5623-0x2236),(0x143c+52-0x146a),(0xcfd+3240-0x1986))
+,llllIlI(lllIl),urb,urb->dev,urb->dev->dev.parent,urb->dev->devnum,
+#if KERNEL_GT_EQ((0x10fc+3019-0x1cc5),(0x5a5+2344-0xec7),(0xa9a+5013-0x1e10))
 urb->num_sgs);
 #else
-(0x2eb+106-0x355));
+(0xf05+4239-0x1f94));
 #endif
-lIlIIlIIl(urb,(0x48d+8104-0x2435));do
+IIIlIIIll(urb,(0x20a+8403-0x22dd));do
 {
-#if KERNEL_GT_EQ((0x24+864-0x382),(0x21da+1193-0x267d),(0x4c7+1066-0x8d9))
+#if KERNEL_GT_EQ((0x835+1874-0xf85),(0x1e0b+2140-0x2661),(0x7e0+3359-0x14e7))
 struct usb_host_endpoint*ep=urb->ep;
 #endif
 spin_lock_irqsave(&Illll->lock,flags);
-#if KERNEL_GT_EQ((0x1c47+1894-0x23ab),(0x13ec+22-0x13fc),(0x1ac3+2109-0x22e8))
+#if KERNEL_GT_EQ((0xfa+2217-0x9a1),(0x7bf+3327-0x14b8),(0x199+2504-0xb49))
 
 
-IIIll=usb_hcd_link_urb_to_ep(llIlI,urb);
+IlIlI=usb_hcd_link_urb_to_ep(lllIl,urb);
 #else
-spin_lock(&urb->lock);IIIll=(urb->status==-EINPROGRESS)?(0xe7f+3355-0x1b9a):urb
+spin_lock(&urb->lock);IlIlI=(urb->status==-EINPROGRESS)?(0x38b+7275-0x1ff6):urb
 ->status;spin_unlock(&urb->lock);
 #endif
-if(IIIll!=(0x1c94+2087-0x24bb)){spin_unlock_irqrestore(&Illll->lock,flags);IlllI
-(
+if(IlIlI!=(0x347+9128-0x26ef)){spin_unlock_irqrestore(&Illll->lock,flags);lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x75\x72\x62\x5f\x65\x6e\x71\x75\x65\x75\x65\x3a\x20\x75\x72\x62\x20\x61\x6c\x72\x65\x61\x64\x79\x20\x75\x6e\x6c\x69\x6e\x6b\x65\x64" "\n"
 );break;}
-#if KERNEL_GT_EQ((0x528+7388-0x2202),(0xe40+5867-0x2525),(0x781+6558-0x20f8)) ||\
- RHEL_RELEASE_GT_EQ((0x18cc+815-0x1bf5),(0x5c3+3727-0x144f)) 
+#if KERNEL_GT_EQ((0x449+215-0x51e),(0x325+6669-0x1d2c),(0xeb6+2450-0x1821)) || \
+RHEL_RELEASE_GT_EQ((0x8b+4170-0x10cf),(0xeed+4997-0x226f)) 
 
 
 
@@ -237,122 +252,123 @@ if(IIIll!=(0x1c94+2087-0x24bb)){spin_unlock_irqrestore(&Illll->lock,flags);IlllI
 
 
 
-if(llIlI->speed==HCD_USB3){
-lIllI=IIIIIIIII(llIlI,urb->dev->portnum);}else
+if(lllIl->speed==HCD_USB3){
+lIllI=IIIIIlIII(lllIl,urb->dev->portnum);}else
 #endif
 {
-lIllI=IlllIIlIl(llIlI,usb_pipedevice(urb->pipe));}if(lIllI==NULL){
-#if KERNEL_GT_EQ((0x1fda+1272-0x24d0),(0xa40+2199-0x12d1),(0x1bcd+2363-0x24f0))
-usb_hcd_unlink_urb_from_ep(llIlI,urb);
+lIllI=IlIIlIIll(lllIl,usb_pipedevice(urb->pipe));}if(lIllI==NULL){
+#if KERNEL_GT_EQ((0x1cfc+1962-0x24a4),(0x6ab+1293-0xbb2),(0x168+6979-0x1c93))
+usb_hcd_unlink_urb_from_ep(lllIl,urb);
 #endif
-spin_unlock_irqrestore(&Illll->lock,flags);IlllI(
+spin_unlock_irqrestore(&Illll->lock,flags);lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x75\x72\x62\x5f\x65\x6e\x71\x75\x65\x75\x65\x3a\x20\x64\x65\x76\x69\x63\x65\x20\x6e\x6f\x74\x20\x66\x6f\x75\x6e\x64" "\n"
-);IIIll=-ENODEV;break;}if(usb_pipedevice(urb->pipe)==(0x1dea+1058-0x220c)&&
-usb_pipetype(urb->pipe)==PIPE_CONTROL){struct usb_ctrlrequest*lIIllI=(struct 
-usb_ctrlrequest*)urb->setup_packet;if(!lIIllI){
-#if KERNEL_GT_EQ((0x5ed+628-0x85f),(0x1c14+2485-0x25c3),(0x583+4122-0x1585))
-usb_hcd_unlink_urb_from_ep(llIlI,urb);
+);IlIlI=-ENODEV;break;}if(usb_pipedevice(urb->pipe)==(0x5bc+1684-0xc50)&&
+usb_pipetype(urb->pipe)==PIPE_CONTROL){struct usb_ctrlrequest*llIlll=(struct 
+usb_ctrlrequest*)urb->setup_packet;if(!llIlll){
+#if KERNEL_GT_EQ((0x125+589-0x370),(0xc09+3397-0x1948),(0x18e7+1292-0x1ddb))
+usb_hcd_unlink_urb_from_ep(lllIl,urb);
 #endif
-spin_unlock_irqrestore(&Illll->lock,flags);IlllI(
+spin_unlock_irqrestore(&Illll->lock,flags);lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x75\x72\x62\x5f\x65\x6e\x71\x75\x65\x75\x65\x3a\x20\x69\x6e\x76\x61\x6c\x69\x64\x20\x63\x6f\x6e\x74\x72\x6f\x6c\x20\x74\x72\x61\x6e\x73\x66\x65\x72\x20\x75\x72\x62" "\n"
-);IIIll=-EINVAL;break;}if(lIIllI->bRequest==USB_REQ_SET_ADDRESS){IlllI(
+);IlIlI=-EINVAL;break;}if(llIlll->bRequest==USB_REQ_SET_ADDRESS){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x75\x72\x62\x5f\x65\x6e\x71\x75\x65\x75\x65\x3a\x20\x55\x53\x42\x5f\x52\x45\x51\x5f\x53\x45\x54\x5f\x41\x44\x44\x52\x45\x53\x53\x20\x61\x64\x64\x72\x65\x73\x73\x3d\x25\x64" "\n"
-,lIIllI->wValue);lIllI->llIIIll=le16_to_cpu(lIIllI->wValue);
-#if KERNEL_GT_EQ((0x4da+3869-0x13f5),(0x567+7746-0x23a3),(0xb4c+2304-0x1434))
-usb_hcd_unlink_urb_from_ep(llIlI,urb);
+,llIlll->wValue);lIllI->IllIlIl=le16_to_cpu(llIlll->wValue);
+#if KERNEL_GT_EQ((0x557+1426-0xae7),(0x1b8+4042-0x117c),(0x18+7818-0x1e8a))
+usb_hcd_unlink_urb_from_ep(lllIl,urb);
 #endif
 spin_unlock(&Illll->lock);
-#if KERNEL_LT((0x1a9b+2570-0x24a3),(0x1d73+507-0x1f68),(0x1d00+939-0x2093))
+#if KERNEL_LT((0x1dca+1999-0x2597),(0xe9d+3200-0x1b17),(0x45d+1546-0xa4f))
 
-spin_lock(&urb->lock);if(urb->status==-EINPROGRESS)urb->status=
-(0x310+5465-0x1869);spin_unlock(&urb->lock);
+spin_lock(&urb->lock);if(urb->status==-EINPROGRESS){urb->status=
+(0x1693+3823-0x2582);}spin_unlock(&urb->lock);
 #else
 
 #endif
-#if KERNEL_LT((0x12e5+4836-0x25c7),(0xd28+4566-0x1ef8),(0x129d+645-0x150f))
+#if KERNEL_LT((0xbc7+4168-0x1c0d),(0x37d+8819-0x25ea),(0x14b0+4143-0x24cc))
 usb_hcd_giveback_urb(lIllI->parent,urb,NULL);
-#elif KERNEL_LT((0x1117+2834-0x1c27),(0x10bc+4167-0x20fd),(0xd26+5969-0x245f))
+#elif KERNEL_LT((0x218c+247-0x2281),(0x8d1+83-0x91e),(0x14b8+795-0x17bb))
 usb_hcd_giveback_urb(lIllI->parent,urb);
 #else
-usb_hcd_giveback_urb(lIllI->parent,urb,(0x16e4+2520-0x20bc));
+usb_hcd_giveback_urb(lIllI->parent,urb,(0xbb+4472-0x1233));
 #endif
-local_irq_restore(flags);IIIll=(0x393+6587-0x1d4e);break;}}lIIll=ep->hcpriv;
-IIIll=IlIlIlIIl(lIllI,&lIIll,urb);if(IIIll!=(0x152d+3496-0x22d5)){
-#if KERNEL_GT_EQ((0xa66+1020-0xe60),(0x1d24+801-0x203f),(0xde8+2603-0x17fb))
-usb_hcd_unlink_urb_from_ep(llIlI,urb);
+local_irq_restore(flags);IlIlI=(0x192c+1962-0x20d6);break;}}IllII=ep->hcpriv;
+IlIlI=IIllIlllI(lIllI,&IllII,urb);if(IlIlI!=(0x1bfc+319-0x1d3b)){
+#if KERNEL_GT_EQ((0xc3b+6141-0x2436),(0x1986+1430-0x1f16),(0xfb5+1809-0x16ae))
+usb_hcd_unlink_urb_from_ep(lllIl,urb);
 #endif
-spin_unlock_irqrestore(&Illll->lock,flags);break;}urb->hcpriv=lIIll;if((
-usb_pipetype(urb->pipe)==PIPE_BULK)&&(urb->transfer_flags&URB_NO_INTERRUPT)&&((
-usb_pipein(urb->pipe)&&(urb->transfer_flags&URB_SHORT_NOT_OK))||(usb_pipeout(urb
-->pipe)&&!(urb->transfer_flags&URB_ZERO_PACKET)))){IlllI(
+spin_unlock_irqrestore(&Illll->lock,flags);break;}urb->hcpriv=IllII;if((
+usb_pipetype(urb->pipe)==PIPE_BULK)&&((urb->transfer_flags&URB_NO_INTERRUPT)||(
+lIllI->vid==(0xa93+3242-0x1289)&&lIllI->IlIlIII==(0xd2b+4776-0x1edf)))&&
+((usb_pipein(urb->pipe)&&(urb->transfer_flags&URB_SHORT_NOT_OK))||(usb_pipeout(
+urb->pipe)&&!(urb->transfer_flags&URB_ZERO_PACKET)))){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x75\x72\x62\x5f\x65\x6e\x71\x75\x65\x75\x65\x3a\x20\x6d\x65\x72\x67\x65\x20\x73\x70\x6c\x69\x74\x74\x65\x64\x20\x75\x72\x62" "\n"
-);if(ep->hcpriv==NULL){ep->hcpriv=lIIll;
-spin_lock(&lIllI->IlIIll);list_add_tail(&lIIll->lIlIIl,&lIllI->IIlllII);
-spin_unlock(&lIllI->IlIIll);}}else{spin_lock(&lIllI->IlIIll);if(ep->hcpriv){ep->
+);if(ep->hcpriv==NULL){ep->hcpriv=IllII;
+spin_lock(&lIllI->IIllII);list_add_tail(&IllII->llllIl,&lIllI->IllIIlI);
+spin_unlock(&lIllI->IIllII);}}else{spin_lock(&lIllI->IIllII);if(ep->hcpriv){ep->
 hcpriv=NULL;
-list_del(&lIIll->lIlIIl);}list_add_tail(&lIIll->lIlIIl,&lIllI->IIIIlII);
-llIlIlllI=(0x237d+839-0x26c3);spin_unlock(&lIllI->IlIIll);}
-spin_unlock_irqrestore(&Illll->lock,flags);if(llIlIlllI){wake_up(&lIllI->IIIIlI)
-;}IIIll=-EINPROGRESS;}while((0x1eb7+1094-0x22fd));if(lIllI){
-IIlllIll(lIllI);}if(IIIll==-EINPROGRESS){
-IlllI(
+list_del(&IllII->llllIl);}list_add_tail(&IllII->llllIl,&lIllI->llIllIl);
+IIIlllIlI=(0x1d0+7832-0x2067);spin_unlock(&lIllI->IIllII);}
+spin_unlock_irqrestore(&Illll->lock,flags);if(IIIlllIlI){wake_up(&lIllI->lIIllI)
+;}IlIlI=-EINPROGRESS;}while((0x14fb+2757-0x1fc0));if(lIllI){
+IlIllIIl(lIllI);}if(IlIlI==-EINPROGRESS){
+lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x75\x72\x62\x5f\x65\x6e\x71\x75\x65\x75\x65\x3a\x20\x2d\x2d\x20\x72\x65\x73\x75\x6c\x74\x3d\x25\x64" "\n"
-,(0x13b3+2039-0x1baa));return(0xdb+9262-0x2509);}IlllI(
+,(0xbf1+4207-0x1c60));return(0x3f7+3789-0x12c4);}lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x75\x72\x62\x5f\x65\x6e\x71\x75\x65\x75\x65\x3a\x20\x2d\x2d\x20\x72\x65\x73\x75\x6c\x74\x3d\x25\x64" "\n"
-,IIIll);return IIIll;}
-#if KERNEL_LT((0xed7+3066-0x1acf),(0x14b7+2461-0x1e4e),(0x3f2+4509-0x1577))
-static int IIllIIII(struct usb_hcd*llIlI,struct urb*urb)
+,IlIlI);return IlIlI;}
+#if KERNEL_LT((0x199b+282-0x1ab3),(0x820+717-0xae7),(0x3d9+1333-0x8f6))
+static int lIlIIIlI(struct usb_hcd*lllIl,struct urb*urb)
 #else
-static int IIllIIII(struct usb_hcd*llIlI,struct urb*urb,int status)
+static int lIlIIIlI(struct usb_hcd*lllIl,struct urb*urb,int status)
 #endif
-{struct IIllIl*Illll=lllllIl(llIlI);struct llIIIl*lIIll;IllII IIlIl;int IIIll=
-(0x1e03+1134-0x2271);int unlinked;unsigned long flags;IlllI(
+{struct lIIIII*Illll=lIIllII(lllIl);struct lllIIl*IllII;IIlII IIlIl;int IlIlI=
+(0x7cf+5067-0x1b9a);int unlinked;unsigned long flags;lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x75\x72\x62\x5f\x64\x65\x71\x75\x65\x75\x65\x5b\x25\x73\x5d\x3a\x20\x2b\x2b\x20\x75\x72\x62\x3d\x30\x78\x25\x70" "\n"
-,IlllIlI(llIlI),urb);do{spin_lock_irqsave(&Illll->lock,flags);
-#if KERNEL_GT_EQ((0x11aa+2209-0x1a49),(0xf96+3261-0x1c4d),(0x129f+2296-0x1b7f))
-IIIll=usb_hcd_check_unlink_urb(llIlI,urb,status);if(IIIll!=(0x10cb+4646-0x22f1))
-{
+,llllIlI(lllIl),urb);do
+{spin_lock_irqsave(&Illll->lock,flags);
+#if KERNEL_GT_EQ((0x1158+3785-0x201f),(0x5e2+1786-0xcd6),(0xdb5+5684-0x23d1))
+IlIlI=usb_hcd_check_unlink_urb(lllIl,urb,status);if(IlIlI!=(0xdb4+5131-0x21bf)){
 
 spin_unlock_irqrestore(&Illll->lock,flags);break;}
 #endif
-lIIll=(struct llIIIl*)urb->hcpriv;if(!lIIll){
+IllII=(struct lllIIl*)urb->hcpriv;if(!IllII){
 
-IlllI(
+lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x75\x72\x62\x5f\x64\x65\x71\x75\x65\x75\x65\x3a\x20\x6e\x6f\x20\x64\x65\x76\x69\x63\x65\x21" "\n"
-);spin_unlock_irqrestore(&Illll->lock,flags);break;}spin_lock(&lIIll->lIllI->
-IlIIll);unlinked=IlIIllIII(lIIll);spin_unlock(&lIIll->lIllI->IlIIll);
+);spin_unlock_irqrestore(&Illll->lock,flags);break;}spin_lock(&IllII->lIllI->
+IIllII);unlinked=lIllIIIll(IllII);spin_unlock(&IllII->lIllI->IIllII);
 spin_unlock_irqrestore(&Illll->lock,flags);if(unlinked){
-#if KERNEL_LT((0x1944+1184-0x1de2),(0x1bc3+784-0x1ecd),(0x297+1888-0x9df))
-IIIIlIlI(lIIll,-ECONNRESET);
+#if KERNEL_LT((0x145b+319-0x1598),(0x1baf+2215-0x2450),(0x986+6592-0x232e))
+IllIIllI(IllII,-ECONNRESET);
 #else
-IIIIlIlI(lIIll,status);
+IllIIllI(IllII,status);
 #endif
-IIlIl=lIlIlll(sizeof(IlIllIIll),GFP_ATOMIC);if(!IIlIl){IlllI(
+IIlIl=IllIllI(sizeof(lllllIlIl),GFP_ATOMIC);if(!IIlIl){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x75\x72\x62\x5f\x64\x65\x71\x75\x65\x75\x65\x3a\x20\x6e\x6f\x20\x6d\x65\x6d\x6f\x72\x79\x20\x66\x6f\x72\x20\x75\x6e\x72\x62" "\n"
-);IlIIIlll(lIIll);break;}IIlIl->IIIlI.lIIlIl=lIIll->lllIl;IIlIl->IIIlI.IllIIll=
-(0x8a1+2818-0x13a3);IIlIl->IIIlI.lIlIl=sizeof(IlIllIIll);IIlIl->IIIlI.lIIlIII=
-lIlIlIll;IIlIl->IIIlI.Status=(0x2f2+3334-0xff8);IIlIl->IIIlI.Context=
-(0x46b+903-0x7f2);INIT_LIST_HEAD(&lIIll->IIIllIl);lIIll->urb.lIlll=NULL;lIIll->
-IIlIl=IIlIl;spin_lock_irqsave(&lIIll->lIllI->IlIIll,flags);list_add_tail(&lIIll
-->lIlIIl,&lIIll->lIllI->IIIIlII);spin_unlock_irqrestore(&lIIll->lIllI->IlIIll,
-flags);wake_up(&lIIll->lIllI->IIIIlI);}else{
+);IIlIlllI(IllII);break;}IIlIl->IlIII.IIIlIl=IllII->lIlIl;IIlIl->IlIII.IllllII=
+(0x2c4+7520-0x2024);IIlIl->IlIII.IIIII=sizeof(lllllIlIl);IIlIl->IlIII.IIIlIIl=
+llIIlIll;IIlIl->IlIII.Status=(0x1bbd+2230-0x2473);IIlIl->IlIII.Context=
+(0x1617+2690-0x2099);INIT_LIST_HEAD(&IllII->lllIlll);IllII->urb.IlllI=NULL;IllII
+->IIlIl=IIlIl;spin_lock_irqsave(&IllII->lIllI->IIllII,flags);list_add_tail(&
+IllII->llllIl,&IllII->lIllI->llIllIl);spin_unlock_irqrestore(&IllII->lIllI->
+IIllII,flags);wake_up(&IllII->lIllI->lIIllI);}else{
 
-IlllI(
+lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x75\x72\x62\x5f\x64\x65\x71\x75\x65\x75\x65\x3a\x20\x75\x72\x62\x20\x6e\x6f\x74\x20\x66\x6f\x75\x6e\x64\x20\x69\x6e\x20\x71\x75\x65\x75\x65" "\n"
-);}}while((0x1f40+402-0x20d2));IlllI(
+);}}while((0x303+2123-0xb4e));lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x75\x72\x62\x5f\x64\x65\x71\x75\x65\x75\x65\x3a\x20\x2d\x2d\x20\x72\x65\x73\x75\x6c\x74\x3d\x25\x64" "\n"
-,IIIll);return IIIll;}void IlIIIIIlI(struct usb_hcd*llIlI,struct 
-usb_host_endpoint*ep){unsigned long flags;struct IIllIl*Illll=lllllIl(llIlI);
-IlllI(
+,IlIlI);return IlIlI;}void IllllIlIl(struct usb_hcd*lllIl,struct 
+usb_host_endpoint*ep){unsigned long flags;struct lIIIII*Illll=lIIllII(lllIl);
+lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x68\x75\x62\x5f\x63\x6f\x6e\x74\x72\x6f\x6c\x5b\x25\x73\x5d\x3a\x20\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x65\x6e\x64\x70\x6f\x69\x6e\x74\x5f\x64\x69\x73\x61\x62\x6c\x65\x2b\x2b\x20\x65\x70\x3d\x25\x70" "\n"
-,IlllIlI(llIlI),ep);spin_lock_irqsave(&Illll->lock,flags);if(ep->hcpriv){IlllI(
+,llllIlI(lllIl),ep);spin_lock_irqsave(&Illll->lock,flags);if(ep->hcpriv){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x68\x75\x62\x5f\x63\x6f\x6e\x74\x72\x6f\x6c\x3a\x20\x63\x6c\x65\x61\x6e\x69\x6e\x67\x20\x75\x70\x20\x68\x63\x70\x72\x69\x76" "\n"
-);ep->hcpriv=NULL;}spin_unlock_irqrestore(&Illll->lock,flags);IlllI(
+);ep->hcpriv=NULL;}spin_unlock_irqrestore(&Illll->lock,flags);lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x68\x75\x62\x5f\x63\x6f\x6e\x74\x72\x6f\x6c\x3a\x20\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x65\x6e\x64\x70\x6f\x69\x6e\x74\x5f\x64\x69\x73\x61\x62\x6c\x65\x2d\x2d" "\n"
 );}
-#if KERNEL_GT_EQ((0x3b+9498-0x2553),(0x5ca+2072-0xddc),(0x37a+8802-0x25b5)) || \
-RHEL_RELEASE_GT_EQ((0x13a1+3238-0x2041),(0x771+7270-0x23d4)) 
-#define IlIlllIII \
+#if KERNEL_GT_EQ((0x557+7815-0x23dc),(0x62f+8047-0x2598),(0x1b98+247-0x1c68)) ||\
+ RHEL_RELEASE_GT_EQ((0xf8+4481-0x1273),(0x9ea+3533-0x17b4)) 
+#define IIIllIlll \
 		( USB_PORT_STAT_C_CONNECTION \
 		| USB_PORT_STAT_C_ENABLE \
 		| USB_PORT_STAT_C_SUSPEND \
@@ -362,145 +378,145 @@ RHEL_RELEASE_GT_EQ((0x13a1+3238-0x2041),(0x771+7270-0x23d4))
 		| USB_PORT_STAT_C_LINK_STATE \
 		| USB_PORT_STAT_C_CONFIG_ERROR )
 #else
-#define IlIlllIII \
+#define IIIllIlll \
 		( USB_PORT_STAT_C_CONNECTION \
 		| USB_PORT_STAT_C_ENABLE \
 		| USB_PORT_STAT_C_SUSPEND \
 		| USB_PORT_STAT_C_OVERCURRENT \
 		| USB_PORT_STAT_C_RESET )
 #endif
-#if KERNEL_GT_EQ((0x1502+2238-0x1dbe),(0xa34+6132-0x2222),(0xac0+1058-0xebb)) ||\
- RHEL_RELEASE_GT_EQ((0x1690+161-0x172b),(0x158f+1855-0x1ccb)) 
-size_t lIllIlIIl(void*IIIIl,size_t IIlIIl){struct{struct usb_bos_descriptor 
-IIllIIlI;struct usb_ss_cap_descriptor ss_cap;}__packed lIllllI;memset(&lIllllI,
-(0x8b2+303-0x9e1),sizeof(lIllllI));lIllllI.IIllIIlI.bLength=USB_DT_BOS_SIZE,
-lIllllI.IIllIIlI.bDescriptorType=USB_DT_BOS,lIllllI.IIllIIlI.wTotalLength=
-cpu_to_le16(sizeof(lIllllI)),lIllllI.IIllIIlI.bNumDeviceCaps=(0x25b+8522-0x23a4)
-,lIllllI.ss_cap.bLength=USB_DT_USB_SS_CAP_SIZE,lIllllI.ss_cap.bDescriptorType=
-USB_DT_DEVICE_CAPABILITY,lIllllI.ss_cap.bDevCapabilityType=USB_SS_CAP_TYPE,
-lIllllI.ss_cap.wSpeedSupported=cpu_to_le16(USB_5GBPS_OPERATION),lIllllI.ss_cap.
-bFunctionalitySupport=ilog2(USB_5GBPS_OPERATION),IIlIIl=min(sizeof(lIllllI),
-IIlIIl);memcpy(IIIIl,&lIllllI,IIlIIl);return IIlIIl;}size_t IIllIIlIl(void*IIIIl
-,size_t IIlIIl){struct usb_hub_descriptor desc;memset(&desc,(0x1439+4285-0x24f6)
-,sizeof(desc));desc.bDescLength=(0x87f+7338-0x251d);desc.bDescriptorType=
-(0x8a5+6304-0x211b);desc.bNbrPorts=lIIllII;
-desc.wHubCharacteristics=cpu_to_le16((0xe1a+1044-0x122d));desc.u.ss.
-bHubHdrDecLat=(0x3d0+139-0x457);
-desc.u.ss.DeviceRemovable=cpu_to_le16(65534&(65535>>((0x125b+3530-0x2016)-
-lIIllII)));IIlIIl=min((size_t)desc.bDescLength,IIlIIl);memcpy(IIIIl,&desc,IIlIIl
-);return IIlIIl;}
+#if KERNEL_GT_EQ((0x1199+2846-0x1cb5),(0x1421+1472-0x19db),(0x130c+2987-0x1e90))\
+ || RHEL_RELEASE_GT_EQ((0x4c9+3210-0x114d),(0x1a85+2592-0x24a2)) 
+size_t llIllIIlI(void*IllIl,size_t IIlIIl){struct{struct usb_bos_descriptor 
+lIIlIIll;struct usb_ss_cap_descriptor ss_cap;}__packed IIlllII;memset(&IIlllII,
+(0x1ce5+2503-0x26ac),sizeof(IIlllII));IIlllII.lIIlIIll.bLength=USB_DT_BOS_SIZE,
+IIlllII.lIIlIIll.bDescriptorType=USB_DT_BOS,IIlllII.lIIlIIll.wTotalLength=
+cpu_to_le16(sizeof(IIlllII)),IIlllII.lIIlIIll.bNumDeviceCaps=(0xb39+3020-0x1704)
+,IIlllII.ss_cap.bLength=USB_DT_USB_SS_CAP_SIZE,IIlllII.ss_cap.bDescriptorType=
+USB_DT_DEVICE_CAPABILITY,IIlllII.ss_cap.bDevCapabilityType=USB_SS_CAP_TYPE,
+IIlllII.ss_cap.wSpeedSupported=cpu_to_le16(USB_5GBPS_OPERATION),IIlllII.ss_cap.
+bFunctionalitySupport=ilog2(USB_5GBPS_OPERATION),IIlIIl=min(sizeof(IIlllII),
+IIlIIl);memcpy(IllIl,&IIlllII,IIlIIl);return IIlIIl;}size_t IIlIIIlll(void*IllIl
+,size_t IIlIIl){struct usb_hub_descriptor desc;memset(&desc,(0x1435+510-0x1633),
+sizeof(desc));desc.bDescLength=(0x19d+5798-0x1837);desc.bDescriptorType=
+(0x694+8320-0x26ea);desc.bNbrPorts=IllIIIl;
+desc.wHubCharacteristics=cpu_to_le16((0x1b9+6136-0x19b0));desc.u.ss.
+bHubHdrDecLat=(0x19cd+831-0x1d08);
+desc.u.ss.DeviceRemovable=cpu_to_le16(65534&(65535>>((0x717+6411-0x2013)-IllIIIl
+)));IIlIIl=min((size_t)desc.bDescLength,IIlIIl);memcpy(IllIl,&desc,IIlIIl);
+return IIlIIl;}
 #endif 
-size_t IlllIlIll(void*IIIIl,size_t IIlIIl){__u8*lIIIlllI;struct 
-usb_hub_descriptor desc;memset(&desc,(0x788+7266-0x23ea),sizeof(desc));desc.
-bDescLength=(0x230+7118-0x1df7)+IlIIllII*(0x784+1674-0xe0c);desc.bDescriptorType
-=(0x1355+1653-0x19a1);desc.bNbrPorts=lIIllII;desc.wHubCharacteristics=
-cpu_to_le16((0x1da5+1931-0x252f));
-#if KERNEL_GT_EQ((0x42+44-0x6c),(0x829+7498-0x256d),(0x226b+277-0x2359)) || \
-RHEL_RELEASE_GT_EQ((0x456+2301-0xd4d),(0x6cb+3822-0x15b7))
-lIIIlllI=desc.u.hs.DeviceRemovable;
+size_t IIIIIIIlI(void*IllIl,size_t IIlIIl){__u8*IIlIllIl;struct 
+usb_hub_descriptor desc;memset(&desc,(0x1c7+8676-0x23ab),sizeof(desc));desc.
+bDescLength=(0x16d6+2858-0x21f9)+lIIIIIlI*(0x175f+2293-0x2052);desc.
+bDescriptorType=(0x327+2261-0xbd3);desc.bNbrPorts=IllIIIl;desc.
+wHubCharacteristics=cpu_to_le16((0xc9+7615-0x1e87));
+#if KERNEL_GT_EQ((0x1167+1999-0x1934),(0x172+3871-0x108b),(0xf46+2227-0x17d2)) \
+|| RHEL_RELEASE_GT_EQ((0x1896+2319-0x219f),(0x3a0+3499-0x1149))
+IIlIllIl=desc.u.hs.DeviceRemovable;
 #else
-lIIIlllI=desc.DeviceRemovable;
+IIlIllIl=desc.DeviceRemovable;
 #endif
-memset(&lIIIlllI[(0x4b0+3941-0x1415)],(0x23a0+59-0x23db),IlIIllII);memset(&
-lIIIlllI[IlIIllII],(0x8c4+6740-0x2219),IlIIllII);IIlIIl=min((size_t)desc.
-bDescLength,IIlIIl);memcpy(IIIIl,&desc,IIlIIl);return IIlIIl;}static int 
-IllIIIlll(struct usb_hcd*llIlI,u16 IIIlIllll,u16 wValue,u16 wIndex,char*IIIIl,
-u16 wLength){struct IIllIl*Illll=lllllIl(llIlI);int IIIll=(0xc6+1566-0x6e4);int 
-lIIlI=-(0xa8f+328-0xbd6);int IIlIIllll=(0x1f5+3684-0x1059);unsigned long flags;
-IlllI(
+memset(&IIlIllIl[(0x15f+4976-0x14cf)],(0x15a3+4247-0x263a),lIIIIIlI);memset(&
+IIlIllIl[lIIIIIlI],(0x47a+5583-0x194a),lIIIIIlI);IIlIIl=min((size_t)desc.
+bDescLength,IIlIIl);memcpy(IllIl,&desc,IIlIIl);return IIlIIl;}static int 
+IlllIlIII(struct usb_hcd*lllIl,u16 IIIIIIlII,u16 wValue,u16 wIndex,char*IllIl,
+u16 wLength){struct lIIIII*Illll=lIIllII(lllIl);int IlIlI=(0x14fd+1937-0x1c8e);
+int lIIlI=-(0xf69+1036-0x1374);int IlIlllIll=(0x22a1+370-0x2413);unsigned long 
+flags;lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x68\x75\x62\x5f\x63\x6f\x6e\x74\x72\x6f\x6c\x5b\x25\x73\x5d\x3a\x20\x2b\x2b" "\n"
-,IlllIlI(llIlI));if(!test_bit(HCD_FLAG_HW_ACCESSIBLE,&llIlI->flags))return-
-ETIMEDOUT;spin_lock_irqsave(&Illll->lock,flags);switch(IIIlIllll){case 
-GetHubDescriptor:IlllI(
+,llllIlI(lllIl));if(!test_bit(HCD_FLAG_HW_ACCESSIBLE,&lllIl->flags)){return-
+ETIMEDOUT;}spin_lock_irqsave(&Illll->lock,flags);switch(IIIIIIlII){case 
+GetHubDescriptor:lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x68\x75\x62\x5f\x63\x6f\x6e\x74\x72\x6f\x6c\x3a\x20\x47\x65\x74\x48\x75\x62\x44\x65\x73\x63\x72\x69\x70\x74\x6f\x72" "\n"
 );
-#if KERNEL_GT_EQ((0x1d3a+1632-0x2398),(0x1d0+356-0x32e),(0x8cb+6486-0x21fa)) || \
-RHEL_RELEASE_GT_EQ((0x1a7a+1182-0x1f12),(0x1ccf+1602-0x230e)) 
-if(llIlI->speed==HCD_USB3){if((wValue>>(0x1063+1079-0x1492))!=USB_DT_SS_HUB){
-IIIll=-EPIPE;break;}
+#if KERNEL_GT_EQ((0x10e2+989-0x14bd),(0x1028+1647-0x1691),(0x468+4545-0x1602)) \
+|| RHEL_RELEASE_GT_EQ((0x725+3170-0x1381),(0x67c+2342-0xf9f)) 
+if(lllIl->speed==HCD_USB3){if((wValue>>(0x96f+6158-0x2175))!=USB_DT_SS_HUB){
+IlIlI=-EPIPE;break;}
 
-IIllIIlIl(IIIIl,wLength);}else
+IIlIIIlll(IllIl,wLength);}else
 #endif
-{if((wValue>>(0x168b+51-0x16b6))!=USB_DT_HUB){IIIll=-EPIPE;break;}IlllIlIll(
-IIIIl,wLength);}break;
-#if KERNEL_GT_EQ((0x1b0d+1087-0x1f4a),(0x780+584-0x9c2),(0x187b+1283-0x1d57)) ||\
- RHEL_RELEASE_GT_EQ((0x665+5653-0x1c74),(0xbb+394-0x242)) 
-case DeviceRequest|USB_REQ_GET_DESCRIPTOR:if(llIlI->speed!=HCD_USB3){IIIll=-
-EPIPE;break;}if((wValue>>(0x463+1229-0x928))!=USB_DT_BOS){IIIll=-EPIPE;break;}
-IIIll=lIllIlIIl(IIIIl,wLength);break;case GetPortErrorCount:
-if(llIlI->speed!=HCD_USB3){IIIll=-EPIPE;break;}
-*(__le16*)IIIIl=cpu_to_le16((0x469+8261-0x24ae));break;case SetHubDepth:
-if(llIlI->speed!=HCD_USB3){IIIll=-EPIPE;break;}
+{if((wValue>>(0x16b8+2066-0x1ec2))!=USB_DT_HUB){IlIlI=-EPIPE;break;}IIIIIIIlI(
+IllIl,wLength);}break;
+#if KERNEL_GT_EQ((0x6fb+5660-0x1d15),(0x1bc+5484-0x1722),(0xc30+409-0xda2)) || \
+RHEL_RELEASE_GT_EQ((0x5f4+335-0x73d),(0x17a1+1470-0x1d5c)) 
+case DeviceRequest|USB_REQ_GET_DESCRIPTOR:if(lllIl->speed!=HCD_USB3){IlIlI=-
+EPIPE;break;}if((wValue>>(0xddd+3481-0x1b6e))!=USB_DT_BOS){IlIlI=-EPIPE;break;}
+IlIlI=llIllIIlI(IllIl,wLength);break;case GetPortErrorCount:
+if(lllIl->speed!=HCD_USB3){IlIlI=-EPIPE;break;}
+*(__le16*)IllIl=cpu_to_le16((0xdaf+2691-0x1832));break;case SetHubDepth:
+if(lllIl->speed!=HCD_USB3){IlIlI=-EPIPE;break;}
 break;
 #endif
-case GetHubStatus:IlllI(
+case GetHubStatus:lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x68\x75\x62\x5f\x63\x6f\x6e\x74\x72\x6f\x6c\x3a\x20\x47\x65\x74\x48\x75\x62\x53\x74\x61\x74\x75\x73" "\n"
-);*(__le32*)IIIIl=cpu_to_le32((0x734+7830-0x25ca));break;case SetHubFeature:
-IlllI(
+);*(__le32*)IllIl=cpu_to_le32((0x7d5+1068-0xc01));break;case SetHubFeature:lIlll
+(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x68\x75\x62\x5f\x63\x6f\x6e\x74\x72\x6f\x6c\x3a\x20\x53\x65\x74\x48\x75\x62\x46\x65\x61\x74\x75\x72\x65" "\n"
 );
-IIIll=-EPIPE;break;case ClearHubFeature:IlllI(
+IlIlI=-EPIPE;break;case ClearHubFeature:lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x68\x75\x62\x5f\x63\x6f\x6e\x74\x72\x6f\x6c\x3a\x20\x43\x6c\x65\x61\x72\x48\x75\x62\x46\x65\x61\x74\x75\x72\x65" "\n"
 );
-break;case GetPortStatus:IlllI(
+break;case GetPortStatus:lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x68\x75\x62\x5f\x63\x6f\x6e\x74\x72\x6f\x6c\x3a\x20\x47\x65\x74\x50\x6f\x72\x74\x53\x74\x61\x74\x75\x73" "\n"
-);lIIlI=(wIndex&(0xc3a+3686-0x19a1))-(0x7d9+3119-0x1407);IlllI(
+);lIIlI=(wIndex&(0x16df+3316-0x22d4))-(0xeec+2788-0x19cf);lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x68\x75\x62\x5f\x63\x6f\x6e\x74\x72\x6f\x6c\x3a\x20\x70\x6f\x72\x74\x3d\x25\x64" "\n"
-,lIIlI);if(lIIlI<(0xed0+2364-0x180c)||lIIlI>=lIIllII){lIIlI=-(0x3c3+4968-0x172a)
-;IIIll=-EPIPE;break;}
+,lIIlI);if(lIIlI<(0x1022+121-0x109b)||lIIlI>=IllIIIl){lIIlI=-
+(0x21c5+1133-0x2631);IlIlI=-EPIPE;break;}
 
-if(Illll->IlllIll[lIIlI]&&time_after_eq(jiffies,Illll->IlllIll[lIIlI])){if(Illll
-->IlllIIll[lIIlI]==IlIllII){Illll->IIIlIII[lIIlI]->llIIIll=(0x17c+2562-0xb7e);}
-#if KERNEL_GT_EQ((0x499+7944-0x239f),(0x367+6330-0x1c1b),(0x931+5796-0x1fae)) ||\
- RHEL_RELEASE_GT_EQ((0xf05+3095-0x1b16),(0x1c98+2100-0x24c9)) 
-if(llIlI->speed==HCD_USB3){IllIlIl(Illll,lIIlI,llIllllI,(0x24f+5192-0x1697));}
+if(Illll->IlllIII[lIIlI]&&time_after_eq(jiffies,Illll->IlllIII[lIIlI])){if(Illll
+->lllllIIl[lIIlI]==lllIllI){Illll->IlIIlII[lIIlI]->IllIlIl=(0x543+2066-0xd55);}
+#if KERNEL_GT_EQ((0x1cbc+96-0x1d1a),(0x1d62+892-0x20d8),(0x32f+3912-0x1250)) || \
+RHEL_RELEASE_GT_EQ((0x5a4+1036-0x9aa),(0x1076+1691-0x170e)) 
+if(lllIl->speed==HCD_USB3){IlIllll(Illll,lIIlI,lIlIlIIl,(0xf44+819-0x1277));}
 else
 #endif
-{IIlIlII(Illll,lIIlI,llIllllI,(0x943+7137-0x2524));}}((__le16*)IIIIl)[
-(0x8a6+71-0x8ed)]=cpu_to_le16(Illll->IIIllII[lIIlI]);((__le16*)IIIIl)[
-(0x371+2669-0xddd)]=cpu_to_le16(Illll->IllllIl[lIIlI]);break;case SetPortFeature
-:lIIlI=(wIndex&(0x70c+4323-0x16f0))-(0xaa8+2810-0x15a1);if(lIIlI<
-(0x79f+3364-0x14c3)||lIIlI>=lIIllII){IlllI(
+{IlllIIl(Illll,lIIlI,lIlIlIIl,(0x101b+2062-0x1829));}}((__le16*)IllIl)[
+(0x1836+2628-0x227a)]=cpu_to_le16(Illll->lIIIIIl[lIIlI]);((__le16*)IllIl)[
+(0x2294+973-0x2660)]=cpu_to_le16(Illll->lIIlIII[lIIlI]);break;case 
+SetPortFeature:lIIlI=(wIndex&(0x6ad+3313-0x129f))-(0xfb6+531-0x11c8);if(lIIlI<
+(0xe7f+1294-0x138d)||lIIlI>=IllIIIl){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x68\x75\x62\x5f\x63\x6f\x6e\x74\x72\x6f\x6c\x3a\x20\x53\x65\x74\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x20\x69\x6e\x76\x61\x6c\x69\x64\x20\x70\x6f\x72\x74\x20\x6e\x75\x6d\x62\x65\x72\x20\x28\x25\x64\x29" "\n"
-,lIIlI);lIIlI=-(0xca4+4404-0x1dd7);IIIll=-EPIPE;break;}
-#if KERNEL_GT_EQ((0x1ad9+2290-0x23c9),(0x1564+855-0x18b5),(0x21d+2159-0xa65)) ||\
- RHEL_RELEASE_GT_EQ((0x1e2+308-0x310),(0x20e5+530-0x22f4)) 
-if(llIlI->speed==HCD_USB3){IIIll=llIlIIlII(Illll,lIIlI,wValue,wIndex>>
-(0x1145+3321-0x1e36));}else
+,lIIlI);lIIlI=-(0x1240+890-0x15b9);IlIlI=-EPIPE;break;}
+#if KERNEL_GT_EQ((0x63c+745-0x923),(0xd5d+289-0xe78),(0xff8+240-0x10c1)) || \
+RHEL_RELEASE_GT_EQ((0x1d0a+393-0x1e8d),(0x100a+164-0x10ab)) 
+if(lllIl->speed==HCD_USB3){IlIlI=IlIIIlIlI(Illll,lIIlI,wValue,wIndex>>
+(0xcda+4902-0x1ff8));}else
 #endif
-{IIIll=Illllllll(Illll,lIIlI,wValue,wIndex>>(0x823+4189-0x1878));}break;case 
-ClearPortFeature:lIIlI=(wIndex&(0x2b8+5931-0x18e4))-(0xaf3+970-0xebc);if(lIIlI<
-(0x192a+1027-0x1d2d)||lIIlI>=lIIllII){IlllI(
+{IlIlI=IllIllllI(Illll,lIIlI,wValue,wIndex>>(0x8b3+1157-0xd30));}break;case 
+ClearPortFeature:lIIlI=(wIndex&(0x381+8384-0x2342))-(0x1854+1069-0x1c80);if(
+lIIlI<(0x1d96+2077-0x25b3)||lIIlI>=IllIIIl){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x68\x75\x62\x5f\x63\x6f\x6e\x74\x72\x6f\x6c\x3a\x20\x43\x6c\x65\x61\x72\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x20\x69\x6e\x76\x61\x6c\x69\x64\x20\x70\x6f\x72\x74\x20\x6e\x75\x6d\x62\x65\x72\x20\x28\x25\x64\x29" "\n"
-,lIIlI);lIIlI=-(0xb23+2091-0x134d);IIIll=-EPIPE;break;}
-#if KERNEL_GT_EQ((0x1c15+686-0x1ec1),(0x6ac+4365-0x17b3),(0xebb+6228-0x26e8)) ||\
- RHEL_RELEASE_GT_EQ((0x1012+2159-0x187b),(0xfd7+5809-0x2685)) 
-if(llIlI->speed==HCD_USB3){IIIll=llIIIIllI(Illll,lIIlI,wValue);}else
+,lIIlI);lIIlI=-(0x76b+6540-0x20f6);IlIlI=-EPIPE;break;}
+#if KERNEL_GT_EQ((0x80b+363-0x974),(0xb18+3717-0x1997),(0x1b2c+358-0x1c6b)) || \
+RHEL_RELEASE_GT_EQ((0x213+8275-0x2260),(0x2208+450-0x23c7)) 
+if(lllIl->speed==HCD_USB3){IlIlI=lllIIIlIl(Illll,lIIlI,wValue);}else
 #endif
-{IIIll=lIlllllII(Illll,lIIlI,wValue);}break;default:IlllI(
+{IlIlI=IIlIlIlII(Illll,lIIlI,wValue);}break;default:lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x68\x75\x62\x5f\x63\x6f\x6e\x74\x72\x6f\x6c\x3a\x20\x52\x65\x71\x3d\x30\x78\x25\x30\x34\x58\x20\x56\x61\x6c\x75\x65\x3d\x30\x78\x25\x30\x34\x58\x20\x49\x6e\x64\x65\x78\x3d\x30\x78\x25\x30\x34\x58\x69\x20\x4c\x65\x6e\x67\x74\x68\x3d\x25\x64" "\n"
-,IIIlIllll,wValue,wIndex,wLength);
-IIIll=-EPIPE;break;}
-IIlIIllll=(lIIlI!=-(0xd1c+2636-0x1767))&&((Illll->IllllIl[lIIlI]&IlIlllIII)!=
-(0x576+5178-0x19b0));spin_unlock_irqrestore(&Illll->lock,flags);if(IIlIIllll)
-usb_hcd_poll_rh_status(llIlI);IlllI(
+,IIIIIIlII,wValue,wIndex,wLength);
+IlIlI=-EPIPE;break;}
+IlIlllIll=(lIIlI!=-(0x1e1d+377-0x1f95))&&((Illll->lIIlIII[lIIlI]&IIIllIlll)!=
+(0x280+4456-0x13e8));spin_unlock_irqrestore(&Illll->lock,flags);if(IlIlllIll){
+usb_hcd_poll_rh_status(lllIl);}lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x68\x75\x62\x5f\x63\x6f\x6e\x74\x72\x6f\x6c\x2d\x2d\x20\x72\x65\x73\x75\x6c\x74\x20\x3d\x20\x25\x64" "\n"
-,IIIll);return IIIll;}static int Illllllll(struct IIllIl*Illll,int lIIlI,int 
-llIlIIl,int IIlIIII){int IIIll=(0xaec+4408-0x1c24);switch(llIlIIl){case 
-USB_PORT_FEAT_ENABLE:IlllI(
+,IlIlI);return IlIlI;}static int IllIllllI(struct lIIIII*Illll,int lIIlI,int 
+IIIllll,int lIIIIII){int IlIlI=(0x13+6430-0x1931);switch(IIIllll){case 
+USB_PORT_FEAT_ENABLE:lIlll(
 "\x53\x65\x74\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x55\x53\x42\x5f\x50\x4f\x52\x54\x5f\x46\x45\x41\x54\x5f\x45\x4e\x41\x42\x4c\x45\x29" "\n"
 ,lIIlI);
 
 
-IIIll=-EPIPE;break;case USB_PORT_FEAT_SUSPEND:IlllI(
+IlIlI=-EPIPE;break;case USB_PORT_FEAT_SUSPEND:lIlll(
 "\x53\x65\x74\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x55\x53\x42\x5f\x50\x4f\x52\x54\x5f\x46\x45\x41\x54\x5f\x53\x55\x53\x50\x45\x4e\x44\x29" "\n"
 ,lIIlI);
 
 
 
 
-IIlIlII(Illll,lIIlI,lIlIlIIII,(0x207+7746-0x2049));break;case 
-USB_PORT_FEAT_RESET:IlllI(
+IlllIIl(Illll,lIIlI,llllIlIIl,(0x3d7+5386-0x18e1));break;case 
+USB_PORT_FEAT_RESET:lIlll(
 "\x53\x65\x74\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x55\x53\x42\x5f\x50\x4f\x52\x54\x5f\x46\x45\x41\x54\x5f\x52\x45\x53\x45\x54\x29" "\n"
 ,lIIlI);
 
@@ -508,18 +524,18 @@ USB_PORT_FEAT_RESET:IlllI(
 
 
 
-IIlIlII(Illll,lIIlI,IllIlIII,(0xfd5+5236-0x2449));if(Illll->IIIlIII[lIIlI]&&
-Illll->IIIlIII[lIIlI]->llIIIll>(0x6c5+5351-0x1bac)){IlIlIlIl(Illll->IIIlIII[
-lIIlI]);}break;case USB_PORT_FEAT_POWER:IlllI(
+IlllIIl(Illll,lIIlI,llllIlII,(0x12ad+1847-0x19e4));if(Illll->IlIIlII[lIIlI]&&
+Illll->IlIIlII[lIIlI]->IllIlIl>(0xfc+9150-0x24ba)){llIIIlIIl(Illll->IlIIlII[
+lIIlI]);}break;case USB_PORT_FEAT_POWER:lIlll(
 "\x53\x65\x74\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x55\x53\x42\x5f\x50\x4f\x52\x54\x5f\x46\x45\x41\x54\x5f\x50\x4f\x57\x45\x52\x29" "\n"
 ,lIIlI);
 
 
-IIlIlII(Illll,lIIlI,llIIlIIl,(0x16d8+709-0x199d));break;case USB_PORT_FEAT_TEST:
-IlllI(
+IlllIIl(Illll,lIIlI,lIIIIlll,(0xa99+5124-0x1e9d));break;case USB_PORT_FEAT_TEST:
+lIlll(
 "\x53\x65\x74\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x55\x53\x42\x5f\x50\x4f\x52\x54\x5f\x46\x45\x41\x54\x5f\x54\x45\x53\x54\x29" "\n"
 ,lIIlI);
-break;case USB_PORT_FEAT_INDICATOR:IlllI(
+break;case USB_PORT_FEAT_INDICATOR:lIlll(
 "\x53\x65\x74\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x55\x53\x42\x5f\x50\x4f\x52\x54\x5f\x46\x45\x41\x54\x5f\x49\x4e\x44\x49\x43\x41\x54\x4f\x52\x29" "\n"
 ,lIIlI);
 break;case USB_PORT_FEAT_CONNECTION:case USB_PORT_FEAT_OVER_CURRENT:case 
@@ -529,58 +545,59 @@ case USB_PORT_FEAT_C_SUSPEND:
 
 
 break;default:
-IlllI(
+lIlll(
 "\x53\x65\x74\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x20\x25\x64\x29" "\n"
-,lIIlI,llIlIIl);IIIll=-EPIPE;break;}return IIIll;}static int lIlllllII(struct 
-IIllIl*Illll,int lIIlI,int llIlIIl){int IIIll=(0x1477+1732-0x1b3b);switch(
-llIlIIl){case USB_PORT_FEAT_ENABLE:IlllI(
+,lIIlI,IIIllll);IlIlI=-EPIPE;break;}return IlIlI;}static int IIlIlIlII(struct 
+lIIIII*Illll,int lIIlI,int IIIllll){int IlIlI=(0x7e2+5320-0x1caa);switch(IIIllll
+){case USB_PORT_FEAT_ENABLE:lIlll(
 "\x43\x6c\x65\x61\x72\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x55\x53\x42\x5f\x50\x4f\x52\x54\x5f\x46\x45\x41\x54\x5f\x45\x4e\x41\x42\x4c\x45\x29" "\n"
 ,lIIlI);
 
 
 
-IIlIlII(Illll,lIIlI,lIIlIlll,(0x5c9+3158-0x121f));break;case 
-USB_PORT_FEAT_SUSPEND:IlllI(
+IlllIIl(Illll,lIIlI,IIlIIlll,(0x3dd+8498-0x250f));break;case 
+USB_PORT_FEAT_SUSPEND:lIlll(
 "\x43\x6c\x65\x61\x72\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x55\x53\x42\x5f\x50\x4f\x52\x54\x5f\x46\x45\x41\x54\x5f\x53\x55\x53\x50\x45\x4e\x44\x29" "\n"
 ,lIIlI);
 
 
 
-IIlIlII(Illll,lIIlI,lIIllIIIl,(0x1a5f+1133-0x1ecc));break;case 
-USB_PORT_FEAT_POWER:IlllI(
+IlllIIl(Illll,lIIlI,IIlIlIIlI,(0xb94+418-0xd36));break;case USB_PORT_FEAT_POWER:
+lIlll(
 "\x43\x6c\x65\x61\x72\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x55\x53\x42\x5f\x50\x4f\x52\x54\x5f\x46\x45\x41\x54\x5f\x50\x4f\x57\x45\x52\x29" "\n"
 ,lIIlI);
 
-IIlIlII(Illll,lIIlI,llIIlllI,(0x10e9+4491-0x2274));break;case 
-USB_PORT_FEAT_C_CONNECTION:IlllI(
+IlllIIl(Illll,lIIlI,IIIIlIll,(0x300+3910-0x1246));break;case 
+USB_PORT_FEAT_C_CONNECTION:lIlll(
 "\x43\x6c\x65\x61\x72\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x55\x53\x42\x5f\x50\x4f\x52\x54\x5f\x46\x45\x41\x54\x5f\x43\x5f\x43\x4f\x4e\x4e\x45\x43\x54\x49\x4f\x4e\x29" "\n"
-,lIIlI);IIlIlII(Illll,lIIlI,IlIlllII,(0xd63+5957-0x24a8));break;case 
-USB_PORT_FEAT_C_ENABLE:IlllI(
+,lIIlI);IlllIIl(Illll,lIIlI,lllllIII,(0x735+1938-0xec7));break;case 
+USB_PORT_FEAT_C_ENABLE:lIlll(
 "\x43\x6c\x65\x61\x72\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x55\x53\x42\x5f\x50\x4f\x52\x54\x5f\x46\x45\x41\x54\x5f\x43\x5f\x45\x4e\x41\x42\x4c\x45\x29" "\n"
-,lIIlI);IIlIlII(Illll,lIIlI,IllIllIll,(0x15b5+1454-0x1b63));break;case 
-USB_PORT_FEAT_C_SUSPEND:IlllI(
+,lIIlI);IlllIIl(Illll,lIIlI,lIlllIlIl,(0xb38+2253-0x1405));break;case 
+USB_PORT_FEAT_C_SUSPEND:lIlll(
 "\x43\x6c\x65\x61\x72\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x55\x53\x42\x5f\x50\x4f\x52\x54\x5f\x46\x45\x41\x54\x5f\x43\x5f\x53\x55\x53\x50\x45\x4e\x44\x29" "\n"
-,lIIlI);IIlIlII(Illll,lIIlI,IIIlIIIlI,(0x8cb+1054-0xce9));break;case 
-USB_PORT_FEAT_C_OVER_CURRENT:IlllI(
+,lIIlI);IlllIIl(Illll,lIIlI,IIllllllI,(0x115f+2533-0x1b44));break;case 
+USB_PORT_FEAT_C_OVER_CURRENT:lIlll(
 "\x43\x6c\x65\x61\x72\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x55\x53\x42\x5f\x50\x4f\x52\x54\x5f\x46\x45\x41\x54\x5f\x43\x5f\x4f\x56\x45\x52\x5f\x43\x55\x52\x52\x45\x4e\x54\x29" "\n"
 ,lIIlI);
-break;case USB_PORT_FEAT_C_RESET:IlllI(
+break;case USB_PORT_FEAT_C_RESET:lIlll(
 "\x43\x6c\x65\x61\x72\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x55\x53\x42\x5f\x50\x4f\x52\x54\x5f\x46\x45\x41\x54\x5f\x43\x5f\x52\x45\x53\x45\x54\x29" "\n"
-,lIIlI);IIlIlII(Illll,lIIlI,IIIIllII,(0x9a+7930-0x1f94));break;case 
-USB_PORT_FEAT_INDICATOR:IlllI(
+,lIIlI);IlllIIl(Illll,lIIlI,lllIlIll,(0x11ad+2128-0x19fd));break;case 
+USB_PORT_FEAT_INDICATOR:lIlll(
 "\x43\x6c\x65\x61\x72\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x55\x53\x42\x5f\x50\x4f\x52\x54\x5f\x46\x45\x41\x54\x5f\x49\x4e\x44\x49\x43\x41\x54\x4f\x52\x29" "\n"
 ,lIIlI);
 break;case USB_PORT_FEAT_CONNECTION:case USB_PORT_FEAT_OVER_CURRENT:case 
 USB_PORT_FEAT_RESET:case USB_PORT_FEAT_TEST:
 
 
-break;default:IlllI(
+break;default:lIlll(
 "\x43\x6c\x65\x61\x72\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x20\x25\x64\x29" "\n"
-,lIIlI,llIlIIl);IIIll=-EPIPE;break;}return IIIll;}
-#if KERNEL_GT_EQ((0x19e6+517-0x1be9),(0x13df+2248-0x1ca1),(0x1516+4262-0x2595)) \
-|| RHEL_RELEASE_GT_EQ((0xd3d+6070-0x24ed),(0x9a7+1677-0x1031)) 
-static int llIlIIlII(struct IIllIl*Illll,int lIIlI,int llIlIIl,int IIlIIII){int 
-IIIll=(0x237+2079-0xa56);switch(llIlIIl){case USB_PORT_FEAT_BH_PORT_RESET:IlllI(
+,lIIlI,IIIllll);IlIlI=-EPIPE;break;}return IlIlI;}
+#if KERNEL_GT_EQ((0x235c+70-0x23a0),(0x1f72+1858-0x26ae),(0xcba+4019-0x1c46)) ||\
+ RHEL_RELEASE_GT_EQ((0x13af+1142-0x181f),(0x244+4825-0x151a)) 
+static int IlIIIlIlI(struct lIIIII*Illll,int lIIlI,int IIIllll,int lIIIIII){int 
+IlIlI=(0x152d+810-0x1857);switch(IIIllll){case USB_PORT_FEAT_BH_PORT_RESET:lIlll
+(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x68\x75\x62\x5f\x63\x6f\x6e\x74\x72\x6f\x6c\x3a\x20\x53\x65\x74\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x55\x53\x42\x5f\x50\x4f\x52\x54\x5f\x46\x45\x41\x54\x5f\x42\x48\x5f\x50\x4f\x52\x54\x5f\x52\x45\x53\x45\x54\x29" "\n"
 ,lIIlI);
 
@@ -590,7 +607,7 @@ IIIll=(0x237+2079-0xa56);switch(llIlIIl){case USB_PORT_FEAT_BH_PORT_RESET:IlllI(
 
 
 
-case USB_PORT_FEAT_RESET:IlllI(
+case USB_PORT_FEAT_RESET:lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x68\x75\x62\x5f\x63\x6f\x6e\x74\x72\x6f\x6c\x3a\x20\x53\x65\x74\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x55\x53\x42\x5f\x50\x4f\x52\x54\x5f\x46\x45\x41\x54\x5f\x52\x45\x53\x45\x54\x29" "\n"
 ,lIIlI);
 
@@ -598,28 +615,28 @@ case USB_PORT_FEAT_RESET:IlllI(
 
 
 
-IllIlIl(Illll,lIIlI,IllIlIII,(0x36b+8605-0x2508));if(Illll->IIIlIII[lIIlI]&&
-Illll->IIIlIII[lIIlI]->llIIIll>(0x1095+4546-0x2257)){IlIlIlIl(Illll->IIIlIII[
-lIIlI]);}break;case USB_PORT_FEAT_LINK_STATE:IlllI(
+IlIllll(Illll,lIIlI,llllIlII,(0xfc+5090-0x14de));if(Illll->IlIIlII[lIIlI]&&Illll
+->IlIIlII[lIIlI]->IllIlIl>(0x13d2+1171-0x1865)){llIIIlIIl(Illll->IlIIlII[lIIlI])
+;}break;case USB_PORT_FEAT_LINK_STATE:lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x68\x75\x62\x5f\x63\x6f\x6e\x74\x72\x6f\x6c\x3a\x20\x53\x65\x74\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x55\x53\x42\x5f\x50\x4f\x52\x54\x5f\x46\x45\x41\x54\x5f\x4c\x49\x4e\x4b\x5f\x53\x54\x41\x54\x45\x2c\x20\x30\x78\x25\x30\x34\x78\x29" "\n"
-,lIIlI,IIlIIII);
+,lIIlI,lIIIIII);
 
 
-IllIlIl(Illll,lIIlI,lIlllIIl,IIlIIII);break;case USB_PORT_FEAT_POWER:IlllI(
+IlIllll(Illll,lIIlI,IlIIIIll,lIIIIII);break;case USB_PORT_FEAT_POWER:lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x68\x75\x62\x5f\x63\x6f\x6e\x74\x72\x6f\x6c\x3a\x20\x53\x65\x74\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x55\x53\x42\x5f\x50\x4f\x52\x54\x5f\x46\x45\x41\x54\x5f\x50\x4f\x57\x45\x52\x29" "\n"
 ,lIIlI);
 
-IllIlIl(Illll,lIIlI,llIIlIIl,(0x845+6642-0x2237));break;case 
-USB_PORT_FEAT_U1_TIMEOUT:case USB_PORT_FEAT_U2_TIMEOUT:IlllI(
+IlIllll(Illll,lIIlI,lIIIIlll,(0x16e0+2085-0x1f05));break;case 
+USB_PORT_FEAT_U1_TIMEOUT:case USB_PORT_FEAT_U2_TIMEOUT:lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x68\x75\x62\x5f\x63\x6f\x6e\x74\x72\x6f\x6c\x3a\x20\x53\x65\x74\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x55\x53\x42\x5f\x50\x4f\x52\x54\x5f\x46\x45\x41\x54\x5f\x55\x31\x2f\x55\x32\x5f\x54\x49\x4d\x45\x4f\x55\x54\x29" "\n"
 ,lIIlI);
 
 
-break;case USB_PORT_FEAT_REMOTE_WAKE_MASK:IlllI(
+break;case USB_PORT_FEAT_REMOTE_WAKE_MASK:lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x68\x75\x62\x5f\x63\x6f\x6e\x74\x72\x6f\x6c\x3a\x20\x53\x65\x74\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x55\x53\x42\x5f\x50\x4f\x52\x54\x5f\x46\x45\x41\x54\x5f\x52\x45\x4d\x4f\x54\x45\x5f\x57\x41\x4b\x45\x5f\x4d\x41\x53\x4b\x29" "\n"
 ,lIIlI);
 
-break;case USB_PORT_FEAT_FORCE_LINKPM_ACCEPT:IlllI(
+break;case USB_PORT_FEAT_FORCE_LINKPM_ACCEPT:lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x68\x75\x62\x5f\x63\x6f\x6e\x74\x72\x6f\x6c\x3a\x20\x53\x65\x74\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x55\x53\x42\x5f\x50\x4f\x52\x54\x5f\x46\x45\x41\x54\x5f\x46\x4f\x52\x43\x45\x5f\x4c\x49\x4e\x4b\x50\x4d\x5f\x41\x43\x43\x45\x50\x54\x29" "\n"
 ,lIIlI);
 break;case USB_PORT_FEAT_CONNECTION:case USB_PORT_FEAT_OVER_CURRENT:case 
@@ -629,34 +646,34 @@ USB_PORT_FEAT_C_PORT_CONFIG_ERROR:case USB_PORT_FEAT_C_BH_PORT_RESET:
 
 
 break;default:
-IlllI(
+lIlll(
 "\x53\x65\x74\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x20\x25\x64\x29" "\n"
-,lIIlI,llIlIIl);IIIll=-EPIPE;break;}return IIIll;}static int llIIIIllI(struct 
-IIllIl*Illll,int lIIlI,int llIlIIl){int IIIll=(0x1e58+1610-0x24a2);switch(
-llIlIIl){case USB_PORT_FEAT_POWER:IlllI(
+,lIIlI,IIIllll);IlIlI=-EPIPE;break;}return IlIlI;}static int lllIIIlIl(struct 
+lIIIII*Illll,int lIIlI,int IIIllll){int IlIlI=(0x1ea+1722-0x8a4);switch(IIIllll)
+{case USB_PORT_FEAT_POWER:lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x68\x75\x62\x5f\x63\x6f\x6e\x74\x72\x6f\x6c\x3a\x20\x43\x6c\x65\x61\x72\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x55\x53\x42\x5f\x50\x4f\x52\x54\x5f\x46\x45\x41\x54\x5f\x50\x4f\x57\x45\x52\x29" "\n"
 ,lIIlI);
 
-IllIlIl(Illll,lIIlI,llIIlllI,(0x79+3624-0xea1));break;case 
-USB_PORT_FEAT_C_CONNECTION:IlllI(
+IlIllll(Illll,lIIlI,IIIIlIll,(0x1626+3281-0x22f7));break;case 
+USB_PORT_FEAT_C_CONNECTION:lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x68\x75\x62\x5f\x63\x6f\x6e\x74\x72\x6f\x6c\x3a\x20\x43\x6c\x65\x61\x72\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x55\x53\x42\x5f\x50\x4f\x52\x54\x5f\x46\x45\x41\x54\x5f\x43\x5f\x43\x4f\x4e\x4e\x45\x43\x54\x49\x4f\x4e\x29" "\n"
-,lIIlI);IllIlIl(Illll,lIIlI,IlIlllII,(0x19a4+2922-0x250e));break;case 
-USB_PORT_FEAT_C_OVER_CURRENT:IlllI(
+,lIIlI);IlIllll(Illll,lIIlI,lllllIII,(0x423+7584-0x21c3));break;case 
+USB_PORT_FEAT_C_OVER_CURRENT:lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x68\x75\x62\x5f\x63\x6f\x6e\x74\x72\x6f\x6c\x3a\x20\x43\x6c\x65\x61\x72\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x55\x53\x42\x5f\x50\x4f\x52\x54\x5f\x46\x45\x41\x54\x5f\x43\x5f\x4f\x56\x45\x52\x5f\x43\x55\x52\x52\x45\x4e\x54\x29" "\n"
 ,lIIlI);
-break;case USB_PORT_FEAT_C_RESET:IlllI(
+break;case USB_PORT_FEAT_C_RESET:lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x68\x75\x62\x5f\x63\x6f\x6e\x74\x72\x6f\x6c\x3a\x20\x43\x6c\x65\x61\x72\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x55\x53\x42\x5f\x50\x4f\x52\x54\x5f\x46\x45\x41\x54\x5f\x43\x5f\x52\x45\x53\x45\x54\x29" "\n"
-,lIIlI);IllIlIl(Illll,lIIlI,IIIIllII,(0x68c+2534-0x1072));break;case 
-USB_PORT_FEAT_C_PORT_LINK_STATE:IlllI(
+,lIIlI);IlIllll(Illll,lIIlI,lllIlIll,(0x7d8+7878-0x269e));break;case 
+USB_PORT_FEAT_C_PORT_LINK_STATE:lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x68\x75\x62\x5f\x63\x6f\x6e\x74\x72\x6f\x6c\x3a\x20\x43\x6c\x65\x61\x72\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x55\x53\x42\x5f\x50\x4f\x52\x54\x5f\x46\x45\x41\x54\x5f\x43\x5f\x50\x4f\x52\x54\x5f\x4c\x49\x4e\x4b\x5f\x53\x54\x41\x54\x45\x29" "\n"
-,lIIlI);IllIlIl(Illll,lIIlI,lIlIllIlI,(0xbef+3471-0x197e));break;case 
-USB_PORT_FEAT_C_PORT_CONFIG_ERROR:IlllI(
+,lIIlI);IlIllll(Illll,lIIlI,lIIlIlllI,(0x16c0+3726-0x254e));break;case 
+USB_PORT_FEAT_C_PORT_CONFIG_ERROR:lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x68\x75\x62\x5f\x63\x6f\x6e\x74\x72\x6f\x6c\x3a\x20\x43\x6c\x65\x61\x72\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x55\x53\x42\x5f\x50\x4f\x52\x54\x5f\x46\x45\x41\x54\x5f\x43\x5f\x50\x4f\x52\x54\x5f\x43\x4f\x4e\x46\x49\x47\x5f\x45\x52\x52\x4f\x52\x29" "\n"
 ,lIIlI);
-break;case USB_PORT_FEAT_C_BH_PORT_RESET:IlllI(
+break;case USB_PORT_FEAT_C_BH_PORT_RESET:lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x68\x75\x62\x5f\x63\x6f\x6e\x74\x72\x6f\x6c\x3a\x20\x43\x6c\x65\x61\x72\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x55\x53\x42\x5f\x50\x4f\x52\x54\x5f\x46\x45\x41\x54\x5f\x43\x5f\x42\x48\x5f\x50\x4f\x52\x54\x5f\x52\x45\x53\x45\x54\x29" "\n"
-,lIIlI);IllIlIl(Illll,lIIlI,IllllIlIl,(0x419+417-0x5ba));break;case 
-USB_PORT_FEAT_FORCE_LINKPM_ACCEPT:IlllI(
+,lIIlI);IlIllll(Illll,lIIlI,IIIIIIlIl,(0xd72+3411-0x1ac5));break;case 
+USB_PORT_FEAT_FORCE_LINKPM_ACCEPT:lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x68\x75\x62\x5f\x63\x6f\x6e\x74\x72\x6f\x6c\x3a\x20\x43\x6c\x65\x61\x72\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x55\x53\x42\x5f\x50\x4f\x52\x54\x5f\x46\x45\x41\x54\x5f\x46\x4f\x52\x43\x45\x5f\x4c\x49\x4e\x4b\x50\x4d\x5f\x41\x43\x43\x45\x50\x54\x29" "\n"
 ,lIIlI);
 break;case USB_PORT_FEAT_CONNECTION:case USB_PORT_FEAT_OVER_CURRENT:case 
@@ -665,57 +682,58 @@ case USB_PORT_FEAT_U2_TIMEOUT:case USB_PORT_FEAT_REMOTE_WAKE_MASK:case
 USB_PORT_FEAT_BH_PORT_RESET:
 
 
-break;default:IlllI(
+break;default:lIlll(
 "\x43\x6c\x65\x61\x72\x50\x6f\x72\x74\x46\x65\x61\x74\x75\x72\x65\x28\x25\x64\x2c\x20\x25\x64\x29" "\n"
-,lIIlI,llIlIIl);IIIll=-EPIPE;break;}return IIIll;}
+,lIIlI,IIIllll);IlIlI=-EPIPE;break;}return IlIlI;}
 #endif 
-static int IIIlllIIl(struct usb_hcd*llIlI,char*IIIIl){int IIIll=
-(0x2b8+2009-0xa91);struct IIllIl*Illll=lllllIl(llIlI);u32*lIlllIlII=(u32*)IIIIl;
-unsigned long flags;IlllI(
+static int IIIIllIlI(struct usb_hcd*lllIl,char*IllIl){int IlIlI=
+(0xe9+5849-0x17c2);struct lIIIII*Illll=lIIllII(lllIl);u32*lllllIllI=(u32*)IllIl;
+unsigned long flags;lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x68\x75\x62\x5f\x73\x74\x61\x74\x75\x73\x5f\x64\x61\x74\x61\x5b\x25\x73\x5d\x2b\x2b" "\n"
-,IlllIlI(llIlI));spin_lock_irqsave(&Illll->lock,flags);do
-{int i;int IIlIlllIl=(0x13f+7921-0x2030);if(!test_bit(HCD_FLAG_HW_ACCESSIBLE,&
-llIlI->flags))break;for(i=(0x1108+2028-0x18f4);i<lIIllII;i++){if(Illll->IllllIl[
-i]&IlIlllIII){IlllI(
+,llllIlI(lllIl));spin_lock_irqsave(&Illll->lock,flags);do
+{int i;int IIlIlIlll=(0xc82+3379-0x19b5);if(!test_bit(HCD_FLAG_HW_ACCESSIBLE,&
+lllIl->flags)){break;}for(i=(0x9af+2667-0x141a);i<IllIIIl;i++){if(Illll->lIIlIII
+[i]&IIIllIlll){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x68\x75\x62\x5f\x73\x74\x61\x74\x75\x73\x5f\x64\x61\x74\x61\x3a\x20\x70\x6f\x72\x74\x20\x25\x64\x20\x68\x61\x73\x20\x63\x68\x61\x6e\x67\x65\x64\x2e\x20\x77\x50\x6f\x72\x74\x53\x74\x61\x74\x75\x73\x3d\x30\x78\x25\x30\x34\x58\x20\x77\x50\x6f\x72\x74\x43\x68\x61\x6e\x67\x65\x3d\x30\x78\x25\x30\x34\x58" "\n"
-,i,Illll->IIIllII[i],Illll->IllllIl[i]);if(IIlIlllIl==(0xe83+5559-0x243a))*
-lIlllIlII=(0x1112+2056-0x191a);IIlIlllIl=(0x123a+4781-0x24e6);
-*lIlllIlII|=(0x477+7834-0x2310)<<(i+(0xf2+7322-0x1d8b));}}if(IIlIlllIl){IIIll=
-IlIIllII;if(Illll->llIlIIIIl){usb_hcd_resume_root_hub(llIlI);}}}while(
-(0x9e8+6870-0x24be));spin_unlock_irqrestore(&Illll->lock,flags);IlllI(
+,i,Illll->lIIIIIl[i],Illll->lIIlIII[i]);if(IIlIlIlll==(0xd8+4889-0x13f1)){*
+lllllIllI=(0x17d4+3144-0x241c);}IIlIlIlll=(0x15ed+2505-0x1fb5);
+*lllllIllI|=(0x11e9+4043-0x21b3)<<(i+(0x11e6+423-0x138c));}}if(IIlIlIlll){IlIlI=
+lIIIIIlI;if(Illll->IllllIlII){usb_hcd_resume_root_hub(lllIl);}}}while(
+(0x1457+228-0x153b));spin_unlock_irqrestore(&Illll->lock,flags);lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x68\x75\x62\x5f\x73\x74\x61\x74\x75\x73\x5f\x64\x61\x74\x61\x2d\x2d\x20\x72\x65\x73\x75\x6c\x74\x20\x3d\x20\x25\x64\x20\x6d\x61\x73\x6b\x20\x3d\x20\x30\x78\x25\x30\x38\x58" "\n"
-,IIIll,(u32)*lIlllIlII);return IIIll;}static int IIlIIllIl(struct usb_hcd*llIlI)
+,IlIlI,(u32)*lllllIllI);return IlIlI;}static int lIllIIlII(struct usb_hcd*lllIl)
 {
-struct IIllIl*Illll=lllllIl(llIlI);Illll->llIlIIIIl=(0x254+4550-0x1419);IlllI(
+struct lIIIII*Illll=lIIllII(lllIl);Illll->IllllIlII=(0xaea+6407-0x23f0);lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x62\x75\x73\x5f\x73\x75\x73\x70\x65\x6e\x64\x5b\x25\x73\x5d" "\n"
-,IlllIlI(llIlI));return(0x652+1801-0xd5b);}static int lIlIlIlll(struct usb_hcd*
-llIlI){
-struct IIllIl*Illll=lllllIl(llIlI);Illll->llIlIIIIl=(0x11d3+1297-0x16e4);IlllI(
+,llllIlI(lllIl));return(0xecd+1215-0x138c);}static int IIlIIlIII(struct usb_hcd*
+lllIl){
+struct lIIIII*Illll=lIIllII(lllIl);Illll->IllllIlII=(0x1431+3812-0x2315);lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x62\x75\x73\x5f\x72\x65\x73\x75\x6d\x65\x5b\x25\x73\x5d" "\n"
-,IlllIlI(llIlI));return(0x1172+5204-0x25c6);}
-#if KERNEL_GT_EQ((0x15ab+2868-0x20dd),(0x127+3170-0xd83),(0x1fbb+1211-0x244f)) \
-|| RHEL_RELEASE_GT_EQ((0x329+5644-0x192f),(0x1d50+2464-0x26ed)) 
-static int llIlIIllI(struct usb_hcd*llIlI,struct usb_device*IlIII,struct 
-usb_host_endpoint**lIIIIIIlI,unsigned int IIIIIlIlI,unsigned int lIllllllI,gfp_t
- IlIIl){IlllI(
+,llllIlI(lllIl));return(0x968+6768-0x23d8);}
+#if KERNEL_GT_EQ((0x1e94+1903-0x2601),(0x518+5957-0x1c57),(0x1354+2912-0x1e8d)) \
+|| RHEL_RELEASE_GT_EQ((0x1caa+1766-0x238a),(0xcaa+1878-0x13fd)) 
+static int llllIlllI(struct usb_hcd*lllIl,struct usb_device*IlIIl,struct 
+usb_host_endpoint**lllllIIll,unsigned int lllIIIllI,unsigned int llIllllll,gfp_t
+ llllI){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x61\x6c\x6c\x6f\x63\x5f\x73\x74\x72\x65\x61\x6d\x73\x5b\x25\x73\x5d" "\n"
-,IlllIlI(llIlI));
-return(0x16d8+1427-0x1c6b);}static int llIIlIIll(struct usb_hcd*llIlI,struct 
-usb_device*IlIII,struct usb_host_endpoint**lIIIIIIlI,unsigned int IIIIIlIlI,
-gfp_t IlIIl){IlllI(
+,llllIlI(lllIl));
+return(0xa43+1042-0xe55);}static int lllIlIlll(struct usb_hcd*lllIl,struct 
+usb_device*IlIIl,struct usb_host_endpoint**lllllIIll,unsigned int lllIIIllI,
+gfp_t llllI){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x66\x72\x65\x65\x5f\x73\x74\x72\x65\x61\x6d\x73\x5b\x25\x73\x5d" "\n"
-,IlllIlI(llIlI));
-return(0x601+4804-0x18c5);}
+,llllIlI(lllIl));
+return(0x102a+2396-0x1986);}
 #endif 
 
 
-int IlIlIlIll(void){int IIIll=(0x138a+212-0x145e);int IlIIllIIl=
-(0x1161+2605-0x1b8e);int llIIIIIlI=(0x15b+3209-0xde4);IlllI(
+int IlIIlIlII(void){int IlIlI=(0x144c+2795-0x1f37);int lIIIllIll=
+(0x419+2931-0xf8c);int lllIllIIl=(0x148d+4541-0x264a);lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x69\x6e\x69\x74\x5f\x6d\x6f\x64\x75\x6c\x65\x3a\x20\x2b\x2b" "\n"
-);do{struct sysinfo lllIIIl;INIT_LIST_HEAD(&lIIlIIl);spin_lock_init(&lIIIIl);
-si_meminfo(&lllIIIl);IlllI(
+);do
+{struct sysinfo lIlIIll;INIT_LIST_HEAD(&IIllIII);spin_lock_init(&IIlIII);
+si_meminfo(&lIlIIll);lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x69\x6e\x69\x74\x5f\x6d\x6f\x64\x75\x6c\x65\x3a\x20\x74\x6f\x74\x61\x6c\x72\x61\x6d\x3d\x25\x6c\x75\x20\x62\x79\x74\x65\x73\x20\x74\x6f\x74\x61\x6c\x68\x69\x67\x68\x3d\x25\x6c\x75\x20\x62\x79\x74\x65\x73" "\n"
-,lllIIIl.totalram*lllIIIl.mem_unit,lllIIIl.totalhigh*lllIIIl.mem_unit);
+,lIlIIll.totalram*lIlIIll.mem_unit,lIlIIll.totalhigh*lIlIIll.mem_unit);
 #if defined(CONFIG_X86_32) && !defined(_USBD_VHCI_NO_DMA_)
 
 
@@ -741,233 +759,233 @@ si_meminfo(&lllIIIl);IlllI(
 
 
 
-IlllIIII=(lllIIIl.totalhigh>(0xa0a+5763-0x208d));
+lllIIlll=(lIlIIll.totalhigh>(0x7ac+4033-0x176d));
 #endif
-IIIll=platform_driver_register(&IllIllll);if(IIIll!=(0x1b9+4131-0x11dc)){IlllI(
+IlIlI=platform_driver_register(&lIIIIlIlI);if(IlIlI!=(0x868+1830-0xf8e)){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x69\x6e\x69\x74\x5f\x6d\x6f\x64\x75\x6c\x65\x3a\x20\x70\x6c\x61\x74\x66\x6f\x72\x6d\x5f\x64\x72\x69\x76\x65\x72\x5f\x72\x65\x67\x69\x73\x74\x65\x72\x20\x66\x61\x69\x6c\x65\x64\x2e\x20\x45\x72\x72\x6f\x72\x20\x6e\x75\x6d\x62\x65\x72\x20\x25\x64" "\n"
-,IIIll);break;}IlIIllIIl=(0x156c+2738-0x201d);IIIll=platform_device_register(&
-lIIllllI);if(IIIll!=(0x3dc+1446-0x982)){IlllI(
+,IlIlI);break;}lIIIllIll=(0x13f8+4023-0x23ae);IlIlI=platform_device_register(&
+llIlllII);if(IlIlI!=(0xd75+3763-0x1c28)){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x69\x6e\x69\x74\x5f\x6d\x6f\x64\x75\x6c\x65\x3a\x20\x70\x6c\x61\x74\x66\x6f\x72\x6d\x5f\x64\x65\x76\x69\x63\x65\x5f\x72\x65\x67\x69\x73\x74\x65\x72\x20\x66\x61\x69\x6c\x65\x64\x2e\x20\x45\x72\x72\x6f\x72\x20\x6e\x75\x6d\x62\x65\x72\x20\x25\x64" "\n"
-,IIIll);break;}llIIIIIlI=(0x53b+7160-0x2132);IIllllIl=llllIIIII();if(IIllllIl==
-NULL){IIIll=-ENOMEM;IlllI(
+,IlIlI);break;}lllIllIIl=(0x10d5+2205-0x1971);IlllIIll=IIIlIllIl();if(IlllIIll==
+NULL){IlIlI=-ENOMEM;lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x69\x6e\x69\x74\x5f\x6d\x6f\x64\x75\x6c\x65\x3a\x20\x61\x6c\x6c\x6f\x63\x20\x6d\x69\x6e\x6f\x72\x20\x66\x61\x69\x6c\x65\x64\x2e\x20\x45\x72\x72\x6f\x72\x20\x6e\x75\x6d\x62\x65\x72\x20\x25\x64" "\n"
-,IIIll);break;}}while((0x21ca+845-0x2517));if(IIIll!=(0x1f5f+1407-0x24de)){if(
-IIllllIl){llIllllII(IIllllIl);IIllllIl=NULL;}if(llIIIIIlI){
-platform_device_unregister(&lIIllllI);}if(IlIIllIIl){platform_driver_unregister(
-&IllIllll);}}IlllI(
+,IlIlI);break;}}while((0x38d+9075-0x2700));if(IlIlI!=(0x10ea+5521-0x267b)){if(
+IlllIIll){IIlIIIIlI(IlllIIll);IlllIIll=NULL;}if(lllIllIIl){
+platform_device_unregister(&llIlllII);}if(lIIIllIll){platform_driver_unregister(
+&lIIIIlIlI);}}lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x69\x6e\x69\x74\x5f\x6d\x6f\x64\x75\x6c\x65\x3a\x20\x2d\x2d\x20\x72\x65\x73\x75\x6c\x74\x20\x3d\x20\x25\x64" "\n"
-,IIIll);return IIIll;}void lIIllIlI(void){IlllI(
+,IlIlI);return IlIlI;}void IllIIIlI(void){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x64\x65\x69\x6e\x69\x74\x5f\x6d\x6f\x64\x75\x6c\x65\x3a\x20\x2b\x2b" "\n"
-);if(IIllllIl){llIllllII(IIllllIl);IIllllIl=NULL;}spin_lock(&lIIIIl);while(!
-list_empty(&lIIlIIl)){struct IlIlIl*lIllI=(struct IlIlIl*)lIIlIIl.next;IIIlIlll(
-lIllI);spin_unlock(&lIIIIl);IlIIlIll(lIllI);IIlllIll(lIllI);spin_lock(&lIIIIl);}
-spin_unlock(&lIIIIl);platform_device_unregister(&lIIllllI);
-platform_driver_unregister(&IllIllll);IlllI(
+);if(IlllIIll){IIlIIIIlI(IlllIIll);IlllIIll=NULL;}spin_lock(&IIlIII);while(!
+list_empty(&IIllIII)){struct lIlIIl*lIllI=(struct lIlIIl*)IIllIII.next;IlllllII(
+lIllI);spin_unlock(&IIlIII);IlIIllII(lIllI);IlIllIIl(lIllI);spin_lock(&IIlIII);}
+spin_unlock(&IIlIII);platform_device_unregister(&llIlllII);
+platform_driver_unregister(&lIIIIlIlI);lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x64\x65\x69\x6e\x69\x74\x5f\x6d\x6f\x64\x75\x6c\x65\x3a\x20\x2d\x2d" "\n"
-);}struct IlIlIl*lIIlIIIII(u16 vid,u16 IlIIlIl,u16 llIlllI,int speed){struct 
-IlIlIl*lIllI=NULL;do{struct usb_hcd*parent;
-#if KERNEL_GT_EQ((0x599+2992-0x1147),(0x168a+3028-0x2258),(0x47+9570-0x2582)) ||\
- RHEL_RELEASE_GT_EQ((0x138b+2820-0x1e89),(0xd32+3184-0x199f)) 
-parent=(speed==USB_SPEED_SUPER)?IllIIII:llIIIIl;
+);}struct lIlIIl*llIIIIlIl(u16 vid,u16 IlIlIII,u16 lIlIlll,int speed){struct 
+lIlIIl*lIllI=NULL;do
+{struct usb_hcd*parent;
+#if KERNEL_GT_EQ((0x1e93+1793-0x2592),(0x1009+961-0x13c4),(0x811+5373-0x1ce7)) \
+|| RHEL_RELEASE_GT_EQ((0x15a+2892-0xca0),(0xee1+936-0x1286)) 
+parent=(speed==USB_SPEED_SUPER)?lllIlIl:llIIIII;
 #else
-parent=llIIIIl;
+parent=llIIIII;
 #endif
-if(parent==NULL){IlllI(
+if(parent==NULL){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x63\x72\x65\x61\x74\x65\x3a\x20\x76\x68\x63\x64\x20\x6e\x6f\x74\x20\x69\x6e\x69\x74\x69\x61\x6c\x69\x7a\x65\x64\x2e" "\n"
-);break;}lIllI=IIIlIll(sizeof(*lIllI),GFP_KERNEL);if(!lIllI){IlllI(
+);break;}lIllI=lIllllI(sizeof(*lIllI),GFP_KERNEL);if(!lIllI){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x63\x72\x65\x61\x74\x65\x3a\x20\x6b\x6d\x61\x6c\x6c\x6f\x63\x20\x66\x61\x69\x6c\x65\x64\x2e" "\n"
-);break;}if(lIIIllIlI(lIllI)<(0x10ff+2355-0x1a32)){IlllI(
+);break;}if(llllIlIII(lIllI)<(0xfb6+2433-0x1937)){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x63\x72\x65\x61\x74\x65\x3a\x20\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x61\x6c\x6c\x6f\x63\x5f\x6d\x69\x6e\x6f\x72\x20\x66\x61\x69\x6c\x65\x64\x2e" "\n"
 );break;}
 #ifdef _USBD_DEBUG_MEMORY_
-atomic_inc(&IIIIIllII);
+atomic_inc(&Illllllll);
 #endif
-init_waitqueue_head(&lIllI->IIIIlI);spin_lock_init(&lIllI->IlIIll);
-INIT_LIST_HEAD(&lIllI->IIlllII);INIT_LIST_HEAD(&lIllI->IIIIlII);INIT_LIST_HEAD(&
-lIllI->IIlIIlIl);kref_init(&lIllI->lIIlll);lIllI->vid=vid;lIllI->IlIIlIl=IlIIlIl
-;lIllI->llIlllI=llIlllI;lIllI->speed=speed;lIllI->parent=parent;lIllI->lIIlI=-
-(0x265+8271-0x22b3);spin_lock(&lIIIIl);list_add(&lIllI->lIlIII,&lIIlIIl);
-spin_unlock(&lIIIIl);return lIllI;}while((0x2f2+3225-0xf8b));if(lIllI){IlIIllll(
-lIllI);IlIIIl(lIllI);}return NULL;}void IlIIlIll(struct IlIlIl*lIllI){struct 
-list_head*lllllIlIl;IlllI(
+init_waitqueue_head(&lIllI->lIIllI);spin_lock_init(&lIllI->IIllII);
+INIT_LIST_HEAD(&lIllI->IllIIlI);INIT_LIST_HEAD(&lIllI->llIllIl);INIT_LIST_HEAD(&
+lIllI->lllIlllI);kref_init(&lIllI->IllIll);lIllI->vid=vid;lIllI->IlIlIII=IlIlIII
+;lIllI->lIlIlll=lIlIlll;lIllI->speed=speed;lIllI->parent=parent;lIllI->lIIlI=-
+(0x1249+3255-0x1eff);spin_lock(&IIlIII);list_add(&lIllI->IIIIll,&IIllIII);
+spin_unlock(&IIlIII);return lIllI;}while((0x618+6726-0x205e));if(lIllI){
+lIllllIIl(lIllI);lIlIll(lIllI);}return NULL;}void IlIIllII(struct lIlIIl*lIllI){
+struct list_head*lIllIIIl;lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x72\x65\x6d\x6f\x76\x65\x2b\x2b" "\n"
 );
-spin_lock(&lIIIIl);list_for_each(lllllIlIl,&lIIlIIl){if(lllllIlIl==&lIllI->
-lIlIII){list_del_init(&lIllI->lIlIII);break;}}spin_unlock(&lIIIIl);
+spin_lock(&IIlIII);list_for_each(lIllIIIl,&IIllIII){if(lIllIIIl==&lIllI->IIIIll)
+{list_del_init(&lIllI->IIIIll);break;}}spin_unlock(&IIlIII);
 
 
-if(lllllIlIl==&lIllI->lIlIII){
+if(lIllIIIl==&lIllI->IIIIll){
 #ifdef _USBD_DEBUG_MEMORY_
-atomic_inc(&llIIIlIl);
+atomic_inc(&IlIIlllI);
 #endif
 
 
-llIIlIIlI(lIllI);IIlllIll(lIllI);}IlllI(
+IlllIIIll(lIllI);IlIllIIl(lIllI);}lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x72\x65\x6d\x6f\x76\x65\x2d\x2d" "\n"
-);}void llllIllIl(void){struct IlIlIl*lIllI;IlllI(
+);}void lIlllllII(void){struct lIlIIl*lIllI;lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x72\x65\x6d\x6f\x76\x65\x5f\x61\x6c\x6c\x2b\x2b" "\n"
-);spin_lock(&lIIIIl);while(!list_empty(&lIIlIIl)){lIllI=list_entry(lIIlIIl.next,
-struct IlIlIl,lIlIII);list_del_init(&lIllI->lIlIII);spin_unlock(&lIIIIl);
+);spin_lock(&IIlIII);while(!list_empty(&IIllIII)){lIllI=list_entry(IIllIII.next,
+struct lIlIIl,IIIIll);list_del_init(&lIllI->IIIIll);spin_unlock(&IIlIII);
 #ifdef _USBD_DEBUG_MEMORY_
-atomic_inc(&llIIIlIl);
+atomic_inc(&IlIIlllI);
 #endif
-llIIlIIlI(lIllI);IIlllIll(lIllI);spin_lock(&lIIIIl);}spin_unlock(&lIIIIl);IlllI(
+IlllIIIll(lIllI);IlIllIIl(lIllI);spin_lock(&IIlIII);}spin_unlock(&IIlIII);lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x72\x65\x6d\x6f\x76\x65\x5f\x61\x6c\x6c\x2d\x2d" "\n"
-);}int llllIllll(struct IlIlIl*lIllI){int IIIll;unsigned long flags;int lIIlI;
-struct IIllIl*Illll;struct IIllIl*IIIIIllI;IlllI(
+);}int lllIIlllI(struct lIlIIl*lIllI){int IlIlI;unsigned long flags;int lIIlI;
+struct lIIIII*Illll;struct lIIIII*llIlIIlI;lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x70\x6c\x75\x67\x3a\x20\x2b\x2b" "\n"
-);IIIll=lIlIIllIl(lIllI);if(IIIll<(0x153+3529-0xf1c)){IlllI(
+);IlIlI=lIllIllII(lIllI);if(IlIlI<(0x1009+2892-0x1b55)){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x70\x6c\x75\x67\x3a\x20\x2d\x2d\x20\x72\x65\x73\x75\x6c\x74\x3d\x25\x64" "\n"
-,IIIll);return IIIll;}Illll=lllllIl(lIllI->parent);IIIIIllI=Illll->lIIIllll?
-lllllIl(Illll->lIIIllll):NULL;spin_lock_irqsave(&Illll->lock,flags);if(IIIIIllI)
-spin_lock(&IIIIIllI->lock);IIIll=-ENOENT;for(lIIlI=(0x65+8346-0x20ff);lIIlI<
-lIIllII;lIIlI++){if((Illll->IIIlIII[lIIlI]==NULL)&&((IIIIIllI==NULL)||(IIIIIllI
-->IIIlIII[lIIlI]==NULL))){IlllI(
+,IlIlI);return IlIlI;}Illll=lIIllII(lIllI->parent);llIlIIlI=Illll->llllllll?
+lIIllII(Illll->llllllll):NULL;spin_lock_irqsave(&Illll->lock,flags);if(llIlIIlI)
+{spin_lock(&llIlIIlI->lock);}IlIlI=-ENOENT;for(lIIlI=(0x2079+37-0x209e);lIIlI<
+IllIIIl;lIIlI++){if((Illll->IlIIlII[lIIlI]==NULL)&&((llIlIIlI==NULL)||(llIlIIlI
+->IlIIlII[lIIlI]==NULL))){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x70\x6c\x75\x67\x3a\x20\x66\x6f\x75\x6e\x64\x20\x66\x72\x65\x65\x20\x70\x6f\x72\x74\x20\x25\x64" "\n"
-,lIIlI);IIIlIlll(lIllI);lIllI->lIIlI=lIIlI;lIllI->llIIIll=-(0x34+1624-0x68b);
-Illll->IIIlIII[lIIlI]=lIllI;
-#if KERNEL_GT_EQ((0xd53+2237-0x160e),(0x2672+74-0x26b6),(0x3ad+3989-0x131b)) || \
-RHEL_RELEASE_GT_EQ((0x1b41+1869-0x2288),(0x1167+1500-0x1740)) 
-if(lIllI->parent->speed==HCD_USB3){IllIlIl(Illll,lIIlI,lIllIIll,
-(0x1725+2756-0x21e9));}else
+,lIIlI);IlllllII(lIllI);lIllI->lIIlI=lIIlI;lIllI->IllIlIl=-(0x15b7+1939-0x1d49);
+Illll->IlIIlII[lIIlI]=lIllI;
+#if KERNEL_GT_EQ((0x2c+35-0x4d),(0x14aa+765-0x17a1),(0x8dc+2737-0x1366)) || \
+RHEL_RELEASE_GT_EQ((0x453+7649-0x222e),(0xdac+5776-0x2439)) 
+if(lIllI->parent->speed==HCD_USB3){IlIllll(Illll,lIIlI,lIIlIllI,
+(0x25d6+141-0x2663));}else
 #endif
-{IIlIlII(Illll,lIIlI,lIllIIll,(0x195d+2623-0x239c));}IIIll=(0x48c+7757-0x22d9);
-break;}}if(IIIIIllI)spin_unlock(&IIIIIllI->lock);spin_unlock_irqrestore(&Illll->
-lock,flags);if(IIIll<(0x4ef+8007-0x2436)){
-IlllIlll(lIllI);}else{
-usb_hcd_poll_rh_status(lIllI->parent);}IlllI(
+{IlllIIl(Illll,lIIlI,lIIlIllI,(0x10aa+1227-0x1575));}IlIlI=(0x3d1+7741-0x220e);
+break;}}if(llIlIIlI){spin_unlock(&llIlIIlI->lock);}spin_unlock_irqrestore(&Illll
+->lock,flags);if(IlIlI<(0xf76+4620-0x2182)){
+llllIIlI(lIllI);}else{
+usb_hcd_poll_rh_status(lIllI->parent);}lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x70\x6c\x75\x67\x3a\x20\x2d\x2d\x20\x72\x65\x73\x75\x6c\x74\x3d\x25\x64" "\n"
-,IIIll);return IIIll;}void llIIlIIlI(struct IlIlIl*lIllI){unsigned long flags;
-struct IIllIl*Illll=lllllIl(lIllI->parent);IlllI(
+,IlIlI);return IlIlI;}void IlllIIIll(struct lIlIIl*lIllI){unsigned long flags;
+struct lIIIII*Illll=lIIllII(lIllI->parent);lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x75\x6e\x70\x6c\x75\x67\x3a\x20\x2b\x2b" "\n"
 );
-IlllIlll(lIllI);spin_lock_irqsave(&Illll->lock,flags);if(lIllI->lIIlI!=-
-(0x1e16+1281-0x2316)){IlllI(
+llllIIlI(lIllI);spin_lock_irqsave(&Illll->lock,flags);if(lIllI->lIIlI!=-
+(0x10cc+1451-0x1676)){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x75\x6e\x70\x6c\x75\x67\x3a\x20\x75\x6e\x70\x6c\x75\x67\x67\x69\x6e\x67\x20\x76\x69\x72\x74\x75\x61\x6c\x20\x64\x65\x76\x69\x63\x65\x20\x61\x74\x20\x70\x6f\x72\x74\x20\x25\x64" "\n"
 ,lIllI->lIIlI);
 
-Illll->IIIlIII[lIllI->lIIlI]=NULL;
-#if KERNEL_GT_EQ((0xe2+5582-0x16ae),(0x4c9+7939-0x23c6),(0xe71+2909-0x19a7)) || \
-RHEL_RELEASE_GT_EQ((0x1a9+2650-0xbfd),(0xf8+6332-0x19b1)) 
-if(lIllI->parent->speed==HCD_USB3){IllIlIl(Illll,lIllI->lIIlI,llIIIlII,
-(0x1436+4112-0x2446));}else
+Illll->IlIIlII[lIllI->lIIlI]=NULL;
+#if KERNEL_GT_EQ((0x963+844-0xcad),(0x163a+900-0x19b8),(0xdf5+6332-0x268a)) || \
+RHEL_RELEASE_GT_EQ((0x173a+1717-0x1de9),(0x8bf+3441-0x162d)) 
+if(lIllI->parent->speed==HCD_USB3){IlIllll(Illll,lIllI->lIIlI,IIIlllII,
+(0x695+8047-0x2604));}else
 #endif
-{IIlIlII(Illll,lIllI->lIIlI,llIIIlII,(0xbf0+1938-0x1382));}lIllI->lIIlI=-
-(0x2fb+7948-0x2206);spin_unlock_irqrestore(&Illll->lock,flags);
-usb_hcd_poll_rh_status(lIllI->parent);llllIllII(lIllI,-ENODEV);IIlllIll(lIllI);}
-else{spin_unlock_irqrestore(&Illll->lock,flags);}IlllI(
+{IlllIIl(Illll,lIllI->lIIlI,IIIlllII,(0x1152+2257-0x1a23));}lIllI->lIIlI=-
+(0x756+3777-0x1616);spin_unlock_irqrestore(&Illll->lock,flags);
+usb_hcd_poll_rh_status(lIllI->parent);lllllIIIl(lIllI,-ENODEV);IlIllIIl(lIllI);}
+else{spin_unlock_irqrestore(&Illll->lock,flags);}lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x75\x6e\x70\x6c\x75\x67\x3a\x20\x2d\x2d" "\n"
-);}struct IlIlIl*lIlllIlIl(int IIlllIIll){struct IlIlIl*lIllI;IlllI(
+);}struct lIlIIl*lIlIIIIll(int lIllllIlI){struct lIlIIl*lIllI;lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x66\x69\x6e\x64\x31\x3a\x20\x2b\x2b" "\n"
-);spin_lock(&lIIIIl);list_for_each_entry(lIllI,&lIIlIIl,lIlIII){if(IlllIlII(
-lIllI->lllll)==IIlllIIll){IIIlIlll(lIllI);spin_unlock(&lIIIIl);IlllI(
+);spin_lock(&IIlIII);list_for_each_entry(lIllI,&IIllIII,IIIIll){if(IIIllIlI(
+lIllI->lllll)==lIllllIlI){IlllllII(lIllI);spin_unlock(&IIlIII);lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x66\x69\x6e\x64\x31\x3a\x20\x2d\x2d\x20\x66\x6f\x75\x6e\x64\x21" "\n"
-);return lIllI;}}spin_unlock(&lIIIIl);IlllI(
+);return lIllI;}}spin_unlock(&IIlIII);lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x66\x69\x6e\x64\x31\x3a\x20\x2d\x2d\x20\x6e\x6f\x74\x20\x66\x6f\x75\x6e\x64" "\n"
 );return NULL;}
-struct IlIlIl*IlllIIlIl(struct usb_hcd*llIlI,int llIIIll){struct IIllIl*Illll=
-lllllIl(llIlI);struct IlIlIl*lIllI=NULL;int lIIlI;IlllI(
+struct lIlIIl*IlIIlIIll(struct usb_hcd*lllIl,int IllIlIl){struct lIIIII*Illll=
+lIIllII(lllIl);struct lIlIIl*lIllI=NULL;int lIIlI;lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x66\x69\x6e\x64\x32\x28\x29\x3a\x20\x2b\x2b\x20\x61\x64\x64\x72\x65\x73\x73\x20\x3d\x20\x25\x64" "\n"
-,llIIIll);if(Illll==NULL)return NULL;if(llIIIll<(0x1d+4101-0x1022))return NULL;
-for(lIIlI=(0x3da+774-0x6e0);lIIlI<lIIllII;lIIlI++){if(Illll->IIIlIII[lIIlI]&&
-Illll->IIIlIII[lIIlI]->llIIIll==llIIIll){lIllI=Illll->IIIlIII[lIIlI];IIIlIlll(
-lIllI);break;}}IlllI(
+,IllIlIl);if(Illll==NULL){return NULL;}if(IllIlIl<(0x19f7+3124-0x262b)){return 
+NULL;}for(lIIlI=(0x1e9f+1208-0x2357);lIIlI<IllIIIl;lIIlI++){if(Illll->IlIIlII[
+lIIlI]&&Illll->IlIIlII[lIIlI]->IllIlIl==IllIlIl){lIllI=Illll->IlIIlII[lIIlI];
+IlllllII(lIllI);break;}}lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x66\x69\x6e\x64\x32\x3a\x20\x2d\x2d\x20\x25\x73" "\n"
 ,lIllI?"\x66\x6f\x75\x6e\x64":"\x6e\x6f\x74\x20\x66\x6f\x75\x6e\x64");return 
 lIllI;}
-struct IlIlIl*IIIIIIIII(struct usb_hcd*llIlI,int lIIlI){struct IIllIl*Illll=
-lllllIl(llIlI);struct IlIlIl*lIllI=NULL;IlllI(
+struct lIlIIl*IIIIIlIII(struct usb_hcd*lllIl,int lIIlI){struct lIIIII*Illll=
+lIIllII(lllIl);struct lIlIIl*lIllI=NULL;lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x66\x69\x6e\x64\x33\x28\x29\x3a\x20\x2b\x2b\x20\x70\x6f\x72\x74\x20\x3d\x20\x25\x64" "\n"
-,lIIlI);if(Illll==NULL)return NULL;if(lIIlI<=(0x1250+1908-0x19c4)||lIIlI>lIIllII
-)return NULL;lIIlI--;
-if(Illll->IIIlIII[lIIlI]){lIllI=Illll->IIIlIII[lIIlI];IIIlIlll(lIllI);}IlllI(
+,lIIlI);if(Illll==NULL){return NULL;}if(lIIlI<=(0x138d+1291-0x1898)||lIIlI>
+IllIIIl){return NULL;}lIIlI--;
+if(Illll->IlIIlII[lIIlI]){lIllI=Illll->IlIIlII[lIIlI];IlllllII(lIllI);}lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x66\x69\x6e\x64\x33\x3a\x20\x2d\x2d\x20\x25\x73" "\n"
 ,lIllI?"\x66\x6f\x75\x6e\x64":"\x6e\x6f\x74\x20\x66\x6f\x75\x6e\x64");return 
-lIllI;}void IlIlIlIl(struct IlIlIl*lIllI){IllII IIlIl;struct llIIIl*lIIll;
-unsigned long flags;IIlIl=lIlIlll(sizeof(lIIlIIIll),GFP_ATOMIC);if(!IIlIl){IlllI
+lIllI;}void llIIIlIIl(struct lIlIIl*lIllI){IIlII IIlIl;struct lllIIl*IllII;
+unsigned long flags;IIlIl=IllIllI(sizeof(IIIlIIllI),GFP_ATOMIC);if(!IIlIl){lIlll
 (
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x73\x65\x6e\x64\x5f\x72\x65\x73\x65\x74\x5f\x70\x6f\x72\x74\x3a\x20\x6e\x6f\x20\x6d\x65\x6d\x6f\x72\x79" "\n"
-);return;}lIIll=llIlllll(lIllI,GFP_ATOMIC);if(!lIIll){IlllI(
+);return;}IllII=IIIIlllll(lIllI,GFP_ATOMIC);if(!IllII){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x73\x65\x6e\x64\x5f\x72\x65\x73\x65\x74\x5f\x70\x6f\x72\x74\x3a\x20\x6e\x6f\x20\x6d\x65\x6d\x6f\x72\x79" "\n"
-);IlIIIl(IIlIl);return;}IIlIl->IIIlI.lIIlIl=lIIll->lllIl;IIlIl->IIIlI.IllIIll=
-(0x117b+3516-0x1f37);IIlIl->IIIlI.lIlIl=sizeof(lIIlIIIll);IIlIl->IIIlI.lIIlIII=
-lIllIIIl;IIlIl->IIIlI.Status=(0x9d1+4579-0x1bb4);IIlIl->IIIlI.Context=lIllI->
-lIIlI;lIIll->IIlIl=IIlIl;spin_lock_irqsave(&lIllI->IlIIll,flags);list_add_tail(&
-lIIll->lIlIIl,&lIllI->IIIIlII);spin_unlock_irqrestore(&lIllI->IlIIll,flags);
-wake_up(&lIllI->IIIIlI);}struct llIIIl*llIlllll(struct IlIlIl*lIllI,gfp_t IlIIl)
-{struct llIIIl*lIIll;lIIll=IIIlIll(sizeof(struct llIIIl),IlIIl);if(!lIIll){IlllI
-(
+);lIlIll(IIlIl);return;}IIlIl->IlIII.IIIlIl=IllII->lIlIl;IIlIl->IlIII.IllllII=
+(0x6b3+666-0x94d);IIlIl->IlIII.IIIII=sizeof(IIIlIIllI);IIlIl->IlIII.IIIlIIl=
+llIIlIII;IIlIl->IlIII.Status=(0xd6+207-0x1a5);IIlIl->IlIII.Context=lIllI->lIIlI;
+IllII->IIlIl=IIlIl;spin_lock_irqsave(&lIllI->IIllII,flags);list_add_tail(&IllII
+->llllIl,&lIllI->llIllIl);spin_unlock_irqrestore(&lIllI->IIllII,flags);wake_up(&
+lIllI->lIIllI);}struct lllIIl*IIIIlllll(struct lIlIIl*lIllI,gfp_t llllI){struct 
+lllIIl*IllII;IllII=lIllllI(sizeof(struct lllIIl),llllI);if(!IllII){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x63\x72\x65\x61\x74\x65\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x6e\x6f\x20\x6d\x65\x6d\x6f\x72\x79" "\n"
 );return NULL;}
 #ifdef _USBD_DEBUG_MEMORY_
-atomic_inc(&lIlIllIII);
+atomic_inc(&lIlIIlIIl);
 #endif
-INIT_LIST_HEAD(&lIIll->lIlIIl);INIT_LIST_HEAD(&lIIll->IIIllIl);INIT_LIST_HEAD(&
-lIIll->urb.lIlIII);lIIll->lllIl=llIlIIIlI();lIIll->lIllI=IIIlIlll(lIllI);return 
-lIIll;}void IlIIIlll(struct llIIIl*lIIll){
+INIT_LIST_HEAD(&IllII->llllIl);INIT_LIST_HEAD(&IllII->lllIlll);INIT_LIST_HEAD(&
+IllII->urb.IIIIll);IllII->lIlIl=lIllIIlll();IllII->lIllI=IlllllII(lIllI);return 
+IllII;}void IIlIlllI(struct lllIIl*IllII){
 
 
 #ifdef _USBD_DEBUG_MEMORY_
-atomic_inc(&llIlIlIll);
+atomic_inc(&IllllllIl);
 #endif
-if(lIIll->lIllI)IIlllIll(lIIll->lIllI);IlIIIl(lIIll);}
-int IlIIllIII(struct llIIIl*lIIll){struct usb_host_endpoint*ep;struct llIIIl*
-IIlIIIl;if(!list_empty(&lIIll->IIIllIl)){struct IlIIIll*llIIll=list_entry(lIIll
-->IIIllIl.next,struct IlIIIll,lIlIII);
-#if KERNEL_LT((0x438+6980-0x1f7a),(0x339+2007-0xb0a),(0x143b+2977-0x1fc4))
-ep=(usb_pipein(llIIll->lIlll->pipe)?llIIll->lIlll->dev->ep_in:llIIll->lIlll->dev
-->ep_out)[usb_pipeendpoint(llIIll->lIlll->pipe)];
+if(IllII->lIllI){IlIllIIl(IllII->lIllI);}lIlIll(IllII);}
+int lIllIIIll(struct lllIIl*IllII){struct usb_host_endpoint*ep;struct lllIIl*
+Illllll;if(!list_empty(&IllII->lllIlll)){struct lllllII*lIlIII=list_entry(IllII
+->lllIlll.next,struct lllllII,IIIIll);
+#if KERNEL_LT((0xffa+4921-0x2331),(0xc76+1943-0x1407),(0x51+7553-0x1dba))
+ep=(usb_pipein(lIlIII->IlllI->pipe)?lIlIII->IlllI->dev->ep_in:lIlIII->IlllI->dev
+->ep_out)[usb_pipeendpoint(lIlIII->IlllI->pipe)];
 #else
-ep=llIIll->lIlll->ep;
+ep=lIlIII->IlllI->ep;
 #endif
 
-if(ep&&ep->hcpriv==lIIll){ep->hcpriv=NULL;
+if(ep&&ep->hcpriv==IllII){ep->hcpriv=NULL;
 
-list_del_init(&lIIll->lIlIIl);return(0xc49+305-0xd79);}}
-list_for_each_entry(IIlIIIl,&lIIll->lIllI->IIlllII,lIlIIl){if(IIlIIIl==lIIll){
-list_del_init(&lIIll->lIlIIl);return(0x98f+4494-0x1b1c);}}
-list_for_each_entry(IIlIIIl,&lIIll->lIllI->IIlIIlIl,lIlIIl){if(IIlIIIl==lIIll){
-list_del_init(&lIIll->lIlIIl);return(0xe24+3291-0x1afe);}}
-list_for_each_entry(IIlIIIl,&lIIll->lIllI->IIIIlII,lIlIIl){if(IIlIIIl==lIIll){
-list_del_init(&lIIll->lIlIIl);return(0x367+1105-0x7b7);}}return
-(0xd7+3987-0x106a);}int lIIlIlIl(struct llIIIl*lIIll){struct IlIIIll*llIIll;
-list_for_each_entry(llIIll,&lIIll->IIIllIl,lIlIII){
-#if KERNEL_LT((0x34c+5283-0x17ed),(0x13fb+1528-0x19ed),(0x1cec+1994-0x249e))
-spin_lock(&llIIll->lIlll->lock);if(llIIll->lIlll->status!=-EINPROGRESS){
-spin_unlock(&llIIll->lIlll->lock);return(0xd17+3006-0x18d4);}spin_unlock(&llIIll
-->lIlll->lock);
+list_del_init(&IllII->llllIl);return(0x804+3936-0x1763);}}
+list_for_each_entry(Illllll,&IllII->lIllI->IllIIlI,llllIl){if(Illllll==IllII){
+list_del_init(&IllII->llllIl);return(0x189b+2943-0x2419);}}
+list_for_each_entry(Illllll,&IllII->lIllI->lllIlllI,llllIl){if(Illllll==IllII){
+list_del_init(&IllII->llllIl);return(0x2442+59-0x247c);}}
+list_for_each_entry(Illllll,&IllII->lIllI->llIllIl,llllIl){if(Illllll==IllII){
+list_del_init(&IllII->llllIl);return(0xa6f+3438-0x17dc);}}return
+(0x113+3195-0xd8e);}int lIIIlIII(struct lllIIl*IllII){struct lllllII*lIlIII;
+list_for_each_entry(lIlIII,&IllII->lllIlll,IIIIll){
+#if KERNEL_LT((0x1282+4091-0x227b),(0x9cb+38-0x9eb),(0x1908+3023-0x24bf))
+spin_lock(&lIlIII->IlllI->lock);if(lIlIII->IlllI->status!=-EINPROGRESS){
+spin_unlock(&lIlIII->IlllI->lock);return(0x925+3159-0x157b);}spin_unlock(&lIlIII
+->IlllI->lock);
 #else
-if(llIIll->lIlll->unlinked)return(0xbf1+302-0xd1e);
+if(lIlIII->IlllI->unlinked){return(0x4ec+8685-0x26d8);}
 #endif
-}return(0x582+4626-0x1794);}void llllIllII(struct IlIlIl*lIllI,int status){
-unsigned long flags;struct list_head llIlIIII;struct llIIIl*lIIll;INIT_LIST_HEAD
-(&llIlIIII);spin_lock_irqsave(&lllllIl(lIllI->parent)->lock,flags);spin_lock(&
-lIllI->IlIIll);list_for_each_entry(lIIll,&lIllI->IIlllII,lIlIIl){struct IlIIIll*
-llIIII;list_for_each_entry(llIIII,&lIIll->IIIllIl,lIlIII){struct 
+}return(0x1750+765-0x1a4d);}void lllllIIIl(struct lIlIIl*lIllI,int status){
+unsigned long flags;struct list_head lIIlIlII;struct lllIIl*IllII;INIT_LIST_HEAD
+(&lIIlIlII);spin_lock_irqsave(&lIIllII(lIllI->parent)->lock,flags);spin_lock(&
+lIllI->IIllII);list_for_each_entry(IllII,&lIllI->IllIIlI,llllIl){struct lllllII*
+IlIIlI;list_for_each_entry(IlIIlI,&IllII->lllIlll,IIIIll){struct 
 usb_host_endpoint*ep;
-#if KERNEL_LT((0x845+1192-0xceb),(0x60b+1120-0xa65),(0x853+3156-0x148f))
-ep=(usb_pipein(llIIII->lIlll->pipe)?llIIII->lIlll->dev->ep_in:llIIII->lIlll->dev
-->ep_out)[usb_pipeendpoint(llIIII->lIlll->pipe)];
+#if KERNEL_LT((0x280+7069-0x1e1b),(0x90d+4518-0x1aad),(0x114d+2455-0x1acc))
+ep=(usb_pipein(IlIIlI->IlllI->pipe)?IlIIlI->IlllI->dev->ep_in:IlIIlI->IlllI->dev
+->ep_out)[usb_pipeendpoint(IlIIlI->IlllI->pipe)];
 #else
-ep=llIIII->lIlll->ep;
+ep=IlIIlI->IlllI->ep;
 #endif
-if(ep)ep->hcpriv=NULL;}}list_splice_init(&lIllI->IIlllII,&llIlIIII);
-list_splice_init(&lIllI->IIIIlII,&llIlIIII);list_splice_init(&lIllI->IIlIIlIl,&
-llIlIIII);spin_unlock(&lIllI->IlIIll);spin_unlock_irqrestore(&lllllIl(lIllI->
-parent)->lock,flags);while(!list_empty(&llIlIIII)){struct llIIIl*lIIll=
-list_entry(llIlIIII.next,struct llIIIl,lIlIIl);list_del_init(&lIIll->lIlIIl);
-IIIIlIlI(lIIll,status);IlIIIlll(lIIll);}}void IIIIlIlI(struct llIIIl*lIIll,int 
-status){struct IlIlIl*lIllI=lIIll->lIllI;
-#if KERNEL_GT_EQ((0x139f+3731-0x2230),(0x26f+6099-0x1a3c),(0x94f+2373-0x127c))
-struct IIllIl*Illll=lllllIl(lIllI->parent);
+if(ep)ep->hcpriv=NULL;}}list_splice_init(&lIllI->IllIIlI,&lIIlIlII);
+list_splice_init(&lIllI->llIllIl,&lIIlIlII);list_splice_init(&lIllI->lllIlllI,&
+lIIlIlII);spin_unlock(&lIllI->IIllII);spin_unlock_irqrestore(&lIIllII(lIllI->
+parent)->lock,flags);while(!list_empty(&lIIlIlII)){struct lllIIl*IllII=
+list_entry(lIIlIlII.next,struct lllIIl,llllIl);list_del_init(&IllII->llllIl);
+IllIIllI(IllII,status);IIlIlllI(IllII);}}void IllIIllI(struct lllIIl*IllII,int 
+status){struct lIlIIl*lIllI=IllII->lIllI;
+#if KERNEL_GT_EQ((0x2ac+7996-0x21e6),(0xc0f+5489-0x217a),(0x199+4482-0x1303))
+struct lIIIII*Illll=lIIllII(lIllI->parent);
 #endif
-unsigned long flags;int lIIIllIIl=(0x2fa+1539-0x8fd);IlllI(
+unsigned long flags;int llIlIlIlI=(0x219+5755-0x1894);lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x67\x69\x76\x65\x62\x61\x63\x6b\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x72\x65\x71\x75\x65\x73\x74\x20\x30\x78\x25\x70\x20\x73\x74\x61\x74\x75\x73\x3d\x25\x64" "\n"
-,lIIll,status);local_irq_save(flags);while(!list_empty(&lIIll->IIIllIl)){struct 
-IlIIIll*llIIll=list_entry(lIIll->IIIllIl.next,struct IlIIIll,lIlIII);if(llIIll->
-lIlll){int IIIlllII=status;
+,IllII,status);local_irq_save(flags);while(!list_empty(&IllII->lllIlll)){struct 
+lllllII*lIlIII=list_entry(IllII->lllIlll.next,struct lllllII,IIIIll);if(lIlIII->
+IlllI){int IllllllI=status;
 
-if(usb_pipetype(llIIll->lIlll->pipe)==PIPE_BULK||usb_pipetype(llIIll->lIlll->
+if(usb_pipetype(lIlIII->IlllI->pipe)==PIPE_BULK||usb_pipetype(lIlIII->IlllI->
 pipe)==PIPE_INTERRUPT){
 
 
@@ -975,69 +993,70 @@ pipe)==PIPE_INTERRUPT){
 
 
 
-switch(lIIIllIIl){case(0xb22+2419-0x1495):if(llIIll->lIlll->actual_length<llIIll
-->lIlll->transfer_buffer_length){if((status==(0x2159+926-0x24f7))&&(llIIll->
-lIlll->transfer_flags&URB_SHORT_NOT_OK)){IIIlllII=-EREMOTEIO;}else{IIIlllII=
-status;}lIIIllIIl=(0x21a7+765-0x24a3);}else if(llIIll->lIlIII.next==&lIIll->
-IIIllIl){IIIlllII=status;lIIIllIIl=(0x1b4+2751-0xc72);}else{IIIlllII=
-(0x10af+2471-0x1a56);}break;case(0x935+3557-0x1719):IIIlllII=-ECONNRESET;break;}
-}IlllI(
+switch(llIlIlIlI){case(0x1518+4559-0x26e7):if(lIlIII->IlllI->actual_length<
+lIlIII->IlllI->transfer_buffer_length){if((status==(0xc18+2474-0x15c2))&&(lIlIII
+->IlllI->transfer_flags&URB_SHORT_NOT_OK)){IllllllI=-EREMOTEIO;}else{IllllllI=
+status;}llIlIlIlI=(0x13f+5767-0x17c5);}else if(lIlIII->IIIIll.next==&IllII->
+lllIlll){IllllllI=status;llIlIlIlI=(0x3e2+128-0x461);}else{IllllllI=
+(0x142a+1583-0x1a59);}break;case(0x2386+499-0x2578):IllllllI=-ECONNRESET;break;}
+}lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x67\x69\x76\x65\x62\x61\x63\x6b\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x67\x69\x76\x65\x62\x61\x63\x6b\x20\x75\x72\x62\x20\x30\x78\x25\x70\x20\x77\x69\x74\x68\x20\x73\x74\x61\x74\x75\x73\x20\x25\x64" "\n"
-,llIIll->lIlll,IIIlllII);
-#if KERNEL_LT((0x10c1+756-0x13b3),(0x18+3199-0xc91),(0x1d15+1398-0x2273))
+,lIlIII->IlllI,IllllllI);
+#if KERNEL_LT((0x1a2c+1424-0x1fba),(0x1375+3019-0x1f3a),(0x618+822-0x936))
 
 
-spin_lock(&llIIll->lIlll->lock);if(llIIll->lIlll->status==-EINPROGRESS)llIIll->
-lIlll->status=IIIlllII;spin_unlock(&llIIll->lIlll->lock);
+spin_lock(&lIlIII->IlllI->lock);if(lIlIII->IlllI->status==-EINPROGRESS){lIlIII->
+IlllI->status=IllllllI;}spin_unlock(&lIlIII->IlllI->lock);
 #else
 
 
-spin_lock(&Illll->lock);usb_hcd_unlink_urb_from_ep(lIllI->parent,llIIll->lIlll);
+spin_lock(&Illll->lock);usb_hcd_unlink_urb_from_ep(lIllI->parent,lIlIII->IlllI);
 spin_unlock(&Illll->lock);
 #endif
 
 
 
-llIIll->lIlll->hcpriv=NULL;
-#if KERNEL_LT((0x527+1257-0xa0e),(0x446+7009-0x1fa1),(0x1841+3040-0x240e))
-usb_hcd_giveback_urb(lIllI->parent,llIIll->lIlll,NULL);
-#elif KERNEL_LT((0x1242+4426-0x238a),(0x3e6+1209-0x899),(0x146a+4738-0x26d4))
-usb_hcd_giveback_urb(lIllI->parent,llIIll->lIlll);
+lIlIII->IlllI->hcpriv=NULL;
+#if KERNEL_LT((0x11f5+1849-0x192c),(0x1081+3125-0x1cb0),(0x816+5577-0x1dcc))
+usb_hcd_giveback_urb(lIllI->parent,lIlIII->IlllI,NULL);
+#elif KERNEL_LT((0x1527+4160-0x2565),(0xe1+5120-0x14db),(0x80a+3615-0x1611))
+usb_hcd_giveback_urb(lIllI->parent,lIlIII->IlllI);
 #else
-usb_hcd_giveback_urb(lIllI->parent,llIIll->lIlll,IIIlllII);
+usb_hcd_giveback_urb(lIllI->parent,lIlIII->IlllI,IllllllI);
 #endif
-}list_del_init(&llIIll->lIlIII);if(llIIll!=&lIIll->urb)IlIIIl(llIIll);}
-local_irq_restore(flags);if(lIIll->IIlIl){if(lIIll->IIlIl->IIIlI.lIIlIII==
-lIllIIIl){IlllI(
+}list_del_init(&lIlIII->IIIIll);if(lIlIII!=&IllII->urb){lIlIll(lIlIII);}}
+local_irq_restore(flags);if(IllII->IIlIl){if(IllII->IIlIl->IlIII.IIIlIIl==
+llIIlIII){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x67\x69\x76\x65\x62\x61\x63\x6b\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x72\x65\x73\x65\x74\x20\x63\x6f\x6d\x70\x6c\x65\x74\x65\x64" "\n"
-);lIllI->IlIIlIlI=(0x19aa+2045-0x21a7);wake_up(&lIllI->IIIIlI);}IlllI(
+);lIllI->IlIlIIll=(0x4ab+3549-0x1288);wake_up(&lIllI->lIIllI);}lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x67\x69\x76\x65\x62\x61\x63\x6b\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x66\x72\x65\x65\x69\x6e\x67\x20\x75\x6e\x72\x62" "\n"
-);IlIIIl(lIIll->IIlIl);lIIll->IIlIl=NULL;}}int IlIllllll(struct IlIlIl*lIllI,
-struct llIIIl*lIIll,void*IllIl,size_t IIlIll){int IIIll=(0xa47+5180-0x1e83);if(!
-list_empty(&lIIll->IIIllIl)){IIIll=IlllllIII(&lIIll->IIIllIl,lIIll->lllIl,IllIl,
-IIlIll);}else if(lIIll->IIlIl){if(IIlIll<lIIll->IIlIl->IIIlI.lIlIl){IIIll=-
-EMSGSIZE;}else{memcpy(IllIl,lIIll->IIlIl,lIIll->IIlIl->IIIlI.lIlIl);if(lIIll->
-IIlIl->IIIlI.lIIlIII==lIllIIIl){lIllI->IlIIlIlI=(0x1745+1426-0x1cd6);}}}else{
-IIIll=-EIO;}IlllI(
+);lIlIll(IllII->IIlIl);IllII->IIlIl=NULL;}}int IIIIlIIIl(struct lIlIIl*lIllI,
+struct lllIIl*IllII,void*llIIl,size_t IlIIIl){int IlIlI=(0x1f92+1768-0x267a);if(
+!list_empty(&IllII->lllIlll)){IlIlI=llIlIlllI(&IllII->lllIlll,IllII->lIlIl,llIIl
+,IlIIIl);}else if(IllII->IIlIl){if(IlIIIl<IllII->IIlIl->IlIII.IIIII){IlIlI=-
+EMSGSIZE;}else{memcpy(llIIl,IllII->IIlIl,IllII->IIlIl->IlIII.IIIII);if(IllII->
+IIlIl->IlIII.IIIlIIl==llIIlIII){lIllI->IlIlIIll=(0x812+901-0xb96);}}}else{IlIlI=
+-EIO;}lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x70\x61\x63\x6b\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x72\x65\x73\x75\x6c\x74\x20\x3d\x20\x25\x64" "\n"
-,IIIll);return IIIll;}int llIlllllI(struct IlIlIl*lIllI,struct llIIIl*lIIll,
-IllII IIlIl,int*status){int IIIll;if(!list_empty(&lIIll->IIIllIl)){IlllI(
+,IlIlI);return IlIlI;}int IlIIlIllI(struct lIlIIl*lIllI,struct lllIIl*IllII,
+IIlII IIlIl,int*status){int IlIlI;if(!list_empty(&IllII->lllIlll)){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x75\x6e\x70\x61\x63\x6b\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x75\x6e\x70\x61\x63\x6b\x69\x6e\x67\x20\x75\x72\x62" "\n"
-);IIIll=llllIIlIl(IIlIl,&lIIll->IIIllIl,status);}else{*status=llllIlIl(IIlIl->
-IIIlI.Status);IIIll=(0x184c+3397-0x2591);}return IIIll;}void lIlIlIlII(struct 
-kref*IIIIllI){struct IlIlIl*lIllI=container_of(IIIIllI,struct IlIlIl,lIIlll);
-IlllI(
+);IlIlI=IIIllIlIl(IIlIl,&IllII->lllIlll,status);}else{*status=lIllllIl(IIlIl->
+IlIII.Status);IlIlI=(0xcec+4006-0x1c92);}return IlIlI;}void lIlIllIlI(struct 
+kref*IIllIlI){struct lIlIIl*lIllI=container_of(IIllIlI,struct lIlIIl,IllIll);
+lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x64\x65\x73\x74\x72\x6f\x79\x28\x70\x76\x73\x74\x75\x62\x3d\x30\x78\x25\x70\x29" "\n"
 ,lIllI);
 #ifdef _USBD_DEBUG_MEMORY_
-atomic_inc(&IlIlIllll);
+atomic_inc(&IIlIlIIll);
 #endif
-IlIIllll(lIllI);IlIIIl(lIllI);}
-static inline size_t IIIIllIll(struct urb*lIlll,void*IllIl){int i;void*IIllII;if
-(!lIlll->transfer_buffer)return(0xb86+5815-0x223d);IIllII=IllIl;for(i=
-(0x5a5+2167-0xe1c);i<lIlll->number_of_packets;i++){memcpy(lIlll->transfer_buffer
-+lIlll->iso_frame_desc[i].offset,IIllII,lIlll->iso_frame_desc[i].actual_length);
-IIllII+=lIlll->iso_frame_desc[i].actual_length;}return(size_t)(IIllII-IllIl);}
+lIllllIIl(lIllI);lIlIll(lIllI);}
+static inline size_t lIIIIllII(struct urb*IlllI,void*llIIl){int i;void*lllIll;if
+(!IlllI->transfer_buffer){return(0xb58+4119-0x1b6f);}lllIll=llIIl;for(i=
+(0xb28+1816-0x1240);i<IlllI->number_of_packets;i++){memcpy(IlllI->
+transfer_buffer+IlllI->iso_frame_desc[i].offset,lllIll,IlllI->iso_frame_desc[i].
+actual_length);lllIll+=IlllI->iso_frame_desc[i].actual_length;}return(size_t)(
+lllIll-llIIl);}
 #if defined(CONFIG_X86_32) && !defined(_USBD_VHCI_NO_DMA_)
 
 
@@ -1045,196 +1064,194 @@ IIllII+=lIlll->iso_frame_desc[i].actual_length;}return(size_t)(IIllII-IllIl);}
 
 
 
-int IIlIlIII(void*IllIl,struct urb*lIlll,int llIIl){
-if(llIIl==(0x21b7+1121-0x2618))return(0x789+7474-0x24bb);if(IlllIIII&&((lIlll->
-transfer_buffer==NULL)||(lIlll->transfer_flags&URB_NO_TRANSFER_DMA_MAP))&&(lIlll
-->transfer_dma!=(0xe33+621-0x10a0))&&(lIlll->transfer_dma!=~(dma_addr_t)
-(0x1456+4202-0x24c0))){IIIllllIl(IllIl,lIlll->transfer_dma,llIIl);}else if(lIlll
-->transfer_buffer){memcpy(IllIl,lIlll->transfer_buffer,llIIl);}else return-
-EINVAL;return llIIl;}
+int llIlIlll(void*llIIl,struct urb*IlllI,int IIIIl){
+if(IIIIl==(0x1b2+7260-0x1e0e)){return(0x364+8312-0x23dc);}if(lllIIlll&&((IlllI->
+transfer_buffer==NULL)||(IlllI->transfer_flags&URB_NO_TRANSFER_DMA_MAP))&&(IlllI
+->transfer_dma!=(0x228+6116-0x1a0c))&&(IlllI->transfer_dma!=~(dma_addr_t)
+(0x6a4+7889-0x2575))){llIlIIlIl(llIIl,IlllI->transfer_dma,IIIIl);}else if(IlllI
+->transfer_buffer){memcpy(llIIl,IlllI->transfer_buffer,IIIIl);}else return-
+EINVAL;return IIIIl;}
 
 
 
 
 
-int lIllIlll(struct urb*lIlll,void*IllIl,int llIIl){
-if(llIIl==(0x85f+6899-0x2352))return(0x1e87+309-0x1fbc);if(IlllIIII&&((lIlll->
-transfer_buffer==NULL)||(lIlll->transfer_flags&URB_NO_TRANSFER_DMA_MAP))&&(lIlll
-->transfer_dma!=(0xff6+1716-0x16aa))&&(lIlll->transfer_dma!=~(dma_addr_t)
-(0x112b+2015-0x190a))){lllllllll(lIlll->transfer_dma,IllIl,llIIl);}else if(lIlll
-->transfer_buffer){memcpy(lIlll->transfer_buffer,IllIl,llIIl);}else return-
-EINVAL;return llIIl;}
+int IIlIllII(struct urb*IlllI,void*llIIl,int IIIIl){
+if(IIIIl==(0x370+5183-0x17af)){return(0x1465+3259-0x2120);}if(lllIIlll&&((IlllI
+->transfer_buffer==NULL)||(IlllI->transfer_flags&URB_NO_TRANSFER_DMA_MAP))&&(
+IlllI->transfer_dma!=(0x3a8+5959-0x1aef))&&(IlllI->transfer_dma!=~(dma_addr_t)
+(0x859+2238-0x1117))){lIIIlIlII(IlllI->transfer_dma,llIIl,IIIIl);}else if(IlllI
+->transfer_buffer){memcpy(IlllI->transfer_buffer,llIIl,IIIIl);}else{return-
+EINVAL;}return IIIIl;}
 
 
 
 
 
-int llIIIllII(void*IllIl,struct urb*lIlll,int llIIl){
-if(llIIl==(0x1342+1905-0x1ab3))return(0xe2+3013-0xca7);
-#if KERNEL_LT_EQ((0x180b+1985-0x1fca),(0x1032+4893-0x2349),(0x125c+603-0x1495))
-if(IlllIIII&&((lIlll->setup_packet==NULL)||(lIlll->transfer_flags&
-URB_NO_SETUP_DMA_MAP))&&(lIlll->setup_dma!=(0xaba+7212-0x26e6))&&(lIlll->
-setup_dma!=~(dma_addr_t)(0x775+837-0xaba))){IIIllllIl(IllIl,lIlll->setup_dma,
-llIIl);}else
+int llIlIIlll(void*llIIl,struct urb*IlllI,int IIIIl){
+if(IIIIl==(0x14cd+3861-0x23e2)){return(0xecd+3251-0x1b80);}
+#if KERNEL_LT_EQ((0x919+1919-0x1096),(0x8d2+2953-0x1455),(0x114a+3073-0x1d29))
+if(lllIIlll&&((IlllI->setup_packet==NULL)||(IlllI->transfer_flags&
+URB_NO_SETUP_DMA_MAP))&&(IlllI->setup_dma!=(0x17f4+162-0x1896))&&(IlllI->
+setup_dma!=~(dma_addr_t)(0x107a+5240-0x24f2))){llIlIIlIl(llIIl,IlllI->setup_dma,
+IIIIl);}else
 #endif
-if(lIlll->setup_packet){memcpy(IllIl,lIlll->setup_packet,llIIl);}else return-
-EINVAL;return llIIl;}
+if(IlllI->setup_packet){memcpy(llIIl,IlllI->setup_packet,IIIIl);}else{return-
+EINVAL;}return IIIIl;}
 
 
 
 
 
-int llllIlIll(struct urb*lIlll,void*IllIl,int llIIl){
-if(llIIl==(0x7f7+763-0xaf2))return(0xfc9+5759-0x2648);
-#if KERNEL_LT_EQ((0x785+7-0x78a),(0xb6d+6634-0x2551),(0x658+265-0x73f))
-if(IlllIIII&&((lIlll->setup_packet==NULL)||(lIlll->transfer_flags&
-URB_NO_SETUP_DMA_MAP))&&(lIlll->setup_dma!=(0x4ed+681-0x796))&&(lIlll->setup_dma
-!=~(dma_addr_t)(0x1764+731-0x1a3f))){lllllllll(lIlll->setup_dma,IllIl,llIIl);}
-else
+int IIlIllIll(struct urb*IlllI,void*llIIl,int IIIIl){
+if(IIIIl==(0x72+4945-0x13c3)){return(0xa9c+6113-0x227d);}
+#if KERNEL_LT_EQ((0x102d+4427-0x2176),(0x31a+224-0x3f4),(0x714+6580-0x20a6))
+if(lllIIlll&&((IlllI->setup_packet==NULL)||(IlllI->transfer_flags&
+URB_NO_SETUP_DMA_MAP))&&(IlllI->setup_dma!=(0xd7c+4739-0x1fff))&&(IlllI->
+setup_dma!=~(dma_addr_t)(0x22b+4779-0x14d6))){lIIIlIlII(IlllI->setup_dma,llIIl,
+IIIIl);}else
 #endif
-if(lIlll->setup_packet){memcpy(lIlll->setup_packet,IllIl,llIIl);}else return-
-EINVAL;return llIIl;}
+if(IlllI->setup_packet){memcpy(IlllI->setup_packet,llIIl,IIIIl);}else{return-
+EINVAL;}return IIIIl;}
 
 
-static inline size_t IlIIlIlll(void*IllIl,struct urb*lIlll){if(IlllIIII&&((lIlll
-->transfer_buffer==NULL)||(lIlll->transfer_flags&URB_NO_TRANSFER_DMA_MAP))&&(
-lIlll->transfer_dma!=(0xa84+5880-0x217c))&&(lIlll->transfer_dma!=~(dma_addr_t)
-(0x24d+2921-0xdb6))){int i;void*lllIllI=IllIl;dma_addr_t IIllII;void*lllIIl;
-unsigned long flags;unsigned long IIIllll,IIlIIl;unsigned long lIlIIIl,IIIIlll,
-IIlllll,lIIIIlI;IIlllll=(0x8ef+5489-0x1e60);lllIIl=NULL;local_irq_save(flags);
-for(i=(0xa42+4981-0x1db7);i<lIlll->number_of_packets;i++){IIlIIl=lIlll->
-iso_frame_desc[i].length;IIllII=lIlll->transfer_dma+lIlll->iso_frame_desc[i].
-offset;while(IIlIIl){lIIIIlI=IIllII>>PAGE_SHIFT;if(lIIIIlI!=IIlllll){if(IIlllll)
-#if KERNEL_GT_EQ((0x1466+1601-0x1aa5),(0x566+4076-0x154c),(0x344+599-0x576))
-kunmap_atomic(lllIIl);
+static inline size_t IIIIlllII(void*llIIl,struct urb*IlllI){if(lllIIlll&&((IlllI
+->transfer_buffer==NULL)||(IlllI->transfer_flags&URB_NO_TRANSFER_DMA_MAP))&&(
+IlllI->transfer_dma!=(0x10b4+3465-0x1e3d))&&(IlllI->transfer_dma!=~(dma_addr_t)
+(0x1565+3696-0x23d5))){int i;void*IIIIIll=llIIl;dma_addr_t lllIll;void*lIIIlI;
+unsigned long flags;unsigned long llIlIlI,IIlIIl;unsigned long IlIlIll,IIIIIIl,
+IlIlIlI,IIlllll;IlIlIlI=(0x7e2+7164-0x23de);lIIIlI=NULL;local_irq_save(flags);
+for(i=(0x9c1+618-0xc2b);i<IlllI->number_of_packets;i++){IIlIIl=IlllI->
+iso_frame_desc[i].length;lllIll=IlllI->transfer_dma+IlllI->iso_frame_desc[i].
+offset;while(IIlIIl){IIlllll=lllIll>>PAGE_SHIFT;if(IIlllll!=IlIlIlI){if(IlIlIlI)
+{
+#if KERNEL_GT_EQ((0x1ba+3002-0xd72),(0xe34+1820-0x154a),(0x19c2+283-0x1ab8))
+kunmap_atomic(lIIIlI);
 #else
-kunmap_atomic(lllIIl,KM_IRQ0);
+kunmap_atomic(lIIIlI,KM_IRQ0);
 #endif
-IIlllll=lIIIIlI;
-#if KERNEL_GT_EQ((0x1161+2129-0x19b0),(0x6bc+903-0xa3d),(0x459+560-0x664))
-lllIIl=kmap_atomic(pfn_to_page(lIIIIlI));
+}IlIlIlI=IIlllll;
+#if KERNEL_GT_EQ((0x13a9+882-0x1719),(0x105b+5616-0x2645),(0x298+6581-0x1c28))
+lIIIlI=kmap_atomic(pfn_to_page(IIlllll));
 #else
-lllIIl=kmap_atomic(pfn_to_page(lIIIIlI),KM_IRQ0);
+lIIIlI=kmap_atomic(pfn_to_page(IIlllll),KM_IRQ0);
 #endif
-}lIlIIIl=IIllII&(PAGE_SIZE-(0xd2+7515-0x1e2c));IIIIlll=PAGE_SIZE-lIlIIIl;IIIllll
-=(IIIIlll<IIlIIl)?IIIIlll:IIlIIl;memcpy(lllIllI,lllIIl+lIlIIIl,IIIllll);IIllII+=
-IIIllll;lllIllI+=IIIllll;IIlIIl-=IIIllll;}}if(IIlllll)
-#if KERNEL_GT_EQ((0xa69+5793-0x2108),(0x2f+2320-0x939),(0xe93+1158-0x12f4))
-kunmap_atomic(lllIIl);
+}IlIlIll=lllIll&(PAGE_SIZE-(0xc35+145-0xcc5));IIIIIIl=PAGE_SIZE-IlIlIll;llIlIlI=
+(IIIIIIl<IIlIIl)?IIIIIIl:IIlIIl;memcpy(IIIIIll,lIIIlI+IlIlIll,llIlIlI);lllIll+=
+llIlIlI;IIIIIll+=llIlIlI;IIlIIl-=llIlIlI;}}if(IlIlIlI){
+#if KERNEL_GT_EQ((0x13fa+2136-0x1c50),(0x1cb4+644-0x1f32),(0x1497+2969-0x200b))
+kunmap_atomic(lIIIlI);
 #else
-kunmap_atomic(lllIIl,KM_IRQ0);
+kunmap_atomic(lIIIlI,KM_IRQ0);
 #endif
-local_irq_restore(flags);IlllI(
+}local_irq_restore(flags);lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x70\x61\x63\x6b\x5f\x69\x73\x6f\x63\x68\x5f\x62\x75\x66\x3a\x20\x70\x61\x63\x6b\x65\x64\x3d\x25\x6c\x75" "\n"
-,(unsigned long)(lllIllI-IllIl));return(size_t)(lllIllI-IllIl);}else if(lIlll->
-transfer_buffer){return IllIlIlI(lIlll->iso_frame_desc,lIlll->number_of_packets,
-IllIl,lIlll->transfer_buffer,(0x326+4159-0x1365));}IlllI(
+,(unsigned long)(IIIIIll-llIIl));return(size_t)(IIIIIll-llIIl);}else if(IlllI->
+transfer_buffer){return IlIIIllI(IlllI->iso_frame_desc,IlllI->number_of_packets,
+llIIl,IlllI->transfer_buffer,(0xfa+848-0x44a));}lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x70\x61\x63\x6b\x5f\x69\x73\x6f\x63\x68\x5f\x62\x75\x66\x3a\x20\x6e\x6f\x20\x62\x75\x66\x66\x65\x72" "\n"
-);return(0x1f4+2126-0xa42);}static inline size_t lllIIIlIl(struct urb*lIlll,void
-*IllIl){if(IlllIIII&&((lIlll->transfer_buffer==NULL)||(lIlll->transfer_flags&
-URB_NO_TRANSFER_DMA_MAP))&&(lIlll->transfer_dma!=(0x1a62+1007-0x1e51))&&(lIlll->
-transfer_dma!=~(dma_addr_t)(0x12d1+2854-0x1df7))){int i;void*IIllII=IllIl;
-dma_addr_t lllIllI;void*lllIIl;unsigned long flags;unsigned long IIIllll,IIlIIl;
-unsigned long lIlIIIl,IIIIlll,IIlllll,lIIIIlI;IIlllll=(0x8a9+7063-0x2440);lllIIl
-=NULL;local_irq_save(flags);for(i=(0x124+9608-0x26ac);i<lIlll->number_of_packets
-;i++){IIlIIl=lIlll->iso_frame_desc[i].actual_length;lllIllI=lIlll->transfer_dma+
-lIlll->iso_frame_desc[i].offset;while(IIlIIl){lIIIIlI=lllIllI>>PAGE_SHIFT;if(
-lIIIIlI!=IIlllll){if(IIlllll)
-#if KERNEL_GT_EQ((0x459+6643-0x1e4a),(0x358+5101-0x173f),(0x2f7+1342-0x810))
-kunmap_atomic(lllIIl);
+);return(0xfb3+705-0x1274);}static inline size_t lIlIIlIII(struct urb*IlllI,void
+*llIIl){if(lllIIlll&&((IlllI->transfer_buffer==NULL)||(IlllI->transfer_flags&
+URB_NO_TRANSFER_DMA_MAP))&&(IlllI->transfer_dma!=(0x1d16+2380-0x2662))&&(IlllI->
+transfer_dma!=~(dma_addr_t)(0x1cb6+2561-0x26b7))){int i;void*lllIll=llIIl;
+dma_addr_t IIIIIll;void*lIIIlI;unsigned long flags;unsigned long llIlIlI,IIlIIl;
+unsigned long IlIlIll,IIIIIIl,IlIlIlI,IIlllll;IlIlIlI=(0x1c61+1578-0x228b);
+lIIIlI=NULL;local_irq_save(flags);for(i=(0xe3+5081-0x14bc);i<IlllI->
+number_of_packets;i++){IIlIIl=IlllI->iso_frame_desc[i].actual_length;IIIIIll=
+IlllI->transfer_dma+IlllI->iso_frame_desc[i].offset;while(IIlIIl){IIlllll=
+IIIIIll>>PAGE_SHIFT;if(IIlllll!=IlIlIlI){if(IlIlIlI){
+#if KERNEL_GT_EQ((0x15ec+3293-0x22c7),(0xcda+2025-0x14bd),(0x123d+4590-0x2406))
+kunmap_atomic(lIIIlI);
 #else
-kunmap_atomic(lllIIl,KM_IRQ0);
+kunmap_atomic(lIIIlI,KM_IRQ0);
 #endif
-IIlllll=lIIIIlI;
-#if KERNEL_GT_EQ((0x9a7+2559-0x13a4),(0x1cb+5987-0x1928),(0x46a+5890-0x1b47))
-lllIIl=kmap_atomic(pfn_to_page(lIIIIlI));
+}IlIlIlI=IIlllll;
+#if KERNEL_GT_EQ((0x4b5+6832-0x1f63),(0x101a+2335-0x1933),(0x5f7+303-0x701))
+lIIIlI=kmap_atomic(pfn_to_page(IIlllll));
 #else
-lllIIl=kmap_atomic(pfn_to_page(lIIIIlI),KM_IRQ0);
+lIIIlI=kmap_atomic(pfn_to_page(IIlllll),KM_IRQ0);
 #endif
-}lIlIIIl=lllIllI&(PAGE_SIZE-(0x6a1+7922-0x2592));IIIIlll=PAGE_SIZE-lIlIIIl;
-IIIllll=(IIIIlll<IIlIIl)?IIIIlll:IIlIIl;memcpy(lllIIl+lIlIIIl,IIllII,IIIllll);
-IIllII+=IIIllll;lllIllI+=IIIllll;IIlIIl-=IIIllll;}}if(IIlllll)
-#if KERNEL_GT_EQ((0x106f+2820-0x1b71),(0x2bb+2779-0xd90),(0x23c+3903-0x1156))
-kunmap_atomic(lllIIl);
+}IlIlIll=IIIIIll&(PAGE_SIZE-(0x78b+5000-0x1b12));IIIIIIl=PAGE_SIZE-IlIlIll;
+llIlIlI=(IIIIIIl<IIlIIl)?IIIIIIl:IIlIIl;memcpy(lIIIlI+IlIlIll,lllIll,llIlIlI);
+lllIll+=llIlIlI;IIIIIll+=llIlIlI;IIlIIl-=llIlIlI;}}if(IlIlIlI){
+#if KERNEL_GT_EQ((0xc93+1530-0x128b),(0x4d1+5628-0x1ac7),(0x128+4682-0x134d))
+kunmap_atomic(lIIIlI);
 #else
-kunmap_atomic(lllIIl,KM_IRQ0);
+kunmap_atomic(lIIIlI,KM_IRQ0);
 #endif
-local_irq_restore(flags);IlllI(
+}local_irq_restore(flags);lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x75\x6e\x70\x61\x63\x6b\x5f\x69\x73\x6f\x63\x68\x5f\x62\x75\x66\x3a\x20\x70\x61\x63\x6b\x65\x64\x3d\x25\x6c\x75" "\n"
-,(unsigned long)(IIllII-IllIl));return(size_t)(IIllII-IllIl);}else if(lIlll->
-transfer_buffer){return IIIIllIll(lIlll,IllIl);}IlllI(
+,(unsigned long)(lllIll-llIIl));return(size_t)(lllIll-llIIl);}else if(IlllI->
+transfer_buffer){return lIIIIllII(IlllI,llIIl);}lIlll(
 "\x75\x73\x62\x64\x5f\x76\x68\x63\x69\x5f\x75\x6e\x70\x61\x63\x6b\x5f\x69\x73\x6f\x63\x68\x5f\x62\x75\x66\x3a\x20\x6e\x6f\x20\x62\x75\x66\x66\x65\x72" "\n"
-);return(0xb14+6701-0x2541);}
+);return(0x1bcb+1383-0x2132);}
 #else 
 
-static inline int lIllIlll(struct urb*lIlll,void*IllIl,int llIIl){if(!llIIl)
-return(0x1d9+4136-0x1201);if(!lIlll->transfer_buffer)return-EINVAL;memcpy(lIlll
-->transfer_buffer,IllIl,llIIl);return llIIl;}static inline int IIlIlIII(void*
-IllIl,struct urb*lIlll,int llIIl){if(!llIIl)return(0x63c+5529-0x1bd5);if(!lIlll
-->transfer_buffer)return-EINVAL;memcpy(IllIl,lIlll->transfer_buffer,llIIl);
-return llIIl;}static inline int llllIlIll(struct urb*lIlll,void*IllIl,int llIIl)
-{if(!llIIl)return(0x8a4+7544-0x261c);if(!lIlll->setup_packet)return-EINVAL;
-memcpy(lIlll->setup_packet,IllIl,llIIl);return llIIl;}static inline int 
-llIIIllII(void*IllIl,struct urb*lIlll,int llIIl){if(!llIIl)return
-(0x12a8+4669-0x24e5);if(!lIlll->setup_packet)return-EINVAL;memcpy(IllIl,lIlll->
-setup_packet,llIIl);return llIIl;}static inline size_t IlIIlIlll(void*IllIl,
-struct urb*lIlll){if(!lIlll->transfer_buffer)return(0x1b5+6065-0x1966);return 
-IllIlIlI(lIlll->iso_frame_desc,lIlll->number_of_packets,IllIl,lIlll->
-transfer_buffer,(0xc+9496-0x2524));}
+static inline int IIlIllII(struct urb*IlllI,void*llIIl,int IIIIl){if(!IIIIl){
+return(0x148+2010-0x922);}if(!IlllI->transfer_buffer){return-EINVAL;}memcpy(
+IlllI->transfer_buffer,llIIl,IIIIl);return IIIIl;}static inline int llIlIlll(
+void*llIIl,struct urb*IlllI,int IIIIl){if(!IIIIl){return(0x976+6764-0x23e2);}if(
+!IlllI->transfer_buffer){return-EINVAL;}memcpy(llIIl,IlllI->transfer_buffer,
+IIIIl);return IIIIl;}static inline int IIlIllIll(struct urb*IlllI,void*llIIl,int
+ IIIIl){if(!IIIIl){return(0x182+627-0x3f5);}if(!IlllI->setup_packet){return-
+EINVAL;}memcpy(IlllI->setup_packet,llIIl,IIIIl);return IIIIl;}static inline int 
+llIlIIlll(void*llIIl,struct urb*IlllI,int IIIIl){if(!IIIIl){return
+(0xd0c+5753-0x2385);}if(!IlllI->setup_packet){return-EINVAL;}memcpy(llIIl,IlllI
+->setup_packet,IIIIl);return IIIIl;}static inline size_t IIIIlllII(void*llIIl,
+struct urb*IlllI){if(!IlllI->transfer_buffer){return(0x787+7952-0x2697);}return 
+IlIIIllI(IlllI->iso_frame_desc,IlllI->number_of_packets,llIIl,IlllI->
+transfer_buffer,(0xb50+3909-0x1a95));}
 
-static inline size_t lllIIIlIl(struct urb*lIlll,void*IllIl){return IIIIllIll(
-lIlll,IllIl);}
+static inline size_t lIlIIlIII(struct urb*IlllI,void*llIIl){return lIIIIllII(
+IlllI,llIIl);}
 #endif 
 
 
 
 
-static inline int IlIIlllIl(struct list_head*lIllIlI,lllIII lllIl,void*IllIl,
-size_t IIlIll){int IIIll=(0x856+7171-0x2459);int llIIIII=sizeof(IlIIIlIlI);IllII
- IIlIl=IllIl;struct IlIIIll*llIIII;IIlIl->IIIlI.lIIlIl=lllIl;IIlIl->IIIlI.
-IllIIll=(0x1bf9+2463-0x2598);IIlIl->IIIlI.lIlIl=llIIIII;IIlIl->IIIlI.lIIlIII=
-IIlIlIll;IIlIl->IIIlI.Status=(0x161+6188-0x198d);IIlIl->IIIlI.Context=
-(0x25c4+103-0x262b);if(IIlIll<IIlIl->IIIlI.lIlIl){return-EMSGSIZE;}llIIII=
-list_entry(lIllIlI->prev,struct IlIIIll,lIlIII);IIlIl->IlIll.IIllI=
-(0x904+4947-0x1c57);IIlIl->IlIll.Endpoint=usb_pipeendpoint(llIIII->lIlll->pipe);
-IIlIl->IlIll.Flags=usb_pipein(llIIII->lIlll->pipe)?lIllII:(0x18e9+108-0x1955);
-if(usb_pipein(llIIII->lIlll->pipe)&&!(llIIII->lIlll->transfer_flags&
-URB_SHORT_NOT_OK)){IIlIl->IlIll.Flags|=lllllII;}
+static inline int IlIllllIIl(struct list_head*llllllI,llIIII lIlIl,void*llIIl,
+size_t IlIIIl){int IlIlI=(0x569+7173-0x216e);int llIllII=sizeof(IIIlIlllI);IIlII
+ IIlIl=llIIl;struct lllllII*IlIIlI;IIlIl->IlIII.IIIlIl=lIlIl;IIlIl->IlIII.
+IllllII=(0x14da+1081-0x1913);IIlIl->IlIII.IIIII=llIllII;IIlIl->IlIII.IIIlIIl=
+IIllIIIl;IIlIl->IlIII.Status=(0x3d9+3957-0x134e);IIlIl->IlIII.Context=
+(0x8af+74-0x8f9);if(IlIIIl<IIlIl->IlIII.IIIII){return-EMSGSIZE;}IlIIlI=
+list_entry(llllllI->prev,struct lllllII,IIIIll);IIlIl->lllllI.IllllI=
+(0x1baf+2224-0x245f);IIlIl->lllllI.Endpoint=usb_pipeendpoint(IlIIlI->IlllI->pipe
+);IIlIl->lllllI.Flags=usb_pipein(IlIIlI->IlllI->pipe)?IIIllI:(0xa93+3089-0x16a4)
+;
+if(usb_pipein(IlIIlI->IlllI->pipe)&&!(IlIIlI->IlllI->transfer_flags&
+URB_SHORT_NOT_OK)){IIlIl->lllllI.Flags|=lIIlIll;}
 
 
-list_for_each_entry(llIIII,lIllIlI,lIlIII){if(usb_pipeout(llIIII->lIlll->pipe)){
-if(IIlIll>=(IIlIl->IIIlI.lIlIl+llIIII->lIlll->transfer_buffer_length)){if(
-IIlIlIII((char*)IllIl+IIlIl->IIIlI.lIlIl,llIIII->lIlll,llIIII->lIlll->
-transfer_buffer_length)<(0x2550+113-0x25c1))return-EINVAL;}IIlIl->IIIlI.lIlIl+=
-llIIII->lIlll->transfer_buffer_length;}IIlIl->IlIll.IIllI+=llIIII->lIlll->
-transfer_buffer_length;}if(IIlIll<IIlIl->IIIlI.lIlIl){return-EMSGSIZE;}return 
-IIIll;}static inline int IlIIIIllI(struct urb*lIlll,lllIII lllIl,void*IllIl,
-size_t IIlIll){int IIIll=(0x333+5855-0x1a12);int llIIIII=sizeof(IIlIlIIIl);IllII
- IIlIl=IllIl;IIlIl->IIIlI.lIIlIl=lllIl;IIlIl->IIIlI.IllIIll=(0x12ca+2544-0x1cba)
-;IIlIl->IIIlI.lIlIl=llIIIII;IIlIl->IIIlI.lIIlIII=llIIIIIl;IIlIl->IIIlI.Status=
-(0x69c+7591-0x2443);IIlIl->IIIlI.Context=(0x92+5166-0x14c0);if(IIlIll<IIlIl->
-IIIlI.lIlIl){return-EMSGSIZE;}IIlIl->lIllIl.IIllI=lIlll->transfer_buffer_length;
-IIlIl->lIllIl.Interval=lIlll->interval;IIlIl->lIllIl.Endpoint=usb_pipeendpoint(
-lIlll->pipe);IIlIl->lIllIl.Flags=usb_pipein(lIlll->pipe)?lIllII:
-(0x15ab+96-0x160b);IIlIl->lIllIl.Flags|=(lIlll->transfer_flags&URB_SHORT_NOT_OK)
-?(0xf6d+1329-0x149e):lllllII;if(usb_pipeout(lIlll->pipe)){if(IIlIll>=(IIlIl->
-IIIlI.lIlIl+lIlll->transfer_buffer_length)){if(IIlIlIII((char*)IllIl+IIlIl->
-IIIlI.lIlIl,lIlll,lIlll->transfer_buffer_length)<(0x252+876-0x5be))return-EINVAL
-;}IIlIl->IIIlI.lIlIl+=lIlll->transfer_buffer_length;}if(IIlIll<IIlIl->IIIlI.
-lIlIl){return-EMSGSIZE;}return IIIll;}static inline int IllIIIIII(struct urb*
-lIlll,lllIII lllIl,void*IllIl,size_t IIlIll){int IIIll=(0x19c+3112-0xdc4);IllII 
-IIlIl=IllIl;int i;int llIIIII=sizeof(IlIlIIll)-sizeof(lllllIll)+sizeof(lllllIll)
-*lIlll->number_of_packets;IIlIl->IIIlI.lIIlIl=lllIl;IIlIl->IIIlI.IllIIll=
-(0x134c+4142-0x237a);IIlIl->IIIlI.lIlIl=llIIIII;IIlIl->IIIlI.lIIlIII=IllllllI;
-IIlIl->IIIlI.Status=(0xc20+3292-0x18fc);IIlIl->IIIlI.Context=(0x5ec+2657-0x104d)
-;if(IIlIll<IIlIl->IIIlI.lIlIl){return-EMSGSIZE;}IIlIl->lIIIl.Endpoint=
-usb_pipeendpoint(lIlll->pipe);IIlIl->lIIIl.Flags=usb_pipein(lIlll->pipe)?lIllII:
-(0x16d1+930-0x1a73);IIlIl->lIIIl.Flags|=(lIlll->transfer_flags&URB_SHORT_NOT_OK)
-?(0x1ba0+1298-0x20b2):lllllII;
-
-
-
-
+list_for_each_entry(IlIIlI,llllllI,IIIIll){if(usb_pipeout(IlIIlI->IlllI->pipe)){
+if(IlIIIl>=(IIlIl->IlIII.IIIII+IlIIlI->IlllI->transfer_buffer_length)){if(
+llIlIlll((char*)llIIl+IIlIl->IlIII.IIIII,IlIIlI->IlllI,IlIIlI->IlllI->
+transfer_buffer_length)<(0x51f+241-0x610)){return-EINVAL;}}IIlIl->IlIII.IIIII+=
+IlIIlI->IlllI->transfer_buffer_length;}IIlIl->lllllI.IllllI+=IlIIlI->IlllI->
+transfer_buffer_length;}if(IlIIIl<IIlIl->IlIII.IIIII){return-EMSGSIZE;}return 
+IlIlI;}static inline int IIllIllIl(struct urb*IlllI,llIIII lIlIl,void*llIIl,
+size_t IlIIIl){int IlIlI=(0x825+4781-0x1ad2);int llIllII=sizeof(lIIllIllI);IIlII
+ IIlIl=llIIl;IIlIl->IlIII.IIIlIl=lIlIl;IIlIl->IlIII.IllllII=(0x1ef9+1952-0x2699)
+;IIlIl->IlIII.IIIII=llIllII;IIlIl->IlIII.IIIlIIl=lIlllIIl;IIlIl->IlIII.Status=
+(0x1907+3108-0x252b);IIlIl->IlIII.Context=(0xf50+2648-0x19a8);if(IlIIIl<IIlIl->
+IlIII.IIIII){return-EMSGSIZE;}IIlIl->llIIlI.IllllI=IlllI->transfer_buffer_length
+;IIlIl->llIIlI.Interval=IlllI->interval;IIlIl->llIIlI.Endpoint=usb_pipeendpoint(
+IlllI->pipe);IIlIl->llIIlI.Flags=usb_pipein(IlllI->pipe)?IIIllI:
+(0x90d+6573-0x22ba);IIlIl->llIIlI.Flags|=(IlllI->transfer_flags&URB_SHORT_NOT_OK
+)?(0x1240+4846-0x252e):lIIlIll;if(usb_pipeout(IlllI->pipe)){if(IlIIIl>=(IIlIl->
+IlIII.IIIII+IlllI->transfer_buffer_length)){if(llIlIlll((char*)llIIl+IIlIl->
+IlIII.IIIII,IlllI,IlllI->transfer_buffer_length)<(0x70+8741-0x2295)){return-
+EINVAL;}}IIlIl->IlIII.IIIII+=IlllI->transfer_buffer_length;}if(IlIIIl<IIlIl->
+IlIII.IIIII){return-EMSGSIZE;}return IlIlI;}static inline int IllIlIIll(struct 
+urb*IlllI,llIIII lIlIl,void*llIIl,size_t IlIIIl){int IlIlI=(0x6cc+3469-0x1459);
+IIlII IIlIl=llIIl;int i;int llIllII=sizeof(lIIllIIlI)-sizeof(IllIlIII)+sizeof(
+IllIlIII)*IlllI->number_of_packets;IIlIl->IlIII.IIIlIl=lIlIl;IIlIl->IlIII.
+IllllII=(0x416+4848-0x1706);IIlIl->IlIII.IIIII=llIllII;IIlIl->IlIII.IIIlIIl=
+lllIlIIl;IIlIl->IlIII.Status=(0x5d6+4513-0x1777);IIlIl->IlIII.Context=
+(0x7bb+1181-0xc58);if(IlIIIl<IIlIl->IlIII.IIIII){return-EMSGSIZE;}IIlIl->llIll.
+Endpoint=usb_pipeendpoint(IlllI->pipe);IIlIl->llIll.Flags=usb_pipein(IlllI->pipe
+)?IIIllI:(0xf53+550-0x1179);IIlIl->llIll.Flags|=(IlllI->transfer_flags&
+URB_SHORT_NOT_OK)?(0x1a9+7999-0x20e8):lIIlIll;
 
 
 
@@ -1257,174 +1274,180 @@ usb_pipeendpoint(lIlll->pipe);IIlIl->lIIIl.Flags=usb_pipein(lIlll->pipe)?lIllII:
 
 
 
-IIlIl->lIIIl.Flags|=IlIllllII;
-IIlIl->lIIIl.IIllI=lIlll->transfer_buffer_length;IIlIl->lIIIl.Interval=lIlll->
-interval;IIlIl->lIIIl.IIIlIIIl=(0x1543+1533-0x1b40);
-IIlIl->lIIIl.lIlIllII=(0xa30+4613-0x1c35);IIlIl->lIIIl.lIllIII=lIlll->
-number_of_packets;for(i=(0x453+6460-0x1d8f);i<lIlll->number_of_packets;i++){
-IIlIl->lIIIl.llIIlII[i].Offset=lIlll->iso_frame_desc[i].offset;IIlIl->lIIIl.
-llIIlII[i].Length=lIlll->iso_frame_desc[i].length;IIlIl->lIIIl.llIIlII[i].Status
-=(0xbf0+6462-0x252e);}if(usb_pipeout(lIlll->pipe)){if(IIlIll>=(IIlIl->IIIlI.
-lIlIl+lIlll->transfer_buffer_length)){IIlIl->IIIlI.lIlIl+=IlIIlIlll((char*)IllIl
-+IIlIl->IIIlI.lIlIl,lIlll);}else{
-IIlIl->IIIlI.lIlIl+=lIlll->transfer_buffer_length;}}if(IIlIll<IIlIl->IIIlI.lIlIl
-){return-EMSGSIZE;}return IIIll;}static inline int IIIIllllI(struct urb*lIlll,
-lllIII lllIl,struct usb_ctrlrequest*IIIIIll,void*IllIl,size_t IIlIll){int IIIll=
-(0x635+7501-0x2382);IllII IIlIl=IllIl;int llIIIII=sizeof(llllllIIl);IIlIl->IIIlI
-.lIIlIl=lllIl;IIlIl->IIIlI.IllIIll=(0x1656+3958-0x25cc);IIlIl->IIIlI.lIlIl=
-llIIIII;IIlIl->IIIlI.lIIlIII=IlllIIIl;IIlIl->IIIlI.Status=(0x12ac+3274-0x1f76);
-IIlIl->IIIlI.Context=(0xbf9+5769-0x2282);if(IIlIll<IIlIl->IIIlI.lIlIl){return-
-EMSGSIZE;}IIlIl->llIlII.Endpoint=usb_pipeendpoint(lIlll->pipe);IIlIl->llIlII.
-Flags=usb_pipein(lIlll->pipe)?lIllII:(0x83a+4508-0x19d6);if(usb_pipein(lIlll->
-pipe))IIlIl->llIlII.Flags|=(lIlll->transfer_flags&URB_SHORT_NOT_OK)?
-(0x345+1013-0x73a):lllllII;IIlIl->llIlII.IIllIlI=IIIIIll->bRequestType;IIlIl->
-llIlII.IIlIIlII=IIIIIll->bRequest;IIlIl->llIlII.llllIllI=le16_to_cpu(IIIIIll->
-wValue);IIlIl->llIlII.IIlIllIlI=le16_to_cpu(IIIIIll->wIndex);IIlIl->llIlII.IIllI
-=lIlll->transfer_buffer_length;if(usb_pipeout(lIlll->pipe)){if(IIlIll>=(IIlIl->
-IIIlI.lIlIl+lIlll->transfer_buffer_length)){if(IIlIlIII((char*)IllIl+llIIIII,
-lIlll,lIlll->transfer_buffer_length)<(0xe1a+4304-0x1eea))return-EINVAL;}IIlIl->
-IIIlI.lIlIl+=lIlll->transfer_buffer_length;}if(IIlIll<IIlIl->IIIlI.lIlIl){return
--EMSGSIZE;}return IIIll;}static inline int IIlIlIlII(struct urb*lIlll,lllIII 
-lllIl,struct usb_ctrlrequest*IIIIIll,int IlIIlIIl,void*IllIl,size_t IIlIll){int 
-IIIll=(0x7ed+4610-0x19ef);IllII IIlIl=IllIl;int llIIIII=sizeof(IIlllIllI);IIlIl
-->IIIlI.lIIlIl=lllIl;IIlIl->IIIlI.IllIIll=(0x1a46+1623-0x209d);IIlIl->IIIlI.
-lIlIl=llIIIII;IIlIl->IIIlI.lIIlIII=IlIIlIIl?lIlIllIl:lIIIIIIl;IIlIl->IIIlI.
-Status=(0x18f5+1996-0x20c1);IIlIl->IIIlI.Context=(0xbbf+6988-0x270b);if(IIlIll<
-IIlIl->IIIlI.lIlIl){return-EMSGSIZE;}IIlIl->lIlIll.IIIIIlII=le16_to_cpu(IIIIIll
-->wIndex);IIlIl->lIlIll.IIllI=lIlll->transfer_buffer_length;IIlIl->lIlIll.
-lllIlIII=(le16_to_cpu(IIIIIll->wValue)>>(0x6d3+1608-0xd13))&(0x3d6+8355-0x237a);
-IIlIl->lIlIll.llIllIII=le16_to_cpu(IIIIIll->wValue)&(0x678+8229-0x259e);switch(
-IIIIIll->bRequestType&USB_TYPE_MASK){case USB_TYPE_STANDARD:IIlIl->lIlIll.
-IIllIlI=IIllIllII;break;case USB_TYPE_CLASS:IIlIl->lIlIll.IIllIlI=lIIlIlIIl;
-break;case USB_TYPE_VENDOR:IIlIl->lIlIll.IIllIlI=IIllIllIl;break;case 
-USB_TYPE_RESERVED:IIlIl->lIlIll.IIllIlI=lIlIlIIll;break;default:IIlIl->lIlIll.
-IIllIlI=(0xe96+3154-0x1ae8);}switch(IIIIIll->bRequestType&USB_RECIP_MASK){case 
-USB_RECIP_DEVICE:IIlIl->lIlIll.IlIIIIll=IIllIlIll;break;case USB_RECIP_INTERFACE
-:IIlIl->lIlIll.IlIIIIll=IllIIlllI;break;case USB_RECIP_ENDPOINT:IIlIl->lIlIll.
-IlIIIIll=lllIIlIII;break;case USB_RECIP_OTHER:IIlIl->lIlIll.IlIIIIll=IllIIIIlI;
-break;default:IIlIl->lIlIll.IIllIlI=(0x4b5+2615-0xeec);}if(!IlIIlIIl){if(IIlIll
->=(IIlIl->IIIlI.lIlIl+lIlll->transfer_buffer_length)){if(IIlIlIII((char*)IllIl+
-llIIIII,lIlll,lIlll->transfer_buffer_length)<(0x1d4f+2247-0x2616))return-EINVAL;
-}IIlIl->IIIlI.lIlIl+=lIlll->transfer_buffer_length;}if(IIlIll<IIlIl->IIIlI.lIlIl
-){return-EMSGSIZE;}return IIIll;}static inline int llIIllllI(struct urb*lIlll,
-lllIII lllIl,struct usb_ctrlrequest*IIIIIll,void*IllIl,size_t IIlIll){int IIIll=
-(0x116d+2480-0x1b1d);IllII IIlIl=IllIl;int IIIlIIlI=sizeof(IIIIIllIl);IIlIl->
-IIIlI.lIIlIl=lllIl;IIlIl->IIIlI.IllIIll=(0x6d2+7598-0x2480);IIlIl->IIIlI.lIlIl=
-IIIlIIlI;IIlIl->IIIlI.lIIlIII=llIlllIl;IIlIl->IIIlI.Status=(0x144f+698-0x1709);
-IIlIl->IIIlI.Context=(0x1d6+4294-0x129c);if(IIlIll<IIlIl->IIIlI.lIlIl){return-
-EMSGSIZE;}IIlIl->lIIlIlI.IllllII=(IIIlll)le16_to_cpu(IIIIIll->wIndex);IIlIl->
-lIIlIlI.IlIlllI=(IIIlll)le16_to_cpu(IIIIIll->wValue);return IIIll;}static inline
- int lllIIIIlI(struct urb*lIlll,lllIII lllIl,struct usb_ctrlrequest*IIIIIll,void
-*IllIl,size_t IIlIll){int IIIll=(0x16e4+3016-0x22ac);IllII IIlIl=IllIl;int 
-IIIlIIlI=sizeof(llIllIllI)-sizeof(IIlIl->IlIlIll.lIIIIIl[(0x394+6209-0x1bd5)]);
-IIlIl->IIIlI.lIIlIl=lllIl;IIlIl->IIIlI.IllIIll=(0x1b06+739-0x1de9);IIlIl->IIIlI.
-lIlIl=IIIlIIlI;IIlIl->IIIlI.lIIlIII=IllIllII;IIlIl->IIIlI.Status=
-(0x5f9+2678-0x106f);IIlIl->IIIlI.Context=(0xec2+293-0xfe7);if(IIlIll<IIlIl->
-IIIlI.lIlIl){return-EMSGSIZE;}IIlIl->IlIlIll.lllllIII=(IIIlll)le16_to_cpu(
-IIIIIll->wValue);IIlIl->IlIlIll.IIlIlIlI=(0x1f51+831-0x2290);return IIIll;}
-static inline int lIIIlIIII(struct urb*lIlll,lllIII lllIl,struct usb_ctrlrequest
-*IIIIIll,void*IllIl,size_t IIlIll){int IIIll=(0x15a+1565-0x777);IllII IIlIl=
-IllIl;int IIIlIIlI=sizeof(IIIIlIlIl);IIlIl->IIIlI.lIIlIl=lllIl;IIlIl->IIIlI.
-IllIIll=(0xcd0+1022-0x10ce);IIlIl->IIIlI.lIlIl=IIIlIIlI;IIlIl->IIIlI.lIIlIII=
-llIIllll;IIlIl->IIIlI.Status=(0x777+1013-0xb6c);IIlIl->IIIlI.Context=
-(0xca5+27-0xcc0);if(IIlIll<IIlIl->IIIlI.lIlIl){return-EMSGSIZE;}IIlIl->IIlIIll.
-Endpoint=IIIIIll->wIndex&(0x133+8649-0x22ed);
-IIlIl->IIlIIll.Flags=(IIIIIll->wIndex&USB_DIR_IN)?lIllII:(0x943+4438-0x1a99);
-return IIIll;}int IlllllIII(struct list_head*lIllIlI,lllIII lllIl,void*IllIl,
-size_t IIlIll){int IIIll=-EINVAL;do
-{struct usb_ctrlrequest lIIllI;struct urb*lIlll;struct IlIIIll*llIIII;llIIII=
-list_entry(lIllIlI->next,struct IlIIIll,lIlIII);lIlll=llIIII->lIlll;if(!lIlll){
-IlllI(
+
+
+
+
+IIlIl->llIll.Flags|=IlIllIIII;
+IIlIl->llIll.IllllI=IlllI->transfer_buffer_length;IIlIl->llIll.Interval=IlllI->
+interval;IIlIl->llIll.IIlIlIIl=(0x2dc+6675-0x1cef);
+IIlIl->llIll.llIIIIIl=(0x29+2783-0xb08);IIlIl->llIll.IIlIlIl=IlllI->
+number_of_packets;for(i=(0x58c+1379-0xaef);i<IlllI->number_of_packets;i++){IIlIl
+->llIll.llIIIIl[i].Offset=IlllI->iso_frame_desc[i].offset;IIlIl->llIll.llIIIIl[i
+].Length=IlllI->iso_frame_desc[i].length;IIlIl->llIll.llIIIIl[i].Status=
+(0x1609+2512-0x1fd9);}if(usb_pipeout(IlllI->pipe)){if(IlIIIl>=(IIlIl->IlIII.
+IIIII+IlllI->transfer_buffer_length)){IIlIl->IlIII.IIIII+=IIIIlllII((char*)llIIl
++IIlIl->IlIII.IIIII,IlllI);}else{
+IIlIl->IlIII.IIIII+=IlllI->transfer_buffer_length;}}if(IlIIIl<IIlIl->IlIII.IIIII
+){return-EMSGSIZE;}return IlIlI;}static inline int lIlIllllII(struct urb*IlllI,
+llIIII lIlIl,struct usb_ctrlrequest*IlllIll,void*llIIl,size_t IlIIIl){int IlIlI=
+(0x5a4+6034-0x1d36);IIlII IIlIl=llIIl;int llIllII=sizeof(IllIIlIll);IIlIl->IlIII
+.IIIlIl=lIlIl;IIlIl->IlIII.IllllII=(0x1f41+1337-0x247a);IIlIl->IlIII.IIIII=
+llIllII;IIlIl->IlIII.IIIlIIl=llIIIIlI;IIlIl->IlIII.Status=(0x74f+6041-0x1ee8);
+IIlIl->IlIII.Context=(0xaf+7051-0x1c3a);if(IlIIIl<IIlIl->IlIII.IIIII){return-
+EMSGSIZE;}IIlIl->lllIII.Endpoint=usb_pipeendpoint(IlllI->pipe);IIlIl->lllIII.
+Flags=usb_pipein(IlllI->pipe)?IIIllI:(0x7d2+2566-0x11d8);if(usb_pipein(IlllI->
+pipe)){IIlIl->lllIII.Flags|=(IlllI->transfer_flags&URB_SHORT_NOT_OK)?
+(0x5af+986-0x989):lIIlIll;}IIlIl->lllIII.IIllIll=IlllIll->bRequestType;IIlIl->
+lllIII.IIIIllIII=IlllIll->bRequest;IIlIl->lllIII.IlIlIlII=le16_to_cpu(IlllIll->
+wValue);IIlIl->lllIII.IIlIlllIl=le16_to_cpu(IlllIll->wIndex);IIlIl->lllIII.
+IllllI=IlllI->transfer_buffer_length;if(usb_pipeout(IlllI->pipe)){if(IlIIIl>=(
+IIlIl->IlIII.IIIII+IlllI->transfer_buffer_length)){if(llIlIlll((char*)llIIl+
+llIllII,IlllI,IlllI->transfer_buffer_length)<(0xa4d+1387-0xfb8)){return-EINVAL;}
+}IIlIl->IlIII.IIIII+=IlllI->transfer_buffer_length;}if(IlIIIl<IIlIl->IlIII.IIIII
+){return-EMSGSIZE;}return IlIlI;}static inline int IIIllllll(struct urb*IlllI,
+llIIII lIlIl,struct usb_ctrlrequest*IlllIll,int IlllIlll,void*llIIl,size_t 
+IlIIIl){int IlIlI=(0x613+3059-0x1206);IIlII IIlIl=llIIl;int llIllII=sizeof(
+IIIIlIlll);IIlIl->IlIII.IIIlIl=lIlIl;IIlIl->IlIII.IllllII=(0x2c7+9271-0x26fe);
+IIlIl->IlIII.IIIII=llIllII;IIlIl->IlIII.IIIlIIl=IlllIlll?llIIllll:lIlIllll;IIlIl
+->IlIII.Status=(0x792+4979-0x1b05);IIlIl->IlIII.Context=(0x1057+2003-0x182a);if(
+IlIIIl<IIlIl->IlIII.IIIII){return-EMSGSIZE;}IIlIl->IIlllI.lIIlIIlI=le16_to_cpu(
+IlllIll->wIndex);IIlIl->IIlllI.IllllI=IlllI->transfer_buffer_length;IIlIl->
+IIlllI.lllllllI=(le16_to_cpu(IlllIll->wValue)>>(0x6f+6880-0x1b47))&
+(0x688+7440-0x2299);IIlIl->IIlllI.lIlIIlll=le16_to_cpu(IlllIll->wValue)&
+(0x3b5+6511-0x1c25);switch(IlllIll->bRequestType&USB_TYPE_MASK){case 
+USB_TYPE_STANDARD:IIlIl->IIlllI.IIllIll=lllllIIIII;break;case USB_TYPE_CLASS:
+IIlIl->IIlllI.IIllIll=lIIIlllII;break;case USB_TYPE_VENDOR:IIlIl->IIlllI.IIllIll
+=lIllllllI;break;case USB_TYPE_RESERVED:IIlIl->IIlllI.IIllIll=IlIlIIIll;break;
+default:IIlIl->IIlllI.IIllIll=(0x1da7+419-0x1f4a);}switch(IlllIll->bRequestType&
+USB_RECIP_MASK){case USB_RECIP_DEVICE:IIlIl->IIlllI.llIlIIll=IIIlIlIlI;break;
+case USB_RECIP_INTERFACE:IIlIl->IIlllI.llIlIIll=IlllllIlI;break;case 
+USB_RECIP_ENDPOINT:IIlIl->IIlllI.llIlIIll=IIllIIlII;break;case USB_RECIP_OTHER:
+IIlIl->IIlllI.llIlIIll=llIllIlll;break;default:IIlIl->IIlllI.IIllIll=
+(0x74+4505-0x120d);}if(!IlllIlll){if(IlIIIl>=(IIlIl->IlIII.IIIII+IlllI->
+transfer_buffer_length)){if(llIlIlll((char*)llIIl+llIllII,IlllI,IlllI->
+transfer_buffer_length)<(0x1da+6701-0x1c07)){return-EINVAL;}}IIlIl->IlIII.IIIII
++=IlllI->transfer_buffer_length;}if(IlIIIl<IIlIl->IlIII.IIIII){return-EMSGSIZE;}
+return IlIlI;}static inline int IlIIlIlIl(struct urb*IlllI,llIIII lIlIl,struct 
+usb_ctrlrequest*IlllIll,void*llIIl,size_t IlIIIl){int IlIlI=(0x13ec+1713-0x1a9d)
+;IIlII IIlIl=llIIl;int IIIllIII=sizeof(IllIIllll);IIlIl->IlIII.IIIlIl=lIlIl;
+IIlIl->IlIII.IllllII=(0xe59+1615-0x14a8);IIlIl->IlIII.IIIII=IIIllIII;IIlIl->
+IlIII.IIIlIIl=IIlIlIII;IIlIl->IlIII.Status=(0x5f2+2863-0x1121);IIlIl->IlIII.
+Context=(0xcf4+3366-0x1a1a);if(IlIIIl<IIlIl->IlIII.IIIII){return-EMSGSIZE;}IIlIl
+->IlIIIIl.IlIllIl=(lIllIl)le16_to_cpu(IlllIll->wIndex);IIlIl->IlIIIIl.llIlllI=(
+lIllIl)le16_to_cpu(IlllIll->wValue);return IlIlI;}static inline int IIIIIlIIl(
+struct urb*IlllI,llIIII lIlIl,struct usb_ctrlrequest*IlllIll,void*llIIl,size_t 
+IlIIIl){int IlIlI=(0xeca+2792-0x19b2);IIlII IIlIl=llIIl;int IIIllIII=sizeof(
+lIIlllIlI)-sizeof(IIlIl->lIllIll.llIIlII[(0x99c+4280-0x1a54)]);IIlIl->IlIII.
+IIIlIl=lIlIl;IIlIl->IlIII.IllllII=(0x5d+1512-0x645);IIlIl->IlIII.IIIII=IIIllIII;
+IIlIl->IlIII.IIIlIIl=llIlllIl;IIlIl->IlIII.Status=(0x3d6+6364-0x1cb2);IIlIl->
+IlIII.Context=(0xf39+4346-0x2033);if(IlIIIl<IIlIl->IlIII.IIIII){return-EMSGSIZE;
+}IIlIl->lIllIll.lllIllIl=(lIllIl)le16_to_cpu(IlllIll->wValue);IIlIl->lIllIll.
+IlllllIl=(0x49a+2594-0xebc);return IlIlI;}static inline int lIIllIlIl(struct urb
+*IlllI,llIIII lIlIl,struct usb_ctrlrequest*IlllIll,void*llIIl,size_t IlIIIl){int
+ IlIlI=(0x110+6591-0x1acf);IIlII IIlIl=llIIl;int IIIllIII=sizeof(IIlllllIl);
+IIlIl->IlIII.IIIlIl=lIlIl;IIlIl->IlIII.IllllII=(0x35b+8236-0x2387);IIlIl->IlIII.
+IIIII=IIIllIII;IIlIl->IlIII.IIIlIIl=IIIIlllI;IIlIl->IlIII.Status=
+(0xecd+697-0x1186);IIlIl->IlIII.Context=(0x14eb+1773-0x1bd8);if(IlIIIl<IIlIl->
+IlIII.IIIII){return-EMSGSIZE;}IIlIl->lIllIII.Endpoint=IlllIll->wIndex&
+(0x44d+3892-0x1372);
+IIlIl->lIllIII.Flags=(IlllIll->wIndex&USB_DIR_IN)?IIIllI:(0x19eb+2541-0x23d8);
+return IlIlI;}int llIlIlllI(struct list_head*llllllI,llIIII lIlIl,void*llIIl,
+size_t IlIIIl){int IlIlI=-EINVAL;do
+{struct usb_ctrlrequest llIlll;struct urb*IlllI;struct lllllII*IlIIlI;IlIIlI=
+list_entry(llllllI->next,struct lllllII,IIIIll);IlllI=IlIIlI->IlllI;if(!IlllI){
+lIlll(
 "\x75\x73\x62\x64\x5f\x70\x61\x63\x6b\x5f\x75\x72\x62\x5f\x6c\x69\x73\x74\x3a\x20\x70\x75\x72\x62\x20\x69\x73\x20\x6e\x75\x6c\x6c\x28\x30\x78\x25\x70\x29\x2c\x20\x70\x76\x75\x72\x62\x3d\x30\x78\x25\x70\x20\x70\x75\x72\x62\x5f\x6c\x69\x73\x74\x3d\x30\x78\x25\x70" "\n"
-,lIlll,llIIII,lIllIlI);break;}switch(usb_pipetype(lIlll->pipe)){case PIPE_BULK:
-IIIll=IlIIlllIl(lIllIlI,lllIl,IllIl,IIlIll);break;case PIPE_INTERRUPT:IIIll=
-IlIIIIllI(lIlll,lllIl,IllIl,IIlIll);break;case PIPE_ISOCHRONOUS:IIIll=IllIIIIII(
-lIlll,lllIl,IllIl,IIlIll);break;case PIPE_CONTROL:IIIll=llIIIllII(&lIIllI,lIlll,
-sizeof(lIIllI));if(IIIll<(0x535+1752-0xc0d))break;if(IIIll!=sizeof(lIIllI)){
-IIIll=-EINVAL;break;}if(lIIllI.bRequestType==(USB_DIR_IN|USB_TYPE_STANDARD|
-USB_RECIP_DEVICE)&&lIIllI.bRequest==USB_REQ_GET_DESCRIPTOR){
-IIIll=IIlIlIlII(lIlll,lllIl,&lIIllI,(0x409+1107-0x85b),IllIl,IIlIll);}else if(
-lIIllI.bRequestType==(USB_DIR_OUT|USB_TYPE_STANDARD|USB_RECIP_DEVICE)&&lIIllI.
+,IlllI,IlIIlI,llllllI);break;}switch(usb_pipetype(IlllI->pipe)){case PIPE_BULK:
+IlIlI=IlIllllIIl(llllllI,lIlIl,llIIl,IlIIIl);break;case PIPE_INTERRUPT:IlIlI=
+IIllIllIl(IlllI,lIlIl,llIIl,IlIIIl);break;case PIPE_ISOCHRONOUS:IlIlI=IllIlIIll(
+IlllI,lIlIl,llIIl,IlIIIl);break;case PIPE_CONTROL:IlIlI=llIlIIlll(&llIlll,IlllI,
+sizeof(llIlll));if(IlIlI<(0x481+4512-0x1621)){break;}if(IlIlI!=sizeof(llIlll)){
+IlIlI=-EINVAL;break;}if(llIlll.bRequestType==(USB_DIR_IN|USB_TYPE_STANDARD|
+USB_RECIP_DEVICE)&&llIlll.bRequest==USB_REQ_GET_DESCRIPTOR){
+IlIlI=IIIllllll(IlllI,lIlIl,&llIlll,(0x1a26+1922-0x21a7),llIIl,IlIIIl);}else if(
+llIlll.bRequestType==(USB_DIR_OUT|USB_TYPE_STANDARD|USB_RECIP_DEVICE)&&llIlll.
 bRequest==USB_REQ_SET_DESCRIPTOR){
-IIIll=IIlIlIlII(lIlll,lllIl,&lIIllI,(0x633+2386-0xf85),IllIl,IIlIll);}else if(
-lIIllI.bRequestType==(USB_DIR_OUT|USB_TYPE_STANDARD|USB_RECIP_DEVICE)&&lIIllI.
+IlIlI=IIIllllll(IlllI,lIlIl,&llIlll,(0x1a3b+2453-0x23d0),llIIl,IlIIIl);}else if(
+llIlll.bRequestType==(USB_DIR_OUT|USB_TYPE_STANDARD|USB_RECIP_DEVICE)&&llIlll.
 bRequest==USB_REQ_SET_CONFIGURATION){
-IIIll=lllIIIIlI(lIlll,lllIl,&lIIllI,IllIl,IIlIll);}else if(lIIllI.bRequestType==
-(USB_DIR_OUT|USB_TYPE_STANDARD|USB_RECIP_INTERFACE)&&lIIllI.bRequest==
+IlIlI=IIIIIlIIl(IlllI,lIlIl,&llIlll,llIIl,IlIIIl);}else if(llIlll.bRequestType==
+(USB_DIR_OUT|USB_TYPE_STANDARD|USB_RECIP_INTERFACE)&&llIlll.bRequest==
 USB_REQ_SET_INTERFACE){
-IIIll=llIIllllI(lIlll,lllIl,&lIIllI,IllIl,IIlIll);}else if(lIIllI.bRequestType==
-(USB_DIR_OUT|USB_TYPE_STANDARD|USB_RECIP_ENDPOINT)&&lIIllI.bRequest==
-USB_REQ_CLEAR_FEATURE&&lIIllI.wValue==USB_ENDPOINT_HALT){
-IIIll=lIIIlIIII(lIlll,lllIl,&lIIllI,IllIl,IIlIll);}else{
-IIIll=IIIIllllI(lIlll,lllIl,&lIIllI,IllIl,IIlIll);}break;default:IlIIlI(
+IlIlI=IlIIlIlIl(IlllI,lIlIl,&llIlll,llIIl,IlIIIl);}else if(llIlll.bRequestType==
+(USB_DIR_OUT|USB_TYPE_STANDARD|USB_RECIP_ENDPOINT)&&llIlll.bRequest==
+USB_REQ_CLEAR_FEATURE&&llIlll.wValue==USB_ENDPOINT_HALT){
+IlIlI=lIIllIlIl(IlllI,lIlIl,&llIlll,llIIl,IlIIIl);}else{
+IlIlI=lIlIllllII(IlllI,lIlIl,&llIlll,llIIl,IlIIIl);}break;default:IIllIl(
 "\x75\x6e\x6b\x6e\x6f\x77\x6e\x20\x70\x69\x70\x65\x20\x74\x79\x70\x65\x20\x25\x64\x20\x69\x6e\x20\x75\x72\x62" "\n"
-,usb_pipetype(lIlll->pipe));IIIll=-EINVAL;break;}}while((0x142a+3465-0x21b3));if
-(IIIll<(0x1635+3751-0x24dc)&&IIIll!=-EMSGSIZE){IlIIlI(
+,usb_pipetype(IlllI->pipe));IlIlI=-EINVAL;break;}}while((0x2cb+768-0x5cb));if(
+IlIlI<(0xf54+4366-0x2062)&&IlIlI!=-EMSGSIZE){IIllIl(
 "\x62\x72\x6f\x6b\x65\x6e\x20\x75\x72\x62\x20\x64\x65\x74\x65\x63\x74\x65\x64\x2c\x20\x65\x72\x72\x6f\x72\x20\x63\x6f\x64\x65\x20\x25\x64" "\n"
-,IIIll);}return IIIll;}
+,IlIlI);}return IlIlI;}
 
 
 
-static inline int lIIIIlIll(IllII IIlIl,struct urb*lIlll,int IlIIlIIl){int IIIll
-=(0x7f+3376-0xdaf);lIlll->actual_length=min((lllII)lIlll->transfer_buffer_length
-,IIlIl->lIlIll.IIllI);if(IlIIlIIl){lIllIlll(lIlll,(char*)IIlIl+sizeof(IIlIl->
-lIlIll),lIlll->actual_length);}return IIIll;}static inline int lIIIIIllI(IllII 
-IIlIl,struct list_head*lIllIlI){int IIIll=(0x4f1+6920-0x1ff9);struct IlIIIll*
-llIIII;unsigned long llIIIlIIl;unsigned char*IllIl;llIIIlIIl=IIlIl->IlIll.IIllI;
-IllIl=(unsigned char*)IIlIl+sizeof(IIlIl->IlIll);
+static inline int IlIlllIIl(IIlII IIlIl,struct urb*IlllI,int IlllIlll){int IlIlI
+=(0x1fc+7563-0x1f87);IlllI->actual_length=min((lllII)IlllI->
+transfer_buffer_length,IIlIl->IIlllI.IllllI);if(IlllIlll){IIlIllII(IlllI,(char*)
+IIlIl+sizeof(IIlIl->IIlllI),IlllI->actual_length);}return IlIlI;}static inline 
+int llIlIIIIll(IIlII IIlIl,struct list_head*llllllI){int IlIlI=
+(0x631+5434-0x1b6b);struct lllllII*IlIIlI;unsigned long lllIlIlIl;unsigned char*
+llIIl;lllIlIlIl=IIlIl->lllllI.IllllI;llIIl=(unsigned char*)IIlIl+sizeof(IIlIl->
+lllllI);
 
 
-list_for_each_entry(llIIII,lIllIlI,lIlIII){llIIII->lIlll->actual_length=min((
-unsigned long)llIIII->lIlll->transfer_buffer_length,llIIIlIIl);if(usb_pipein(
-llIIII->lIlll->pipe)){IlllI(
+list_for_each_entry(IlIIlI,llllllI,IIIIll){IlIIlI->IlllI->actual_length=min((
+unsigned long)IlIIlI->IlllI->transfer_buffer_length,lllIlIlIl);if(usb_pipein(
+IlIIlI->IlllI->pipe)){lIlll(
 "\x75\x73\x62\x64\x5f\x75\x6e\x70\x61\x63\x6b\x5f\x75\x72\x62\x5f\x62\x75\x6c\x6b\x3a\x20\x63\x6f\x70\x79\x20\x25\x64\x20\x62\x79\x74\x65\x73\x20\x74\x6f\x20\x75\x72\x62\x20\x25\x70" "\n"
-,llIIII->lIlll->actual_length,llIIII->lIlll);lIllIlll(llIIII->lIlll,IllIl,llIIII
-->lIlll->actual_length);}llIIIlIIl-=llIIII->lIlll->actual_length;IllIl+=llIIII->
-lIlll->actual_length;}return IIIll;}static inline int lllIIIlll(IllII IIlIl,
-struct urb*lIlll){int i;int IIIll=(0x3d3+8019-0x2326);IIIlll*lIllllIII=(IIIlll*)
-IIlIl+llllllll(IIlIl);if(IIlIl->lIIIl.lIllIII!=lIlll->number_of_packets)return-
-EINVAL;lIlll->start_frame=IIlIl->lIIIl.IIIlIIIl;lIlll->error_count=IIlIl->lIIIl.
-lIlIllII;lIlll->actual_length=(0x176c+401-0x18fd);for(i=(0xdc7+4785-0x2078);i<
-lIlll->number_of_packets;i++){lIlll->iso_frame_desc[i].status=llllIlIl(IIlIl->
-lIIIl.llIIlII[i].Status);lIlll->iso_frame_desc[i].actual_length=IIlIl->lIIIl.
-llIIlII[i].Length;lIlll->actual_length+=lIlll->iso_frame_desc[i].actual_length;}
-if(usb_pipein(lIlll->pipe))lllIIIlIl(lIlll,lIllllIII);return IIIll;}static 
-inline int lIllIlIII(IllII IIlIl,struct urb*lIlll){int IIIll=
-(0x10fc+5533-0x2699);lIlll->actual_length=min((lllII)lIlll->
-transfer_buffer_length,IIlIl->llIlII.IIllI);if(usb_pipein(lIlll->pipe)){lIllIlll
-(lIlll,(char*)IIlIl+sizeof(IIlIl->llIlII),lIlll->actual_length);}return IIIll;}
-static inline int llIIIllIl(IllII IIlIl,struct urb*lIlll){int IIIll=
-(0x1a7d+943-0x1e2c);lIlll->actual_length=min((lllII)lIlll->
-transfer_buffer_length,IIlIl->lIllIl.IIllI);if(usb_pipein(lIlll->pipe)){lIllIlll
-(lIlll,(char*)IIlIl+sizeof(IIlIl->lIllIl),lIlll->actual_length);}return IIIll;}
-int llllIIlIl(IllII IIlIl,struct list_head*lIllIlI,int*status){int IIIll=
-(0x1f0f+1782-0x2605);struct IlIIIll*llIIII=list_entry(lIllIlI->next,struct 
-IlIIIll,lIlIII);struct urb*lIlll=llIIII->lIlll;*status=llllIlIl(IIlIl->IIIlI.
-Status);switch(IIlIl->IIIlI.lIIlIII){case lIlIllIl:IlllI(
+,IlIIlI->IlllI->actual_length,IlIIlI->IlllI);IIlIllII(IlIIlI->IlllI,llIIl,IlIIlI
+->IlllI->actual_length);}lllIlIlIl-=IlIIlI->IlllI->actual_length;llIIl+=IlIIlI->
+IlllI->actual_length;}return IlIlI;}static inline int lIIIllIIll(IIlII IIlIl,
+struct urb*IlllI){int i;int IlIlI=(0x18d7+1892-0x203b);lIllIl*IIIllllIIl=(lIllIl
+*)IIlIl+IlIlIlll(IIlIl);if(IIlIl->llIll.IIlIlIl!=IlllI->number_of_packets){
+return-EINVAL;}IlllI->start_frame=IIlIl->llIll.IIlIlIIl;IlllI->error_count=IIlIl
+->llIll.llIIIIIl;IlllI->actual_length=(0xe0f+2499-0x17d2);for(i=
+(0x1d38+702-0x1ff6);i<IlllI->number_of_packets;i++){IlllI->iso_frame_desc[i].
+status=lIllllIl(IIlIl->llIll.llIIIIl[i].Status);IlllI->iso_frame_desc[i].
+actual_length=IIlIl->llIll.llIIIIl[i].Length;IlllI->actual_length+=IlllI->
+iso_frame_desc[i].actual_length;}if(usb_pipein(IlllI->pipe)){lIlIIlIII(IlllI,
+IIIllllIIl);}return IlIlI;}static inline int lIlIIlIIll(IIlII IIlIl,struct urb*
+IlllI){int IlIlI=(0x11bd+516-0x13c1);IlllI->actual_length=min((lllII)IlllI->
+transfer_buffer_length,IIlIl->lllIII.IllllI);if(usb_pipein(IlllI->pipe)){
+IIlIllII(IlllI,(char*)IIlIl+sizeof(IIlIl->lllIII),IlllI->actual_length);}return 
+IlIlI;}static inline int llIlllllII(IIlII IIlIl,struct urb*IlllI){int IlIlI=
+(0x1a41+1842-0x2173);IlllI->actual_length=min((lllII)IlllI->
+transfer_buffer_length,IIlIl->llIIlI.IllllI);if(usb_pipein(IlllI->pipe)){
+IIlIllII(IlllI,(char*)IIlIl+sizeof(IIlIl->llIIlI),IlllI->actual_length);}return 
+IlIlI;}int IIIllIlIl(IIlII IIlIl,struct list_head*llllllI,int*status){int IlIlI=
+(0xe24+4051-0x1df7);struct lllllII*IlIIlI=list_entry(llllllI->next,struct 
+lllllII,IIIIll);struct urb*IlllI=IlIIlI->IlllI;*status=lIllllIl(IIlIl->IlIII.
+Status);switch(IIlIl->IlIII.IIIlIIl){case llIIllll:lIlll(
 "\x75\x73\x62\x64\x5f\x75\x6e\x70\x61\x63\x6b\x5f\x75\x72\x62\x3a\x20\x47\x65\x74\x44\x65\x73\x63\x72\x69\x70\x74\x6f\x72" "\n"
-);IIIll=lIIIIlIll(IIlIl,lIlll,(0x680+5421-0x1bac));break;case lIIIIIIl:IlllI(
+);IlIlI=IlIlllIIl(IIlIl,IlllI,(0x386+8784-0x25d5));break;case lIlIllll:lIlll(
 "\x75\x73\x62\x64\x5f\x75\x6e\x70\x61\x63\x6b\x5f\x75\x72\x62\x3a\x20\x53\x65\x74\x44\x65\x73\x63\x72\x69\x70\x74\x6f\x72" "\n"
-);IIIll=lIIIIlIll(IIlIl,lIlll,(0x1b12+1937-0x22a3));break;case IllIllII:IlllI(
+);IlIlI=IlIlllIIl(IIlIl,IlllI,(0x4b4+5088-0x1894));break;case llIlllIl:lIlll(
 "\x75\x73\x62\x64\x5f\x75\x6e\x70\x61\x63\x6b\x5f\x75\x72\x62\x3a\x20\x53\x65\x6c\x65\x63\x74\x43\x6f\x6e\x66\x69\x67\x75\x72\x61\x74\x69\x6f\x6e" "\n"
-);IIIll=(0x2263+873-0x25cc);break;case llIlllIl:IlllI(
+);IlIlI=(0x6d+4384-0x118d);break;case IIlIlIII:lIlll(
 "\x75\x73\x62\x64\x5f\x75\x6e\x70\x61\x63\x6b\x5f\x75\x72\x62\x3a\x20\x53\x65\x6c\x65\x63\x74\x49\x6e\x74\x65\x72\x66\x61\x63\x65" "\n"
-);IIIll=(0x1915+1838-0x2043);break;case IlllIIIl:IlllI(
+);IlIlI=(0x1671+1220-0x1b35);break;case llIIIIlI:lIlll(
 "\x75\x73\x62\x64\x5f\x75\x6e\x70\x61\x63\x6b\x5f\x75\x72\x62\x3a\x20\x43\x6f\x6e\x74\x72\x6f\x6c\x54\x72\x61\x6e\x73\x66\x65\x72" "\n"
-);IIIll=lIllIlIII(IIlIl,lIlll);break;case IIlIlIll:IlllI(
+);IlIlI=lIlIIlIIll(IIlIl,IlllI);break;case IIllIIIl:lIlll(
 "\x75\x73\x62\x64\x5f\x75\x6e\x70\x61\x63\x6b\x5f\x75\x72\x62\x3a\x20\x42\x75\x6c\x6b\x54\x72\x61\x6e\x73\x66\x65\x72" "\n"
-);IIIll=lIIIIIllI(IIlIl,lIllIlI);break;case IllllllI:IlllI(
+);IlIlI=llIlIIIIll(IIlIl,llllllI);break;case lllIlIIl:lIlll(
 "\x75\x73\x62\x64\x5f\x75\x6e\x70\x61\x63\x6b\x5f\x75\x72\x62\x3a\x20\x49\x73\x6f\x63\x68\x54\x72\x61\x6e\x73\x66\x65\x72" "\n"
-);IIIll=lllIIIlll(IIlIl,lIlll);break;case llIIIIIl:IlllI(
+);IlIlI=lIIIllIIll(IIlIl,IlllI);break;case lIlllIIl:lIlll(
 "\x75\x73\x62\x64\x5f\x75\x6e\x70\x61\x63\x6b\x5f\x75\x72\x62\x3a\x20\x49\x6e\x74\x65\x72\x72\x75\x70\x74\x54\x72\x61\x6e\x73\x66\x65\x72" "\n"
-);IIIll=llIIIllIl(IIlIl,lIlll);break;case llIIllll:IlllI(
+);IlIlI=llIlllllII(IIlIl,IlllI);break;case IIIIlllI:lIlll(
 "\x75\x73\x62\x64\x5f\x75\x6e\x70\x61\x63\x6b\x5f\x75\x72\x62\x3a\x20\x43\x6c\x65\x61\x72\x53\x74\x61\x6c\x6c" "\n"
-);IIIll=(0x81+1695-0x720);break;case lIllIIIl:IlllI(
+);IlIlI=(0x1436+1999-0x1c05);break;case llIIlIII:lIlll(
 "\x75\x73\x62\x64\x5f\x75\x6e\x70\x61\x63\x6b\x5f\x75\x72\x62\x3a\x20\x52\x65\x73\x65\x74\x50\x6f\x72\x74" "\n"
-);IIIll=(0xb22+1300-0x1036);break;default:IlllI(
+);IlIlI=(0xbe9+6562-0x258b);break;default:lIlll(
 "\x75\x73\x62\x64\x5f\x75\x6e\x70\x61\x63\x6b\x5f\x75\x72\x62\x3a\x20\x75\x6e\x6b\x6e\x6f\x77\x6e\x20\x66\x75\x6e\x63\x74\x69\x6f\x6e" "\n"
-);IIIll=-EINVAL;break;}return IIIll;}void IllIlllII(struct IlIlIl*lIllI,lllII*
-busnum,lllII*devnum){if(busnum)*busnum=lIllI->parent->self.busnum;
-if(devnum)*devnum=lIllI->llIIIll;}
+);IlIlI=-EINVAL;break;}return IlIlI;}void IllIlIlII(struct lIlIIl*lIllI,lllII*
+busnum,lllII*devnum){if(busnum){*busnum=lIllI->parent->self.busnum;}
+if(devnum){*devnum=lIllI->IllIlIl;}}
 
 
 
@@ -1481,60 +1504,61 @@ if(devnum)*devnum=lIllI->llIIIll;}
 
 
 
-void IIlIlII(struct IIllIl*Illll,int lIIlI,int IIlllI,int IIlIIII){
-switch(IIlllI){case IlIlIIIl:case IIIlllll:case lIllllIl:lIlIIlI(Illll,lIIlI,
-IllIIIII);break;case llIIlllI:lIlIIlI(Illll,lIIlI,IllIIIII);break;case IlIlllII:
-Illll->IllllIl[lIIlI]&=~USB_PORT_STAT_C_CONNECTION;break;case IllIllIll:Illll->
-IllllIl[lIIlI]&=~USB_PORT_STAT_C_ENABLE;break;case IIIlIIIlI:Illll->IllllIl[
-lIIlI]&=~USB_PORT_STAT_C_SUSPEND;break;case IIIIllII:Illll->IllllIl[lIIlI]&=~
+void IlllIIl(struct lIIIII*Illll,int lIIlI,int llllII,int lIIIIII){
+switch(llllII){case IlIllllI:case lIllIlII:case IIlIIlII:llllIll(Illll,lIIlI,
+IIlllllI);break;case IIIIlIll:llllIll(Illll,lIIlI,IIlllllI);break;case lllllIII:
+Illll->lIIlIII[lIIlI]&=~USB_PORT_STAT_C_CONNECTION;break;case lIlllIlIl:Illll->
+lIIlIII[lIIlI]&=~USB_PORT_STAT_C_ENABLE;break;case IIllllllI:Illll->lIIlIII[
+lIIlI]&=~USB_PORT_STAT_C_SUSPEND;break;case lllIlIll:Illll->lIIlIII[lIIlI]&=~
 USB_PORT_STAT_C_RESET;break;}
-switch(Illll->IlllIIll[lIIlI]){case IllIIIII:if(IIlllI==llIIlIIl)lIlIIlI(Illll,
-lIIlI,IIIlIlI);break;case IIIlIlI:if(IIlllI==lIllIIll)lIlIIlI(Illll,lIIlI,
-IlllIIl);break;case IlllIIl:if(IIlllI==llIIIlII)lIlIIlI(Illll,lIIlI,IIIlIlI);if(
-IIlllI==IllIlIII)lIlIIlI(Illll,lIIlI,IlIllII);break;case IlIllII:if(IIlllI==
-llIIIlII)lIlIIlI(Illll,lIIlI,IIIlIlI);if(IIlllI==lIIlIlll)lIlIIlI(Illll,lIIlI,
-IlllIIl);if(IIlllI==llIllllI)lIlIIlI(Illll,lIIlI,IlIllll);break;case IlIllll:if(
-IIlllI==llIIIlII)lIlIIlI(Illll,lIIlI,IIIlIlI);if(IIlllI==lIIlIlll)lIlIIlI(Illll,
-lIIlI,IlllIIl);if(IIlllI==IllIlIII)lIlIIlI(Illll,lIIlI,IlIllII);if(IIlllI==
-lIlIlIIII)lIlIIlI(Illll,lIIlI,IIlIlIlll);break;case IIlIlIlll:if(IIlllI==
-llIIIlII)lIlIIlI(Illll,lIIlI,IIIlIlI);if(IIlllI==lIIlIlll)lIlIIlI(Illll,lIIlI,
-IlllIIl);if(IIlllI==IllIlIII)lIlIIlI(Illll,lIIlI,IlIllII);if(IIlllI==lIIllIIIl||
-IIlllI==IIIlllIII)lIlIIlI(Illll,lIIlI,IIIIIIII);break;case IIIIIIII:if(IIlllI==
-llIIIlII)lIlIIlI(Illll,lIIlI,IIIlIlI);if(IIlllI==lIIlIlll)lIlIIlI(Illll,lIIlI,
-IlllIIl);if(IIlllI==IllIlIII)lIlIIlI(Illll,lIIlI,IlIllII);if(IIlllI==llIllllI)
-lIlIIlI(Illll,lIIlI,IlIllll);break;}}static inline int llIllIlI(int speed){
-switch(speed){case USB_SPEED_HIGH:return USB_PORT_STAT_HIGH_SPEED;case 
-USB_SPEED_LOW:return USB_PORT_STAT_LOW_SPEED;case USB_SPEED_FULL:return
-(0xcb3+3492-0x1a57);}return(0x1746+3723-0x25d1);}
-void lIlIIlI(struct IIllIl*Illll,int lIIlI,int IlIlIII){
-int llllIlll=Illll->IlllIIll[lIIlI];if(IlIlIII==llllIlll)return;Illll->IlllIIll[
-lIIlI]=IlIlIII;Illll->IlllIll[lIIlI]=(0x119a+622-0x1408);if(llllIlll==IlIllII)
-Illll->IllllIl[lIIlI]|=USB_PORT_STAT_C_RESET;if(llllIlll==IIIIIIII)Illll->
-IllllIl[lIIlI]|=USB_PORT_STAT_C_SUSPEND;switch(IlIlIII){case IllIIIII:Illll->
-IIIllII[lIIlI]=(0x220+7483-0x1f5b);Illll->IllllIl[lIIlI]=(0x1219+5196-0x2665);
-break;case IIIlIlI:Illll->IIIllII[lIIlI]=USB_PORT_STAT_POWER;if(llllIlll!=
-IllIIIII)Illll->IllllIl[lIIlI]|=USB_PORT_STAT_C_CONNECTION;
-if(Illll->IIIlIII[lIIlI]){lIlIIlI(Illll,lIIlI,IlllIIl);}break;case IlllIIl:Illll
-->IIIllII[lIIlI]=USB_PORT_STAT_POWER|USB_PORT_STAT_CONNECTION;if(llllIlll==
-IIIlIlI)Illll->IllllIl[lIIlI]|=USB_PORT_STAT_C_CONNECTION;break;case IlIllII:
-Illll->IIIllII[lIIlI]=USB_PORT_STAT_POWER|USB_PORT_STAT_CONNECTION|
+switch(Illll->lllllIIl[lIIlI]){case IIlllllI:if(llllII==lIIIIlll){llllIll(Illll,
+lIIlI,lllIIll);}break;case lllIIll:if(llllII==lIIlIllI){llllIll(Illll,lIIlI,
+llIlIII);}break;case llIlIII:if(llllII==IIIlllII){llllIll(Illll,lIIlI,lllIIll);}
+if(llllII==llllIlII){llllIll(Illll,lIIlI,lllIllI);}break;case lllIllI:if(llllII
+==IIIlllII){llllIll(Illll,lIIlI,lllIIll);}if(llllII==IIlIIlll){llllIll(Illll,
+lIIlI,llIlIII);}if(llllII==lIlIlIIl){llllIll(Illll,lIIlI,IIIlIIll);}break;case 
+IIIlIIll:if(llllII==IIIlllII){llllIll(Illll,lIIlI,lllIIll);}if(llllII==IIlIIlll)
+{llllIll(Illll,lIIlI,llIlIII);}if(llllII==llllIlII){llllIll(Illll,lIIlI,lllIllI)
+;}if(llllII==llllIlIIl){llllIll(Illll,lIIlI,IlIlIlIlI);}break;case IlIlIlIlI:if(
+llllII==IIIlllII){llllIll(Illll,lIIlI,lllIIll);}if(llllII==IIlIIlll){llllIll(
+Illll,lIIlI,llIlIII);}if(llllII==llllIlII){llllIll(Illll,lIIlI,lllIllI);}if(
+llllII==IIlIlIIlI||llllII==llIIIllIl){llllIll(Illll,lIIlI,lIIllIlI);}break;case 
+lIIllIlI:if(llllII==IIIlllII){llllIll(Illll,lIIlI,lllIIll);}if(llllII==IIlIIlll)
+{llllIll(Illll,lIIlI,llIlIII);}if(llllII==llllIlII){llllIll(Illll,lIIlI,lllIllI)
+;}if(llllII==lIlIlIIl){llllIll(Illll,lIIlI,IIIlIIll);}break;}}static inline int 
+IllIIllIl(int speed){switch(speed){case USB_SPEED_HIGH:return 
+USB_PORT_STAT_HIGH_SPEED;case USB_SPEED_LOW:return USB_PORT_STAT_LOW_SPEED;case 
+USB_SPEED_FULL:return(0x50b+8197-0x2510);}return(0xe3b+1719-0x14f2);}
+void llllIll(struct lIIIII*Illll,int lIIlI,int llllIlll){
+int IIIIIlll=Illll->lllllIIl[lIIlI];if(llllIlll==IIIIIlll){return;}Illll->
+lllllIIl[lIIlI]=llllIlll;Illll->IlllIII[lIIlI]=(0x7ed+2170-0x1067);if(IIIIIlll==
+lllIllI){Illll->lIIlIII[lIIlI]|=USB_PORT_STAT_C_RESET;}if(IIIIIlll==lIIllIlI){
+Illll->lIIlIII[lIIlI]|=USB_PORT_STAT_C_SUSPEND;}switch(llllIlll){case IIlllllI:
+Illll->lIIIIIl[lIIlI]=(0xcb9+4689-0x1f0a);Illll->lIIlIII[lIIlI]=
+(0x1adf+2406-0x2445);
+break;case lllIIll:Illll->lIIIIIl[lIIlI]=USB_PORT_STAT_POWER;if(IIIIIlll!=
+IIlllllI){Illll->lIIlIII[lIIlI]|=USB_PORT_STAT_C_CONNECTION;}
+if(Illll->IlIIlII[lIIlI]){llllIll(Illll,lIIlI,llIlIII);}break;case llIlIII:Illll
+->lIIIIIl[lIIlI]=USB_PORT_STAT_POWER|USB_PORT_STAT_CONNECTION;if(IIIIIlll==
+lllIIll){Illll->lIIlIII[lIIlI]|=USB_PORT_STAT_C_CONNECTION;}break;case lllIllI:
+Illll->lIIIIIl[lIIlI]=USB_PORT_STAT_POWER|USB_PORT_STAT_CONNECTION|
 USB_PORT_STAT_RESET;
-Illll->IlllIll[lIIlI]=jiffies+msecs_to_jiffies((0x1402+4635-0x25eb));
-Illll->IlllIll[lIIlI]+=Illll->IlllIll[lIIlI]?(0x36a+3905-0x12ab):
-(0xd32+727-0x1008);break;case IlIllll:Illll->IIIllII[lIIlI]=USB_PORT_STAT_POWER|
-USB_PORT_STAT_CONNECTION|USB_PORT_STAT_ENABLE|llIllIlI(Illll->IIIlIII[lIIlI]->
-speed);break;case IIlIlIlll:Illll->IIIllII[lIIlI]=USB_PORT_STAT_POWER|
-USB_PORT_STAT_CONNECTION|USB_PORT_STAT_ENABLE|USB_PORT_STAT_SUSPEND|llIllIlI(
-Illll->IIIlIII[lIIlI]->speed);break;case IIIIIIII:Illll->IIIllII[lIIlI]=
+Illll->IlllIII[lIIlI]=jiffies+msecs_to_jiffies((0x44+7368-0x1cda));
+Illll->IlllIII[lIIlI]+=Illll->IlllIII[lIIlI]?(0x3ef+4212-0x1463):
+(0x1567+58-0x15a0);break;case IIIlIIll:Illll->lIIIIIl[lIIlI]=USB_PORT_STAT_POWER
+|USB_PORT_STAT_CONNECTION|USB_PORT_STAT_ENABLE|IllIIllIl(Illll->IlIIlII[lIIlI]->
+speed);break;case IlIlIlIlI:Illll->lIIIIIl[lIIlI]=USB_PORT_STAT_POWER|
+USB_PORT_STAT_CONNECTION|USB_PORT_STAT_ENABLE|USB_PORT_STAT_SUSPEND|IllIIllIl(
+Illll->IlIIlII[lIIlI]->speed);break;case lIIllIlI:Illll->lIIIIIl[lIIlI]=
 USB_PORT_STAT_POWER|USB_PORT_STAT_CONNECTION|USB_PORT_STAT_ENABLE|
-USB_PORT_STAT_SUSPEND|llIllIlI(Illll->IIIlIII[lIIlI]->speed);
-Illll->IlllIll[lIIlI]=jiffies+msecs_to_jiffies((0xaba+410-0xc40));
-Illll->IlllIll[lIIlI]+=Illll->IlllIll[lIIlI]?(0x19c7+964-0x1d8b):
-(0x2e4+3168-0xf43);break;default:IlIIlI(
+USB_PORT_STAT_SUSPEND|IllIIllIl(Illll->IlIIlII[lIIlI]->speed);
+Illll->IlllIII[lIIlI]=jiffies+msecs_to_jiffies((0x807+7244-0x243f));
+Illll->IlllIII[lIIlI]+=Illll->IlllIII[lIIlI]?(0x41c+8546-0x257e):
+(0x1100+1851-0x183a);break;default:IIllIl(
 "\x69\x6e\x76\x61\x6c\x69\x64\x20\x6e\x65\x77\x20\x70\x6f\x72\x74\x20\x73\x74\x61\x74\x65" "\n"
 );break;}}
-#if KERNEL_GT_EQ((0x1224+1057-0x1643),(0x5c7+4332-0x16ad),(0x1007+5783-0x2677)) \
-|| RHEL_RELEASE_GT_EQ((0x2343+790-0x2653),(0x3f1+4931-0x1731)) 
+#if KERNEL_GT_EQ((0x74d+4369-0x185c),(0x14b7+1197-0x195e),(0x17dc+3879-0x26dc)) \
+|| RHEL_RELEASE_GT_EQ((0x1e6f+1400-0x23e1),(0x4d9+2354-0xe08)) 
 
 
 
@@ -1560,99 +1584,100 @@ Illll->IlllIll[lIIlI]+=Illll->IlllIll[lIIlI]?(0x19c7+964-0x1d8b):
 
 
 
-void IllIlIl(struct IIllIl*Illll,int lIIlI,int IIlllI,int IIlIIII){
-switch(IIlllI){case IlIlIIIl:case lIllllIl:llIIIlI(Illll,lIIlI,IllIIIII);return;
-case IlIlllII:Illll->IllllIl[lIIlI]&=~USB_PORT_STAT_C_CONNECTION;return;case 
-IIIIllII:Illll->IllllIl[lIIlI]&=~USB_PORT_STAT_C_RESET;return;case IllllIlIl:
-Illll->IllllIl[lIIlI]&=~USB_PORT_STAT_C_BH_RESET;return;case lIlIllIlI:Illll->
-IllllIl[lIIlI]&=~USB_PORT_STAT_C_LINK_STATE;return;case lIlllIIl:if(IIlIIII==
-(0x1ad+4580-0x138d)){
-llIIIlI(Illll,lIIlI,IlllIIl);return;}break;}
-switch(Illll->IlllIIll[lIIlI]){case IllIIIII:if(IIlllI==IIIlllll)llIIIlI(Illll,
-lIIlI,IIIlIlI);break;case IlIIIIlI:if(IIlllI==llIIlIIl)llIIIlI(Illll,lIIlI,
-IIIlIlI);if(IIlllI==IllIlIII)llIIIlI(Illll,lIIlI,IlIllII);break;case IIIlIlI:if(
-IIlllI==llIIlllI)llIIIlI(Illll,lIIlI,IlIIIIlI);if(IIlllI==lIllIIll)llIIIlI(Illll
-,lIIlI,IlIllll);break;case IlllIIl:if(IIlllI==llIIlllI)llIIIlI(Illll,lIIlI,
-IlIIIIlI);if(IIlllI==IllIlIII)llIIIlI(Illll,lIIlI,IlIllII);if(IIlllI==lIlllIIl&&
-IIlIIII==(0x11+1803-0x717)){
+void IlIllll(struct lIIIII*Illll,int lIIlI,int llllII,int lIIIIII){
+switch(llllII){case IlIllllI:case IIlIIlII:llIIllI(Illll,lIIlI,IIlllllI);return;
+case lllllIII:Illll->lIIlIII[lIIlI]&=~USB_PORT_STAT_C_CONNECTION;return;case 
+lllIlIll:Illll->lIIlIII[lIIlI]&=~USB_PORT_STAT_C_RESET;return;case IIIIIIlIl:
+Illll->lIIlIII[lIIlI]&=~USB_PORT_STAT_C_BH_RESET;return;case lIIlIlllI:Illll->
+lIIlIII[lIIlI]&=~USB_PORT_STAT_C_LINK_STATE;return;case IlIIIIll:if(lIIIIII==
+(0x7d6+2526-0x11b0)){
+llIIllI(Illll,lIIlI,llIlIII);return;}break;}
+switch(Illll->lllllIIl[lIIlI]){case IIlllllI:if(llllII==lIllIlII){llIIllI(Illll,
+lIIlI,lllIIll);}break;case llIlIIIl:if(llllII==lIIIIlll){llIIllI(Illll,lIIlI,
+lllIIll);}if(llllII==llllIlII){llIIllI(Illll,lIIlI,lllIllI);}break;case lllIIll:
+if(llllII==IIIIlIll){llIIllI(Illll,lIIlI,llIlIIIl);}if(llllII==lIIlIllI){llIIllI
+(Illll,lIIlI,IIIlIIll);}break;case llIlIII:if(llllII==IIIIlIll){llIIllI(Illll,
+lIIlI,llIlIIIl);}if(llllII==llllIlII){llIIllI(Illll,lIIlI,lllIllI);}if(llllII==
+IlIIIIll&&lIIIIII==(0x4c3+4943-0x180d)){
 
 
-llIIIlI(Illll,lIIlI,IIIlIlI);}break;case IlIllll:if(IIlllI==llIIlllI)llIIIlI(
-Illll,lIIlI,IlIIIIlI);if(IIlllI==llIIIlII)llIIIlI(Illll,lIIlI,IIIlIlI);if(IIlllI
-==IllIlIII)llIIIlI(Illll,lIIlI,IlIllII);if(IIlllI==lIlllIIl&&IIlIIII==
-(0x1bb7+298-0x1ce1)){
-if(Illll->lIlIllI[lIIlI]==USB_SS_PORT_LS_U3){
+llIIllI(Illll,lIIlI,lllIIll);}break;case IIIlIIll:if(llllII==IIIIlIll){llIIllI(
+Illll,lIIlI,llIlIIIl);}if(llllII==IIIlllII){llIIllI(Illll,lIIlI,lllIIll);}if(
+llllII==llllIlII){llIIllI(Illll,lIIlI,lllIllI);}if(llllII==IlIIIIll&&lIIIIII==
+(0x1d23+1035-0x212e)){
+if(Illll->IlIIIll[lIIlI]==USB_SS_PORT_LS_U3){
 
-Illll->IllllIl[lIIlI]|=USB_PORT_STAT_C_LINK_STATE;}llllIII(Illll,lIIlI,
-USB_SS_PORT_LS_U0);}if(IIlllI==lIlllIIl&&IIlIIII==(0x102c+340-0x117f)){
+Illll->lIIlIII[lIIlI]|=USB_PORT_STAT_C_LINK_STATE;}lllIIlI(Illll,lIIlI,
+USB_SS_PORT_LS_U0);}if(llllII==IlIIIIll&&lIIIIII==(0x1043+4506-0x21dc)){
 
-if(Illll->lIlIllI[lIIlI]==USB_SS_PORT_LS_U0){llllIII(Illll,lIIlI,
-USB_SS_PORT_LS_U1);}}if(IIlllI==lIlllIIl&&IIlIIII==(0x646+2689-0x10c5)){
+if(Illll->IlIIIll[lIIlI]==USB_SS_PORT_LS_U0){lllIIlI(Illll,lIIlI,
+USB_SS_PORT_LS_U1);}}if(llllII==IlIIIIll&&lIIIIII==(0x532+3691-0x139b)){
 
-if(Illll->lIlIllI[lIIlI]==USB_SS_PORT_LS_U0){llllIII(Illll,lIIlI,
-USB_SS_PORT_LS_U2);}}if(IIlllI==lIlllIIl&&IIlIIII==(0xefb+2821-0x19fd)){
+if(Illll->IlIIIll[lIIlI]==USB_SS_PORT_LS_U0){lllIIlI(Illll,lIIlI,
+USB_SS_PORT_LS_U2);}}if(llllII==IlIIIIll&&lIIIIII==(0x1f93+752-0x2280)){
 
-if(Illll->lIlIllI[lIIlI]==USB_SS_PORT_LS_U0||Illll->lIlIllI[lIIlI]==
-USB_SS_PORT_LS_U1||Illll->lIlIllI[lIIlI]==USB_SS_PORT_LS_U2){
+if(Illll->IlIIIll[lIIlI]==USB_SS_PORT_LS_U0||Illll->IlIIIll[lIIlI]==
+USB_SS_PORT_LS_U1||Illll->IlIIIll[lIIlI]==USB_SS_PORT_LS_U2){
 
-if(Illll->lIlIllI[lIIlI]!=USB_SS_PORT_LS_U0){llllIII(Illll,lIIlI,
-USB_SS_PORT_LS_U0);}llllIII(Illll,lIIlI,USB_SS_PORT_LS_U3);}}break;case IlIllII:
-if(IIlllI==llIIlllI)llIIIlI(Illll,lIIlI,IlIIIIlI);if(IIlllI==llIIIlII)llIIIlI(
-Illll,lIIlI,IIIlIlI);if(IIlllI==llIllllI)llIIIlI(Illll,lIIlI,IlIllll);break;}}
-static inline int lIIIlIlIl(int speed){switch(speed){case USB_SPEED_SUPER:return
- USB_PORT_STAT_SPEED_5GBPS;default:return(0x1e5+4965-0x154a);}return
-(0x6ef+549-0x914);}
-void llIIIlI(struct IIllIl*Illll,int lIIlI,int IlIlIII){int IIllllll=Illll->
-IIIllII[lIIlI];int llllIlll=Illll->IlllIIll[lIIlI];if(IlIlIII==llllIlll)return;
-Illll->IlllIIll[lIIlI]=IlIlIII;Illll->IlllIll[lIIlI]=(0x802+1762-0xee4);switch(
-IlIlIII){case IllIIIII:llllIII(Illll,lIIlI,USB_SS_PORT_LS_SS_DISABLED);Illll->
-IIIllII[lIIlI]=Illll->lIlIllI[lIIlI];Illll->IllllIl[lIIlI]=(0x15d+1167-0x5ec);
-break;case IlIIIIlI:llllIII(Illll,lIIlI,USB_SS_PORT_LS_RX_DETECT);Illll->IIIllII
-[lIIlI]=Illll->lIlIllI[lIIlI];Illll->IllllIl[lIIlI]=(0x798+3132-0x13d4);
-break;case IlllIIl:llllIII(Illll,lIIlI,USB_SS_PORT_LS_SS_DISABLED);Illll->
-IIIllII[lIIlI]=Illll->lIlIllI[lIIlI]|USB_SS_PORT_STAT_POWER;if(IIllllll&
-USB_PORT_STAT_CONNECTION)Illll->IllllIl[lIIlI]|=USB_PORT_STAT_C_CONNECTION;
-break;case IIIlIlI:llllIII(Illll,lIIlI,USB_SS_PORT_LS_RX_DETECT);Illll->IIIllII[
-lIIlI]=Illll->lIlIllI[lIIlI]|USB_SS_PORT_STAT_POWER;if(IIllllll&
-USB_PORT_STAT_CONNECTION)Illll->IllllIl[lIIlI]|=USB_PORT_STAT_C_CONNECTION;
-
-if(Illll->IIIlIII[lIIlI]){llIIIlI(Illll,lIIlI,IlIllll);}break;case IlIllll:
-llllIII(Illll,lIIlI,USB_SS_PORT_LS_U0);Illll->IIIllII[lIIlI]=Illll->lIlIllI[
+if(Illll->IlIIIll[lIIlI]!=USB_SS_PORT_LS_U0){lllIIlI(Illll,lIIlI,
+USB_SS_PORT_LS_U0);}lllIIlI(Illll,lIIlI,USB_SS_PORT_LS_U3);}}break;case lllIllI:
+if(llllII==IIIIlIll){llIIllI(Illll,lIIlI,llIlIIIl);}if(llllII==IIIlllII){llIIllI
+(Illll,lIIlI,lllIIll);}if(llllII==lIlIlIIl){llIIllI(Illll,lIIlI,IIIlIIll);}break
+;}}static inline int IllIlIlIl(int speed){switch(speed){case USB_SPEED_SUPER:
+return USB_PORT_STAT_SPEED_5GBPS;default:return(0x1147+2061-0x1954);}return
+(0x684+1752-0xd5c);}
+void llIIllI(struct lIIIII*Illll,int lIIlI,int llllIlll){int lIIlllIII=Illll->
+lIIIIIl[lIIlI];int IIIIIlll=Illll->lllllIIl[lIIlI];if(llllIlll==IIIIIlll){return
+;}Illll->lllllIIl[lIIlI]=llllIlll;Illll->IlllIII[lIIlI]=(0x848+4929-0x1b89);
+switch(llllIlll){case IIlllllI:lllIIlI(Illll,lIIlI,USB_SS_PORT_LS_SS_DISABLED);
+Illll->lIIIIIl[lIIlI]=Illll->IlIIIll[lIIlI];Illll->lIIlIII[lIIlI]=
+(0x1835+3411-0x2588);
+break;case llIlIIIl:lllIIlI(Illll,lIIlI,USB_SS_PORT_LS_RX_DETECT);Illll->lIIIIIl
+[lIIlI]=Illll->IlIIIll[lIIlI];Illll->lIIlIII[lIIlI]=(0xf91+2927-0x1b00);
+break;case llIlIII:lllIIlI(Illll,lIIlI,USB_SS_PORT_LS_SS_DISABLED);Illll->
+lIIIIIl[lIIlI]=Illll->IlIIIll[lIIlI]|USB_SS_PORT_STAT_POWER;if(lIIlllIII&
+USB_PORT_STAT_CONNECTION){Illll->lIIlIII[lIIlI]|=USB_PORT_STAT_C_CONNECTION;
+}break;case lllIIll:lllIIlI(Illll,lIIlI,USB_SS_PORT_LS_RX_DETECT);Illll->lIIIIIl
+[lIIlI]=Illll->IlIIIll[lIIlI]|USB_SS_PORT_STAT_POWER;if(lIIlllIII&
+USB_PORT_STAT_CONNECTION){Illll->lIIlIII[lIIlI]|=USB_PORT_STAT_C_CONNECTION;
+}
+if(Illll->IlIIlII[lIIlI]){llIIllI(Illll,lIIlI,IIIlIIll);}break;case IIIlIIll:
+lllIIlI(Illll,lIIlI,USB_SS_PORT_LS_U0);Illll->lIIIIIl[lIIlI]=Illll->IlIIIll[
 lIIlI]|USB_SS_PORT_STAT_POWER|USB_PORT_STAT_CONNECTION|USB_PORT_STAT_ENABLE|
-lIIIlIlIl(Illll->IIIlIII[lIIlI]->speed);if(llllIlll==IlIllII)Illll->IllllIl[
+IllIlIlIl(Illll->IlIIlII[lIIlI]->speed);if(IIIIIlll==lllIllI){Illll->lIIlIII[
 lIIlI]|=USB_PORT_STAT_C_RESET;
-if(llllIlll==IIIlIlI)Illll->IllllIl[lIIlI]|=USB_PORT_STAT_C_CONNECTION;
-break;case IlIllII:Illll->IIIllII[lIIlI]=Illll->lIlIllI[lIIlI]|
-USB_SS_PORT_STAT_POWER|USB_PORT_STAT_RESET|(IIllllll&USB_PORT_STAT_CONNECTION);
+}if(IIIIIlll==lllIIll){Illll->lIIlIII[lIIlI]|=USB_PORT_STAT_C_CONNECTION;
+}break;case lllIllI:Illll->lIIIIIl[lIIlI]=Illll->IlIIIll[lIIlI]|
+USB_SS_PORT_STAT_POWER|USB_PORT_STAT_RESET|(lIIlllIII&USB_PORT_STAT_CONNECTION);
 
-Illll->IlllIll[lIIlI]=jiffies+msecs_to_jiffies((0x1012+4748-0x226c));
-Illll->IlllIll[lIIlI]+=Illll->IlllIll[lIIlI]?(0x18df+1604-0x1f23):
-(0x11bf+353-0x131f);break;default:IlllI(
+Illll->IlllIII[lIIlI]=jiffies+msecs_to_jiffies((0x11d5+1506-0x1785));
+Illll->IlllIII[lIIlI]+=Illll->IlllIII[lIIlI]?(0x1127+2726-0x1bcd):
+(0xc84+1129-0x10ec);break;default:lIlll(
 "\x69\x6e\x76\x61\x6c\x69\x64\x20\x70\x6f\x72\x74\x20\x73\x74\x61\x74\x65" "\n")
 ;break;}}
-void llllIII(struct IIllIl*Illll,int lIIlI,int llIllIIll){switch(llIllIIll){case
- USB_SS_PORT_LS_U0:IlllI(
+void lllIIlI(struct lIIIII*Illll,int lIIlI,int IlIIIIlII){switch(IlIIIIlII){case
+ USB_SS_PORT_LS_U0:lIlll(
 "\x73\x65\x74\x5f\x6c\x69\x6e\x6b\x5f\x73\x74\x61\x74\x65\x20\x55\x53\x42\x5f\x53\x53\x5f\x50\x4f\x52\x54\x5f\x4c\x53\x5f\x55\x30" "\n"
 );
-Illll->lIlIllI[lIIlI]=USB_SS_PORT_LS_U0;break;case USB_SS_PORT_LS_U1:IlllI(
+Illll->IlIIIll[lIIlI]=USB_SS_PORT_LS_U0;break;case USB_SS_PORT_LS_U1:lIlll(
 "\x73\x65\x74\x5f\x6c\x69\x6e\x6b\x5f\x73\x74\x61\x74\x65\x20\x55\x53\x42\x5f\x53\x53\x5f\x50\x4f\x52\x54\x5f\x4c\x53\x5f\x55\x31" "\n"
 );
-Illll->lIlIllI[lIIlI]=USB_SS_PORT_LS_U1;break;case USB_SS_PORT_LS_U2:IlllI(
+Illll->IlIIIll[lIIlI]=USB_SS_PORT_LS_U1;break;case USB_SS_PORT_LS_U2:lIlll(
 "\x73\x65\x74\x5f\x6c\x69\x6e\x6b\x5f\x73\x74\x61\x74\x65\x20\x55\x53\x42\x5f\x53\x53\x5f\x50\x4f\x52\x54\x5f\x4c\x53\x5f\x55\x32" "\n"
 );
-Illll->lIlIllI[lIIlI]=USB_SS_PORT_LS_U2;break;case USB_SS_PORT_LS_U3:IlllI(
+Illll->IlIIIll[lIIlI]=USB_SS_PORT_LS_U2;break;case USB_SS_PORT_LS_U3:lIlll(
 "\x73\x65\x74\x5f\x6c\x69\x6e\x6b\x5f\x73\x74\x61\x74\x65\x20\x55\x53\x42\x5f\x53\x53\x5f\x50\x4f\x52\x54\x5f\x4c\x53\x5f\x55\x33" "\n"
 );
-Illll->lIlIllI[lIIlI]=USB_SS_PORT_LS_U3;break;case USB_SS_PORT_LS_SS_DISABLED:
-IlllI(
+Illll->IlIIIll[lIIlI]=USB_SS_PORT_LS_U3;break;case USB_SS_PORT_LS_SS_DISABLED:
+lIlll(
 "\x73\x65\x74\x5f\x6c\x69\x6e\x6b\x5f\x73\x74\x61\x74\x65\x20\x55\x53\x42\x5f\x53\x53\x5f\x50\x4f\x52\x54\x5f\x4c\x53\x5f\x53\x53\x5f\x44\x49\x53\x41\x42\x4c\x45\x44" "\n"
 );
-Illll->lIlIllI[lIIlI]=USB_SS_PORT_LS_SS_DISABLED;break;case 
-USB_SS_PORT_LS_RX_DETECT:IlllI(
+Illll->IlIIIll[lIIlI]=USB_SS_PORT_LS_SS_DISABLED;break;case 
+USB_SS_PORT_LS_RX_DETECT:lIlll(
 "\x73\x65\x74\x5f\x6c\x69\x6e\x6b\x5f\x73\x74\x61\x74\x65\x20\x55\x53\x42\x5f\x53\x53\x5f\x50\x4f\x52\x54\x5f\x4c\x53\x5f\x52\x58\x5f\x44\x45\x54\x45\x43\x54" "\n"
 );
-Illll->lIlIllI[lIIlI]=USB_SS_PORT_LS_RX_DETECT;break;}Illll->IIIllII[lIIlI]&=~
-USB_PORT_STAT_LINK_STATE;Illll->IIIllII[lIIlI]|=Illll->lIlIllI[lIIlI];}
+Illll->IlIIIll[lIIlI]=USB_SS_PORT_LS_RX_DETECT;break;}Illll->lIIIIIl[lIIlI]&=~
+USB_PORT_STAT_LINK_STATE;Illll->lIIIIIl[lIIlI]|=Illll->IlIIIll[lIIlI];}
 #endif 
 #endif 
 

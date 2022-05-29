@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  ssl:
+    image: ssl
+    tty: true
+    container_name: ssl
+    restart: always
+    networks:
+      web_bridge:
+        ipv4_address: 172.19.0.98
+    volumes:
+      - /home/sunbuntu/certification:/etc/letsencrypt
+      
+networks:
+  web_bridge:
+    external: true
+  
+# docker run -itd --restart always --net host --name ssl -v /home/sunbuntu/certification:/etc/letsencrypt ssl

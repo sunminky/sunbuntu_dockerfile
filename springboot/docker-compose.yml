@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  spring:
+    image: spring
+    container_name: spring
+    restart: always
+    networks:
+      web_bridge:
+        ipv4_address: 172.19.0.100
+    volumes:
+      - /home/sunbuntu/shells/Dockerfiles/springboot:/source
+      
+networks:
+  web_bridge:
+    external: true
+  
+# docker-compose up -d
+
+# docker run -d -v /var/run/docker.sock:/var/run/docker.sock --restart=always --name portainer --network web_bridge --ip 172.19.0.3 portainer/portainer
+
+# docker network create --gateway 172.19.0.1 --subnet 172.19.0.0/16 web_bridge

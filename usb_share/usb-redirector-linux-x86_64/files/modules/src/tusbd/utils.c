@@ -12,57 +12,57 @@
 #include "usbd.h"
 #include <linux/highmem.h>
 #include <asm/page.h>
-int IIlllllIl(const IllII IIlIl,size_t*lllllI,size_t*IIIlII,IIIlll*flags,IIIlll*
-endpoint){switch(IIlIl->IIIlI.lIIlIII){case lIlIllIl:*lllllI=sizeof(IIlIl->
-lIlIll);*flags=lIllII;*IIIlII=IIlIl->lIlIll.IIllI;*endpoint=(0xb80+2609-0x1531);
-break;case lIIIIIIl:*lllllI=sizeof(IIlIl->lIlIll);*flags=(0xfec+5269-0x2481);*
-IIIlII=IIlIl->lIlIll.IIllI;*endpoint=(0x135b+1007-0x174a);break;case IllIllII:*
-lllllI=sizeof(IIlIl->IlIlIll)-sizeof(IIlIl->IlIlIll.lIIIIIl[(0x1a5+3949-0x1112)]
-)+IIlIl->IlIlIll.IIlIlIlI*sizeof(IIlIl->IlIlIll.lIIIIIl[(0x1879+928-0x1c19)]);*
-flags=(0x149b+755-0x178e);*IIIlII=(0xd55+3549-0x1b32);*endpoint=
-(0x2ab+5968-0x19fb);break;case llIlllIl:*lllllI=sizeof(IIlIl->lIIlIlI);*flags=
-(0x682+8258-0x26c4);*IIIlII=(0x183+8128-0x2143);*endpoint=(0x760+5969-0x1eb1);
-break;case IlllIIIl:*lllllI=sizeof(IIlIl->llIlII);*flags=IIlIl->llIlII.Flags;*
-IIIlII=IIlIl->llIlII.IIllI;*endpoint=IIlIl->llIlII.Endpoint|((*flags&lIllII)?
-(0x11f5+3904-0x20b5):(0x9b+517-0x2a0));break;case IIlIlIll:*lllllI=sizeof(IIlIl
-->IlIll);*IIIlII=IIlIl->IlIll.IIllI;*flags=IIlIl->IlIll.Flags;*endpoint=IIlIl->
-IlIll.Endpoint|((*flags&lIllII)?(0x3b0+6940-0x1e4c):(0x1b4f+1579-0x217a));break;
-case IllllllI:*lllllI=llllllll(IIlIl);*flags=IIlIl->lIIIl.Flags;*IIIlII=IIlIl->
-lIIIl.IIllI;*endpoint=IIlIl->lIIIl.Endpoint|((*flags&lIllII)?(0x9bc+7528-0x26a4)
-:(0xe5a+5285-0x22ff));break;case llIIIIIl:*lllllI=sizeof(IIlIl->lIllIl);*flags=
-IIlIl->lIllIl.Flags;*IIIlII=IIlIl->lIllIl.IIllI;*endpoint=IIlIl->lIllIl.Endpoint
-|((*flags&lIllII)?(0x462+1862-0xb28):(0xd91+4262-0x1e37));break;case llIIllll:*
-lllllI=sizeof(IIlIl->IIlIIll);*flags=IIlIl->IIlIIll.Flags;*IIIlII=
-(0xd0d+4100-0x1d11);*endpoint=IIlIl->IIlIIll.Endpoint|((*flags&lIllII)?
-(0x2028+781-0x22b5):(0xecb+6046-0x2669));break;case IIlIllII:*lllllI=sizeof(
-IIlIl->llIlIllI);*flags=(0x25+4825-0x12fe);*IIIlII=(0x5d1+6197-0x1e06);*endpoint
-=(0xf3c+2083-0x1660);break;case IlIllIIlI:return-EINVAL;case llIIlIlI:*lllllI=
-sizeof(IIlIl->llIlIIll);*flags=(0x10b+7180-0x1d17);*IIIlII=(0x14a9+1757-0x1b86);
-*endpoint=(0x372+3600-0x1083);break;case lIllIIIl:*lllllI=sizeof(IIlIl->
-IllIllIIl);*flags=(0xaa5+4646-0x1ccb);*IIIlII=(0xf2f+1465-0x14e8);*endpoint=
-(0x662+4411-0x169e);break;case lIlIlIll:*lllllI=sizeof(IIlIl->IIIlIllII);*flags=
-(0x125a+2395-0x1bb5);*IIIlII=(0xa+4463-0x1179);*endpoint=(0x181a+2773-0x21f0);
-break;case llllIIlI:*lllllI=sizeof(IIlIl->lIlIIllI);*flags=IIlIl->lIlIIllI.Flags
-;*IIIlII=(0x141c+4129-0x243d);*endpoint=IIlIl->lIlIIllI.Endpoint|((*flags&lIllII
-)?(0x1368+1669-0x196d):(0x1+9608-0x2589));break;default:return-EINVAL;}return
-(0xcf6+4477-0x1e73);}
-struct usb_host_config*IIIIIIllI(struct usb_device*IlIII){if(IlIII->actconfig)
-return IlIII->actconfig;if(IlIII->descriptor.bNumConfigurations&&IlIII->config)
-return&IlIII->config[(0x1208+2969-0x1da1)];return NULL;}
-struct usb_host_interface*lIIIlIllI(struct usb_host_config*config){if(config->
-desc.bNumInterfaces>(0x7d2+3460-0x1556)){if(config->interface[(0x56+569-0x28f)])
-{if(config->interface[(0x8ec+137-0x975)]->cur_altsetting)return config->
-interface[(0x1332+3298-0x2014)]->cur_altsetting;if(config->interface[
-(0x932+4964-0x1c96)]->num_altsetting&&config->interface[(0x16c2+3524-0x2486)]->
-altsetting)return&config->interface[(0xcd4+5591-0x22ab)]->altsetting[
-(0x188a+1816-0x1fa2)];}if(config->intf_cache[(0xf0d+2903-0x1a64)]&&config->
-intf_cache[(0x895+4538-0x1a4f)]->num_altsetting)return&config->intf_cache[
-(0xf9a+1843-0x16cd)]->altsetting[(0x1650+368-0x17c0)];}return NULL;}
-void lIIlIIllI(struct usb_device*IlIII,u8*llIlIlIl,u8*IIIIIlll,u8*lIllllII){
-struct usb_host_config*config;struct usb_host_interface*IllllI;config=IIIIIIllI(
-IlIII);if(config==NULL){if(llIlIlIl)*llIlIlIl=(0x562+753-0x853);if(IIIIIlll)*
-IIIIIlll=(0x722+5549-0x1ccf);if(lIllllII)*lIllllII=(0x36c+3972-0x12f0);return;}
-IllllI=lIIIlIllI(config);
+int IllIlIlll(const IIlII IIlIl,size_t*IlIll,size_t*llIlIl,lIllIl*flags,lIllIl*
+endpoint){switch(IIlIl->IlIII.IIIlIIl){case llIIllll:*IlIll=sizeof(IIlIl->IIlllI
+);*flags=IIIllI;*llIlIl=IIlIl->IIlllI.IllllI;*endpoint=(0x749+6207-0x1f08);break
+;case lIlIllll:*IlIll=sizeof(IIlIl->IIlllI);*flags=(0x480+3335-0x1187);*llIlIl=
+IIlIl->IIlllI.IllllI;*endpoint=(0x13b6+4469-0x252b);break;case llIlllIl:*IlIll=
+sizeof(IIlIl->lIllIll)-sizeof(IIlIl->lIllIll.llIIlII[(0x671+4830-0x194f)])+IIlIl
+->lIllIll.IlllllIl*sizeof(IIlIl->lIllIll.llIIlII[(0x1289+1782-0x197f)]);*flags=
+(0x1175+3864-0x208d);*llIlIl=(0x3d+4072-0x1025);*endpoint=(0x319+1792-0xa19);
+break;case IIlIlIII:*IlIll=sizeof(IIlIl->IlIIIIl);*flags=(0x7f4+3954-0x1766);*
+llIlIl=(0x14aa+3332-0x21ae);*endpoint=(0x312+3426-0x1074);break;case llIIIIlI:*
+IlIll=sizeof(IIlIl->lllIII);*flags=IIlIl->lllIII.Flags;*llIlIl=IIlIl->lllIII.
+IllllI;*endpoint=IIlIl->lllIII.Endpoint|((*flags&IIIllI)?(0x909+685-0xb36):
+(0xb61+4147-0x1b94));break;case IIllIIIl:*IlIll=sizeof(IIlIl->lllllI);*llIlIl=
+IIlIl->lllllI.IllllI;*flags=IIlIl->lllllI.Flags;*endpoint=IIlIl->lllllI.Endpoint
+|((*flags&IIIllI)?(0x8b1+2689-0x12b2):(0x2a2+8928-0x2582));break;case lllIlIIl:*
+IlIll=IlIlIlll(IIlIl);*flags=IIlIl->llIll.Flags;*llIlIl=IIlIl->llIll.IllllI;*
+endpoint=IIlIl->llIll.Endpoint|((*flags&IIIllI)?(0xdb4+1696-0x13d4):
+(0xb03+6433-0x2424));break;case lIlllIIl:*IlIll=sizeof(IIlIl->llIIlI);*flags=
+IIlIl->llIIlI.Flags;*llIlIl=IIlIl->llIIlI.IllllI;*endpoint=IIlIl->llIIlI.
+Endpoint|((*flags&IIIllI)?(0x64c+2145-0xe2d):(0x1504+1079-0x193b));break;case 
+IIIIlllI:*IlIll=sizeof(IIlIl->lIllIII);*flags=IIlIl->lIllIII.Flags;*llIlIl=
+(0x1100+2195-0x1993);*endpoint=IIlIl->lIllIII.Endpoint|((*flags&IIIllI)?
+(0x165+7374-0x1db3):(0xc0a+649-0xe93));break;case IIlIIIlI:*IlIll=sizeof(IIlIl->
+llIllIII);*flags=(0x1116+583-0x135d);*llIlIl=(0xf9d+1023-0x139c);*endpoint=
+(0x1b54+2054-0x225b);break;case llIIIIIIl:return-EINVAL;case IIllIIlI:*IlIll=
+sizeof(IIlIl->lIlIlIll);*flags=(0x4aa+1499-0xa85);*llIlIl=(0x7c1+2016-0xfa1);*
+endpoint=(0x1e14+1872-0x2465);break;case llIIlIII:*IlIll=sizeof(IIlIl->lllIIlIII
+);*flags=(0x166f+2881-0x21b0);*llIlIl=(0x1074+2879-0x1bb3);*endpoint=
+(0x160+7420-0x1d5d);break;case llIIlIll:*IlIll=sizeof(IIlIl->llIIlIlIl);*flags=
+(0xa4b+1004-0xe37);*llIlIl=(0x2c8+712-0x590);*endpoint=(0x85a+2938-0x12d5);break
+;case lIIIlllI:*IlIll=sizeof(IIlIl->IlIlllll);*flags=IIlIl->IlIlllll.Flags;*
+llIlIl=(0x646+5873-0x1d37);*endpoint=IIlIl->IlIlllll.Endpoint|((*flags&IIIllI)?
+(0x199a+3372-0x2646):(0x10c6+1927-0x184d));break;default:return-EINVAL;}return
+(0x59d+4639-0x17bc);}
+struct usb_host_config*lllIIIlll(struct usb_device*IlIIl){if(IlIIl->actconfig){
+return IlIIl->actconfig;}if(IlIIl->descriptor.bNumConfigurations&&IlIIl->config)
+{return&IlIIl->config[(0x736+4623-0x1945)];}return NULL;}
+struct usb_host_interface*IlIIIIIll(struct usb_host_config*config){if(config->
+desc.bNumInterfaces>(0xa23+2500-0x13e7)){if(config->interface[
+(0x38a+3737-0x1223)]){if(config->interface[(0x29f+6403-0x1ba2)]->cur_altsetting)
+{return config->interface[(0x317+5924-0x1a3b)]->cur_altsetting;}if(config->
+interface[(0xf34+1261-0x1421)]->num_altsetting&&config->interface[
+(0x98f+4234-0x1a19)]->altsetting){return&config->interface[(0x19f2+48-0x1a22)]->
+altsetting[(0x47d+6828-0x1f29)];}}if(config->intf_cache[(0x622+840-0x96a)]&&
+config->intf_cache[(0xb22+6979-0x2665)]->num_altsetting){return&config->
+intf_cache[(0xe07+3851-0x1d12)]->altsetting[(0x6bd+7530-0x2427)];}}return NULL;}
+void IIlllIlIl(struct usb_device*IlIIl,u8*IIlIllll,u8*IllIllIl,u8*IlIIIlll){
+struct usb_host_config*config;struct usb_host_interface*IIIIII;config=lllIIIlll(
+IlIIl);if(config==NULL){if(IIlIllll){*IIlIllll=(0x15ac+968-0x1974);}if(IllIllIl)
+{*IllIllIl=(0x3a6+1986-0xb68);}if(IlIIIlll){*IlIIIlll=(0x129b+1256-0x1783);}
+return;}IIIIII=IlIIIIIll(config);
 
 
 
@@ -80,348 +80,352 @@ IllllI=lIIIlIllI(config);
 
 
 
-if((config->desc.bNumInterfaces>(0x2566+297-0x268e))&&((IlIII->descriptor.
-bDeviceClass==(0x657+1705-0xd00))||
-((IlIII->descriptor.bDeviceClass==(0x1724+2416-0x1fa5))&&
-(IlIII->descriptor.bDeviceSubClass==(0x681+4062-0x165d))&&(IlIII->descriptor.
-bDeviceProtocol==(0xac4+5906-0x21d5))))){
+if((config->desc.bNumInterfaces>(0x969+7525-0x26cd))&&((IlIIl->descriptor.
+bDeviceClass==(0x15b0+4208-0x2620))||
+((IlIIl->descriptor.bDeviceClass==(0xc7d+2212-0x1432))&&
+(IlIIl->descriptor.bDeviceSubClass==(0x1e96+1014-0x228a))&&(IlIIl->descriptor.
+bDeviceProtocol==(0x1082+63-0x10c0))))){
 
-if(llIlIlIl)*llIlIlIl=(0x403+4438-0x1559);if(IIIIIlll)*IIIIIlll=
-(0xc31+4050-0x1c03);if(lIllllII)*lIllllII=(0x1b07+1762-0x21e9);}else if(config->
-desc.bNumInterfaces>(0x1b50+1782-0x2246)&&IllllI){
-if(llIlIlIl)*llIlIlIl=IllllI->desc.bInterfaceClass;if(IIIIIlll)*IIIIIlll=IllllI
-->desc.bInterfaceSubClass;if(lIllllII)*lIllllII=IllllI->desc.bInterfaceProtocol;
-}else
+if(IIlIllll){*IIlIllll=(0xad3+5378-0x1fd5);}if(IllIllIl){*IllIllIl=
+(0x1645+1084-0x1a81);}if(IlIIIlll){*IlIIIlll=(0xb63+6663-0x256a);}}else if(
+config->desc.bNumInterfaces>(0x1bd3+2708-0x2667)&&IIIIII){
+if(IIlIllll){*IIlIllll=IIIIII->desc.bInterfaceClass;}if(IllIllIl){*IllIllIl=
+IIIIII->desc.bInterfaceSubClass;}if(IlIIIlll){*IlIIIlll=IIIIII->desc.
+bInterfaceProtocol;}}else
 {
-if(llIlIlIl)*llIlIlIl=IlIII->descriptor.bDeviceClass;if(IIIIIlll)*IIIIIlll=IlIII
-->descriptor.bDeviceSubClass;if(lIllllII)*lIllllII=IlIII->descriptor.
-bDeviceProtocol;}}
+if(IIlIllll){*IIlIllll=IlIIl->descriptor.bDeviceClass;}if(IllIllIl){*IllIllIl=
+IlIIl->descriptor.bDeviceSubClass;}if(IlIIIlll){*IlIIIlll=IlIIl->descriptor.
+bDeviceProtocol;}}}
 #ifdef _USBD_ENABLE_STUB_
 #ifdef _USBD_DEBUG_MEMORY_
-extern atomic_t lIlIllll;extern atomic_t lIlllIIll;extern atomic_t IIllllIII;
+extern atomic_t llIIIIII;extern atomic_t IIIllIllI;extern atomic_t IIIllllIl;
 #endif 
 
-int IlllIIlII(struct IIlII*lIlII,void __user*IIIIl,size_t llllllI){int IIIll=
-(0xd08+3853-0x1c15);IlllI(
+int IIIIlllIl(struct lIIll*lIlII,void __user*IllIl,size_t lIlllII){int IlIlI=
+(0x1d1d+2290-0x260f);lIlll(
 "\x75\x73\x62\x64\x5f\x73\x74\x75\x62\x5f\x65\x78\x74\x72\x61\x63\x74\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x2b\x2b" "\n"
-);do{IllII IIlIl=(IllII)(lIlII+(0xa3d+3616-0x185c));IIIlll flags,endpoint;size_t
- lllIIlI,IIIlII,IIllll;if(IIlllllIl(IIlIl,&lllIIlI,&IIIlII,&flags,&endpoint)<
-(0x740+5253-0x1bc5)){IlllI(
+);do{IIlII IIlIl=(IIlII)(lIlII+(0x1544+4195-0x25a6));lIllIl flags,endpoint;
+size_t IIlIlII,llIlIl,lllIlI;if(IllIlIlll(IIlIl,&IIlIlII,&llIlIl,&flags,&
+endpoint)<(0xbb6+5750-0x222c)){lIlll(
 "\x75\x73\x62\x64\x5f\x73\x74\x75\x62\x5f\x65\x78\x74\x72\x61\x63\x74\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x69\x6e\x76\x61\x6c\x69\x64\x20\x64\x61\x74\x61" "\n"
-);IIIll=-EFAULT;break;}IIllll=min((size_t)IIlIl->IIIlI.lIlIl,llllllI);
-#if KERNEL_GT_EQ((0x16c1+2002-0x1e8e),(0x365+654-0x5f3),(0x1e70+438-0x2026))
-if(!access_ok(IIIIl,IIllll))
+);IlIlI=-EFAULT;break;}lllIlI=min((size_t)IIlIl->IlIII.IIIII,lIlllII);
+#if KERNEL_GT_EQ((0xe4c+4360-0x1f4f),(0x966+3770-0x1820),(0xac6+5961-0x220f))
+if(!access_ok(IllIl,lllIlI))
 #else
-if(!access_ok(VERIFY_WRITE,IIIIl,IIllll))
+if(!access_ok(VERIFY_WRITE,IllIl,lllIlI))
 #endif
-{IlllI(
+{lIlll(
 "\x75\x73\x62\x64\x5f\x73\x74\x75\x62\x5f\x65\x78\x74\x72\x61\x63\x74\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x6d\x65\x6d\x6f\x72\x79\x20\x61\x63\x63\x65\x73\x73\x20\x63\x68\x65\x63\x6b\x20\x66\x61\x69\x6c\x65\x64" "\n"
-);IIIll=-EINVAL;break;}IIllll=min(lllIIlI,llllllI);if(__copy_to_user(IIIIl,IIlIl
-,IIllll)){IlllI(
+);IlIlI=-EINVAL;break;}lllIlI=min(IIlIlII,lIlllII);if(__copy_to_user(IllIl,IIlIl
+,lllIlI)){lIlll(
 "\x75\x73\x62\x64\x5f\x73\x74\x75\x62\x5f\x65\x78\x74\x72\x61\x63\x74\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x63\x61\x6e\x6e\x6f\x74\x20\x63\x6f\x70\x79\x20\x74\x6f\x20\x75\x73\x65\x72\x20\x62\x75\x66\x66\x65\x72\x28\x31\x29" "\n"
-);IIIll=-EFAULT;break;}if(IIllll<lllIIlI){IlllI(
+);IlIlI=-EFAULT;break;}if(lllIlI<IIlIlII){lIlll(
 "\x75\x73\x62\x64\x5f\x73\x74\x75\x62\x5f\x65\x78\x74\x72\x61\x63\x74\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x6e\x6f\x74\x20\x65\x6e\x6f\x75\x67\x68\x20\x62\x75\x66\x66\x65\x72\x28\x31\x29" "\n"
-);IIIll=-EMSGSIZE;break;}llllllI-=IIllll;IIIIl+=IIllll;if(llllllI<IIIlII){IlllI(
+);IlIlI=-EMSGSIZE;break;}lIlllII-=lllIlI;IllIl+=lllIlI;if((flags&IIIllI)&&llIlIl
+){if(lIlllII<llIlIl){lIlll(
 "\x75\x73\x62\x64\x5f\x73\x74\x75\x62\x5f\x65\x78\x74\x72\x61\x63\x74\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x6e\x6f\x74\x20\x65\x6e\x6f\x75\x67\x68\x20\x62\x75\x66\x66\x65\x72\x28\x32\x29" "\n"
-);IIIll=-EMSGSIZE;break;}if((flags&lIllII)&&IIIlII){if(lIlII->lIIIII==lIllIll){
+);IlIlI=-EMSGSIZE;break;}if(lIlII->IlllIl==lIlIIlI){
 
 
-if(__copy_to_user(IIIIl,lIlII->Illlll.IllIl,IIIlII)){IlllI(
+if(__copy_to_user(IllIl,lIlII->lIIIll.llIIl,llIlIl)){lIlll(
 "\x75\x73\x62\x64\x5f\x73\x74\x75\x62\x5f\x65\x78\x74\x72\x61\x63\x74\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x63\x61\x6e\x6e\x6f\x74\x20\x63\x6f\x70\x79\x20\x74\x6f\x20\x75\x73\x65\x72\x20\x62\x75\x66\x66\x65\x72\x28\x32\x29" "\n"
-);IIIll=-EFAULT;break;}}else if(lIlII->lIIIII==IllIIlI){
+);IlIlI=-EFAULT;break;}}else if(lIlII->IlllIl==IlIIIlI){
 
 
-if(lIIIlIIlI(lIlII->llllII.lIIIlI,IIIIl,IIIlII)<IIIlII){IlllI(
+if(IlIIllIlI(lIlII->lIllII.lIIlll,IllIl,llIlIl)<llIlIl){lIlll(
 "\x75\x73\x62\x64\x5f\x73\x74\x75\x62\x5f\x65\x78\x74\x72\x61\x63\x74\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x63\x61\x6e\x6e\x6f\x74\x20\x63\x6f\x70\x79\x20\x74\x6f\x20\x75\x73\x65\x72\x20\x62\x75\x66\x66\x65\x72\x28\x33\x29" "\n"
-);IIIll=-EFAULT;break;}}
-#if KERNEL_GT_EQ((0x14+138-0x9c),(0xe40+207-0xf09),(0x1ba5+221-0x1c63))
-else if(lIlII->lIIIII==llIllII){
+);IlIlI=-EFAULT;break;}}
+#if KERNEL_GT_EQ((0x3a0+3789-0x126b),(0x17b2+45-0x17d9),(0x82f+3837-0x170d))
+else if(lIlII->IlllIl==IIlIIII){
 
 
-if(IlIlIIIlI(&lIlII->IIIIIIl.sg,IIIIl,IIIlII)<IIIlII){IlllI(
+if(llIlIlIII(&lIlII->IlIIIII.sg,IllIl,llIlIl)<llIlIl){lIlll(
 "\x75\x73\x62\x64\x5f\x73\x74\x75\x62\x5f\x65\x78\x74\x72\x61\x63\x74\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x63\x61\x6e\x6e\x6f\x74\x20\x63\x6f\x70\x79\x20\x74\x6f\x20\x75\x73\x65\x72\x20\x62\x75\x66\x66\x65\x72\x28\x34\x29" "\n"
-);IIIll=-EFAULT;break;}}
+);IlIlI=-EFAULT;break;}}
 #endif
-else{IlllI(
+else{lIlll(
 "\x75\x73\x62\x64\x5f\x73\x74\x75\x62\x5f\x65\x78\x74\x72\x61\x63\x74\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x69\x6e\x74\x65\x72\x6e\x61\x6c\x20\x65\x72\x72\x6f\x72\x21" "\n"
-);IIIll=-EFAULT;break;}}}while((0x394+3035-0xf6f));IlllI(
+);IlIlI=-EFAULT;break;}}}while((0x10a6+5260-0x2532));lIlll(
 "\x75\x73\x62\x64\x5f\x73\x74\x75\x62\x5f\x65\x78\x74\x72\x61\x63\x74\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x2d\x2d\x20\x72\x65\x73\x75\x6c\x74\x3d\x25\x64" "\n"
-,IIIll);return IIIll;}struct IIlII*IlIIllIll(struct llIII*IlIlI,const void 
-__user*IIIIl,size_t llllllI){IllII IlIllIII;IIlIllIll lIIllIl;struct IIlII*lIlII
-=NULL;size_t lllIIlI,IIIlII,llllIIIl;IIIlll flags,endpoint;int IIIll=-
-(0x13b+6489-0x1a93);int lIIIII;do{if(copy_from_user(&lIIllIl,IIIIl,min(sizeof(
-lIIllIl),llllllI))){IlllI(
+,IlIlI);return IlIlI;}struct lIIll*llIlIIllI(struct IIlll*IIIll,const void 
+__user*IllIl,size_t lIlllII){IIlII lIIIIllI;llIIIlIlIl llIllll;struct lIIll*
+lIlII=NULL;size_t IIlIlII,llIlIl,IIlllIII;lIllIl flags,endpoint;int IlIlI=-
+(0xb7+7660-0x1ea2);int IlllIl;do
+{if(copy_from_user(&llIllll,IllIl,min(sizeof(llIllll),lIlllII))){lIlll(
 "\x75\x73\x62\x64\x5f\x73\x74\x75\x62\x5f\x63\x72\x65\x61\x74\x65\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x63\x61\x6e\x6e\x6f\x74\x20\x63\x6f\x70\x79\x20\x66\x72\x6f\x6d\x20\x75\x73\x65\x72\x20\x62\x75\x66\x66\x65\x72\x20\x28\x32\x29" "\n"
 );break;}
-#if KERNEL_GT_EQ((0x1b0+6278-0x1a31),(0x56+73-0x9f),(0x1379+723-0x164c))
-if(!access_ok(IIIIl,lIIllIl.IIIlI.lIlIl))
+#if KERNEL_GT_EQ((0x1d24+1740-0x23eb),(0xa5a+6315-0x2305),(0xe91+2044-0x168d))
+if(!access_ok(IllIl,llIllll.IlIII.IIIII))
 #else
-if(!access_ok(VERIFY_READ,IIIIl,lIIllIl.IIIlI.lIlIl))
+if(!access_ok(VERIFY_READ,IllIl,llIllll.IlIII.IIIII))
 #endif
-{IlllI(
+{lIlll(
 "\x75\x73\x62\x64\x5f\x73\x74\x75\x62\x5f\x63\x72\x65\x61\x74\x65\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x6d\x65\x6d\x6f\x72\x79\x20\x61\x63\x63\x65\x73\x73\x20\x63\x68\x65\x63\x6b\x20\x66\x61\x69\x6c\x65\x64" "\n"
-);IIIll=-EFAULT;break;}if(IIlllllIl(&lIIllIl,&lllIIlI,&IIIlII,&flags,&endpoint)<
-(0x8c0+2424-0x1238)){IlllI(
+);IlIlI=-EFAULT;break;}if(IllIlIlll(&llIllll,&IIlIlII,&llIlIl,&flags,&endpoint)<
+(0x9a4+1301-0xeb9)){lIlll(
 "\x75\x73\x62\x64\x5f\x73\x74\x75\x62\x5f\x63\x72\x65\x61\x74\x65\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x69\x6e\x76\x61\x6c\x69\x64\x20\x64\x61\x74\x61" "\n"
-);IIIll=-EINVAL;break;}
+);IlIlI=-EINVAL;break;}
 
 
-if((IIIlII==(0x47f+6114-0x1c61))||((sizeof(struct IIlII)+lllIIlI+IIIlII+
-(0x3ed+6288-0x1c3d))<=lIlllll)){
-lIIIII=lIllIll;}else if(lIIllIl.IIIlI.lIIlIII==IIlIlIll){
-lIIIII=IlIlI->lIIlIIIl;}else if(lIIllIl.IIIlI.lIIlIII==llIIIIIl){
-lIIIII=IlIlI->lllIlIlI;}else if(lIIllIl.IIIlI.lIIlIII==IllllllI){
-lIIIII=IlIlI->lllIlllI;}else{
-lIIIII=lIllIll;}
+if((llIlIl==(0x69b+6405-0x1fa0))||((sizeof(struct lIIll)+IIlIlII+llIlIl+
+(0x552+6188-0x1d3e))<=IIlIIlI)){
+IlllIl=lIlIIlI;}else if(llIllll.IlIII.IIIlIIl==IIllIIIl){
+IlllIl=IIIll->lIlIIII;}else if(llIllll.IlIII.IIIlIIl==lIlllIIl){
+IlllIl=IIIll->IIIIIIIl;}else if(llIllll.IlIII.IIIlIIl==lllIlIIl){
+IlllIl=IIIll->IIIlIlIl;}else{
+IlllIl=lIlIIlI;}
 
-if(lIIIII==lIllIll){llllIIIl=sizeof(struct IIlII)+lllIIlI+IIIlII+
-(0x12c1+1663-0x1900);}else{llllIIIl=sizeof(struct IIlII)+lllIIlI;}lIlII=lIlIlll(
-llllIIIl,GFP_KERNEL);if(!lIlII){IlllI(
+if(IlllIl==lIlIIlI){IIlllIII=sizeof(struct lIIll)+IIlIlII+llIlIl+
+(0x2155+1063-0x253c);}else{IIlllIII=sizeof(struct lIIll)+IIlIlII;}lIlII=IllIllI(
+IIlllIII,GFP_KERNEL);if(!lIlII){lIlll(
 "\x75\x73\x62\x64\x5f\x73\x74\x75\x62\x5f\x63\x72\x65\x61\x74\x65\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x63\x61\x6e\x6e\x6f\x74\x20\x61\x6c\x6c\x6f\x63\x61\x74\x65\x20\x72\x65\x71\x75\x65\x73\x74\x2c\x20\x75\x6e\x72\x62\x73\x69\x7a\x65\x3d\x25\x6c\x75\x20\x2b\x20\x25\x6c\x75" "\n"
-,(unsigned long)lllIIlI,(unsigned long)sizeof(struct IIlII));break;}
+,(unsigned long)IIlIlII,(unsigned long)sizeof(struct lIIll));break;}
 #ifdef _USBD_DEBUG_MEMORY_
-atomic_inc(&lIlIllll);
+atomic_inc(&llIIIIII);
 #endif
 
 
-memset(lIlII,(0x1949+831-0x1c88),sizeof(*lIlII));INIT_LIST_HEAD(&lIlII->lIlIIl);
-lIlII->lllllI=llllIIIl;atomic_set(&lIlII->state,IIIIIIlI);lIlII->IlIlI=IlIIlIII(
-IlIlI);lIlII->lIIIII=lIIIII;lIlII->llIlIlI=(0x12+4530-0x11c4);lIlII->endpoint=
-endpoint;lIlII->lllIl=lIIllIl.IIIlI.lIIlIl;lIlII->IIIlIIl.llllIllI=lIIllIl.IIIlI
-.IllIIll;kref_init(&lIlII->lIIlll);IlIllIII=(IllII)(lIlII+(0xcb+7635-0x1e9d));
+memset(lIlII,(0x417+7377-0x20e8),sizeof(*lIlII));INIT_LIST_HEAD(&lIlII->llllIl);
+lIlII->IlIll=IIlllIII;atomic_set(&lIlII->state,IIlllIIl);lIlII->IIIll=lIIlIlll(
+IIIll);lIlII->IlllIl=IlllIl;lIlII->IlllllI=(0xe50+578-0x1092);lIlII->endpoint=
+endpoint;lIlII->lIlIl=llIllll.IlIII.IIIlIl;lIlII->lIlIlII.IlIlIlII=llIllll.IlIII
+.IllllII;kref_init(&lIlII->IllIll);lIIIIllI=(IIlII)(lIlII+(0xa18+3656-0x185f));
 
 
-if(__copy_from_user(IlIllIII,IIIIl,lllIIlI)){IlllI(
+if(__copy_from_user(lIIIIllI,IllIl,IIlIlII)){lIlll(
 "\x75\x73\x62\x64\x5f\x73\x74\x75\x62\x5f\x63\x72\x65\x61\x74\x65\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x63\x61\x6e\x6e\x6f\x74\x20\x63\x6f\x70\x79\x20\x66\x72\x6f\x6d\x20\x75\x73\x65\x72\x20\x62\x75\x66\x66\x65\x72\x20\x28\x33\x29" "\n"
-);break;}IIIIl+=lllIIlI;llllllI-=lllIIlI;
+);break;}IllIl+=IIlIlII;lIlllII-=IIlIlII;
 
-if(lIIIII==lIllIll){IlllI(
+if(IlllIl==lIlIIlI){lIlll(
 "\x75\x73\x62\x64\x5f\x73\x74\x75\x62\x5f\x63\x72\x65\x61\x74\x65\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x73\x6f\x6c\x69\x64\x20\x75\x6e\x72\x62" "\n"
 );
-lIlII->Illlll.IllIl=(void*)(((unsigned long)IlIllIII+lllIIlI+(0x604+1124-0xa28))
-&(~(unsigned long)((0xc4d+2048-0x140d)-(0x1a64+1499-0x203e))));
-if(IIIlII&&!(flags&lIllII)){if(IIIlII>llllllI){IlllI(
+lIlII->lIIIll.llIIl=(void*)(((unsigned long)lIIIIllI+IIlIlII+(0x1b89+545-0x1d6a)
+)&(~(unsigned long)((0x577+1964-0xce3)-(0xda8+4762-0x2041))));
+if(llIlIl&&!(flags&IIIllI)){if(llIlIl>lIlllII){lIlll(
 "\x75\x73\x62\x64\x5f\x73\x74\x75\x62\x5f\x63\x72\x65\x61\x74\x65\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x69\x6e\x76\x61\x6c\x69\x64\x20\x73\x69\x7a\x65\x20\x28\x34\x29" "\n"
-);IIIll=-(0x1633+864-0x1992);break;}if(__copy_from_user(lIlII->Illlll.IllIl,
-IIIIl,IIIlII)){IlllI(
+);IlIlI=-(0x1d39+819-0x206b);break;}if(__copy_from_user(lIlII->lIIIll.llIIl,
+IllIl,llIlIl)){lIlll(
 "\x75\x73\x62\x64\x5f\x73\x74\x75\x62\x5f\x63\x72\x65\x61\x74\x65\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x63\x61\x6e\x6e\x6f\x74\x20\x63\x6f\x70\x79\x20\x66\x72\x6f\x6d\x20\x75\x73\x65\x72\x20\x62\x75\x66\x66\x65\x72\x20\x28\x34\x29" "\n"
-);IIIll=-(0xc97+559-0xec5);break;}IIIIl+=IIIlII;llllllI-=IIIlII;}}else if(lIIIII
-==IllIIlI){IlllI(
+);IlIlI=-(0x125c+2212-0x1aff);break;}IllIl+=llIlIl;lIlllII-=llIlIl;}}else if(
+IlllIl==IlIIIlI){lIlll(
 "\x75\x73\x62\x64\x5f\x73\x74\x75\x62\x5f\x63\x72\x65\x61\x74\x65\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x70\x61\x72\x74\x69\x74\x69\x6f\x6e\x65\x64" "\n"
 );
-if(IlIllIII->IIIlI.lIIlIII==IllllllI){lIlII->llllII.lIIIlI=llIIIIlII(IIIlII,
-IlIllIII->lIIIl.llIIlII,IlIllIII->lIIIl.lIllIII);if(!lIlII->llllII.lIIIlI){IlllI
+if(lIIIIllI->IlIII.IIIlIIl==lllIlIIl){lIlII->lIllII.lIIlll=lIIIIIIIl(llIlIl,
+lIIIIllI->llIll.llIIIIl,lIIIIllI->llIll.IIlIlIl);if(!lIlII->lIllII.lIIlll){lIlll
 (
 "\x75\x73\x62\x64\x5f\x73\x74\x75\x62\x5f\x63\x72\x65\x61\x74\x65\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x75\x73\x62\x64\x5f\x62\x63\x5f\x61\x6c\x6c\x6f\x63\x5f\x66\x6f\x72\x5f\x69\x73\x6f\x20\x66\x61\x69\x6c\x65\x64" "\n"
-);IIIll=-(0xa5+2217-0x94d);break;}}else{int IlIlllll=IllIlIIl(IlIlI->IIlll,
-endpoint);if(IlIlllll<(0x2+4201-0x106b)){IlllI(
+);IlIlI=-(0x127f+235-0x1369);break;}}else{int lllIIllI=IIllllIII(IIIll->llIII,
+endpoint);if(lllIIllI<(0x988+1839-0x10b7)){lIlll(
 "\x75\x73\x62\x64\x5f\x73\x74\x75\x62\x5f\x63\x72\x65\x61\x74\x65\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x6e\x6f\x20\x65\x6e\x64\x70\x6f\x69\x6e\x74" "\n"
-);IIIll=IlIlllll;break;}lIlII->llllII.lIIIlI=IIIIIIlIl(IIIlII,IlIlllll);if(!
-lIlII->llllII.lIIIlI){IlllI(
+);IlIlI=lllIIllI;break;}lIlII->lIllII.lIIlll=IIIIIIIIl(llIlIl,lllIIllI);if(!
+lIlII->lIllII.lIIlll){lIlll(
 "\x75\x73\x62\x64\x5f\x73\x74\x75\x62\x5f\x63\x72\x65\x61\x74\x65\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x75\x73\x62\x64\x5f\x62\x63\x5f\x61\x6c\x6c\x6f\x63\x20\x66\x61\x69\x6c\x65\x64" "\n"
-);IIIll=-(0x658+29-0x674);break;}}
-if(IIIlII&&!(flags&lIllII)){if(IIIlII>llllllI){IlllI(
+);IlIlI=-(0xa42+5274-0x1edb);break;}}
+if(llIlIl&&!(flags&IIIllI)){if(llIlIl>lIlllII){lIlll(
 "\x75\x73\x62\x64\x5f\x73\x74\x75\x62\x5f\x63\x72\x65\x61\x74\x65\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x69\x6e\x76\x61\x6c\x69\x64\x20\x73\x69\x7a\x65\x20\x28\x35\x29" "\n"
-);IIIll=-(0x2082+145-0x2112);break;}if(IIIIlIllI(lIlII->llllII.lIIIlI,IIIIl,
-IIIlII)<IIIlII){IlllI(
+);IlIlI=-(0x4b+8037-0x1faf);break;}if(IIIIlIlIl(lIlII->lIllII.lIIlll,IllIl,
+llIlIl)<llIlIl){lIlll(
 "\x75\x73\x62\x64\x5f\x73\x74\x75\x62\x5f\x63\x72\x65\x61\x74\x65\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x63\x61\x6e\x6e\x6f\x74\x20\x63\x6f\x70\x79\x20\x66\x72\x6f\x6d\x20\x75\x73\x65\x72\x20\x62\x75\x66\x66\x65\x72\x20\x28\x35\x29" "\n"
-);IIIll=-(0x4ad+8631-0x2663);break;}IIIIl+=IIIlII;llllllI-=IIIlII;}}
-#if KERNEL_GT_EQ((0x401+6118-0x1be5),(0xe24+6357-0x26f3),(0xbe0+6033-0x2352))
-else if(lIIIII==llIllII){
+);IlIlI=-(0x1334+4756-0x25c7);break;}IllIl+=llIlIl;lIlllII-=llIlIl;}}
+#if KERNEL_GT_EQ((0xdef+3447-0x1b64),(0x1869+3456-0x25e3),(0x187+8764-0x23a4))
+else if(IlllIl==IIlIIII){
 
 
-int IlIlllll=IllIlIIl(IlIlI->IIlll,endpoint);IlllI(
+int lllIIllI=IIllllIII(IIIll->llIII,endpoint);lIlll(
 "\x75\x73\x62\x64\x5f\x73\x74\x75\x62\x5f\x63\x72\x65\x61\x74\x65\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x73\x67" "\n"
-);if(IlIlllll<(0xb5d+3163-0x17b8)){IIIll=IlIlllll;IlllI(
+);if(lllIIllI<(0x22ef+826-0x2629)){IlIlI=lllIIllI;lIlll(
 "\x75\x73\x62\x64\x5f\x73\x74\x75\x62\x5f\x63\x72\x65\x61\x74\x65\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x6e\x6f\x20\x65\x6e\x64\x70\x6f\x69\x6e\x74" "\n"
-);break;}IIIll=IlIIlIIIl(&lIlII->IIIIIIl.sg,IIIlII,IlIlllll);if(IIIll<
-(0xe56+3742-0x1cf4)){IlllI(
+);break;}IlIlI=IlIlIlIIl(&lIlII->IlIIIII.sg,llIlIl,lllIIllI);if(IlIlI<
+(0x849+1830-0xf6f)){lIlll(
 "\x75\x73\x62\x64\x5f\x73\x74\x75\x62\x5f\x63\x72\x65\x61\x74\x65\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x75\x73\x62\x64\x5f\x73\x67\x5f\x61\x6c\x6c\x6f\x63\x20\x66\x61\x69\x6c\x65\x64" "\n"
-);break;}if(IIIlII&&(flags&lIllII)==(0x552+2234-0xe0c)){if(IIIlII>llllllI){IlllI
+);break;}if(llIlIl&&(flags&IIIllI)==(0x2bc+1988-0xa80)){if(llIlIl>lIlllII){lIlll
 (
 "\x75\x73\x62\x64\x5f\x73\x74\x75\x62\x5f\x63\x72\x65\x61\x74\x65\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x69\x6e\x76\x61\x6c\x69\x64\x20\x73\x69\x7a\x65\x20\x28\x36\x29" "\n"
-);IIIll=-(0xb57+5562-0x2110);break;}if(lIIIIIIIl(&lIlII->IIIIIIl.sg,IIIIl,IIIlII
-)<IIIlII){IlllI(
+);IlIlI=-(0xc4f+4443-0x1da9);break;}if(llllIllII(&lIlII->IlIIIII.sg,IllIl,llIlIl
+)<llIlIl){lIlll(
 "\x75\x73\x62\x64\x5f\x73\x74\x75\x62\x5f\x63\x72\x65\x61\x74\x65\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x63\x61\x6e\x6e\x6f\x74\x20\x63\x6f\x70\x79\x20\x66\x72\x6f\x6d\x20\x75\x73\x65\x72\x20\x62\x75\x66\x66\x65\x72\x20\x28\x36\x29" "\n"
-);IIIll=-(0x7f2+3155-0x1444);break;}IIIIl+=IIIlII;llllllI-=IIIlII;}}
+);IlIlI=-(0x7d0+2865-0x1300);break;}IllIl+=llIlIl;lIlllII-=llIlIl;}}
 #endif 
-else{IIIll=-EINVAL;break;}IIIll=(0x2db+8055-0x2252);}while((0x1867+3506-0x2619))
-;
-if(IIIll<(0xacc+1474-0x108e)){if(lIlII){IIllIIl(lIlII);lIlII=NULL;}return NULL;}
+else{IlIlI=-EINVAL;break;}IlIlI=(0x606+3579-0x1401);}while((0xb0b+1641-0x1174));
+if(IlIlI<(0xd8+3793-0xfa9)){if(lIlII){IllIlll(lIlII);lIlII=NULL;}return NULL;}
 return lIlII;}
 
 
-struct IIlII*lllllllII(struct IIlII*lIlII,gfp_t IlIIl){struct IIlII*IIlIlll;if(
-lIlII->lIIIII!=lIllIll)
-return NULL;IIlIlll=lIlIlll(lIlII->lllllI,IlIIl);if(IIlIlll){memset(IIlIlll,
-(0x14a4+1033-0x18ad),sizeof(*IIlIlll));
-memcpy(IIlIlll+(0xec3+1910-0x1638),lIlII+(0x1042+5718-0x2697),lIlII->lllllI-
+struct lIIll*IllIIlIlI(struct lIIll*lIlII,gfp_t llllI){struct lIIll*lIIIlll;if(
+lIlII->IlllIl!=lIlIIlI)
+{return NULL;}lIIIlll=IllIllI(lIlII->IlIll,llllI);if(lIIIlll){memset(lIIIlll,
+(0x678+8034-0x25da),sizeof(*lIIIlll));
+memcpy(lIIIlll+(0xc56+5022-0x1ff3),lIlII+(0x112c+2921-0x1c94),lIlII->IlIll-
 sizeof(*lIlII));
-INIT_LIST_HEAD(&IIlIlll->lIlIIl);IIlIlll->lllllI=lIlII->lllllI;IIlIlll->lllIl=
-lIlII->lllIl;IIlIlll->IIIlIIl=lIlII->IIIlIIl;atomic_set(&IIlIlll->state,IIIIIIlI
-);IIlIlll->IlIlI=IlIIlIII(lIlII->IlIlI);IIlIlll->endpoint=lIlII->endpoint;
-IIlIlll->Illlll.IllIl=(void*)IIlIlll+((unsigned long)lIlII->Illlll.IllIl-(
-unsigned long)lIlII);IIlIlll->lIIIII=lIlII->lIIIII;kref_init(&IIlIlll->lIIlll);
+INIT_LIST_HEAD(&lIIIlll->llllIl);lIIIlll->IlIll=lIlII->IlIll;lIIIlll->lIlIl=
+lIlII->lIlIl;lIIIlll->lIlIlII=lIlII->lIlIlII;atomic_set(&lIIIlll->state,IIlllIIl
+);lIIIlll->IIIll=lIIlIlll(lIlII->IIIll);lIIIlll->endpoint=lIlII->endpoint;
+lIIIlll->lIIIll.llIIl=(void*)lIIIlll+((unsigned long)lIlII->lIIIll.llIIl-(
+unsigned long)lIlII);lIIIlll->IlllIl=lIlII->IlllIl;kref_init(&lIIIlll->IllIll);
 #ifdef _USBD_DEBUG_MEMORY_
-atomic_inc(&lIlIllll);
+atomic_inc(&llIIIIII);
 #endif
-}return IIlIlll;}void IllIlIll(struct kref*IIIIllI){struct IIlII*lIlII=
-container_of(IIIIllI,struct IIlII,lIIlll);IlllI(
+}return lIIIlll;}void lIlIIIIl(struct kref*IIllIlI){struct lIIll*lIlII=
+container_of(IIllIlI,struct lIIll,IllIll);lIlll(
 "\x75\x73\x62\x64\x5f\x73\x74\x75\x62\x5f\x64\x65\x73\x74\x72\x6f\x79\x5f\x72\x65\x71\x75\x65\x73\x74\x3a\x20\x75\x6e\x69\x71\x75\x65\x5f\x69\x64\x3d\x30\x78\x25\x6c\x6c\x78" "\n"
-,lIlII->lllIl);
+,lIlII->lIlIl);
 #ifdef _USBD_DEBUG_MEMORY_
-atomic_inc(&IIllllIII);
+atomic_inc(&IIIllllIl);
 #endif
-if(lIlII->lIIIII==lIllIll){if(lIlII->Illlll.lIlll){if(lIlII->Illlll.lIlll->
-setup_packet)IlIIIl(lIlII->Illlll.lIlll->setup_packet);lIllIIlI(lIlII->Illlll.
-lIlll);}
+if(lIlII->IlllIl==lIlIIlI){if(lIlII->lIIIll.IlllI){if(lIlII->lIIIll.IlllI->
+setup_packet){lIlIll(lIlII->lIIIll.IlllI->setup_packet);}lllllIlI(lIlII->lIIIll.
+IlllI);}
 
 
-}else if(lIlII->lIIIII==IllIIlI){if(lIlII->llllII.IIIlllI){IIIIIlIII(lIlII->
-llllII.IIIlllI);}if(lIlII->llllII.lIIIlI){llllllIll(lIlII->llllII.lIIIlI);}}
-#if KERNEL_GT_EQ((0xc09+3047-0x17ee),(0xb76+5123-0x1f73),(0x424+6211-0x1c48))
-else if(lIlII->lIIIII==llIllII){if(lIlII->IIIIIIl.lIlll){if(lIlII->IIIIIIl.lIlll
-->setup_packet)IlIIIl(lIlII->IIIIIIl.lIlll->setup_packet);lIllIIlI(lIlII->
-IIIIIIl.lIlll);}llIIlIIIl(&lIlII->IIIIIIl.sg);}
+}else if(lIlII->IlllIl==IlIIIlI){if(lIlII->lIllII.llIIlIl){lIIIIlIIl(lIlII->
+lIllII.llIIlIl);}if(lIlII->lIllII.lIIlll){IlIlIIIlI(lIlII->lIllII.lIIlll);}}
+#if KERNEL_GT_EQ((0xa0c+1013-0xdff),(0x1f79+696-0x222b),(0x9fa+4123-0x19f6))
+else if(lIlII->IlllIl==IIlIIII){if(lIlII->IlIIIII.IlllI){if(lIlII->IlIIIII.IlllI
+->setup_packet){lIlIll(lIlII->IlIIIII.IlllI->setup_packet);}lllllIlI(lIlII->
+IlIIIII.IlllI);}llIIllIII(&lIlII->IlIIIII.sg);}
 #endif
-if(lIlII->IlIlI){IlIllIl(lIlII->IlIlI);}IlIIIl(lIlII);}void IIllIIl(struct IIlII
-*lIlII){
+if(lIlII->IIIll){lIIIllII(lIlII->IIIll);}lIlIll(lIlII);}void IllIlll(struct 
+lIIll*lIlII){
 #ifdef _USBD_DEBUG_MEMORY_
-atomic_inc(&lIlllIIll);
+atomic_inc(&IIIllIllI);
 #endif
-kref_put(&lIlII->lIIlll,IllIlIll);}
+kref_put(&lIlII->IllIll,lIlIIIIl);}
 #endif 
-lllIII llIlIIIlI(void){static lllIII lIIlIl=(0x4d4+6367-0x1db3);return(++lIIlIl)
-;}int IllllIlll(void*llIIIlIlI,struct vm_area_struct*IIllllI){int IIIll=
-(0x1795+3923-0x26e8);unsigned long start=IIllllI->vm_start;unsigned long IIlIIl=
-IIllllI->vm_end-IIllllI->vm_start;unsigned long IIllllIll;IlllI(
+llIIII lIllIIlll(void){static llIIII IIIlIl=(0x70d+816-0xa3d);return(++IIIlIl);}
+int lIIIIIIII(void*llIlIIIIl,struct vm_area_struct*llIIIlI){int IlIlI=
+(0x5d7+8496-0x2707);unsigned long start=llIIIlI->vm_start;unsigned long IIlIIl=
+llIIIlI->vm_end-llIIIlI->vm_start;unsigned long lIlIllIll;lIlll(
 "\x75\x73\x62\x64\x5f\x6d\x61\x70\x5f\x76\x6d\x65\x6d\x3a\x20\x2b\x2b" "\n");
-while(IIlIIl>(0x10e3+41-0x110c)){IIllllIll=vmalloc_to_pfn(llIIIlIlI);IIIll=
-remap_pfn_range(IIllllI,start,IIllllIll,PAGE_SIZE,PAGE_SHARED);if(IIIll<
-(0x117b+3647-0x1fba)){IlllI(
+while(IIlIIl>(0x9b8+6436-0x22dc)){lIlIllIll=vmalloc_to_pfn(llIlIIIIl);IlIlI=
+remap_pfn_range(llIIIlI,start,lIlIllIll,PAGE_SIZE,PAGE_SHARED);if(IlIlI<
+(0x568+3440-0x12d8)){lIlll(
 "\x75\x73\x62\x64\x5f\x6d\x61\x70\x5f\x76\x6d\x65\x6d\x3a\x20\x63\x61\x6e\x6e\x6f\x74\x20\x6d\x61\x70\x20\x74\x68\x65\x20\x70\x61\x67\x65" "\n"
-);break;}start+=PAGE_SIZE;llIIIlIlI+=PAGE_SIZE;IIlIIl-=PAGE_SIZE;}IlllI(
+);break;}start+=PAGE_SIZE;llIlIIIIl+=PAGE_SIZE;IIlIIl-=PAGE_SIZE;}lIlll(
 "\x75\x73\x62\x64\x5f\x6d\x61\x70\x5f\x76\x6d\x65\x6d\x3a\x20\x2d\x2d\x20\x72\x65\x73\x75\x6c\x74\x3d\x25\x64" "\n"
-,IIIll);return IIIll;}void lllllllll(dma_addr_t lllIllI,void*IIllII,unsigned 
-long IIlIIl){void*lllIIl;struct page*IlllIllI;unsigned long flags;unsigned long 
-IIIllll;unsigned long lIlIIIl,IIIIlll;local_irq_save(flags);while(IIlIIl){
+,IlIlI);return IlIlI;}void lIIIlIlII(dma_addr_t IIIIIll,void*lllIll,unsigned 
+long IIlIIl){void*lIIIlI;struct page*IIIlIlll;unsigned long flags;unsigned long 
+llIlIlI;unsigned long IlIlIll,IIIIIIl;local_irq_save(flags);while(IIlIIl){
 
-lIlIIIl=lllIllI&(PAGE_SIZE-(0x16a5+1781-0x1d99));IIIIlll=PAGE_SIZE-lIlIIIl;
-IIIllll=(IIIIlll<IIlIIl)?IIIIlll:IIlIIl;
-IlllIllI=pfn_to_page(lllIllI>>PAGE_SHIFT);
-#if KERNEL_GT_EQ((0x1e03+1670-0x2487),(0x1243+5150-0x265b),(0x57f+2003-0xd2d))
-lllIIl=kmap_atomic(IlllIllI);
+IlIlIll=IIIIIll&(PAGE_SIZE-(0xb64+5128-0x1f6b));IIIIIIl=PAGE_SIZE-IlIlIll;
+llIlIlI=(IIIIIIl<IIlIIl)?IIIIIIl:IIlIIl;
+IIIlIlll=pfn_to_page(IIIIIll>>PAGE_SHIFT);
+#if KERNEL_GT_EQ((0x999+4750-0x1c25),(0xe02+2923-0x1967),(0x1fc+5108-0x15cb))
+lIIIlI=kmap_atomic(IIIlIlll);
 #else
-lllIIl=kmap_atomic(IlllIllI,KM_IRQ0);
+lIIIlI=kmap_atomic(IIIlIlll,KM_IRQ0);
 #endif
-memcpy(lllIIl+lIlIIIl,IIllII,IIIllll);
-#if KERNEL_GT_EQ((0x2116+201-0x21dd),(0x65d+2663-0x10be),(0x6fc+1765-0xdbc))
-kunmap_atomic(lllIIl);
+memcpy(lIIIlI+IlIlIll,lllIll,llIlIlI);
+#if KERNEL_GT_EQ((0x82b+4299-0x18f4),(0xf68+4664-0x219a),(0x1110+3447-0x1e62))
+kunmap_atomic(lIIIlI);
 #else
-kunmap_atomic(lllIIl,KM_IRQ0);
-#endif
-
-lllIllI+=IIIllll;IIllII+=IIIllll;IIlIIl-=IIIllll;}local_irq_restore(flags);}void
- IIIllllIl(void*lllIllI,dma_addr_t IIllII,unsigned long IIlIIl){struct page*
-IlllIllI;unsigned char*lllIIl;unsigned long flags;unsigned long IIIllll;unsigned
- long lIlIIIl,IIIIlll;local_irq_save(flags);while(IIlIIl){
-
-lIlIIIl=IIllII&(PAGE_SIZE-(0xd73+6322-0x2624));IIIIlll=PAGE_SIZE-lIlIIIl;IIIllll
-=(IIIIlll<IIlIIl)?IIIIlll:IIlIIl;
-IlllIllI=pfn_to_page(IIllII>>PAGE_SHIFT);
-#if KERNEL_GT_EQ((0x1da3+2280-0x2689),(0x12aa+4892-0x25c0),(0xbb+9070-0x2404))
-lllIIl=kmap_atomic(IlllIllI);
-#else
-lllIIl=kmap_atomic(IlllIllI,KM_IRQ0);
-#endif
-memcpy(lllIllI,lllIIl+lIlIIIl,IIIllll);
-#if KERNEL_GT_EQ((0x3d2+7796-0x2244),(0x1571+2765-0x2038),(0x41+64-0x5c))
-kunmap_atomic(lllIIl);
-#else
-kunmap_atomic(lllIIl,KM_IRQ0);
+kunmap_atomic(lIIIlI,KM_IRQ0);
 #endif
 
-IIllII+=IIIllll;lllIllI+=IIIllll;IIlIIl-=IIIllll;}local_irq_restore(flags);}int 
-llllIlIl(lllII status){int IIIll;switch(status){case IlIllIlII:IIIll=
-(0x1531+1718-0x1be7);break;case lIIllllIl:IIIll=-EINPROGRESS;break;case 
-IllIllIII:IIIll=-ECONNRESET;break;case IIIllIIII:IIIll=-EXDEV;break;case 
-IlIllIIIl:IIIll=-ETIMEDOUT;break;case IIlIlIIII:IIIll=-EINVAL;break;case 
-IlIIlIlIl:IIIll=-ENODEV;break;case IllIlIllI:IIIll=-EREMOTEIO;break;case 
-IIIIIlIIl:IIIll=-EOVERFLOW;break;case lIllllIll:IIIll=-ENOSR;break;case 
-llIIlllII:IIIll=-ECOMM;break;case llIllIIIl:IIIll=-EPIPE;break;case llIIIIIIl:
-IIIll=-EILSEQ;break;case lIlllIIII:IIIll=-EPROTO;break;case IIlIlIllI:IIIll=-
-ENOMEM;break;case IIllIIIII:IIIll=-EPROTO;break;case IIllIlIII:default:IIIll=-
-EPROTO;break;}return IIIll;}
-size_t IllIlIlI(struct usb_iso_packet_descriptor*lIlllII,int llIIl,void*lllIllI,
-void*IIllII,int IllIIlII){IIIlll*IIlllIII;size_t IIIll;IIIll=(0xeb7+5913-0x25d0)
-;IIlllIII=lllIllI;for(;llIIl;llIIl--){IIIlll*IllIllIlI=IIllII+lIlllII->offset;
-unsigned int length=IllIIlII?lIlllII->actual_length:lIlllII->length;if(length&&
-IIlllIII!=IllIllIlI)
-memmove(IIlllIII,IllIllIlI,length);IIlllIII+=length;IIIll+=length;lIlllII++;}
-IlllI(
+IIIIIll+=llIlIlI;lllIll+=llIlIlI;IIlIIl-=llIlIlI;}local_irq_restore(flags);}void
+ llIlIIlIl(void*IIIIIll,dma_addr_t lllIll,unsigned long IIlIIl){struct page*
+IIIlIlll;unsigned char*lIIIlI;unsigned long flags;unsigned long llIlIlI;unsigned
+ long IlIlIll,IIIIIIl;local_irq_save(flags);while(IIlIIl){
+
+IlIlIll=lllIll&(PAGE_SIZE-(0x1752+700-0x1a0d));IIIIIIl=PAGE_SIZE-IlIlIll;llIlIlI
+=(IIIIIIl<IIlIIl)?IIIIIIl:IIlIIl;
+IIIlIlll=pfn_to_page(lllIll>>PAGE_SHIFT);
+#if KERNEL_GT_EQ((0x1a2c+524-0x1c36),(0x5c5+2364-0xefb),(0xb45+1204-0xfd4))
+lIIIlI=kmap_atomic(IIIlIlll);
+#else
+lIIIlI=kmap_atomic(IIIlIlll,KM_IRQ0);
+#endif
+memcpy(IIIIIll,lIIIlI+IlIlIll,llIlIlI);
+#if KERNEL_GT_EQ((0xe56+5361-0x2345),(0x537+6821-0x1fd6),(0x2601+87-0x2633))
+kunmap_atomic(lIIIlI);
+#else
+kunmap_atomic(lIIIlI,KM_IRQ0);
+#endif
+
+lllIll+=llIlIlI;IIIIIll+=llIlIlI;IIlIIl-=llIlIlI;}local_irq_restore(flags);}int 
+lIllllIl(lllII status){int IlIlI;switch(status){case lllllIlIll:IlIlI=
+(0xe76+4463-0x1fe5);break;case IIlIllIIlI:IlIlI=-EINPROGRESS;break;case 
+IlIllIlII:IlIlI=-ECONNRESET;break;case lIIlIlIII:IlIlI=-EXDEV;break;case 
+llIIlIlll:IlIlI=-ETIMEDOUT;break;case lllllIllIl:IlIlI=-EINVAL;break;case 
+llIlllIIl:IlIlI=-ENODEV;break;case IIlIlIIII:IlIlI=-EREMOTEIO;break;case 
+IIllIllll:IlIlI=-EOVERFLOW;break;case lIllIIIlII:IlIlI=-ENOSR;break;case 
+lIIllIlll:IlIlI=-ECOMM;break;case lIlllIIII:IlIlI=-EPIPE;break;case IIIllllIll:
+IlIlI=-EILSEQ;break;case llIllIlIl:IlIlI=-EPROTO;break;case lIIIlIlll:IlIlI=-
+ENOMEM;break;case lIllIIIIl:IlIlI=-EPROTO;break;case llIllllIl:default:IlIlI=-
+EPROTO;break;}return IlIlI;}
+size_t IlIIIllI(struct usb_iso_packet_descriptor*lllllIll,int IIIIl,void*IIIIIll
+,void*lllIll,int IIlIlIlI){lIllIl*lllIIIll;size_t IlIlI;IlIlI=(0x69+1473-0x62a);
+lllIIIll=IIIIIll;for(;IIIIl;IIIIl--){lIllIl*IIllllIlI=lllIll+lllllIll->offset;
+unsigned int length=IIlIlIlI?lllllIll->actual_length:lllllIll->length;if(length
+&&lllIIIll!=IIllllIlI){
+memmove(lllIIIll,IIllllIlI,length);}lllIIIll+=length;IlIlI+=length;lllllIll++;}
+lIlll(
 "\x75\x73\x62\x64\x5f\x70\x61\x63\x6b\x5f\x69\x73\x6f\x5f\x62\x75\x66\x66\x65\x72\x3a\x20\x70\x61\x63\x6b\x65\x64\x3d\x25\x6c\x75" "\n"
-,(unsigned long)IIIll);return IIIll;}
-size_t lIllIllI(struct usb_iso_packet_descriptor*lIlllII,int llIIl,int IllIIlII)
-{size_t IIIll;IIIll=(0xa39+3690-0x18a3);for(;llIIl>(0x23c4+424-0x256c);llIIl--){
-IIIll+=IllIIlII?lIlllII->actual_length:lIlllII->length;lIlllII++;}IlllI(
+,(unsigned long)IlIlI);return IlIlI;}
+size_t IlIIIllll(struct usb_iso_packet_descriptor*lllllIll,int IIIIl,int 
+IIlIlIlI){size_t IlIlI;IlIlI=(0x3bb+7974-0x22e1);for(;IIIIl>(0xcba+5943-0x23f1);
+IIIIl--){IlIlI+=IIlIlIlI?lllllIll->actual_length:lllllIll->length;lllllIll++;}
+lIlll(
 "\x75\x73\x62\x64\x5f\x63\x6f\x75\x6e\x74\x5f\x69\x73\x6f\x5f\x62\x75\x66\x66\x65\x72\x3a\x20\x70\x61\x63\x6b\x65\x64\x3d\x25\x6c\x75" "\n"
-,(unsigned long)IIIll);return IIIll;}char*llIIIllI(struct kobject*kobj,gfp_t 
-IIIIllIII){
-#if KERNEL_GT_EQ((0x105a+5201-0x24a9),(0x485+3383-0x11b6),(0xcef+6147-0x24df))
-return kobject_get_path(kobj,IIIIllIII);
+,(unsigned long)IlIlI);return IlIlI;}char*lIllIIII(struct kobject*kobj,gfp_t 
+lIlllIlII){
+#if KERNEL_GT_EQ((0x1210+4481-0x238f),(0xa1a+6523-0x238f),(0x606+2236-0xeaf))
+return kobject_get_path(kobj,lIlllIlII);
 #else
-char*llllIll;int length;struct kobject*IIIlIl;
-for(IIIlIl=kobj,length=(0x52f+6212-0x1d73);IIIlIl&&kobject_name(IIIlIl);IIIlIl=
-IIIlIl->parent){length+=strlen(kobject_name(IIIlIl));length+=(0x618+1996-0xde3);
-}if(IIIlIl)
-return NULL;
-llllIll=lIlIlll(length+(0x82a+3962-0x17a3),IIIIllIII);if(llllIll==NULL)return 
-NULL;*(llllIll+length)='\0';
-for(IIIlIl=kobj;IIIlIl&&length>(0x1377+3326-0x2075);IIIlIl=IIIlIl->parent){int l
-=strlen(kobject_name(IIIlIl));strncpy(llllIll+length-l,kobject_name(IIIlIl),l);*
-(llllIll+length-l-(0x1477+1646-0x1ae4))=((char)(0xdb+3895-0xfe3));length-=l+
-(0x332+336-0x481);}
-if(length!=(0x164d+2676-0x20c1)||IIIlIl){IlIIIl(llllIll);return NULL;}return 
-llllIll;
+char*IIlIlll;int length;struct kobject*IIllll;
+for(IIllll=kobj,length=(0x1652+1464-0x1c0a);IIllll&&kobject_name(IIllll);IIllll=
+IIllll->parent){length+=strlen(kobject_name(IIllll));length+=(0x4b0+2849-0xfd0);
+}if(IIllll)
+{return NULL;}
+IIlIlll=IllIllI(length+(0x1308+2579-0x1d1a),lIlllIlII);if(IIlIlll==NULL){return 
+NULL;}*(IIlIlll+length)='\0';
+for(IIllll=kobj;IIllll&&length>(0x57+9400-0x250f);IIllll=IIllll->parent){int l=
+strlen(kobject_name(IIllll));strncpy(IIlIlll+length-l,kobject_name(IIllll),l);*(
+IIlIlll+length-l-(0xb6f+6130-0x2360))=((char)(0x3bc+327-0x4d4));length-=l+
+(0xce7+2034-0x14d8);}
+if(length!=(0xc23+4293-0x1ce8)||IIllll){lIlIll(IIlIlll);return NULL;}return 
+IIlIlll;
 #endif
-}void lIIlIIIIl(char*llllIll){
-#if KERNEL_GT_EQ((0x1c1b+443-0x1dd4),(0x14f0+3220-0x217e),(0x802+6539-0x217a))
-kfree(llllIll);
+}void IlIlIllII(char*IIlIlll){
+#if KERNEL_GT_EQ((0x1169+1632-0x17c7),(0x7e5+7569-0x2570),(0x2fa+2356-0xc1b))
+kfree(IIlIlll);
 #else
-IlIIIl(llllIll);
+lIlIll(IIlIlll);
 #endif
-}int IIIIlIIlI(struct device*dev){
+}int llIlllIII(struct device*dev){
 
 
 
-if(dev->bus&&!strcmp(dev->bus->name,"\x75\x73\x62"))return(0x580+2628-0xfc3);
-return(0x8a2+3897-0x17db);}int IlIlIIlII(struct device*dev){if(IIIIlIIlI(dev)){
-#if KERNEL_LT_EQ((0x1107+4799-0x23c4),(0x431+1934-0xbb9),(0x67+2298-0x94c))
+if(dev->bus&&!strcmp(dev->bus->name,"\x75\x73\x62")){return(0x15f3+3046-0x21d8);
+}return(0x11fc+1273-0x16f5);}int IIIIlIIII(struct device*dev){if(llIlllIII(dev))
+{
+#if KERNEL_LT_EQ((0x1a8a+2026-0x2272),(0xbea+3444-0x1958),(0x1c4+6803-0x1c42))
 
-if(!strchr(lIllll(dev),((char)(0xdb4+5980-0x24d6))))return(0x1704+693-0x19b8);
+if(!strchr(llIIIl(dev),((char)(0x19b5+731-0x1c56)))){return(0x1314+2097-0x1b44);
+}
 #else
 
 
 
 
 if(dev->type&&!strcmp(dev->type->name,
-"\x75\x73\x62\x5f\x69\x6e\x74\x65\x72\x66\x61\x63\x65"))return(0x9d7+921-0xd6f);
+"\x75\x73\x62\x5f\x69\x6e\x74\x65\x72\x66\x61\x63\x65")){return
+(0x17a1+1349-0x1ce5);}
 #endif
-}return(0xabc+7178-0x26c6);}int llIlllII(struct device*dev){if(IIIIlIIlI(dev)){
-#if KERNEL_LT_EQ((0x91a+7439-0x2627),(0xbac+6527-0x2525),(0xa81+5443-0x1faf))
+}return(0x905+2977-0x14a6);}int IIIIlIlII(struct device*dev){if(llIlllIII(dev)){
+#if KERNEL_LT_EQ((0x459+6754-0x1eb9),(0x12d1+2456-0x1c63),(0x121+4142-0x113a))
 
 
-if(strchr(lIllll(dev),((char)(0x2017+310-0x2113))))return(0x2363+387-0x24e5);
+if(strchr(llIIIl(dev),((char)(0xde8+1289-0x12b7)))){return(0x1c0b+806-0x1f30);}
 #else
 
 
 
 
 if(dev->type&&!strcmp(dev->type->name,"\x75\x73\x62\x5f\x64\x65\x76\x69\x63\x65"
-))return(0x78a+7818-0x2613);
+)){return(0xc88+1464-0x123f);}
 #endif
-}return(0x197d+2434-0x22ff);}
-#if KERNEL_GT_EQ((0xd51+4530-0x1f01),(0x420+6123-0x1c05),(0x140a+4694-0x264a))
+}return(0x3b9+4521-0x1562);}
+#if KERNEL_GT_EQ((0x1ad+5018-0x1545),(0x560+713-0x823),(0x2cf+2752-0xd79))
 
 
 
@@ -434,26 +438,26 @@ if(dev->type&&!strcmp(dev->type->name,"\x75\x73\x62\x5f\x64\x65\x76\x69\x63\x65"
 
 
 
-void lIIIIIII(struct device*dev,int IIlIllIl){
-#if KERNEL_LT_EQ((0x10c9+5267-0x255a),(0x110+2902-0xc60),(0xee4+268-0xfd3))
-dev->uevent_suppress=IIlIllIl;
-#elif KERNEL_GT_EQ((0x149d+2073-0x1cb4),(0xbb8+6905-0x26ab),(0x50d+2182-0xd75))
-dev_set_uevent_suppress(dev,IIlIllIl);
+void llIllllI(struct device*dev,int llIllIlI){
+#if KERNEL_LT_EQ((0x73a+2524-0x1114),(0x1312+694-0x15c2),(0x186+5252-0x15ed))
+dev->uevent_suppress=llIllIlI;
+#elif KERNEL_GT_EQ((0x5c1+6939-0x20da),(0x352+1970-0xafe),(0x1ca9+1129-0x20f4))
+dev_set_uevent_suppress(dev,llIllIlI);
 #endif
-}int lIllIlII(struct device*dev){
-#if KERNEL_LT_EQ((0x7d2+5825-0x1e91),(0x1fa+2652-0xc50),(0x4ec+3561-0x12b8))
+}int IIlIIllI(struct device*dev){
+#if KERNEL_LT_EQ((0x1a2+1522-0x792),(0x753+1900-0xeb9),(0xc14+83-0xc4a))
 return dev->uevent_suppress;
-#elif KERNEL_GT_EQ((0x94d+6522-0x22c5),(0x164+4867-0x1461),(0x4cb+660-0x741))
+#elif KERNEL_GT_EQ((0x1932+801-0x1c51),(0x176+3268-0xe34),(0x2ec+7664-0x20be))
 return dev_get_uevent_suppress(dev);
 #endif
 }
 #endif 
 #ifndef _USBD_DEBUG_
-const char*lIlIIIII(unsigned long llllIIl){return"";}const char*IIIIlIlII(
-unsigned long llllIIl){return"";}void lIlIIlIIl(struct urb*lIlll,lllIII lllIl){}
+const char*lllllIlll(unsigned long IlIlllI){return"";}const char*llIIlIIlI(
+unsigned long IlIlllI){return"";}void IIIlIIIll(struct urb*IlllI,llIIII lIlIl){}
 #else
-const char*lIlIIIII(unsigned long llllIIl){switch(llllIIl){
-#if KERNEL_GT_EQ((0x1f6d+61-0x1fa8),(0x1de7+51-0x1e14),(0x940+5000-0x1cb4))
+const char*lllllIlll(unsigned long IlIlllI){switch(IlIlllI){
+#if KERNEL_GT_EQ((0xc85+5212-0x20df),(0x1257+4704-0x24b1),(0x131c+3976-0x2290))
 case BUS_NOTIFY_ADD_DEVICE:return
 "\x42\x55\x53\x5f\x4e\x4f\x54\x49\x46\x59\x5f\x41\x44\x44\x5f\x44\x45\x56\x49\x43\x45"
 ;case BUS_NOTIFY_DEL_DEVICE:return
@@ -464,235 +468,235 @@ case BUS_NOTIFY_ADD_DEVICE:return
 "\x42\x55\x53\x5f\x4e\x4f\x54\x49\x46\x59\x5f\x55\x4e\x42\x49\x4e\x44\x5f\x44\x52\x49\x56\x45\x52"
 ;
 #endif
-#if KERNEL_GT_EQ((0x752+2421-0x10c5),(0x170+2882-0xcac),(0xc17+4939-0x1f43))
+#if KERNEL_GT_EQ((0x9c+943-0x449),(0x1062+810-0x1386),(0xf34+1811-0x1628))
 case BUS_NOTIFY_UNBOUND_DRIVER:return
 "\x42\x55\x53\x5f\x4e\x4f\x54\x49\x46\x59\x5f\x55\x4e\x42\x4f\x55\x4e\x44\x5f\x44\x52\x49\x56\x45\x52"
 ;
 #endif
-#if KERNEL_GT_EQ((0xeec+1771-0x15d5),(0x19b7+3167-0x2610),(0x1878+3330-0x2556))
+#if KERNEL_GT_EQ((0xc3+6917-0x1bc6),(0x167+2469-0xb06),(0x19df+1334-0x1ef1))
 case BUS_NOTIFY_BIND_DRIVER:return
 "\x42\x55\x53\x5f\x4e\x4f\x54\x49\x46\x59\x5f\x42\x49\x4e\x44\x5f\x44\x52\x49\x56\x45\x52"
 ;
 #endif
-#if KERNEL_GT_EQ((0x135+405-0x2c7),(0x1380+2860-0x1e9a),(0xd2d+3357-0x1a4a))
+#if KERNEL_GT_EQ((0xac5+203-0xb8d),(0x980+7178-0x2578),(0xb2c+169-0xbd5))
 case BUS_NOTIFY_REMOVED_DEVICE:return
 "\x42\x55\x53\x5f\x4e\x4f\x54\x49\x46\x59\x5f\x52\x45\x4d\x4f\x56\x45\x44\x5f\x44\x45\x56\x49\x43\x45"
 ;
 #endif
-default:break;}return"\x75\x6e\x6b\x6e\x6f\x77\x6e";}const char*IIIIlIlII(
-unsigned long llllIIl){switch(llllIIl){case USB_DEVICE_ADD:return
+default:break;}return"\x75\x6e\x6b\x6e\x6f\x77\x6e";}const char*llIIlIIlI(
+unsigned long IlIlllI){switch(IlIlllI){case USB_DEVICE_ADD:return
 "\x55\x53\x42\x5f\x44\x45\x56\x49\x43\x45\x5f\x41\x44\x44";case 
 USB_DEVICE_REMOVE:return
 "\x55\x53\x42\x5f\x44\x45\x56\x49\x43\x45\x5f\x52\x45\x4d\x4f\x56\x45";case 
 USB_BUS_ADD:return"\x55\x53\x42\x5f\x42\x55\x53\x5f\x41\x44\x44";case 
 USB_BUS_REMOVE:return"\x55\x53\x42\x5f\x42\x55\x53\x5f\x52\x45\x4d\x4f\x56\x45";
-default:break;}return"\x75\x6e\x6b\x6e\x6f\x77\x6e";}void lIlIIlIIl(struct urb*
-lIlll,lllIII lllIl){const char*llIIlIlll[]={"\x69\x73\x6f","\x69\x6e\x74",
-"\x63\x74\x72\x6c","\x62\x75\x6c\x6b"};if(!lIlll)return;IlllI(
+default:break;}return"\x75\x6e\x6b\x6e\x6f\x77\x6e";}void IIIlIIIll(struct urb*
+IlllI,llIIII lIlIl){const char*lIlIIlllI[]={"\x69\x73\x6f","\x69\x6e\x74",
+"\x63\x74\x72\x6c","\x62\x75\x6c\x6b"};if(!IlllI){return;}lIlll(
 "\x2b\x2b\x2b\x2b\x20\x55\x52\x42\x20\x53\x54\x41\x52\x54\x20\x2b\x2b\x2b\x2b" "\n"
-);IlllI("\x20\x20\x55\x52\x42\x3d\x30\x78\x25\x70" "\n",lIlll);IlllI(
+);lIlll("\x20\x20\x55\x52\x42\x3d\x30\x78\x25\x70" "\n",IlllI);lIlll(
 "\x20\x20\x50\x69\x70\x65\x3d\x30\x78\x25\x30\x38\x58\x20\x28\x64\x65\x76\x3a\x20\x25\x64\x20\x65\x6e\x64\x70\x3a\x20\x25\x64\x20\x64\x69\x72\x3a\x20\x25\x73\x20\x74\x79\x70\x65\x3a\x20\x25\x73\x29" "\n"
-,lIlll->pipe,usb_pipedevice(lIlll->pipe),usb_pipeendpoint(lIlll->pipe),
-usb_pipein(lIlll->pipe)?"\x69\x6e":"\x6f\x75\x74",llIIlIlll[usb_pipetype(lIlll->
-pipe)]);IlllI("\x20\x20\x53\x74\x61\x74\x75\x73\x3d\x25\x64" "\n",lIlll->status)
-;IlllI(
+,IlllI->pipe,usb_pipedevice(IlllI->pipe),usb_pipeendpoint(IlllI->pipe),
+usb_pipein(IlllI->pipe)?"\x69\x6e":"\x6f\x75\x74",lIlIIlllI[usb_pipetype(IlllI->
+pipe)]);lIlll("\x20\x20\x53\x74\x61\x74\x75\x73\x3d\x25\x64" "\n",IlllI->status)
+;lIlll(
 "\x20\x20\x54\x72\x61\x6e\x73\x66\x65\x72\x46\x6c\x61\x67\x73\x3d\x30\x78\x25\x30\x38\x58" "\n"
-,lIlll->transfer_flags);IlllI(
-"\x20\x20\x42\x75\x66\x66\x65\x72\x3d\x30\x78\x25\x70" "\n",lIlll->
-transfer_buffer);IlllI(
+,IlllI->transfer_flags);lIlll(
+"\x20\x20\x42\x75\x66\x66\x65\x72\x3d\x30\x78\x25\x70" "\n",IlllI->
+transfer_buffer);lIlll(
 "\x20\x20\x42\x75\x66\x66\x65\x72\x4c\x65\x6e\x67\x74\x68\x3d\x25\x64" "\n",
-lIlll->transfer_buffer_length);IlllI(
+IlllI->transfer_buffer_length);lIlll(
 "\x20\x20\x41\x63\x74\x75\x61\x6c\x4c\x65\x6e\x67\x74\x68\x3d\x25\x64" "\n",
-lIlll->actual_length);IlllI(
+IlllI->actual_length);lIlll(
 "\x20\x20\x54\x72\x61\x6e\x73\x66\x65\x72\x44\x6d\x61\x3d\x30\x78\x25\x30\x38\x58" "\n"
-,(u32)lIlll->transfer_dma);IlllI(
+,(u32)IlllI->transfer_dma);lIlll(
 "\x20\x20\x53\x65\x74\x75\x70\x44\x6d\x61\x3d\x30\x78\x25\x30\x38\x58" "\n",(u32
-)lIlll->setup_dma);if(usb_pipecontrol(lIlll->pipe)){IlllI(
+)IlllI->setup_dma);if(usb_pipecontrol(IlllI->pipe)){lIlll(
 "\x20\x20\x53\x65\x74\x75\x70\x50\x61\x63\x6b\x65\x74\x3d\x25\x30\x32\x58\x20\x25\x30\x32\x58\x20\x25\x30\x32\x58\x20\x25\x30\x32\x58\x20\x25\x30\x32\x58\x20\x25\x30\x32\x58\x20\x25\x30\x32\x58\x20\x25\x30\x32\x58" "\n"
-,lIlll->setup_packet[(0x7c5+257-0x8c6)],lIlll->setup_packet[(0x8fd+5602-0x1ede)]
-,lIlll->setup_packet[(0x2c0+3383-0xff5)],lIlll->setup_packet[(0xfaf+1239-0x1483)
-],lIlll->setup_packet[(0x1324+566-0x1556)],lIlll->setup_packet[
-(0x1915+2124-0x215c)],lIlll->setup_packet[(0x857+7803-0x26cc)],lIlll->
-setup_packet[(0x1b5d+810-0x1e80)]);}else if(usb_pipeisoc(lIlll->pipe)){int i;
-IlllI("\x20\x20\x53\x74\x61\x72\x74\x46\x72\x61\x6d\x65\x3d\x25\x64" "\n",lIlll
-->start_frame);IlllI(
+,IlllI->setup_packet[(0x205d+1073-0x248e)],IlllI->setup_packet[
+(0xa89+5508-0x200c)],IlllI->setup_packet[(0xd47+6072-0x24fd)],IlllI->
+setup_packet[(0x15c8+3311-0x22b4)],IlllI->setup_packet[(0x182d+729-0x1b02)],
+IlllI->setup_packet[(0x14b1+2923-0x2017)],IlllI->setup_packet[(0x70f+219-0x7e4)]
+,IlllI->setup_packet[(0x161a+2583-0x202a)]);}else if(usb_pipeisoc(IlllI->pipe)){
+int i;lIlll("\x20\x20\x53\x74\x61\x72\x74\x46\x72\x61\x6d\x65\x3d\x25\x64" "\n",
+IlllI->start_frame);lIlll(
 "\x20\x20\x4e\x75\x6d\x62\x65\x72\x4f\x66\x50\x61\x63\x6b\x65\x74\x73\x3d\x25\x64" "\n"
-,lIlll->number_of_packets);IlllI(
-"\x20\x20\x49\x6e\x74\x65\x72\x76\x61\x6c\x3d\x25\x64" "\n",lIlll->interval);
-IlllI("\x20\x20\x45\x72\x72\x6f\x72\x43\x6f\x75\x6e\x74\x3d\x25\x64" "\n",lIlll
-->error_count);IlllI("\x20\x20\x49\x73\x6f\x46\x72\x61\x6d\x65\x73\x3d" "\n");
-for(i=(0x1741+3628-0x256d);i<lIlll->number_of_packets;i++){IlllI(
+,IlllI->number_of_packets);lIlll(
+"\x20\x20\x49\x6e\x74\x65\x72\x76\x61\x6c\x3d\x25\x64" "\n",IlllI->interval);
+lIlll("\x20\x20\x45\x72\x72\x6f\x72\x43\x6f\x75\x6e\x74\x3d\x25\x64" "\n",IlllI
+->error_count);lIlll("\x20\x20\x49\x73\x6f\x46\x72\x61\x6d\x65\x73\x3d" "\n");
+for(i=(0xca+6020-0x184e);i<IlllI->number_of_packets;i++){lIlll(
 "\x20\x20\x20\x20\x5b\x25\x64\x5d\x20\x4f\x66\x66\x73\x65\x74\x3d\x25\x64\x20\x4c\x65\x6e\x67\x74\x68\x3d\x25\x64\x20\x41\x63\x74\x75\x61\x6c\x4c\x65\x6e\x67\x74\x68\x3d\x25\x64\x20\x53\x74\x61\x74\x75\x73\x3d\x25\x64" "\n"
-,i,lIlll->iso_frame_desc[i].offset,lIlll->iso_frame_desc[i].length,lIlll->
-iso_frame_desc[i].actual_length,lIlll->iso_frame_desc[i].status);}}else if(
-usb_pipeint(lIlll->pipe)){IlllI(
-"\x20\x20\x49\x6e\x74\x65\x72\x76\x61\x6c\x3d\x25\x64" "\n",lIlll->interval);}
-IlllI(
+,i,IlllI->iso_frame_desc[i].offset,IlllI->iso_frame_desc[i].length,IlllI->
+iso_frame_desc[i].actual_length,IlllI->iso_frame_desc[i].status);}}else if(
+usb_pipeint(IlllI->pipe)){lIlll(
+"\x20\x20\x49\x6e\x74\x65\x72\x76\x61\x6c\x3d\x25\x64" "\n",IlllI->interval);}
+lIlll(
 "\x2d\x2d\x2d\x2d\x20\x55\x52\x42\x20\x45\x4e\x44\x20\x2d\x2d\x2d\x2d" "\n");}
 #endif 
 #ifndef _USBD_DEBUG_
-void lllIlIl(IllII IIlIl){}
+void llIlIIl(IIlII IIlIl){}
 #else
-static void lIlIlII(IllII IIlIl);void lllIlIl(IllII IIlIl){int i;
-if(!IIlIl)return;IlllI(
+static void lllllll(IIlII IIlIl);void llIlIIl(IIlII IIlIl){int i;
+if(!IIlIl){return;}lIlll(
 "\x2d\x2d\x2d\x2d\x20\x55\x4e\x52\x42\x20\x53\x54\x41\x52\x54" "\n");switch(
-IIlIl->IIIlI.lIIlIII){case lIlIllIl:IlllI(
+IIlIl->IlIII.IIIlIIl){case llIIllll:lIlll(
 "\x55\x4e\x52\x42\x5f\x46\x55\x4e\x43\x54\x49\x4f\x4e\x5f\x47\x45\x54\x5f\x44\x45\x53\x43\x52\x49\x50\x54\x4f\x52" "\n"
-);lIlIlII(IIlIl);IlllI(
+);lllllll(IIlIl);lIlll(
 "\x20\x20\x44\x65\x73\x63\x72\x69\x70\x74\x6f\x72\x52\x65\x71\x75\x65\x73\x74" "\n"
-);IlllI(
+);lIlll(
 "\x20\x20\x20\x20\x52\x65\x71\x75\x65\x73\x74\x54\x79\x70\x65\x3d\x25\x64" "\n",
-IIlIl->lIlIll.IIllIlI);IlllI(
+IIlIl->IIlllI.IIllIll);lIlll(
 "\x20\x20\x20\x20\x52\x65\x71\x75\x65\x73\x74\x52\x65\x63\x69\x70\x69\x65\x6e\x74\x3d\x25\x64" "\n"
-,IIlIl->lIlIll.IlIIIIll);IlllI(
+,IIlIl->IIlllI.llIlIIll);lIlll(
 "\x20\x20\x20\x20\x44\x65\x73\x63\x54\x79\x70\x65\x3d\x25\x64" "\n",IIlIl->
-lIlIll.lllIlIII);IlllI(
+IIlllI.lllllllI);lIlll(
 "\x20\x20\x20\x20\x44\x65\x73\x63\x49\x6e\x64\x65\x78\x3d\x25\x64" "\n",IIlIl->
-lIlIll.llIllIII);IlllI(
-"\x20\x20\x20\x20\x4c\x61\x6e\x67\x49\x64\x3d\x25\x64" "\n",IIlIl->lIlIll.
-IIIIIlII);IlllI(
+IIlllI.lIlIIlll);lIlll(
+"\x20\x20\x20\x20\x4c\x61\x6e\x67\x49\x64\x3d\x25\x64" "\n",IIlIl->IIlllI.
+lIIlIIlI);lIlll(
 "\x20\x20\x20\x20\x42\x75\x66\x66\x65\x72\x53\x69\x7a\x65\x3d\x25\x64" "\n",
-IIlIl->lIlIll.IIllI);break;case lIIIIIIl:IlllI(
+IIlIl->IIlllI.IllllI);break;case lIlIllll:lIlll(
 "\x55\x4e\x52\x42\x5f\x46\x55\x4e\x43\x54\x49\x4f\x4e\x5f\x53\x45\x54\x5f\x44\x45\x53\x43\x52\x49\x50\x54\x4f\x52" "\n"
-);lIlIlII(IIlIl);IlllI(
+);lllllll(IIlIl);lIlll(
 "\x20\x20\x44\x65\x73\x63\x72\x69\x70\x74\x6f\x72\x52\x65\x71\x75\x65\x73\x74" "\n"
-);IlllI("\x20\x20\x20\x20\x44\x65\x73\x63\x54\x79\x70\x65\x3d\x25\x64" "\n",
-IIlIl->lIlIll.lllIlIII);IlllI(
+);lIlll("\x20\x20\x20\x20\x44\x65\x73\x63\x54\x79\x70\x65\x3d\x25\x64" "\n",
+IIlIl->IIlllI.lllllllI);lIlll(
 "\x20\x20\x20\x20\x44\x65\x73\x63\x49\x6e\x64\x65\x78\x3d\x25\x64" "\n\n",IIlIl
-->lIlIll.llIllIII);IlllI(
-"\x20\x20\x20\x20\x4c\x61\x6e\x67\x49\x64\x3d\x25\x64" "\n",IIlIl->lIlIll.
-IIIIIlII);IlllI(
+->IIlllI.lIlIIlll);lIlll(
+"\x20\x20\x20\x20\x4c\x61\x6e\x67\x49\x64\x3d\x25\x64" "\n",IIlIl->IIlllI.
+lIIlIIlI);lIlll(
 "\x20\x20\x20\x20\x42\x75\x66\x66\x65\x72\x53\x69\x7a\x65\x3d\x25\x64" "\n",
-IIlIl->lIlIll.IIllI);break;case IllIllII:IlllI(
+IIlIl->IIlllI.IllllI);break;case llIlllIl:lIlll(
 "\x55\x4e\x52\x42\x5f\x46\x55\x4e\x43\x54\x49\x4f\x4e\x5f\x53\x45\x4c\x45\x43\x54\x5f\x43\x4f\x4e\x46\x49\x47\x55\x52\x41\x54\x49\x4f\x4e" "\n"
-);lIlIlII(IIlIl);IlllI(
+);lllllll(IIlIl);lIlll(
 "\x20\x20\x53\x65\x6c\x65\x63\x74\x43\x6f\x6e\x66\x69\x67\x75\x72\x61\x74\x69\x6f\x6e" "\n"
-);IlllI(
+);lIlll(
 "\x20\x20\x20\x20\x43\x6f\x6e\x66\x69\x67\x75\x72\x61\x74\x69\x6f\x6e\x3d\x25\x64" "\n"
-,IIlIl->IlIlIll.lllllIII);IlllI(
+,IIlIl->lIllIll.lllIllIl);lIlll(
 "\x20\x20\x20\x20\x4e\x75\x6d\x41\x6c\x74\x65\x72\x6e\x61\x74\x65\x73\x3d\x25\x64" "\n"
-,IIlIl->IlIlIll.IIlIlIlI);for(i=(0x7d1+3491-0x1574);i<IIlIl->IlIlIll.IIlIlIlI;i
-++){IlllI(
+,IIlIl->lIllIll.IlllllIl);for(i=(0xf53+265-0x105c);i<IIlIl->lIllIll.IlllllIl;i++
+){lIlll(
 "\x20\x20\x20\x20\x20\x20\x25\x2e\x33\x64\x3a\x20\x49\x6e\x74\x65\x72\x66\x61\x63\x65\x4e\x75\x6d\x3d\x25\x64" "\n"
-,i,IIlIl->IlIlIll.lIIIIIl[i].IllllII);IlllI(
+,i,IIlIl->lIllIll.llIIlII[i].IlIllIl);lIlll(
 "\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x41\x6c\x74\x65\x72\x6e\x61\x74\x65\x4e\x75\x6d\x3d\x25\x64" "\n"
-,IIlIl->IlIlIll.lIIIIIl[i].IlIlllI);}break;case llIlllIl:IlllI(
+,IIlIl->lIllIll.llIIlII[i].llIlllI);}break;case IIlIlIII:lIlll(
 "\x55\x4e\x52\x42\x5f\x46\x55\x4e\x43\x54\x49\x4f\x4e\x5f\x53\x45\x4c\x45\x43\x54\x5f\x49\x4e\x54\x45\x52\x46\x41\x43\x45" "\n"
-);lIlIlII(IIlIl);IlllI(
+);lllllll(IIlIl);lIlll(
 "\x20\x20\x53\x65\x6c\x65\x63\x74\x49\x6e\x74\x65\x72\x66\x61\x63\x65" "\n");
-IlllI("\x20\x20\x20\x20\x49\x6e\x74\x65\x72\x66\x61\x63\x65\x3d\x25\x64" "\n",
-IIlIl->lIIlIlI.IllllII);IlllI(
+lIlll("\x20\x20\x20\x20\x49\x6e\x74\x65\x72\x66\x61\x63\x65\x3d\x25\x64" "\n",
+IIlIl->IlIIIIl.IlIllIl);lIlll(
 "\x20\x20\x20\x20\x41\x6c\x74\x65\x72\x6e\x61\x74\x65\x3d\x25\x64" "\n",IIlIl->
-lIIlIlI.IlIlllI);break;case IlllIIIl:IlllI(
+IlIIIIl.llIlllI);break;case llIIIIlI:lIlll(
 "\x55\x4e\x52\x42\x5f\x46\x55\x4e\x43\x54\x49\x4f\x4e\x5f\x43\x4f\x4e\x54\x52\x4f\x4c\x5f\x54\x52\x41\x4e\x53\x46\x45\x52" "\n"
-);lIlIlII(IIlIl);IlllI(
+);lllllll(IIlIl);lIlll(
 "\x20\x20\x43\x6f\x6e\x74\x72\x6f\x6c\x54\x72\x61\x6e\x73\x66\x65\x72" "\n");
-IlllI("\x20\x20\x20\x20\x45\x6e\x64\x70\x6f\x69\x6e\x74\x3d\x25\x64" "\n",IIlIl
-->llIlII.Endpoint);IlllI(
+lIlll("\x20\x20\x20\x20\x45\x6e\x64\x70\x6f\x69\x6e\x74\x3d\x25\x64" "\n",IIlIl
+->lllIII.Endpoint);lIlll(
 "\x20\x20\x20\x20\x46\x6c\x61\x67\x73\x3d\x30\x78\x25\x2e\x32\x58" "\n",IIlIl->
-llIlII.Flags);IlllI(
+lllIII.Flags);lIlll(
 "\x20\x20\x20\x20\x52\x65\x71\x75\x65\x73\x74\x54\x79\x70\x65\x3d\x30\x78\x25\x2e\x32\x58" "\n"
-,IIlIl->llIlII.IIllIlI);IlllI(
+,IIlIl->lllIII.IIllIll);lIlll(
 "\x20\x20\x20\x20\x52\x65\x71\x75\x65\x73\x74\x3d\x30\x78\x25\x2e\x32\x58" "\n",
-IIlIl->llIlII.IIlIIlII);IlllI(
+IIlIl->lllIII.IIIIllIII);lIlll(
 "\x20\x20\x20\x20\x56\x61\x6c\x75\x65\x3d\x30\x78\x25\x2e\x34\x58" "\n",IIlIl->
-llIlII.llllIllI);IlllI(
+lllIII.IlIlIlII);lIlll(
 "\x20\x20\x20\x20\x49\x6e\x64\x65\x78\x3d\x30\x78\x25\x2e\x34\x58" "\n",IIlIl->
-llIlII.IIlIllIlI);IlllI(
+lllIII.IIlIlllIl);lIlll(
 "\x20\x20\x20\x20\x42\x75\x66\x65\x72\x53\x69\x7a\x65\x3d\x25\x64" "\n",IIlIl->
-llIlII.IIllI);break;case IIlIlIll:IlllI(
+lllIII.IllllI);break;case IIllIIIl:lIlll(
 "\x55\x4e\x52\x42\x5f\x46\x55\x4e\x43\x54\x49\x4f\x4e\x5f\x42\x55\x4c\x4b\x5f\x54\x52\x41\x4e\x53\x46\x45\x52" "\n"
-);lIlIlII(IIlIl);IlllI(
-"\x20\x20\x42\x75\x6c\x6b\x54\x72\x61\x6e\x73\x66\x65\x72" "\n");IlllI(
-"\x20\x20\x20\x20\x45\x6e\x64\x70\x6f\x69\x6e\x74\x3d\x25\x64" "\n",IIlIl->IlIll
-.Endpoint);IlllI(
-"\x20\x20\x20\x20\x46\x6c\x61\x67\x73\x3d\x30\x78\x25\x2e\x32\x58" "\n",IIlIl->
-IlIll.Flags);IlllI(
-"\x20\x20\x20\x20\x42\x75\x66\x65\x72\x53\x69\x7a\x65\x3d\x25\x64" "\n",IIlIl->
-IlIll.IIllI);break;case llIIIIIl:IlllI(
-"\x55\x4e\x52\x42\x5f\x46\x55\x4e\x43\x54\x49\x4f\x4e\x5f\x49\x4e\x54\x45\x52\x52\x55\x50\x54\x5f\x54\x52\x41\x4e\x53\x46\x45\x52" "\n"
-);lIlIlII(IIlIl);IlllI(
-"\x20\x20\x49\x6e\x74\x65\x72\x72\x75\x70\x74\x54\x72\x61\x6e\x73\x66\x65\x72" "\n"
-);IlllI("\x20\x20\x20\x20\x45\x6e\x64\x70\x6f\x69\x6e\x74\x3d\x25\x64" "\n",
-IIlIl->lIllIl.Endpoint);IlllI(
-"\x20\x20\x20\x20\x46\x6c\x61\x67\x73\x3d\x30\x78\x25\x2e\x32\x58" "\n",IIlIl->
-lIllIl.Flags);IlllI(
-"\x20\x20\x20\x20\x49\x6e\x74\x65\x72\x76\x61\x6c\x3d\x25\x64" "\n",IIlIl->
-lIllIl.Interval);IlllI(
-"\x20\x20\x20\x20\x42\x75\x66\x65\x72\x53\x69\x7a\x65\x3d\x25\x64" "\n",IIlIl->
-lIllIl.IIllI);break;case IllllllI:IlllI(
-"\x55\x4e\x52\x42\x5f\x46\x55\x4e\x43\x54\x49\x4f\x4e\x5f\x49\x53\x4f\x43\x48\x5f\x54\x52\x41\x4e\x53\x46\x45\x52" "\n"
-);lIlIlII(IIlIl);IlllI(
-"\x20\x20\x49\x73\x6f\x63\x68\x54\x72\x61\x6e\x73\x66\x65\x72" "\n");IlllI(
-"\x20\x20\x20\x20\x45\x6e\x64\x70\x6f\x69\x6e\x74\x3d\x25\x64" "\n",IIlIl->lIIIl
-.Endpoint);IlllI(
-"\x20\x20\x20\x20\x46\x6c\x61\x67\x73\x3d\x30\x78\x25\x2e\x32\x58" "\n",IIlIl->
-lIIIl.Flags);IlllI(
-"\x20\x20\x20\x20\x42\x75\x66\x65\x72\x53\x69\x7a\x65\x3d\x25\x64" "\n",IIlIl->
-lIIIl.IIllI);IlllI(
-"\x20\x20\x20\x20\x49\x6e\x74\x65\x72\x76\x61\x6c\x3d\x25\x64" "\n",IIlIl->lIIIl
-.Interval);IlllI(
-"\x20\x20\x20\x20\x53\x74\x61\x72\x74\x46\x72\x61\x6d\x65\x3d\x25\x64" "\n",
-IIlIl->lIIIl.IIIlIIIl);IlllI(
-"\x20\x20\x20\x20\x4e\x75\x6d\x62\x65\x72\x4f\x66\x50\x61\x63\x6b\x65\x74\x73\x3d\x25\x64" "\n"
-,IIlIl->lIIIl.lIllIII);IlllI(
-"\x20\x20\x20\x20\x45\x72\x72\x6f\x72\x43\x6f\x75\x6e\x74\x3d\x25\x64" "\n",
-IIlIl->lIIIl.lIlIllII);IlllI(
-"\x20\x20\x20\x20\x49\x73\x6f\x63\x68\x50\x61\x63\x6b\x65\x74\x73\x3a" "\n");for
-(i=(0x169d+2726-0x2143);i<IIlIl->lIIIl.lIllIII;i++){IlllI(
-"\x20\x20\x20\x20\x20\x20\x25\x2e\x33\x64\x3a\x20\x4f\x66\x66\x73\x65\x74\x3d\x25\x64" "\n"
-,i,IIlIl->lIIIl.llIIlII[i].Offset);IlllI(
-"\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x4c\x65\x6e\x67\x74\x68\x3d\x25\x64" "\n"
-,IIlIl->lIIIl.llIIlII[i].Length);IlllI(
-"\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x53\x74\x61\x74\x75\x73\x3d\x25\x64" "\n"
-,IIlIl->lIIIl.llIIlII[i].Status);}break;case llIIllll:IlllI(
-"\x55\x4e\x52\x42\x5f\x46\x55\x4e\x43\x54\x49\x4f\x4e\x5f\x43\x4c\x45\x41\x52\x5f\x53\x54\x41\x4c\x4c" "\n"
-);lIlIlII(IIlIl);IlllI("\x20\x20\x43\x6c\x65\x61\x72\x53\x74\x61\x6c\x6c" "\n");
-IlllI("\x20\x20\x20\x20\x45\x6e\x64\x70\x6f\x69\x6e\x74\x3d\x25\x64" "\n",IIlIl
-->IIlIIll.Endpoint);IlllI(
-"\x20\x20\x20\x20\x46\x6c\x61\x67\x73\x3d\x30\x78\x25\x2e\x32\x58" "\n",IIlIl->
-IIlIIll.Flags);break;case IIlIllII:IlllI(
-"\x55\x4e\x52\x42\x5f\x46\x55\x4e\x43\x54\x49\x4f\x4e\x5f\x47\x45\x54\x5f\x43\x55\x52\x52\x45\x4e\x54\x5f\x46\x52\x41\x4d\x45\x5f\x4e\x55\x4d\x42\x45\x52" "\n"
-);lIlIlII(IIlIl);IlllI(
-"\x20\x20\x47\x65\x74\x43\x75\x72\x72\x65\x6e\x74\x46\x72\x61\x6d\x65\x4e\x75\x6d\x62\x65\x72" "\n"
-);IlllI(
-"\x20\x20\x20\x20\x46\x72\x61\x6d\x65\x4e\x75\x6d\x62\x65\x72\x3d\x25\x64" "\n",
-IIlIl->llIlIllI.lIIllIll);break;case llIIlIlI:IlllI(
-"\x55\x4e\x52\x42\x5f\x46\x55\x4e\x43\x54\x49\x4f\x4e\x5f\x47\x45\x54\x5f\x50\x4f\x52\x54\x5f\x53\x54\x41\x54\x55\x53" "\n"
-);lIlIlII(IIlIl);IlllI(
-"\x20\x20\x47\x65\x74\x50\x6f\x72\x74\x53\x74\x61\x74\x75\x73" "\n");switch(
-IIlIl->llIlIIll.lllIIIIl){case lllIlllIl:IlllI(
-"\x20\x20\x20\x20\x50\x6f\x72\x74\x53\x74\x61\x74\x75\x73\x3d\x45\x4e\x41\x42\x4c\x45\x44" "\n"
-);break;case IIllllllI:IlllI(
-"\x20\x20\x20\x20\x50\x6f\x72\x74\x53\x74\x61\x74\x75\x73\x3d\x43\x4f\x4e\x4e\x45\x43\x54\x45\x44" "\n"
-);break;default:IlllI(
-"\x20\x20\x20\x20\x50\x6f\x72\x74\x53\x74\x61\x74\x75\x73\x3d\x75\x6e\x6b\x6e\x6f\x77\x6e" "\n"
-);break;}break;case lIllIIIl:IlllI(
-"\x55\x4e\x52\x42\x5f\x46\x55\x4e\x43\x54\x49\x4f\x4e\x5f\x52\x45\x53\x45\x54\x5f\x50\x4f\x52\x54" "\n"
-);lIlIlII(IIlIl);break;case lIlIlIll:IlllI(
-"\x55\x4e\x52\x42\x5f\x46\x55\x4e\x43\x54\x49\x4f\x4e\x5f\x43\x41\x4e\x43\x45\x4c" "\n"
-);lIlIlII(IIlIl);break;case llllIIlI:IlllI(
-"\x55\x4e\x52\x42\x5f\x46\x55\x4e\x43\x54\x49\x4f\x4e\x5f\x41\x42\x4f\x52\x54\x5f\x45\x4e\x44\x50\x4f\x49\x4e\x54" "\n"
-);lIlIlII(IIlIl);IlllI(
-"\x20\x20\x41\x62\x6f\x72\x74\x45\x6e\x64\x70\x6f\x69\x6e\x74" "\n");IlllI(
+);lllllll(IIlIl);lIlll(
+"\x20\x20\x42\x75\x6c\x6b\x54\x72\x61\x6e\x73\x66\x65\x72" "\n");lIlll(
 "\x20\x20\x20\x20\x45\x6e\x64\x70\x6f\x69\x6e\x74\x3d\x25\x64" "\n",IIlIl->
-lIlIIllI.Endpoint);IlllI(
+lllllI.Endpoint);lIlll(
 "\x20\x20\x20\x20\x46\x6c\x61\x67\x73\x3d\x30\x78\x25\x2e\x32\x58" "\n",IIlIl->
-lIlIIllI.Flags);break;default:IlllI(
+lllllI.Flags);lIlll(
+"\x20\x20\x20\x20\x42\x75\x66\x65\x72\x53\x69\x7a\x65\x3d\x25\x64" "\n",IIlIl->
+lllllI.IllllI);break;case lIlllIIl:lIlll(
+"\x55\x4e\x52\x42\x5f\x46\x55\x4e\x43\x54\x49\x4f\x4e\x5f\x49\x4e\x54\x45\x52\x52\x55\x50\x54\x5f\x54\x52\x41\x4e\x53\x46\x45\x52" "\n"
+);lllllll(IIlIl);lIlll(
+"\x20\x20\x49\x6e\x74\x65\x72\x72\x75\x70\x74\x54\x72\x61\x6e\x73\x66\x65\x72" "\n"
+);lIlll("\x20\x20\x20\x20\x45\x6e\x64\x70\x6f\x69\x6e\x74\x3d\x25\x64" "\n",
+IIlIl->llIIlI.Endpoint);lIlll(
+"\x20\x20\x20\x20\x46\x6c\x61\x67\x73\x3d\x30\x78\x25\x2e\x32\x58" "\n",IIlIl->
+llIIlI.Flags);lIlll(
+"\x20\x20\x20\x20\x49\x6e\x74\x65\x72\x76\x61\x6c\x3d\x25\x64" "\n",IIlIl->
+llIIlI.Interval);lIlll(
+"\x20\x20\x20\x20\x42\x75\x66\x65\x72\x53\x69\x7a\x65\x3d\x25\x64" "\n",IIlIl->
+llIIlI.IllllI);break;case lllIlIIl:lIlll(
+"\x55\x4e\x52\x42\x5f\x46\x55\x4e\x43\x54\x49\x4f\x4e\x5f\x49\x53\x4f\x43\x48\x5f\x54\x52\x41\x4e\x53\x46\x45\x52" "\n"
+);lllllll(IIlIl);lIlll(
+"\x20\x20\x49\x73\x6f\x63\x68\x54\x72\x61\x6e\x73\x66\x65\x72" "\n");lIlll(
+"\x20\x20\x20\x20\x45\x6e\x64\x70\x6f\x69\x6e\x74\x3d\x25\x64" "\n",IIlIl->llIll
+.Endpoint);lIlll(
+"\x20\x20\x20\x20\x46\x6c\x61\x67\x73\x3d\x30\x78\x25\x2e\x32\x58" "\n",IIlIl->
+llIll.Flags);lIlll(
+"\x20\x20\x20\x20\x42\x75\x66\x65\x72\x53\x69\x7a\x65\x3d\x25\x64" "\n",IIlIl->
+llIll.IllllI);lIlll(
+"\x20\x20\x20\x20\x49\x6e\x74\x65\x72\x76\x61\x6c\x3d\x25\x64" "\n",IIlIl->llIll
+.Interval);lIlll(
+"\x20\x20\x20\x20\x53\x74\x61\x72\x74\x46\x72\x61\x6d\x65\x3d\x25\x64" "\n",
+IIlIl->llIll.IIlIlIIl);lIlll(
+"\x20\x20\x20\x20\x4e\x75\x6d\x62\x65\x72\x4f\x66\x50\x61\x63\x6b\x65\x74\x73\x3d\x25\x64" "\n"
+,IIlIl->llIll.IIlIlIl);lIlll(
+"\x20\x20\x20\x20\x45\x72\x72\x6f\x72\x43\x6f\x75\x6e\x74\x3d\x25\x64" "\n",
+IIlIl->llIll.llIIIIIl);lIlll(
+"\x20\x20\x20\x20\x49\x73\x6f\x63\x68\x50\x61\x63\x6b\x65\x74\x73\x3a" "\n");for
+(i=(0x18aa+791-0x1bc1);i<IIlIl->llIll.IIlIlIl;i++){lIlll(
+"\x20\x20\x20\x20\x20\x20\x25\x2e\x33\x64\x3a\x20\x4f\x66\x66\x73\x65\x74\x3d\x25\x64" "\n"
+,i,IIlIl->llIll.llIIIIl[i].Offset);lIlll(
+"\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x4c\x65\x6e\x67\x74\x68\x3d\x25\x64" "\n"
+,IIlIl->llIll.llIIIIl[i].Length);lIlll(
+"\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x53\x74\x61\x74\x75\x73\x3d\x25\x64" "\n"
+,IIlIl->llIll.llIIIIl[i].Status);}break;case IIIIlllI:lIlll(
+"\x55\x4e\x52\x42\x5f\x46\x55\x4e\x43\x54\x49\x4f\x4e\x5f\x43\x4c\x45\x41\x52\x5f\x53\x54\x41\x4c\x4c" "\n"
+);lllllll(IIlIl);lIlll("\x20\x20\x43\x6c\x65\x61\x72\x53\x74\x61\x6c\x6c" "\n");
+lIlll("\x20\x20\x20\x20\x45\x6e\x64\x70\x6f\x69\x6e\x74\x3d\x25\x64" "\n",IIlIl
+->lIllIII.Endpoint);lIlll(
+"\x20\x20\x20\x20\x46\x6c\x61\x67\x73\x3d\x30\x78\x25\x2e\x32\x58" "\n",IIlIl->
+lIllIII.Flags);break;case IIlIIIlI:lIlll(
+"\x55\x4e\x52\x42\x5f\x46\x55\x4e\x43\x54\x49\x4f\x4e\x5f\x47\x45\x54\x5f\x43\x55\x52\x52\x45\x4e\x54\x5f\x46\x52\x41\x4d\x45\x5f\x4e\x55\x4d\x42\x45\x52" "\n"
+);lllllll(IIlIl);lIlll(
+"\x20\x20\x47\x65\x74\x43\x75\x72\x72\x65\x6e\x74\x46\x72\x61\x6d\x65\x4e\x75\x6d\x62\x65\x72" "\n"
+);lIlll(
+"\x20\x20\x20\x20\x46\x72\x61\x6d\x65\x4e\x75\x6d\x62\x65\x72\x3d\x25\x64" "\n",
+IIlIl->llIllIII.lIlllIIIl);break;case IIllIIlI:lIlll(
+"\x55\x4e\x52\x42\x5f\x46\x55\x4e\x43\x54\x49\x4f\x4e\x5f\x47\x45\x54\x5f\x50\x4f\x52\x54\x5f\x53\x54\x41\x54\x55\x53" "\n"
+);lllllll(IIlIl);lIlll(
+"\x20\x20\x47\x65\x74\x50\x6f\x72\x74\x53\x74\x61\x74\x75\x73" "\n");switch(
+IIlIl->lIlIlIll.IIllIIll){case IIlIlIlIl:lIlll(
+"\x20\x20\x20\x20\x50\x6f\x72\x74\x53\x74\x61\x74\x75\x73\x3d\x45\x4e\x41\x42\x4c\x45\x44" "\n"
+);break;case IllIlIIlI:lIlll(
+"\x20\x20\x20\x20\x50\x6f\x72\x74\x53\x74\x61\x74\x75\x73\x3d\x43\x4f\x4e\x4e\x45\x43\x54\x45\x44" "\n"
+);break;default:lIlll(
+"\x20\x20\x20\x20\x50\x6f\x72\x74\x53\x74\x61\x74\x75\x73\x3d\x75\x6e\x6b\x6e\x6f\x77\x6e" "\n"
+);break;}break;case llIIlIII:lIlll(
+"\x55\x4e\x52\x42\x5f\x46\x55\x4e\x43\x54\x49\x4f\x4e\x5f\x52\x45\x53\x45\x54\x5f\x50\x4f\x52\x54" "\n"
+);lllllll(IIlIl);break;case llIIlIll:lIlll(
+"\x55\x4e\x52\x42\x5f\x46\x55\x4e\x43\x54\x49\x4f\x4e\x5f\x43\x41\x4e\x43\x45\x4c" "\n"
+);lllllll(IIlIl);break;case lIIIlllI:lIlll(
+"\x55\x4e\x52\x42\x5f\x46\x55\x4e\x43\x54\x49\x4f\x4e\x5f\x41\x42\x4f\x52\x54\x5f\x45\x4e\x44\x50\x4f\x49\x4e\x54" "\n"
+);lllllll(IIlIl);lIlll(
+"\x20\x20\x41\x62\x6f\x72\x74\x45\x6e\x64\x70\x6f\x69\x6e\x74" "\n");lIlll(
+"\x20\x20\x20\x20\x45\x6e\x64\x70\x6f\x69\x6e\x74\x3d\x25\x64" "\n",IIlIl->
+IlIlllll.Endpoint);lIlll(
+"\x20\x20\x20\x20\x46\x6c\x61\x67\x73\x3d\x30\x78\x25\x2e\x32\x58" "\n",IIlIl->
+IlIlllll.Flags);break;default:lIlll(
 "\x55\x4e\x52\x42\x5f\x46\x55\x4e\x43\x54\x49\x4f\x4e\x5f\x75\x6e\x6b\x6e\x6f\x77\x6e" "\n"
-);lIlIlII(IIlIl);break;}IlllI(
+);lllllll(IIlIl);break;}lIlll(
 "\x2d\x2d\x2d\x2d\x20\x55\x4e\x52\x42\x20\x45\x4e\x44" "\n");}static void 
-lIlIlII(IllII IIlIl){IlllI("\x20\x20\x48\x65\x61\x64\x65\x72" "\n");IlllI(
+lllllll(IIlII IIlIl){lIlll("\x20\x20\x48\x65\x61\x64\x65\x72" "\n");lIlll(
 "\x20\x20\x20\x20\x55\x6e\x69\x71\x75\x65\x49\x64\x3d\x30\x78\x25\x2e\x38\x58\x25\x2e\x38\x58" "\n"
-,(lllII)(IIlIl->IIIlI.lIIlIl>>(0x1984+189-0x1a21)),(lllII)(IIlIl->IIIlI.lIIlIl))
-;IlllI(
+,(lllII)(IIlIl->IlIII.IIIlIl>>(0x1c8+6369-0x1a89)),(lllII)(IIlIl->IlIII.IIIlIl))
+;lIlll(
 "\x20\x20\x20\x20\x53\x63\x72\x69\x70\x74\x3d\x30\x78\x25\x2e\x34\x58" "\n",(
-lIlIlI)IIlIl->IIIlI.IllIIll);IlllI(
-"\x20\x20\x20\x20\x53\x69\x7a\x65\x3d\x25\x64" "\n",IIlIl->IIIlI.lIlIl);IlllI(
-"\x20\x20\x20\x20\x46\x75\x6e\x63\x74\x69\x6f\x6e\x3d\x25\x64" "\n",IIlIl->IIIlI
-.lIIlIII);IlllI("\x20\x20\x20\x20\x53\x74\x61\x74\x75\x73\x3d\x25\x64" "\n",
-IIlIl->IIIlI.Status);IlllI(
+lIllll)IIlIl->IlIII.IllllII);lIlll(
+"\x20\x20\x20\x20\x53\x69\x7a\x65\x3d\x25\x64" "\n",IIlIl->IlIII.IIIII);lIlll(
+"\x20\x20\x20\x20\x46\x75\x6e\x63\x74\x69\x6f\x6e\x3d\x25\x64" "\n",IIlIl->IlIII
+.IIIlIIl);lIlll("\x20\x20\x20\x20\x53\x74\x61\x74\x75\x73\x3d\x25\x64" "\n",
+IIlIl->IlIII.Status);lIlll(
 "\x20\x20\x20\x20\x43\x6f\x6e\x74\x65\x78\x74\x3d\x30\x78\x25\x2e\x38\x58" "\n",
-IIlIl->IIIlI.Context);}
+IIlIl->IlIII.Context);}
 #endif 
 

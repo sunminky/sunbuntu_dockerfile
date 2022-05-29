@@ -11,116 +11,115 @@
 
 #include "usbd.h"
 #include <linux/ctype.h> 
-#define lIIllIIl (0x4bb+6498-0x1d1d)
-static struct cdev*lllIlII=NULL;static dev_t llllIlI=MKDEV((0x88+4568-0x1260),
-(0x1811+649-0x1a9a));static void*lIlIlIII[lIIllIIl]={(0xfd3+3360-0x1cf3)};static
- struct mutex IllIlII;static struct class*IlllIII=NULL;ssize_t lIlIlllIl(struct 
-file*,char __user*,size_t,loff_t*);ssize_t llIIIllll(struct file*,const char 
-__user*,size_t,loff_t*);long llllIIIIl(struct file*,unsigned int,unsigned long);
+#define IIIIlIlI (0x2264+1444-0x2708)
+static struct cdev*IllIIll=NULL;static dev_t llIlIll=MKDEV((0xcd5+4386-0x1df7),
+(0x5a9+2637-0xff6));static void*IIllllII[IIIIlIlI]={(0xcdb+65-0xd1c)};static 
+struct mutex lIIIlIl;static struct class*lIIIlII=NULL;ssize_t IIlllIIII(struct 
+file*,char __user*,size_t,loff_t*);ssize_t lllIlIlII(struct file*,const char 
+__user*,size_t,loff_t*);long IllIIlllI(struct file*,unsigned int,unsigned long);
 #ifdef CONFIG_COMPAT
-long llIIlIllI(struct file*,unsigned int,unsigned long);
+long lIIIlIIlI(struct file*,unsigned int,unsigned long);
 #endif
-int IIIlIlIIl(struct inode*,struct file*);int IlIlIIIII(struct inode*,struct 
-file*);unsigned int llIIIIIII(struct file*lllIll,poll_table*IIIIlI);int 
-lIlIIIlII(struct file*lllIll,struct vm_area_struct*IIllllI);
-#if KERNEL_LT_EQ((0x337+7251-0x1f88),(0xca0+553-0xec3),(0x7bd+2689-0x1227)) 
-static int IlIllIll(struct class_device*dev,char**envp,int lllIlllII,char*IllIl,
-int IlIlIlIII);static void IIIlIllI(struct class_device*device);
-#elif KERNEL_LT_EQ((0x1b3+4275-0x1264),(0x8f2+1308-0xe08),(0x8f0+1666-0xf59)) 
-static int IlIllIll(struct class_device*dev,struct kobj_uevent_env*lIlIIII);
-static void IIIlIllI(struct class_device*device);
+int IIlIlllll(struct inode*,struct file*);int IIlllIlll(struct inode*,struct 
+file*);unsigned int lllIlllII(struct file*lIlllI,poll_table*lIIllI);int 
+lIIIllllI(struct file*lIlllI,struct vm_area_struct*llIIIlI);
+#if KERNEL_LT_EQ((0x1b98+316-0x1cd2),(0x1899+121-0x190c),(0x12d6+2871-0x1df6)) 
+static int lIIllIII(struct class_device*dev,char**envp,int llIlIllll,char*llIIl,
+int IIIlIIlll);static void lIllIlIl(struct class_device*device);
+#elif KERNEL_LT_EQ((0x233c+675-0x25dd),(0x1568+2964-0x20f6),(0x2ca+407-0x448)) 
+static int lIIllIII(struct class_device*dev,struct kobj_uevent_env*lllIIII);
+static void lIllIlIl(struct class_device*device);
 #else 
-static int IlIllIll(struct device*dev,struct kobj_uevent_env*lIlIIII);
+static int lIIllIII(struct device*dev,struct kobj_uevent_env*lllIIII);
 #endif
-static struct file_operations IIIlIlIlI={.owner=THIS_MODULE,.read=lIlIlllIl,.
-write=llIIIllll,.poll=llIIIIIII,.unlocked_ioctl=llllIIIIl,
+static struct file_operations IlIllIIlI={.owner=THIS_MODULE,.read=IIlllIIII,.
+write=lllIlIlII,.poll=lllIlllII,.unlocked_ioctl=IllIIlllI,
 #ifdef CONFIG_COMPAT
-.compat_ioctl=llIIlIllI,
+.compat_ioctl=lIIIlIIlI,
 #endif
-.mmap=lIlIIIlII,.open=IIIlIlIIl,.release=IlIlIIIII,};int IIIlIllIl(void){int 
-IIIll=(0x119a+715-0x1465);IlllI(
+.mmap=lIIIllllI,.open=IIlIlllll,.release=IIlllIlll,};int lIIlllllI(void){int 
+IlIlI=(0x679+8196-0x267d);lIlll(
 "\x69\x6e\x69\x74\x5f\x63\x64\x65\x76\x5f\x6d\x6f\x64\x75\x6c\x65\x3a\x20\x2b\x2b" "\n"
-);do{mutex_init(&IllIlII);IlllIII=class_create(THIS_MODULE,lIIlllI);if(IlllIII==
-NULL){IlllI(
+);do{mutex_init(&lIIIlIl);lIIIlII=class_create(THIS_MODULE,IIIllII);if(lIIIlII==
+NULL){lIlll(
 "\x69\x6e\x69\x74\x5f\x63\x64\x65\x76\x5f\x6d\x6f\x64\x75\x6c\x65\x3a\x20\x63\x6c\x61\x73\x73\x5f\x63\x72\x65\x61\x74\x65\x20\x66\x61\x69\x6c\x65\x64\x2e" "\n"
-);IIIll=-ENOMEM;break;}
-#if KERNEL_LT_EQ((0x593+1782-0xc87),(0x73+7419-0x1d68),(0x1474+4531-0x2618)) 
-IlllIII->hotplug=IlIllIll,IlllIII->release=IIIlIllI,
-#elif KERNEL_LT_EQ((0x934+3900-0x186e),(0x11d7+4901-0x24f6),(0x17ca+3640-0x25e9)\
-) 
-IlllIII->uevent=IlIllIll,IlllIII->release=IIIlIllI,
+);IlIlI=-ENOMEM;break;}
+#if KERNEL_LT_EQ((0x134c+2788-0x1e2e),(0x2351+642-0x25cd),(0xc7c+5099-0x2058)) 
+lIIIlII->hotplug=lIIllIII,lIIIlII->release=lIllIlIl,
+#elif KERNEL_LT_EQ((0xd63+1026-0x1163),(0x332+239-0x41b),(0x12b7+4997-0x2623)) 
+lIIIlII->uevent=lIIllIII,lIIIlII->release=lIllIlIl,
 #else 
-IlllIII->dev_uevent=IlIllIll,
+lIIIlII->dev_uevent=lIIllIII,
 #endif
-IIIll=alloc_chrdev_region(&llllIlI,(0x224+2026-0xa0e),lIIllIIl,lIIlllI);if(IIIll
-!=(0x6f4+7870-0x25b2)){IlllI(
+IlIlI=alloc_chrdev_region(&llIlIll,(0x1393+4504-0x252b),IIIIlIlI,IIIllII);if(
+IlIlI!=(0x15e9+1624-0x1c41)){lIlll(
 "\x69\x6e\x69\x74\x5f\x63\x64\x65\x76\x5f\x6d\x6f\x64\x75\x6c\x65\x3a\x20\x61\x6c\x6c\x6f\x63\x5f\x63\x68\x72\x64\x65\x76\x5f\x72\x65\x67\x69\x6f\x6e\x20\x66\x61\x69\x6c\x65\x64\x2e\x20\x45\x72\x72\x6f\x72\x20\x6e\x75\x6d\x62\x65\x72\x20\x25\x64" "\n"
-,IIIll);break;}IlllI(
+,IlIlI);break;}lIlll(
 "\x69\x6e\x69\x74\x5f\x63\x64\x65\x76\x5f\x6d\x6f\x64\x75\x6c\x65\x3a\x20\x61\x6c\x6c\x6f\x63\x61\x74\x65\x64\x20\x64\x65\x76\x6e\x75\x6d\x20\x72\x65\x67\x69\x6f\x6e\x3a\x20\x4d\x61\x6a\x6f\x72\x20\x25\x64\x20\x4d\x69\x6e\x6f\x72\x20\x25\x64" "\n"
-,MAJOR(llllIlI),MINOR(llllIlI));memset(lIlIlIII,(0x126a+3894-0x21a0),sizeof(
-lIlIlIII));lllIlII=cdev_alloc();if(lllIlII==NULL){IlllI(
+,MAJOR(llIlIll),MINOR(llIlIll));memset(IIllllII,(0x119d+2344-0x1ac5),sizeof(
+IIllllII));IllIIll=cdev_alloc();if(IllIIll==NULL){lIlll(
 "\x69\x6e\x69\x74\x5f\x63\x64\x65\x76\x5f\x6d\x6f\x64\x75\x6c\x65\x3a\x20\x63\x64\x65\x76\x5f\x61\x6c\x6c\x6f\x63\x20\x66\x61\x69\x6c\x65\x64\x2e" "\n"
-);IIIll=-ENOMEM;break;}lllIlII->owner=THIS_MODULE;lllIlII->ops=&IIIlIlIlI;IIIll=
-cdev_add(lllIlII,llllIlI,lIIllIIl);if(IIIll!=(0x216+7545-0x1f8f)){IlllI(
+);IlIlI=-ENOMEM;break;}IllIIll->owner=THIS_MODULE;IllIIll->ops=&IlIllIIlI;IlIlI=
+cdev_add(IllIIll,llIlIll,IIIIlIlI);if(IlIlI!=(0x367+7456-0x2087)){lIlll(
 "\x69\x6e\x69\x74\x5f\x63\x64\x65\x76\x5f\x6d\x6f\x64\x75\x6c\x65\x3a\x20\x63\x64\x65\x76\x5f\x61\x64\x64\x20\x66\x61\x69\x6c\x65\x64\x2e\x20\x45\x72\x72\x6f\x72\x20\x6e\x75\x6d\x62\x65\x72\x20\x25\x64" "\n"
-,IIIll);break;}}while((0xa0f+4642-0x1c31));if(IIIll!=(0x1ba7+1972-0x235b)){if(
-lllIlII)cdev_del(lllIlII);if(llllIlI!=MKDEV((0xad1+2191-0x1360),
-(0x9e2+5439-0x1f21)))unregister_chrdev_region(llllIlI,(0xad0+2701-0x145e));if(
-IlllIII)class_destroy(IlllIII);lllIlII=NULL;llllIlI=MKDEV((0x1847+2136-0x209f),
-(0x15f5+1492-0x1bc9));IlllIII=NULL;}IlllI(
+,IlIlI);break;}}while((0x12e4+2915-0x1e47));if(IlIlI!=(0x128+115-0x19b)){if(
+IllIIll){cdev_del(IllIIll);}if(llIlIll!=MKDEV((0xaca+2916-0x162e),
+(0x1ae4+1801-0x21ed))){unregister_chrdev_region(llIlIll,(0x412+577-0x554));}if(
+lIIIlII){class_destroy(lIIIlII);}IllIIll=NULL;llIlIll=MKDEV((0xff+2325-0xa14),
+(0x19c5+430-0x1b73));lIIIlII=NULL;}lIlll(
 "\x69\x6e\x69\x74\x5f\x63\x64\x65\x76\x5f\x6d\x6f\x64\x75\x6c\x65\x3a\x20\x2d\x2d\x20\x72\x65\x73\x75\x6c\x74\x3d\x25\x64" "\n"
-,IIIll);return IIIll;}int llllllII(void){IlllI(
-"\x64\x65\x73\x74\x72\x6f\x79\x5f\x63\x64\x65\x76" "\n");if(lllIlII)cdev_del(
-lllIlII);if(llllIlI!=MKDEV((0x3cc+8818-0x263e),(0xbf0+1785-0x12e9)))
-unregister_chrdev_region(llllIlI,lIIllIIl);if(IlllIII)class_destroy(IlllIII);
-lllIlII=NULL;llllIlI=MKDEV((0x15f2+3528-0x23ba),(0xc99+2049-0x149a));IlllIII=
-NULL;return(0x156c+957-0x1929);}
-#if KERNEL_LT_EQ((0x25a+1661-0x8d5),(0x808+2972-0x139e),(0x1c7+7681-0x1faf)) 
-static void IIIlIllI(struct class_device*device){kfree(device);}
+,IlIlI);return IlIlI;}int IIIIIIIll(void){lIlll(
+"\x64\x65\x73\x74\x72\x6f\x79\x5f\x63\x64\x65\x76" "\n");if(IllIIll){cdev_del(
+IllIIll);}if(llIlIll!=MKDEV((0xb9b+3929-0x1af4),(0x142d+4771-0x26d0))){
+unregister_chrdev_region(llIlIll,IIIIlIlI);}if(lIIIlII){class_destroy(lIIIlII);}
+IllIIll=NULL;llIlIll=MKDEV((0x1603+3205-0x2288),(0x226+5413-0x174b));lIIIlII=
+NULL;return(0x109c+4584-0x2284);}
+#if KERNEL_LT_EQ((0x5c9+2523-0xfa2),(0x5a2+583-0x7e3),(0x3a+1037-0x42e)) 
+static void lIllIlIl(struct class_device*device){kfree(device);}
 #endif
-#if KERNEL_LT_EQ((0x1c6+7534-0x1f32),(0x834+7129-0x2407),(0x1a10+1209-0x1eb2)) 
-static int IlIllIll(struct class_device*device,char**envp,int lllIlllII,char*
-IllIl,int IlIlIlIII){struct IIIIII*lllll=device->class_data;if(lllll&&lllll->
-llllIlII){int i;int length;struct IlIllIIl*IllIIIl;for(IllIIIl=lllll->llllIlII,i
-=(0x1a89+2588-0x24a5),length=(0x266+3340-0xf72);IllIIIl->name&&(IllIIIl->
-IlIIIlIl||IllIIIl->IlIIIlII);IllIIIl++){const char*IlIIIlIl=IllIIIl->IlIIIlII?
-IllIIIl->IlIIIlII(lllll->context):IllIIIl->IlIIIlIl;
-#if KERNEL_LT_EQ((0x8c6+7186-0x24d6),(0x11d8+1343-0x1711),(0xb02+2286-0x13e1)) 
+#if KERNEL_LT_EQ((0x10a5+568-0x12db),(0x10f+8326-0x218f),(0xcbc+1443-0x1248)) 
+static int lIIllIII(struct class_device*device,char**envp,int llIlIllll,char*
+llIIl,int IIIlIIlll){struct IIIlll*lllll=device->class_data;if(lllll&&lllll->
+IlllIIII){int i;int length;struct lIIIllll*lIlIIIl;for(lIlIIIl=lllll->IlllIIII,i
+=(0x1f0a+1598-0x2548),length=(0x70+9555-0x25c3);lIlIIIl->name&&(lIlIIIl->
+lIIlllII||lIlIIIl->lIIIIIII);lIlIIIl++){const char*lIIlllII=lIlIIIl->lIIIIIII?
+lIlIIIl->lIIIIIII(lllll->context):lIlIIIl->lIIlllII;
+#if KERNEL_LT_EQ((0xd8+6765-0x1b43),(0xefa+4493-0x2081),(0x17d+1247-0x64d)) 
 if(add_hotplug_env_var(
 #else 
 if(add_uevent_var(
 #endif
-envp,lllIlllII,&i,IllIl,IlIlIlIII,&length,"\x25\x73\x5f\x25\x73\x3d\x25\x73",
-lIIlllI,IllIIIl->name,IlIIIlIl)==(0x187+2881-0xcc8)){int IlIIII;for(IlIIII=
-(0x17e0+2545-0x21d1);envp[i-(0x1a50+1864-0x2197)][IlIIII]!='\0'&&envp[i-
-(0x51+8077-0x1fdd)][IlIIII]!=((char)(0x237+5468-0x1756));IlIIII++)envp[i-
-(0xfb+5477-0x165f)][IlIIII]=toupper(envp[i-(0x1956+1855-0x2094)][IlIIII]);}}}
-return(0x1375+4759-0x260c);}
+envp,llIlIllll,&i,llIIl,IIIlIIlll,&length,"\x25\x73\x5f\x25\x73\x3d\x25\x73",
+IIIllII,lIlIIIl->name,lIIlllII)==(0x1813+2812-0x230f)){int IIIIIl;for(IIIIIl=
+(0x3c4+8283-0x241f);envp[i-(0xc58+5641-0x2260)][IIIIIl]!='\0'&&envp[i-
+(0xc2d+4321-0x1d0d)][IIIIIl]!=((char)(0x607+3188-0x123e));IIIIIl++)envp[i-
+(0x31f+984-0x6f6)][IIIIIl]=toupper(envp[i-(0x112d+2148-0x1990)][IIIIIl]);}}}
+return(0x93+6070-0x1849);}
 #else 
-static int IlIllIll(
-#if KERNEL_LT_EQ((0x1da+4525-0x1385),(0x10cd+2351-0x19f6),(0x1ad4+3123-0x26ee)) 
+static int lIIllIII(
+#if KERNEL_LT_EQ((0x1cbf+1946-0x2457),(0xa59+6661-0x2458),(0xa22+1629-0x1066)) 
 struct class_device*device,
 #else 
 struct device*device,
 #endif
-struct kobj_uevent_env*lIlIIII){
-#if KERNEL_LT_EQ((0xcb+5231-0x1538),(0x1258+3933-0x21af),(0x2065+789-0x2361)) 
-struct IIIIII*lllll=device->class_data;
+struct kobj_uevent_env*lllIIII){
+#if KERNEL_LT_EQ((0xec+7894-0x1fc0),(0x1375+4157-0x23ac),(0x1be4+898-0x1f4d)) 
+struct IIIlll*lllll=device->class_data;
 #else 
-struct IIIIII*lllll=dev_get_drvdata(device);
+struct IIIlll*lllll=dev_get_drvdata(device);
 #endif
-if(lllll&&lllll->llllIlII){struct IlIllIIl*IllIIIl;for(IllIIIl=lllll->llllIlII;
-IllIIIl->name&&(IllIIIl->IlIIIlIl||IllIIIl->IlIIIlII);IllIIIl++){const char*
-IlIIIlIl=IllIIIl->IlIIIlII?IllIIIl->IlIIIlII(lllll->context):IllIIIl->IlIIIlIl;
-if(add_uevent_var(lIlIIII,"\x25\x73\x5f\x25\x73\x3d\x25\x73",lIIlllI,IllIIIl->
-name,IlIIIlIl)==(0x156+1713-0x807)){int IlIIII;for(IlIIII=(0x1625+1560-0x1c3d);
-lIlIIII->envp[lIlIIII->envp_idx-(0x10f3+1307-0x160d)][IlIIII]!='\0'&&lIlIIII->
-envp[lIlIIII->envp_idx-(0x57+4724-0x12ca)][IlIIII]!=((char)(0x1341+2063-0x1b13))
-;IlIIII++)lIlIIII->envp[lIlIIII->envp_idx-(0x708+6360-0x1fdf)][IlIIII]=toupper(
-lIlIIII->envp[lIlIIII->envp_idx-(0xa77+2567-0x147d)][IlIIII]);}}}return
-(0xbcb+3202-0x184d);}
+if(lllll&&lllll->IlllIIII){struct lIIIllll*lIlIIIl;for(lIlIIIl=lllll->IlllIIII;
+lIlIIIl->name&&(lIlIIIl->lIIlllII||lIlIIIl->lIIIIIII);lIlIIIl++){const char*
+lIIlllII=lIlIIIl->lIIIIIII?lIlIIIl->lIIIIIII(lllll->context):lIlIIIl->lIIlllII;
+if(add_uevent_var(lllIIII,"\x25\x73\x5f\x25\x73\x3d\x25\x73",IIIllII,lIlIIIl->
+name,lIIlllII)==(0x24ad+570-0x26e7)){int IIIIIl;for(IIIIIl=(0x122d+3777-0x20ee);
+lllIIII->envp[lllIIII->envp_idx-(0xf39+5636-0x253c)][IIIIIl]!='\0'&&lllIIII->
+envp[lllIIII->envp_idx-(0x609+8325-0x268d)][IIIIIl]!=((char)(0x972+1184-0xdd5));
+IIIIIl++)lllIIII->envp[lllIIII->envp_idx-(0x2e4+6310-0x1b89)][IIIIIl]=toupper(
+lllIIII->envp[lllIIII->envp_idx-(0x82d+6861-0x22f9)][IIIIIl]);}}}return
+(0x576+5636-0x1b7a);}
 #endif 
-int IIlIIIIll(struct IIIIII*lllll,int llllll){
+int lIllIllIl(struct IIIlll*lllll,int llIllI){
 
 
 
@@ -136,105 +135,106 @@ int IIlIIIIll(struct IIIIII*lllll,int llllll){
 
 
 
-#if KERNEL_GT_EQ((0x1dc+8698-0x23d4),(0x43a+1734-0xafa),(0x1185+1493-0x173f)) 
-struct device*dev=NULL;dev=device_create(IlllIII,NULL,MKDEV(MAJOR(llllIlI),MINOR
-(llllIlI)+llllll),lllll,lIIlllI"\x5f\x25\x64",llllll);
-#elif KERNEL_EQ((0x1c93+1159-0x2118),(0x1499+2673-0x1f04),(0x1ff4+533-0x21ef)) 
-struct device*dev=NULL;dev=device_create_drvdata(IlllIII,NULL,MKDEV(MAJOR(
-llllIlI),MINOR(llllIlI)+llllll),lllll,lIIlllI"\x5f\x25\x64",llllll);
+#if KERNEL_GT_EQ((0x126c+4236-0x22f6),(0x17eb+2828-0x22f1),(0x568+3632-0x137d)) 
+struct device*dev=NULL;dev=device_create(lIIIlII,NULL,MKDEV(MAJOR(llIlIll),MINOR
+(llIlIll)+llIllI),lllll,IIIllII"\x5f\x25\x64",llIllI);
+#elif KERNEL_EQ((0x176d+3517-0x2528),(0x201+9154-0x25bd),(0x1552+4070-0x251e)) 
+struct device*dev=NULL;dev=device_create_drvdata(lIIIlII,NULL,MKDEV(MAJOR(
+llIlIll),MINOR(llIlIll)+llIllI),lllll,IIIllII"\x5f\x25\x64",llIllI);
 #else 
-struct class_device*dev=NULL;int lIIllIIlI;dev=kzalloc(sizeof(*dev),GFP_KERNEL);
-if(dev){dev->devt=MKDEV(MAJOR(llllIlI),MINOR(llllIlI)+llllll);dev->dev=NULL;dev
-->class=IlllIII;dev->parent=NULL;dev->release=NULL;
+struct class_device*dev=NULL;int IlIllllII;dev=kzalloc(sizeof(*dev),GFP_KERNEL);
+if(dev){dev->devt=MKDEV(MAJOR(llIlIll),MINOR(llIlIll)+llIllI);dev->dev=NULL;dev
+->class=lIIIlII;dev->parent=NULL;dev->release=NULL;
 dev->class_data=lllll;
-#if KERNEL_LT_EQ((0x1e5b+506-0x2053),(0xdc7+4511-0x1f60),(0x1acf+277-0x1bd5)) 
+#if KERNEL_LT_EQ((0x1310+909-0x169b),(0x1b3d+588-0x1d83),(0x1389+964-0x173e)) 
 dev->hotplug=NULL;
 #else 
 dev->uevent=NULL;
 #endif
-snprintf(dev->class_id,BUS_ID_SIZE,lIIlllI"\x5f\x25\x64",llllll);lIIllIIlI=
-class_device_register(dev);if(lIIllIIlI){kfree(dev);dev=ERR_PTR(lIIllIIlI);}}
+snprintf(dev->class_id,BUS_ID_SIZE,IIIllII"\x5f\x25\x64",llIllI);IlIllllII=
+class_device_register(dev);if(IlIllllII){kfree(dev);dev=ERR_PTR(IlIllllII);}}
 else{dev=ERR_PTR(-ENOMEM);}
 #endif
-if(IS_ERR(dev)){return PTR_ERR(dev);}lllll->dev=dev;return(0x8d5+4782-0x1b83);}
-void IlllIIIII(struct IIIIII*lllll,int llllll){if(lllll->dev){
-#if KERNEL_GT_EQ((0x9c5+6729-0x240c),(0x18e6+2606-0x230e),(0x10aa+1810-0x17a2)) 
-device_destroy(IlllIII,MKDEV(MAJOR(llllIlI),MINOR(llllIlI)+llllll));
+if(IS_ERR(dev)){return PTR_ERR(dev);}lllll->dev=dev;return(0x671+1183-0xb10);}
+void lIlllllll(struct IIIlll*lllll,int llIllI){if(lllll->dev){
+#if KERNEL_GT_EQ((0x196c+765-0x1c67),(0x6a4+4886-0x19b4),(0x51b+2371-0xe44)) 
+device_destroy(lIIIlII,MKDEV(MAJOR(llIlIll),MINOR(llIlIll)+llIllI));
 #else 
-class_device_destroy(IlllIII,MKDEV(MAJOR(llllIlI),MINOR(llllIlI)+llllll));
+class_device_destroy(lIIIlII,MKDEV(MAJOR(llIlIll),MINOR(llIlIll)+llIllI));
 #endif
-lllll->dev=NULL;}}int lIIIIllI(struct IIIIII*lllll,int lllIllII,int lIlIIIll){
-int i;if(lIlIIIll==-(0x1021+3826-0x1f12)){lIlIIIll=lIIllIIl-(0x189+2774-0xc5e);}
-if(lllIllII<(0xf+4083-0x1002)||lllIllII>=lIIllIIl)return-EINVAL;if(lIlIIIll<
-(0x697+5033-0x1a40)||lIlIIIll>=lIIllIIl)return-EINVAL;if(lllIllII>lIlIIIll)
-return-EINVAL;mutex_lock(&IllIlII);for(i=lllIllII;i<=lIlIIIll;i++){if(lIlIlIII[i
-]==NULL){if(IIlIIIIll(lllll,i)==(0x5f1+739-0x8d4)){lllll->llllll=i;lIlIlIII[i]=
-lllll;if(lllll->ops.IIIllIIl)lllll->ops.IIIllIIl(lllll->context);break;}}}
-mutex_unlock(&IllIlII);if(i>lIlIIIll)return-EOVERFLOW;return(0x1346+170-0x13f0);
-}dev_t llIIIlIll(struct IIIIII*lllll){dev_t IIIll=MKDEV((0x1261+4845-0x254e),
-(0x1d22+2003-0x24f5));mutex_lock(&IllIlII);if(lllll->llllll>=(0x2fc+8459-0x2407)
-&&lllll->llllll<lIIllIIl){IIIll=MKDEV(MAJOR(llllIlI),MINOR(llllIlI)+lllll->
-llllll);}mutex_unlock(&IllIlII);return IIIll;}int IlllIlII(struct IIIIII*lllll){
-int llllll;mutex_lock(&IllIlII);llllll=lllll->llllll;mutex_unlock(&IllIlII);
-return llllll;}void IIIIlIII(struct IIIIII*lllll){mutex_lock(&IllIlII);if(lllll
-->llllll>=(0xb64+4127-0x1b83)&&lllll->llllll<lIIllIIl&&lIlIlIII[lllll->llllll]==
-lllll){lIlIlIII[lllll->llllll]=NULL;IlllIIIII(lllll,lllll->llllll);}lllll->
-llllll=-(0xb4a+3905-0x1a8a);mutex_unlock(&IllIlII);if(lllll->ops.lIIllIII)lllll
-->ops.lIIllIII(lllll->context);}void lIIIIIlll(struct IIIIII*lllll){
-#if KERNEL_LT_EQ((0x1a68+1542-0x206c),(0x607+3439-0x1370),(0x717+5452-0x1c54))
+lllll->dev=NULL;}}int IllllIlI(struct IIIlll*lllll,int IlIlllII,int lIlIIlII){
+int i;if(lIlIIlII==-(0xa55+2589-0x1471)){lIlIIlII=IIIIlIlI-(0x82b+2152-0x1092);}
+if(IlIlllII<(0xc0f+122-0xc89)||IlIlllII>=IIIIlIlI){return-EINVAL;}if(lIlIIlII<
+(0x1ba9+2130-0x23fb)||lIlIIlII>=IIIIlIlI){return-EINVAL;}if(IlIlllII>lIlIIlII){
+return-EINVAL;}mutex_lock(&lIIIlIl);for(i=IlIlllII;i<=lIlIIlII;i++){if(IIllllII[
+i]==NULL){if(lIllIllIl(lllll,i)==(0x1f3+8056-0x216b)){lllll->llIllI=i;IIllllII[i
+]=lllll;if(lllll->ops.IlIIlIII){lllll->ops.IlIIlIII(lllll->context);}break;}}}
+mutex_unlock(&lIIIlIl);if(i>lIlIIlII){return-EOVERFLOW;}return
+(0x2233+893-0x25b0);}dev_t lIIIIIllI(struct IIIlll*lllll){dev_t IlIlI=MKDEV(
+(0xb51+783-0xe60),(0x7c6+5454-0x1d14));mutex_lock(&lIIIlIl);if(lllll->llIllI>=
+(0x1a48+1734-0x210e)&&lllll->llIllI<IIIIlIlI){IlIlI=MKDEV(MAJOR(llIlIll),MINOR(
+llIlIll)+lllll->llIllI);}mutex_unlock(&lIIIlIl);return IlIlI;}int IIIllIlI(
+struct IIIlll*lllll){int llIllI;mutex_lock(&lIIIlIl);llIllI=lllll->llIllI;
+mutex_unlock(&lIIIlIl);return llIllI;}void lllIllII(struct IIIlll*lllll){
+mutex_lock(&lIIIlIl);if(lllll->llIllI>=(0x607+7380-0x22db)&&lllll->llIllI<
+IIIIlIlI&&IIllllII[lllll->llIllI]==lllll){IIllllII[lllll->llIllI]=NULL;lIlllllll
+(lllll,lllll->llIllI);}lllll->llIllI=-(0x571+2938-0x10ea);mutex_unlock(&lIIIlIl)
+;if(lllll->ops.IlIllIII){lllll->ops.IlIllIII(lllll->context);}}void lIlllIIll(
+struct IIIlll*lllll){
+#if KERNEL_LT_EQ((0x197+7152-0x1d85),(0xa62+1439-0xffb),(0xd6b+5189-0x21a1))
 kobject_hotplug(&lllll->dev->kobj,KOBJ_ONLINE);
 #else
 kobject_uevent(&lllll->dev->kobj,KOBJ_ONLINE);
 #endif
-}void lIlIlIIIl(struct IIIIII*lllll){
-#if KERNEL_LT_EQ((0x1141+4354-0x2241),(0x4b0+5011-0x183d),(0xc1a+2340-0x152f))
+}void IlIIIIlll(struct IIIlll*lllll){
+#if KERNEL_LT_EQ((0x109f+5608-0x2685),(0x7e1+1740-0xea7),(0xe3f+1061-0x1255))
 kobject_hotplug(&lllll->dev->kobj,KOBJ_OFFLINE);
 #else
 kobject_uevent(&lllll->dev->kobj,KOBJ_OFFLINE);
 #endif
 }
-ssize_t lIlIlllIl(struct file*lllIll,char __user*lIIllIIII,size_t llIIl,loff_t*
-llllIIllI){struct IIIIII*lllll=lllIll->private_data;if(lllll){if(lllll->ops.read
-)return lllll->ops.read(lllll->context,lIIllIIII,llIIl);else return
-(0x1f53+342-0x20a9);}return-ENODEV;}ssize_t llIIIllll(struct file*lllIll,const 
-char __user*lIIllIIII,size_t llIIl,loff_t*llllIIllI){struct IIIIII*lllll=lllIll
-->private_data;if(lllll){if(lllll->ops.write)return lllll->ops.write(lllll->
-context,lIIllIIII,llIIl);else return(0xdeb+5010-0x217d);}return-ENODEV;}unsigned
- int llIIIIIII(struct file*lllIll,poll_table*IIIIlI){struct IIIIII*lllll=lllIll
-->private_data;if(lllll){if(lllll->ops.poll)return lllll->ops.poll(lllll->
-context,lllIll,IIIIlI);else return(0xb1d+5198-0x1f6b);}return-ENODEV;}long 
-llllIIIIl(struct file*lllIll,unsigned int lIIlII,unsigned long IllIII){struct 
-IIIIII*lllll=lllIll->private_data;if(lllll){if(lllll->ops.unlocked_ioctl)return 
-lllll->ops.unlocked_ioctl(lllll->context,lIIlII,IllIII);else return
-(0xe52+2284-0x173e);}return-ENODEV;}
+ssize_t IIlllIIII(struct file*lIlllI,char __user*lllIIllIl,size_t IIIIl,loff_t*
+IIIIlIIll){struct IIIlll*lllll=lIlllI->private_data;if(lllll){if(lllll->ops.read
+){return lllll->ops.read(lllll->context,lllIIllIl,IIIIl);}else{return
+(0x376+5478-0x18dc);}}return-ENODEV;}ssize_t lllIlIlII(struct file*lIlllI,const 
+char __user*lllIIllIl,size_t IIIIl,loff_t*IIIIlIIll){struct IIIlll*lllll=lIlllI
+->private_data;if(lllll){if(lllll->ops.write){return lllll->ops.write(lllll->
+context,lllIIllIl,IIIIl);}else{return(0x596+2913-0x10f7);}}return-ENODEV;}
+unsigned int lllIlllII(struct file*lIlllI,poll_table*lIIllI){struct IIIlll*lllll
+=lIlllI->private_data;if(lllll){if(lllll->ops.poll){return lllll->ops.poll(lllll
+->context,lIlllI,lIIllI);}else{return(0x18d2+3540-0x26a6);}}return-ENODEV;}long 
+IllIIlllI(struct file*lIlllI,unsigned int lIIIIl,unsigned long IlIIII){struct 
+IIIlll*lllll=lIlllI->private_data;if(lllll){if(lllll->ops.unlocked_ioctl){return
+ lllll->ops.unlocked_ioctl(lllll->context,lIIIIl,IlIIII);}else{return
+(0x35+3671-0xe8c);}}return-ENODEV;}
 #ifdef CONFIG_COMPAT
-long llIIlIllI(struct file*lllIll,unsigned int lIIlII,unsigned long IllIII){
-struct IIIIII*lllll=lllIll->private_data;if(lllll){if(lllll->ops.compat_ioctl)
-return lllll->ops.compat_ioctl(lllll->context,lIIlII,IllIII);else return
-(0x17bc+2503-0x2183);}return-ENODEV;}
+long lIIIlIIlI(struct file*lIlllI,unsigned int lIIIIl,unsigned long IlIIII){
+struct IIIlll*lllll=lIlllI->private_data;if(lllll){if(lllll->ops.compat_ioctl){
+return lllll->ops.compat_ioctl(lllll->context,lIIIIl,IlIIII);}else{return
+(0x16d1+2568-0x20d9);}}return-ENODEV;}
 #endif
-int lIlIIIlII(struct file*lllIll,struct vm_area_struct*IIllllI){struct IIIIII*
-lllll=lllIll->private_data;if(lllll){if(lllll->ops.mmap)return lllll->ops.mmap(
-lllll->context,IIllllI);else return-EINVAL;}return-ENODEV;}int IIIlIlIIl(struct 
-inode*inode,struct file*lllIll){int IIIll=-ENODEV;u32 m=iminor(inode);struct 
-IIIIII*lllll;mutex_lock(&IllIlII);lllll=lIlIlIII[m];if(lllll&&lllll->ops.
-IIIllIIl)lllll->ops.IIIllIIl(lllll->context);mutex_unlock(&IllIlII);if(lllll){
-lllIll->private_data=lllll;
+int lIIIllllI(struct file*lIlllI,struct vm_area_struct*llIIIlI){struct IIIlll*
+lllll=lIlllI->private_data;if(lllll){if(lllll->ops.mmap){return lllll->ops.mmap(
+lllll->context,llIIIlI);}else{return-EINVAL;}}return-ENODEV;}int IIlIlllll(
+struct inode*inode,struct file*lIlllI){int IlIlI=-ENODEV;u32 m=iminor(inode);
+struct IIIlll*lllll;mutex_lock(&lIIIlIl);lllll=IIllllII[m];if(lllll&&lllll->ops.
+IlIIlIII){lllll->ops.IlIIlIII(lllll->context);}mutex_unlock(&lIIIlIl);if(lllll){
+lIlllI->private_data=lllll;
 
 
 
 
 
-mutex_lock(&lllll->mutex);if(lllll->ops.open)IIIll=lllll->ops.open(lllll->
-context,++lllll->lIlIIll);else IIIll=(0x3c4+7609-0x217d);mutex_unlock(&lllll->
-mutex);}return IIIll;}int IlIlIIIII(struct inode*inode,struct file*lllIll){int 
-IIIll=-ENODEV;struct IIIIII*lllll=lllIll->private_data;if(lllll){
+mutex_lock(&lllll->mutex);if(lllll->ops.open){IlIlI=lllll->ops.open(lllll->
+context,++lllll->IIIIIlI);}else{IlIlI=(0x87b+1830-0xfa1);}mutex_unlock(&lllll->
+mutex);}return IlIlI;}int IIlllIlll(struct inode*inode,struct file*lIlllI){int 
+IlIlI=-ENODEV;struct IIIlll*lllll=lIlllI->private_data;if(lllll){
 
 
 
 
 
-mutex_lock(&lllll->mutex);if(lllll->ops.release)IIIll=lllll->ops.release(lllll->
-context,--lllll->lIlIIll);else IIIll=(0x2ba+8444-0x23b6);mutex_unlock(&lllll->
-mutex);if(lllll->ops.lIIllIII)lllll->ops.lIIllIII(lllll->context);}return IIIll;
-}
+mutex_lock(&lllll->mutex);if(lllll->ops.release){IlIlI=lllll->ops.release(lllll
+->context,--lllll->IIIIIlI);}else{IlIlI=(0x8e8+6479-0x2237);}mutex_unlock(&lllll
+->mutex);if(lllll->ops.IlIllIII){lllll->ops.IlIllIII(lllll->context);}}return 
+IlIlI;}

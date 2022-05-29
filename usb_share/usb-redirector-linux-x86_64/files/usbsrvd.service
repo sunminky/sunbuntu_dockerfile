@@ -1,0 +1,17 @@
+[Unit]
+Description=IncentivesPro USB Redirector for Linux
+After=network.target syslog.target
+
+[Service]
+Type=forking
+PIDFile=%PIDFILE_TAG%
+ExecStartPre=-/sbin/modprobe usbcore
+ExecStartPre=/sbin/insmod %INSTALLDIR_TAG%/bin/%STUBNAME_TAG%.ko
+ExecStart=%INSTALLDIR_TAG%/bin/%DAEMONNAME_TAG%
+ExecStopPost=/sbin/rmmod %INSTALLDIR_TAG%/bin/%STUBNAME_TAG%.ko
+Restart=always
+RestartSec=30
+TimeoutSec=60
+
+[Install]
+WantedBy=multi-user.target

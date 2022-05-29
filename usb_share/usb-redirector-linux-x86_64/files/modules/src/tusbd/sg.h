@@ -9,20 +9,20 @@
  *
  */
 
-#ifndef lIIllIlII
-#define lIIllIlII
-#if KERNEL_GT_EQ((0xab6+1333-0xfe9),(0x2ea+7954-0x21f6),(0xa16+2713-0x1490))
+#ifndef lllllllII
+#define lllllllII
+#if KERNEL_GT_EQ((0xb14+5345-0x1ff3),(0xbf6+6112-0x23d0),(0x15c3+833-0x18e5))
 #include <linux/scatterlist.h>
-struct IIlIlIl{
-#if KERNEL_LT_EQ((0x6ba+4730-0x1932),(0x22b+762-0x51f),(0x66a+1849-0xd81)) 
-struct usb_sg_request*lIIIlll;
+struct IIIlllIl{
+#if KERNEL_LT_EQ((0xdb4+6216-0x25fa),(0xb7+5999-0x1820),(0x1bd6+500-0x1da8)) 
+struct usb_sg_request*lIIlIIl;
 #else
-struct scatterlist*lIIIlll;
+struct scatterlist*lIIlIIl;
 #endif
-struct scatterlist*sg;int num_sgs;};int IlIIlIIIl(struct IIlIlIl*sg,size_t 
-length,int lllIIllI);void llIIlIIIl(struct IIlIlIl*sg);size_t lIIIIIIIl(struct 
-IIlIlIl*sg,const void __user*IIIIl,size_t length);size_t IlIlIIIlI(struct 
-IIlIlIl*sg,void __user*IIIIl,size_t length);
+struct scatterlist*sg;int num_sgs;};int IlIlIlIIl(struct IIIlllIl*sg,size_t 
+length,int Illlllll);void llIIllIII(struct IIIlllIl*sg);size_t llllIllII(struct 
+IIIlllIl*sg,const void __user*IllIl,size_t length);size_t llIlIlIII(struct 
+IIIlllIl*sg,void __user*IllIl,size_t length);
 #endif 
 #endif 
 

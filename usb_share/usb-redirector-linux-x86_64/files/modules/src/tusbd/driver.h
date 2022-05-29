@@ -9,7 +9,7 @@
  *
  */
 
-#ifndef IIIIlIIIl
-#define IIIIlIIIl
+#ifndef IIlIllIIl
+#define IIlIllIIl
 #endif 
 

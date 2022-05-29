@@ -11,165 +11,166 @@
 
 #ifdef _USBD_ENABLE_VHCI_
 #include "usbd.h"
-ssize_t IlIIIlIll(void*,const char __user*,size_t);ssize_t lIIIlIIll(void*,char 
-__user*,size_t);long lllIlIIIl(void*,unsigned int,unsigned long);
+ssize_t IIIIIllIl(void*,const char __user*,size_t);ssize_t lIlIIllll(void*,char 
+__user*,size_t);long lIlIIIIIl(void*,unsigned int,unsigned long);
 #ifdef CONFIG_COMPAT
-long llIIlIlII(void*,unsigned int,unsigned long);
+long IllIlllII(void*,unsigned int,unsigned long);
 #endif
-int IlIIIlIIl(void*,int);int IlIlIIllI(void*,int);void IlIlIIlll(void*);void 
-IIIllllll(void*);unsigned int lllIlIIll(void*,struct file*,poll_table*IIIIlI);
-int lIllIIlII(void*,struct vm_area_struct*);static struct IlIllIIl IIIIIlIll[]={
+int IlllIIlIl(void*,int);int lllIllIII(void*,int);void llIllIllI(void*);void 
+IlllllIII(void*);unsigned int IllllIIll(void*,struct file*,poll_table*lIIllI);
+int IIlllIIlI(void*,struct vm_area_struct*);static struct lIIIllll IllIIIIll[]={
 {"\x74\x79\x70\x65","\x76\x73\x74\x75\x62",NULL},{NULL,NULL,NULL},};int 
-lIIIllIlI(struct IlIlIl*lIllI){struct IIIIII*lllll;lllll=IIIlIll(sizeof(*lllll),
+llllIlIII(struct lIlIIl*lIllI){struct IIIlll*lllll;lllll=lIllllI(sizeof(*lllll),
 GFP_KERNEL);if(lllll){mutex_init(&lllll->mutex);lllll->context=lIllI;lllll->
-llllll=-(0xd03+4067-0x1ce5);lllll->ops.open=IlIIIlIIl;lllll->ops.release=
-IlIlIIllI;lllll->ops.unlocked_ioctl=lllIlIIIl;
+llIllI=-(0x1243+2975-0x1de1);lllll->ops.open=IlllIIlIl;lllll->ops.release=
+lllIllIII;lllll->ops.unlocked_ioctl=lIlIIIIIl;
 #ifdef CONFIG_COMPAT
-lllll->ops.compat_ioctl=llIIlIlII;
+lllll->ops.compat_ioctl=IllIlllII;
 #endif
-lllll->ops.read=lIIIlIIll;lllll->ops.write=IlIIIlIll;lllll->ops.poll=lllIlIIll;
-lllll->ops.mmap=lIllIIlII;lllll->ops.IIIllIIl=IlIlIIlll;lllll->ops.lIIllIII=
-IIIllllll;lllll->llllIlII=IIIIIlIll;lIllI->lllll=lllll;return(0xcc5+612-0xf29);}
-return-ENOMEM;}void IlIIllll(struct IlIlIl*lIllI){if(lIllI->lllll){IlllIlll(
-lIllI);IlIIIl(lIllI->lllll);lIllI->lllll=NULL;}}int lIlIIllIl(struct IlIlIl*
-lIllI){return lIIIIllI(lIllI->lllll,(0x131c+109-0x1387),-(0x1041+4300-0x210c));}
-void IlllIlll(struct IlIlIl*lIllI){IIIIlIII(lIllI->lllll);}ssize_t lIIIlIIll(
-void*context,char __user*IIIIl,size_t llIIl){IlllI(
+lllll->ops.read=lIlIIllll;lllll->ops.write=IIIIIllIl;lllll->ops.poll=IllllIIll;
+lllll->ops.mmap=IIlllIIlI;lllll->ops.IlIIlIII=llIllIllI;lllll->ops.IlIllIII=
+IlllllIII;lllll->IlllIIII=IllIIIIll;lIllI->lllll=lllll;return(0x346+1869-0xa93);
+}return-ENOMEM;}void lIllllIIl(struct lIlIIl*lIllI){if(lIllI->lllll){llllIIlI(
+lIllI);lIlIll(lIllI->lllll);lIllI->lllll=NULL;}}int lIllIllII(struct lIlIIl*
+lIllI){return IllllIlI(lIllI->lllll,(0xa5+5622-0x1699),-(0xa5b+853-0xdaf));}void
+ llllIIlI(struct lIlIIl*lIllI){lllIllII(lIllI->lllll);}ssize_t lIlIIllll(void*
+context,char __user*IllIl,size_t IIIIl){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x6d\x69\x6e\x6f\x72\x5f\x72\x65\x61\x64\x3a" "\n"
-);return(0x156a+1927-0x1cf1);}ssize_t IlIIIlIll(void*context,const char __user*
-IIIIl,size_t llIIl){IlllI(
+);return(0x992+3036-0x156e);}ssize_t IIIIIllIl(void*context,const char __user*
+IllIl,size_t IIIIl){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x6d\x69\x6e\x6f\x72\x5f\x77\x72\x69\x74\x65" "\n"
-);return(0x74+3718-0xefa);}int lIlIIIlIl(struct IlIlIl*lIllI,void __user*IIIIl){
-unsigned long offset=(unsigned long)IIIIl;int IIIll;unsigned long flags;struct 
-llIIIl*lIIll;void*IllIl;size_t IIlIll;IlllI(
+);return(0x200a+1651-0x267d);}int lIIlIllII(struct lIlIIl*lIllI,void __user*
+IllIl){unsigned long offset=(unsigned long)IllIl;int IlIlI;unsigned long flags;
+struct lllIIl*IllII;void*llIIl;size_t IlIIIl;lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x69\x6f\x63\x74\x6c\x5f\x72\x65\x61\x64\x5f\x75\x6e\x72\x62\x3a\x20\x2b\x2b" "\n"
-);if(offset>=lIllI->llIIIlll){IlllI(
+);if(offset>=lIllI->llIlllll){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x69\x6f\x63\x74\x6c\x5f\x72\x65\x61\x64\x5f\x75\x6e\x72\x62\x3a\x20\x2d\x2d\x20\x69\x6e\x76\x61\x6c\x69\x64\x20\x61\x72\x67\x75\x6d\x65\x6e\x74" "\n"
-);return-EINVAL;}if((lIllI->llIIIlll-offset)<sizeof(llIlll)){IlllI(
+);return-EINVAL;}if((lIllI->llIlllll-offset)<sizeof(IlIllI)){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x69\x6f\x63\x74\x6c\x5f\x72\x65\x61\x64\x5f\x75\x6e\x72\x62\x3a\x20\x2d\x2d\x20\x69\x6e\x76\x61\x6c\x69\x64\x20\x61\x72\x67\x75\x6d\x65\x6e\x74" "\n"
-);return-EINVAL;}if(lIllI->IlIIlIlI){IlllI(
+);return-EINVAL;}if(lIllI->IlIlIIll){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x69\x6f\x63\x74\x6c\x5f\x72\x65\x61\x64\x5f\x75\x6e\x72\x62\x3a\x20\x2d\x2d\x20\x72\x65\x73\x65\x74\x20\x69\x6e\x20\x70\x72\x6f\x67\x72\x65\x73\x73" "\n"
-);return-ENODATA;}IllIl=(char*)lIllI->IlllllII+offset;IIlIll=((llIlll*)IllIl)->
-lIlIl;lIIll=NULL;
-spin_lock_irqsave(&lIllI->IlIIll,flags);if(!list_empty(&lIllI->IIIIlII)){lIIll=
-list_entry(lIllI->IIIIlII.next,struct llIIIl,lIlIIl);list_del_init(&lIIll->
-lIlIIl);}spin_unlock_irqrestore(&lIllI->IlIIll,flags);IlllI(
+);return-ENODATA;}llIIl=(char*)lIllI->IIlIIlIl+offset;IlIIIl=((IlIllI*)llIIl)->
+IIIII;IllII=NULL;
+spin_lock_irqsave(&lIllI->IIllII,flags);if(!list_empty(&lIllI->llIllIl)){IllII=
+list_entry(lIllI->llIllIl.next,struct lllIIl,llllIl);list_del_init(&IllII->
+llllIl);}spin_unlock_irqrestore(&lIllI->IIllII,flags);lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x69\x6f\x63\x74\x6c\x5f\x72\x65\x61\x64\x5f\x75\x6e\x72\x62\x3a\x20\x70\x76\x72\x65\x71\x20\x3d\x20\x30\x78\x25\x70" "\n"
-,lIIll);if(lIIll){IIIll=IlIllllll(lIllI,lIIll,IllIl,IIlIll);if(IIIll>=
-(0x8fa+3320-0x15f2)){spin_lock_irqsave(&lIllI->IlIIll,flags);if(lIIlIlIl(lIIll))
+,IllII);if(IllII){IlIlI=IIIIlIIIl(lIllI,IllII,llIIl,IlIIIl);if(IlIlI>=
+(0x28d+5986-0x19ef)){spin_lock_irqsave(&lIllI->IIllII,flags);if(lIIIlIII(IllII))
 {
-spin_unlock_irqrestore(&lIllI->IlIIll,flags);IlllI(
+spin_unlock_irqrestore(&lIllI->IIllII,flags);lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x69\x6f\x63\x74\x6c\x5f\x72\x65\x61\x64\x5f\x75\x6e\x72\x62\x3a\x20\x72\x65\x71\x75\x65\x73\x74\x20\x68\x61\x73\x20\x62\x65\x65\x6e\x20\x63\x61\x6e\x63\x65\x6c\x6c\x65\x64\x21" "\n"
-);IIIIlIlI(lIIll,-ECONNRESET);IlIIIlll(lIIll);IIIll=-ENODATA;}else{
-list_add_tail(&lIIll->lIlIIl,&lIllI->IIlIIlIl);spin_unlock_irqrestore(&lIllI->
-IlIIll,flags);lllIlIl((IllII)IllIl);}}else if(IIIll==-EMSGSIZE){
-if(lIIlIlIl(lIIll)){
-spin_unlock_irqrestore(&lIllI->IlIIll,flags);IlllI(
+);IllIIllI(IllII,-ECONNRESET);IIlIlllI(IllII);IlIlI=-ENODATA;}else{
+list_add_tail(&IllII->llllIl,&lIllI->lllIlllI);spin_unlock_irqrestore(&lIllI->
+IIllII,flags);llIlIIl((IIlII)llIIl);}}else if(IlIlI==-EMSGSIZE){
+spin_lock_irqsave(&lIllI->IIllII,flags);if(lIIIlIII(IllII)){
+spin_unlock_irqrestore(&lIllI->IIllII,flags);lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x69\x6f\x63\x74\x6c\x5f\x72\x65\x61\x64\x5f\x75\x6e\x72\x62\x3a\x20\x72\x65\x71\x75\x65\x73\x74\x20\x68\x61\x73\x20\x62\x65\x65\x6e\x20\x63\x61\x6e\x63\x65\x6c\x6c\x65\x64\x21" "\n"
-);IIIIlIlI(lIIll,-ECONNRESET);IlIIIlll(lIIll);IIIll=-ENODATA;}else{IlllI(
+);IllIIllI(IllII,-ECONNRESET);IIlIlllI(IllII);IlIlI=-ENODATA;}else{lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x69\x6f\x63\x74\x6c\x5f\x72\x65\x61\x64\x5f\x75\x6e\x72\x62\x3a\x20\x6e\x6f\x74\x20\x65\x6e\x6f\x75\x67\x68\x20\x62\x75\x66\x66\x65\x72\x20\x74\x6f\x20\x70\x61\x63\x6b\x20\x74\x68\x65\x20\x72\x65\x71\x75\x65\x73\x74" "\n"
 );
-list_add(&lIIll->lIlIIl,&lIllI->IIIIlII);spin_unlock_irqrestore(&lIllI->IlIIll,
+list_add(&IllII->llllIl,&lIllI->llIllIl);spin_unlock_irqrestore(&lIllI->IIllII,
 flags);
-wake_up(&lIllI->IIIIlI);}}else{IlllI(
+wake_up(&lIllI->lIIllI);}}else{lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x69\x6f\x63\x74\x6c\x5f\x72\x65\x61\x64\x5f\x75\x6e\x72\x62\x3a\x20\x63\x61\x6e\x20\x6e\x6f\x74\x20\x70\x61\x63\x6b\x20\x72\x65\x71\x75\x65\x73\x74\x2c\x20\x72\x65\x73\x75\x6c\x74\x3d\x25\x64" "\n"
-,IIIll);IIIIlIlI(lIIll,IIIll);IlIIIlll(lIIll);IIIll=-ENODATA;}}else{IlllI(
+,IlIlI);IllIIllI(IllII,IlIlI);IIlIlllI(IllII);IlIlI=-ENODATA;}}else{lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x69\x6f\x63\x74\x6c\x5f\x72\x65\x61\x64\x5f\x75\x6e\x72\x62\x3a\x20\x6e\x6f\x20\x65\x6e\x74\x72\x79" "\n"
-);IIIll=-ENODATA;}IlllI(
+);IlIlI=-ENODATA;}lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x69\x6f\x63\x74\x6c\x5f\x72\x65\x61\x64\x5f\x75\x6e\x72\x62\x3a\x20\x2d\x2d\x20\x72\x65\x73\x75\x6c\x74\x3d\x25\x64" "\n"
-,IIIll);return IIIll;}int lIllIIllI(struct IlIlIl*lIllI,void __user*IIIIl){
-unsigned long offset=(unsigned long)IIIIl;int IIIll;IllII IIlIl;unsigned long 
-flags;struct llIIIl*lIIll;struct llIIIl*IIlIIIl;IlllI(
+,IlIlI);return IlIlI;}int lIIlllIIIl(struct lIlIIl*lIllI,void __user*IllIl){
+unsigned long offset=(unsigned long)IllIl;int IlIlI;IIlII IIlIl;unsigned long 
+flags;struct lllIIl*IllII;struct lllIIl*Illllll;lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x69\x6f\x63\x74\x6c\x5f\x77\x72\x69\x74\x65\x5f\x75\x6e\x72\x62\x3a\x20\x2b\x2b" "\n"
-);if(offset>=lIllI->IllllIll){IlllI(
+);if(offset>=lIllI->IIlIIIIl){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x69\x6f\x63\x74\x6c\x5f\x72\x65\x61\x64\x5f\x75\x6e\x72\x62\x3a\x20\x2d\x2d\x20\x69\x6e\x76\x61\x6c\x69\x64\x20\x61\x72\x67\x75\x6d\x65\x6e\x74" "\n"
-);return-EINVAL;}if((lIllI->IllllIll-offset)<sizeof(llIlll)){IlllI(
+);return-EINVAL;}if((lIllI->IIlIIIIl-offset)<sizeof(IlIllI)){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x69\x6f\x63\x74\x6c\x5f\x72\x65\x61\x64\x5f\x75\x6e\x72\x62\x3a\x20\x2d\x2d\x20\x69\x6e\x76\x61\x6c\x69\x64\x20\x61\x72\x67\x75\x6d\x65\x6e\x74" "\n"
-);return-EINVAL;}IIlIl=(IllII)((char*)lIllI->lllIlIIl+offset);if((lIllI->
-IllllIll-offset)<IIlIl->IIIlI.lIlIl){IlllI(
+);return-EINVAL;}IIlIl=(IIlII)((char*)lIllI->lllIllll+offset);if((lIllI->
+IIlIIIIl-offset)<IIlIl->IlIII.IIIII){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x69\x6f\x63\x74\x6c\x5f\x72\x65\x61\x64\x5f\x75\x6e\x72\x62\x3a\x20\x2d\x2d\x20\x69\x6e\x76\x61\x6c\x69\x64\x20\x64\x61\x74\x61" "\n"
-);return-EINVAL;}lllIlIl(IIlIl);lIIll=NULL;spin_lock_irqsave(&lIllI->IlIIll,
-flags);list_for_each_entry(IIlIIIl,&lIllI->IIlIIlIl,lIlIIl){if(IIlIIIl->lllIl==
-IIlIl->IIIlI.lIIlIl){
-list_del_init(&IIlIIIl->lIlIIl);
-lIIll=IIlIIIl;break;}}spin_unlock_irqrestore(&lIllI->IlIIll,flags);if(lIIll){int
- status;IIIll=llIlllllI(lIllI,lIIll,IIlIl,&status);if(IIIll<(0x70a+1180-0xba6)){
-spin_lock_irqsave(&lIllI->IlIIll,flags);if(lIIlIlIl(lIIll)){
-spin_unlock_irqrestore(&lIllI->IlIIll,flags);IIIIlIlI(lIIll,-ECONNRESET);
-IlIIIlll(lIIll);}else{
+);return-EINVAL;}llIlIIl(IIlIl);IllII=NULL;spin_lock_irqsave(&lIllI->IIllII,
+flags);list_for_each_entry(Illllll,&lIllI->lllIlllI,llllIl){if(Illllll->lIlIl==
+IIlIl->IlIII.IIIlIl){
+list_del_init(&Illllll->llllIl);
+IllII=Illllll;break;}}spin_unlock_irqrestore(&lIllI->IIllII,flags);if(IllII){int
+ status;IlIlI=IlIIlIllI(lIllI,IllII,IIlIl,&status);if(IlIlI<(0x6d2+3590-0x14d8))
+{
+spin_lock_irqsave(&lIllI->IIllII,flags);if(lIIIlIII(IllII)){
+spin_unlock_irqrestore(&lIllI->IIllII,flags);IllIIllI(IllII,-ECONNRESET);
+IIlIlllI(IllII);}else{
 
 
 
-list_add_tail(&lIIll->lIlIIl,&lIllI->IIlIIlIl);spin_unlock_irqrestore(&lIllI->
-IlIIll,flags);}}else{IIIIlIlI(lIIll,status);IlIIIlll(lIIll);}}else{IlllI(
+list_add_tail(&IllII->llllIl,&lIllI->lllIlllI);spin_unlock_irqrestore(&lIllI->
+IIllII,flags);}}else{IllIIllI(IllII,status);IIlIlllI(IllII);}}else{lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x69\x6f\x63\x74\x6c\x5f\x77\x72\x69\x74\x65\x5f\x75\x6e\x72\x62\x3a\x20\x72\x65\x71\x75\x65\x73\x74\x20\x6e\x6f\x74\x20\x66\x6f\x75\x6e\x64" "\n"
-);IIIll=(0x302+6089-0x1acb);}IlllI(
+);IlIlI=(0xa4+5104-0x1494);}lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x69\x6f\x63\x74\x6c\x5f\x77\x72\x69\x74\x65\x5f\x75\x6e\x72\x62\x3a\x20\x2d\x2d\x20\x72\x65\x73\x75\x6c\x74\x3d\x25\x64" "\n"
-,IIIll);return IIIll;}int IIlIIIllI(struct IlIlIl*lIllI,struct IlIIllIlI __user*
-ioctl){lllII lllllI;lllII devnum;lllII busnum;if(get_user(lllllI,&ioctl->llIllI.
-IIllIll)<(0xa1b+2343-0x1342))return-EFAULT;if(lllllI!=sizeof(struct IlIIllIlI))
-return-EINVAL;IllIlllII(lIllI,&busnum,&devnum);if(put_user(busnum,&ioctl->busnum
-)<(0x8d+9480-0x2595))return-EFAULT;if(put_user(devnum,&ioctl->devnum)<
-(0x732+4549-0x18f7))return-EFAULT;return(0x232d+580-0x2571);}long IlIIlIllI(void
-*context,unsigned int lIIlII,void __user*IllIII){struct IlIlIl*lIllI=context;int
- IIIll=(0x724+6967-0x225b);IlllI(
+,IlIlI);return IlIlI;}int IllIIIllI(struct lIlIIl*lIllI,struct IIlllIIll __user*
+ioctl){lllII IlIll;lllII devnum;lllII busnum;if(get_user(IlIll,&ioctl->lIIlII.
+lIlllll)<(0x1b89+809-0x1eb2)){return-EFAULT;}if(IlIll!=sizeof(struct IIlllIIll))
+{return-EINVAL;}IllIlIlII(lIllI,&busnum,&devnum);if(put_user(busnum,&ioctl->
+busnum)<(0x2137+1155-0x25ba)){return-EFAULT;}if(put_user(devnum,&ioctl->devnum)<
+(0xd78+3084-0x1984)){return-EFAULT;}return(0x5aa+3962-0x1524);}long IlIIIllII(
+void*context,unsigned int lIIIIl,void __user*IlIIII){struct lIlIIl*lIllI=context
+;int IlIlI=(0x10eb+4372-0x21ff);lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x6d\x69\x6e\x6f\x72\x5f\x69\x6f\x63\x74\x6c\x3a\x20\x2b\x2b\x20\x63\x6d\x64\x3d\x25\x64\x20\x61\x72\x67\x3d\x30\x78\x25\x70" "\n"
-,lIIlII,IllIII);switch(lIIlII){case IlllIllll:IIIll=lIlIIIlIl(lIllI,IllIII);
-break;case IIIIlllII:IIIll=lIllIIllI(lIllI,IllIII);break;case llIllIlll:IIIll=
-IIlIIIllI(lIllI,IllIII);break;default:IlllI(
+,lIIIIl,IlIIII);switch(lIIIIl){case llIIlIlII:IlIlI=lIIlIllII(lIllI,IlIIII);
+break;case IllIIIlII:IlIlI=lIIlllIIIl(lIllI,IlIIII);break;case IllllIllI:IlIlI=
+IllIIIllI(lIllI,IlIIII);break;default:lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x6d\x69\x6e\x6f\x72\x5f\x69\x6f\x63\x74\x6c\x3a\x20\x75\x6e\x6b\x6e\x6f\x77\x6e\x20\x69\x6f\x63\x74\x6c" "\n"
-);IIIll=-EINVAL;break;}IlllI(
+);IlIlI=-EINVAL;break;}lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x6d\x69\x6e\x6f\x72\x5f\x69\x6f\x63\x74\x6c\x3a\x20\x2d\x2d\x20\x72\x65\x73\x75\x6c\x74\x3d\x25\x64" "\n"
-,IIIll);return IIIll;}long lllIlIIIl(void*context,unsigned int lIIlII,unsigned 
-long IllIII){return IlIIlIllI(context,lIIlII,(void __user*)IllIII);}
+,IlIlI);return IlIlI;}long lIlIIIIIl(void*context,unsigned int lIIIIl,unsigned 
+long IlIIII){return IlIIIllII(context,lIIIIl,(void __user*)IlIIII);}
 #ifdef CONFIG_COMPAT
-long llIIlIlII(void*context,unsigned int lIIlII,unsigned long IllIII){return 
-IlIIlIllI(context,lIIlII,compat_ptr(IllIII));}
+long IllIlllII(void*context,unsigned int lIIIIl,unsigned long IlIIII){return 
+IlIIIllII(context,lIIIIl,compat_ptr(IlIIII));}
 #endif
-int lIllIIlII(void*context,struct vm_area_struct*IIllllI){int IIIll;struct 
-IlIlIl*lIllI=context;void*IIIIl;unsigned long IIlIIl;unsigned long offset;IlllI(
+int IIlllIIlI(void*context,struct vm_area_struct*llIIIlI){int IlIlI;struct 
+lIlIIl*lIllI=context;void*IllIl;unsigned long IIlIIl;unsigned long offset;lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x6d\x69\x6e\x6f\x72\x5f\x6d\x6d\x61\x70\x3a\x20\x2b\x2b" "\n"
-);IIlIIl=IIllllI->vm_end-IIllllI->vm_start;offset=IIllllI->vm_pgoff<<PAGE_SHIFT;
-if(IIlIIl<sizeof(llIlll)||IIlIIl>lIlIIlII){IlllI(
+);IIlIIl=llIIIlI->vm_end-llIIIlI->vm_start;offset=llIIIlI->vm_pgoff<<PAGE_SHIFT;
+if(IIlIIl<sizeof(IlIllI)||IIlIIl>lIlIlIII){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x6d\x69\x6e\x6f\x72\x5f\x6d\x6d\x61\x70\x3a\x20\x2d\x2d\x20\x69\x6e\x76\x61\x6c\x69\x64\x20\x6c\x65\x6e\x67\x74\x68" "\n"
-);return-EINVAL;}if(offset!=(0x1459+4016-0x2409)&&offset!=0x80000000U){IlllI(
+);return-EINVAL;}if(offset!=(0x15d+2503-0xb24)&&offset!=0x80000000U){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x6d\x69\x6e\x6f\x72\x5f\x6d\x6d\x61\x70\x3a\x20\x2d\x2d\x20\x69\x6e\x76\x61\x6c\x69\x64\x20\x6f\x66\x66\x73\x65\x74" "\n"
-);return-EINVAL;}IIIIl=vmalloc(IIlIIl);if(IIIIl==NULL){IlllI(
+);return-EINVAL;}IllIl=vmalloc(IIlIIl);if(IllIl==NULL){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x6d\x69\x6e\x6f\x72\x5f\x6d\x6d\x61\x70\x3a\x20\x6e\x6f\x20\x6d\x65\x6d\x6f\x72\x79\x20\x66\x6f\x72\x20\x77\x72\x69\x74\x65\x62\x75\x66" "\n"
 );return-ENOMEM;}
-IIIll=IllllIlll(IIIIl,IIllllI);if(IIIll==(0x132a+4140-0x2356)){if(offset==
-(0x600+3426-0x1362)){IlllI(
+IlIlI=lIIIIIIII(IllIl,llIIIlI);if(IlIlI==(0x16ea+2877-0x2227)){if(offset==
+(0x14cf+1134-0x193d)){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x6d\x69\x6e\x6f\x72\x5f\x6d\x6d\x61\x70\x3a\x20\x6d\x61\x70\x20\x72\x65\x61\x64\x62\x75\x66" "\n"
-);if(lIllI->IlllllII)vfree(lIllI->IlllllII);lIllI->IlllllII=IIIIl;lIllI->
-llIIIlll=IIlIIl;}else{IlllI(
+);if(lIllI->IIlIIlIl){vfree(lIllI->IIlIIlIl);}lIllI->IIlIIlIl=IllIl;lIllI->
+llIlllll=IIlIIl;}else{lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x6d\x69\x6e\x6f\x72\x5f\x6d\x6d\x61\x70\x3a\x20\x6d\x61\x70\x20\x77\x72\x69\x74\x65\x62\x75\x66" "\n"
-);if(lIllI->lllIlIIl)vfree(lIllI->lllIlIIl);lIllI->lllIlIIl=IIIIl;lIllI->
-IllllIll=IIlIIl;}}IlllI(
+);if(lIllI->lllIllll){vfree(lIllI->lllIllll);}lIllI->lllIllll=IllIl;lIllI->
+IIlIIIIl=IIlIIl;}}lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x6d\x69\x6e\x6f\x72\x5f\x6d\x6d\x61\x70\x3a\x20\x2d\x2d\x20\x72\x65\x73\x75\x6c\x74\x3d\x25\x64" "\n"
-,IIIll);return IIIll;}
+,IlIlI);return IlIlI;}
 
-int IlIIIlIIl(void*context,int lIlIIll){int IIIll=(0x1269+1151-0x16e8);struct 
-IlIlIl*lIllI=context;IlllI(
+int IlllIIlIl(void*context,int IIIIIlI){int IlIlI=(0x1170+5009-0x2501);struct 
+lIlIIl*lIllI=context;lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x6d\x69\x6e\x6f\x72\x5f\x6f\x70\x65\x6e\x3a\x20\x2b\x2b\x20\x25\x64" "\n"
-,lIlIIll);if(lIlIIll==(0x1658+137-0x16e0)){
+,IIIIIlI);if(IIIIIlI==(0x72c+1473-0xcec)){
 lIllI=lIllI;
-}IlllI(
+}lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x6d\x69\x6e\x6f\x72\x5f\x6f\x70\x65\x6e\x3a\x20\x2d\x2d\x20\x72\x65\x73\x75\x6c\x74\x3d\x25\x64" "\n"
-,IIIll);return IIIll;}
+,IlIlI);return IlIlI;}
 
-int IlIlIIllI(void*context,int lIlIIll){struct IlIlIl*lIllI=context;IlllI(
+int lllIllIII(void*context,int IIIIIlI){struct lIlIIl*lIllI=context;lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x6d\x69\x6e\x6f\x72\x5f\x72\x65\x6c\x65\x61\x73\x65\x20\x25\x64" "\n"
-,lIlIIll);if(lIlIIll==(0xdd0+5028-0x2174)){if(lIllI->IlllllII){vfree(lIllI->
-IlllllII);lIllI->IlllllII=NULL;}if(lIllI->lllIlIIl){vfree(lIllI->lllIlIIl);lIllI
-->lllIlIIl=NULL;}
+,IIIIIlI);if(IIIIIlI==(0x521+5942-0x1c57)){if(lIllI->IIlIIlIl){vfree(lIllI->
+IIlIIlIl);lIllI->IIlIIlIl=NULL;}if(lIllI->lllIllll){vfree(lIllI->lllIllll);lIllI
+->lllIllll=NULL;}
 
-}return(0x374+6375-0x1c5b);}void IlIlIIlll(void*context){struct IlIlIl*lIllI=
-context;IIIlIlll(lIllI);}void IIIllllll(void*context){struct IlIlIl*lIllI=
-context;IIlllIll(lIllI);}unsigned int lllIlIIll(void*context,struct file*lllIll,
-poll_table*IIIIlI){int lIIlllll;unsigned long flags;struct IlIlIl*lIllI=context;
-poll_wait(lllIll,&lIllI->IIIIlI,IIIIlI);spin_lock_irqsave(&lIllI->IlIIll,flags);
-lIIlllll=list_empty(&lIllI->IIIIlII);spin_unlock_irqrestore(&lIllI->IlIIll,flags
-);if(!lIIlllll&&!lIllI->IlIIlIlI){IlllI(
+}return(0xa64+3-0xa67);}void llIllIllI(void*context){struct lIlIIl*lIllI=context
+;IlllllII(lIllI);}void IlllllIII(void*context){struct lIlIIl*lIllI=context;
+IlIllIIl(lIllI);}unsigned int IllllIIll(void*context,struct file*lIlllI,
+poll_table*lIIllI){int IIllIIII;unsigned long flags;struct lIlIIl*lIllI=context;
+poll_wait(lIlllI,&lIllI->lIIllI,lIIllI);spin_lock_irqsave(&lIllI->IIllII,flags);
+IIllIIII=list_empty(&lIllI->llIllIl);spin_unlock_irqrestore(&lIllI->IIllII,flags
+);if(!IIllIIII&&!lIllI->IlIlIIll){lIlll(
 "\x75\x73\x62\x64\x5f\x76\x73\x74\x75\x62\x5f\x6d\x69\x6e\x6f\x72\x5f\x70\x6f\x6c\x6c\x3a\x20\x71\x75\x65\x75\x65\x20\x6e\x6f\x74\x20\x65\x6d\x70\x74\x79" "\n"
 );return((POLLOUT|POLLWRNORM)|(POLLIN|POLLRDNORM));}return(POLLOUT|POLLWRNORM);}
 #endif 

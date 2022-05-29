@@ -14,6 +14,7 @@ SHELLNAME=%SHELLNAME_TAG%
 CLIENTSHELLNAME=%CLIENTSHELLNAME_TAG%
 UNINSTALLERNAME=%UNINSTALLERNAME_TAG%
 INITSCRIPTNAME=%INITSCRIPTNAME_TAG%
+SYSTEMDUNITNAME=%SYSTEMDUNITNAME_TAG%
 
 # System properties
 SYS_DISTRIB_NAME=%SYS_DISTRIB_NAME_TAG%
@@ -111,6 +112,69 @@ uninstall_init_script()
   return 0
 }
 
+# $1 unit name
+#
+stop_systemd_unit() 
+{
+  local name=$1
+
+  if [ "$SYS_DISTRIB_INIT_TYPE" = "systemd" ]; then
+    systemctl stop $name
+  else
+    ERROR_MESSAGE="unknown init type"
+    return 1
+  fi
+  return 0
+}
+
+# $1 unit name
+#
+uninstall_systemd_unit() 
+{
+  local dst_unit_name=$1
+  local dst_unit_path
+
+  if [ "$SYS_DISTRIB_INIT_TYPE" = "systemd" ]; then
+    dst_unit_path="$SYS_DISTRIB_INIT_DIR/$dst_unit_name"
+  else
+    ERROR_MESSAGE="unknown init type"
+    return 1
+  fi
+
+  systemctl disable $dst_unit_name >/dev/null 2>&1
+  rm -f /etc/systemd/system/$dst_unit_name >/dev/null 2>&1
+  rm -f /usr/lib/systemd/system/$dst_unit_name >/dev/null 2>&1
+  rm -f /lib/systemd/system/$dst_unit_name >/dev/null 2>&1
+  rm -f "$dst_unit_path" >/dev/null 2>&1
+  systemctl daemon-reload >/dev/null 2>&1
+
+  return 0
+}
+
+stop_daemon()
+{
+  if [ "$SYS_DISTRIB_INIT_TYPE" = "systemd" ]; then
+    stop_systemd_unit $SYSTEMDUNITNAME
+  else
+    stop_init_script $INITSCRIPTNAME
+  fi
+
+  killall -q -1 $DAEMONNAME
+
+  # Wait while daemon terminates
+  while ( [ -n "`ps -A|grep $DAEMONNAME`" ] ); do
+    sleep 1
+  done
+}
+
+uninstall_daemon()
+{
+  if [ "$SYS_DISTRIB_INIT_TYPE" = "systemd" ]; then
+    uninstall_systemd_unit $SYSTEMDUNITNAME
+  else
+    uninstall_init_script $INITSCRIPTNAME
+  fi
+}
 
 ###############################################################################
 #
@@ -123,14 +187,7 @@ usbsrv_uninstall()
 
   echo "***  Stopping daemon..."
 
-  stop_init_script $INITSCRIPTNAME
-
-  killall -q -1 $DAEMONNAME
-
-  # Wait while daemon terminates
-  while ( [ -n "`ps -A|grep $DAEMONNAME`" ] ); do
-    sleep 1
-  done
+  stop_daemon
 
   echo "***  Stopping kernel module..."
   
@@ -138,7 +195,8 @@ usbsrv_uninstall()
 
   echo "***  Removing files..."
 
-  uninstall_init_script $INITSCRIPTNAME
+  # Remove and unregister daemon init scripts
+  uninstall_daemon
 
   # Remove program files and symbolic links
   rm -f $INSTALLDIR/bin/$DAEMONNAME
@@ -179,7 +237,7 @@ case "$1" in
     usbsrv_uninstall
     ;;
   *)
-    echo "IncentivesPro USB Redirector for Linux v3.9.1 uninstallation script"
+    echo "IncentivesPro USB Redirector for Linux v3.9.9 uninstallation script"
     echo ""
     echo "Usage: uninstall.sh uninstall         - uninstall USB Redirector for Linux"
     echo "       uninstall.sh help              - show this help"

@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  samba:
+    image: samba
+    tty: true
+    container_name: samba
+    restart: always
+    network_mode: "host"
+    volumes:
+      - /media/sunbuntu/1tb/1tb:/home/samba/1tb
+    mem_limit: "128m"

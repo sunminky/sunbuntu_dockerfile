@@ -9,104 +9,104 @@
  *
  */
 
-#ifndef IIllIIlII
-#define IIllIIlII
+#ifndef llllIIllI
+#define llllIIllI
 #include "apitypes.h"
 #pragma pack(push,1)
-enum{lIlIllIl=(0x641+8313-0x26ba),
-lIIIIIIl,
-IllIllII,
+enum{llIIllll=(0xdf6+3790-0x1cc4),
+lIlIllll,
 llIlllIl,
-IlllIIIl,
-IIlIlIll,
-IllllllI,
-llIIIIIl,
-llIIllll,
-IIlIllII,
-IlIllIIlI,llIIlIlI,
-lIllIIIl,
-lIlIlIll,
-llllIIlI,
-IIIIIllIlI,
-lIIllIIIlI,
-IIIllIIIl,};enum{IlIllIlII=(0x6a4+556-0x8d0),lIIllllIl,IllIllIII,IIIllIIII,
-IlIllIIIl,IIlIlIIII,IlIIlIlIl,IllIlIllI,IIIIIlIIl,lIllllIll,llIIlllII,llIllIIIl,
-llIIIIIIl,lIlllIIII,IIlIlIllI,IIllIIIII,IIllIlIII,llIllllll};
-#define lIllII 			(0xfb4+5926-0x26d9)
-#define lllllII 		(0x92f+4103-0x1934)
-#define IlIllllII          	(0x10fd+4649-0x2322)
-#define llIllllIIl 			(0x6eb+5147-0x1afe)
-typedef struct{lllIII lIIlIl:(0x37d+331-0x498);
-lllIII IllIIll:(0x19f3+1345-0x1f24);lllII lIlIl;
-lllII lIIlIII;
-lllII Status;lllII Context;}__attribute__((packed))llIlll,*llIlllIIl;
-#define IIIllIIllI	(0x504+5920-0x1c24)
-#define IIlIllIII		(0x1fd5+1365-0x2529)
-#define IIIIlIIl			(0xc99+3807-0x1b78)
-#define IIlllllII	(0x1d77+564-0x1faa)
-#define IlllIIIlI	(0x5c1+5711-0x1c0e)
-#define lIIlllIIl	(0x1276+2093-0x1aa0)
-typedef union{struct{lIlIlI llllIllI;};struct{lIlIlI llIlIIlI:
-(0x3b6+8802-0x2617);lIlIlI lIIlIIlll:(0x3da+4198-0x143f);lIlIlI lIIIIIlIl:
-(0x11db+4522-0x2384);lIlIlI lllIllIlI:(0x565+267-0x66f);lIlIlI IIlIIIlll:
-(0x9b3+6405-0x22b7);lIlIlI lllIIlIIl:(0x194b+1239-0x1e21);lIlIlI IlIIlllII:
-(0xeb7+2217-0x175e);lIlIlI IllIlIlll:(0x8d3+1909-0x1046);lIlIlI lIIllIlIl:
-(0xe2d+3248-0x1adb);lIlIlI lIIllIllI:(0x127f+2449-0x1c0e);lIlIlI lIllIlIlI:
-(0x1693+3429-0x23f6);};}lIIIIlIIl,*IlIIlllllI;typedef struct{llIlll IlllII;
-IIIlll IIllIlI;
-IIIlll IlIIIIll;
-IIIlll lllIlIII;
-IIIlll llIllIII;lIlIlI IIIIIlII;lllII IIllI;}__attribute__((packed))IIlllIllI,*
-lIllIllIl;typedef struct{llIlll IlllII;IIIlll lllllIII;IIIlll IIlIlIlI;struct{
-IIIlll IllllII;IIIlll IlIlllI;}__attribute__((packed))lIIIIIl[
-(0xc5b+1709-0x1307)];}__attribute__((packed))llIllIllI,*IIIlllllll;typedef 
-struct{llIlll IlllII;IIIlll IllllII;IIIlll IlIlllI;}__attribute__((packed))
-IIIIIllIl,*IIIlIlllIl;
-#define IIllIllII			(0xe04+169-0xead)
-#define lIIlIlIIl				(0xb4d+2857-0x1675)
-#define IIllIllIl				(0x973+2829-0x147e)
-#define lIlIlIIll			(0x1942+1414-0x1ec5)
-#define IIllIlIll		(0x535+2548-0xf29)
-#define IllIIlllI		(0x8ba+6646-0x22af)
-#define lllIIlIII		(0x835+1910-0xfa9)
-#define IllIIIIlI			(0xf67+956-0x1320)
-#define IllllIIlIl			(0x7e8+4133-0x180c)
-#define llIIIIIlIl			(0x60f+6596-0x1fd3)
-typedef struct{llIlll IlllII;IIIlll Endpoint;IIIlll Flags;union{struct{IIIlll 
-IIIlIIIIII:(0x99d+4057-0x1971);IIIlll IIlllIIIlI:(0x31f+9199-0x270c);IIIlll 
-lIIllIlll:(0x236+3986-0x11c7);}__attribute__((packed))llllllllIl;IIIlll IIllIlI;
-}__attribute__((packed));IIIlll IIlIIlII;lIlIlI llllIllI;lIlIlI IIlIllIlI;lllII 
-IIllI;}__attribute__((packed))llllllIIl,*lllllIlIIl;typedef struct{llIlll IlllII
-;lllII IIllI;IIIlll Endpoint;IIIlll Flags;}__attribute__((packed))IlIIIlIlI,*
-IIIlIIlIlI;typedef struct{llIlll IlllII;lllII IIllI;lllII Interval;IIIlll 
-Endpoint;IIIlll Flags;}__attribute__((packed))IIlIlIIIl,*IlIIllIIIl;typedef 
-struct{llIlll IlllII;IIIlll Flags;
-IIIlll Endpoint;}__attribute__((packed))IIIIlIlIl,*lIlIIllIlI;typedef struct{
-llIlll IlllII;lllII lIIllIll;}__attribute__((packed))IllIlIIll,*lIIIIlIlII;
-#define llllllll(IIlIl) (sizeof(IlIlIIll) - sizeof(lllllIll) + \
-			sizeof(lllllIll)*(IIlIl)->lIIIl.lIllIII)
+IIlIlIII,
+llIIIIlI,
+IIllIIIl,
+lllIlIIl,
+lIlllIIl,
+IIIIlllI,
+IIlIIIlI,
+llIIIIIIl,IIllIIlI,
+llIIlIII,
+llIIlIll,
+lIIIlllI,
+IllIllIIII,
+lllIIIlllI,
+IlIIIIIIl,};enum{lllllIlIll=(0x109b+5105-0x248c),IIlIllIIlI,IlIllIlII,lIIlIlIII,
+llIIlIlll,lllllIllIl,llIlllIIl,IIlIlIIII,IIllIllll,lIllIIIlII,lIIllIlll,
+lIlllIIII,IIIllllIll,llIllIlIl,lIIIlIlll,lIllIIIIl,llIllllIl,llIllIIlll};
+#define IIIllI 			(0x72+4391-0x1198)
+#define lIIlIll 		(0x6bb+1078-0xaef)
+#define IlIllIIII          	(0x124d+4112-0x2259)
+#define IIlIIIIIII 			(0x1ac1+710-0x1d7f)
+typedef struct{union{struct{llIIII IIIlIl:(0xf61+3937-0x1e92);
+llIIII IllllII:(0x1b05+846-0x1e43);};llIIII lllIIIIlll;};lllII IIIII;
+lllII IIIlIIl;
+lllII Status;lllII Context;}__attribute__((packed))IlIllI,*lIIllIlIlI;
+#define lIIIIIIIlI	(0x66c+984-0xa44)
+#define IlIlIlllI		(0xde0+2085-0x1604)
+#define IlIlllIlI			(0x177+1120-0x5d7)
+#define IlIIIlIll	(0x889+623-0xaf7)
+#define lIIIlllIl	(0xd1d+4657-0x1f4c)
+#define lllIIIlII	(0xf05+5557-0x24b7)
+typedef union{struct{lIllll IlIlIlII;};struct{lIllll lIIIlIlI:
+(0x46d+4085-0x1461);lIllll lIlIllIIIl:(0x599+5242-0x1a12);lIllll llIllIlII:
+(0xf86+4348-0x2081);lIllll IlIIIllIl:(0x1b59+110-0x1bc6);lIllll IIIlIlllll:
+(0x1c61+1036-0x206c);lIllll lIllIlIII:(0x1e09+1754-0x24e2);lIllll lllIIlIIl:
+(0x1636+4231-0x26bb);lIllll lIllIllll:(0x971+5289-0x1e18);lIllll lIlIIIIlIl:
+(0x1280+2392-0x1bd6);lIllll IlllIIIlI:(0xcef+5302-0x21a3);lIllll IIllIIIIl:
+(0xa4f+4967-0x1db4);};}llIlIllIl,*lIlIlIllII;typedef struct{IlIllI llllll;lIllIl
+ IIllIll;
+lIllIl llIlIIll;
+lIllIl lllllllI;
+lIllIl lIlIIlll;lIllll lIIlIIlI;lllII IllllI;}__attribute__((packed))IIIIlIlll,*
+IIIlIlIlll;typedef struct{IlIllI llllll;lIllIl lllIllIl;lIllIl IlllllIl;struct{
+lIllIl IlIllIl;lIllIl llIlllI;}__attribute__((packed))llIIlII[
+(0x18e1+2742-0x2396)];}__attribute__((packed))lIIlllIlI,*lIlIlllIIl;typedef 
+struct{IlIllI llllll;lIllIl IlIllIl;lIllIl llIlllI;}__attribute__((packed))
+IllIIllll,*IIIIIllIlI;
+#define lllllIIIII			(0xaed+7030-0x2663)
+#define lIIIlllII				(0x68+7895-0x1f3e)
+#define lIllllllI				(0xb03+2892-0x164d)
+#define IlIlIIIll			(0x6dc+3912-0x1621)
+#define IIIlIlIlI		(0xc58+1065-0x1081)
+#define IlllllIlI		(0x1c7d+636-0x1ef8)
+#define IIllIIlII		(0x1ecf+1567-0x24ec)
+#define llIllIlll			(0xd52+740-0x1033)
+#define lIlllllIll			(0x1663+1686-0x1cf8)
+#define IllIlIIllI			(0x119b+2900-0x1cef)
+typedef struct{IlIllI llllll;lIllIl Endpoint;lIllIl Flags;union{struct{lIllIl 
+llIllIIlII:(0x1c81+2035-0x246f);lIllIl IIIlIllIll:(0x1df+9432-0x26b5);lIllIl 
+lIlIlIIIII:(0x709+7165-0x2305);}__attribute__((packed))IllllIIIll;lIllIl IIllIll
+;}__attribute__((packed));lIllIl IIIIllIII;lIllll IlIlIlII;lIllll IIlIlllIl;
+lllII IllllI;}__attribute__((packed))IllIIlIll,*lllIIllIlI;typedef struct{IlIllI
+ llllll;lllII IllllI;lIllIl Endpoint;lIllIl Flags;}__attribute__((packed))
+IIIlIlllI,*lIIIIlIlll;typedef struct{IlIllI llllll;lllII IllllI;lllII Interval;
+lIllIl Endpoint;lIllIl Flags;}__attribute__((packed))lIIllIllI,*IIIlIIlIII;
+typedef struct{IlIllI llllll;lIllIl Flags;
+lIllIl Endpoint;}__attribute__((packed))IIlllllIl,*lIIIlllllI;typedef struct{
+IlIllI llllll;lllII lIlllIIIl;}__attribute__((packed))IlIIIIllll,*IlIlllIIll;
+#define IlIlIlll(IIlIl) (sizeof(lIIllIIlI) - sizeof(IllIlIII) + \
+			sizeof(IllIlIII)*(IIlIl)->llIll.IIlIlIl)
 typedef struct{lllII Offset;lllII Length;lllII Status;}__attribute__((packed))
-lllllIll,*lIIIIIIlll;typedef struct{llIlll IlllII;IIIlll Endpoint;IIIlll Flags;
-lllII Interval;lllII IIIlIIIl;lllII lIllIII;lllII lIlIllII;lllII IIllI;lllllIll 
-llIIlII[(0x2122+13-0x212e)];}__attribute__((packed))IlIlIIll,*IlllIllIll;
-#define IIIIlIIll(IIIlIIIIl) (sizeof(lIIlllIII)-(0x1c57+2041-0x244f)+(IIIlIIIIl)\
+IllIlIII,*llIIlIlllI;typedef struct{IlIllI llllll;lIllIl Endpoint;lIllIl Flags;
+lllII Interval;lllII IIlIlIIl;lllII IIlIlIl;lllII llIIIIIl;lllII IllllI;IllIlIII
+ llIIIIl[(0x831+1301-0xd45)];}__attribute__((packed))lIIllIIlI,*llIIIIlIlI;
+#define IIllllIllI(IllIIIIII) (sizeof(lIIIlllll)-(0x86f+3026-0x1440)+(IllIIIIII)\
 )
-#define IlIIIlllII(IIllIIIIl) ((IIllIIIIl)->IIIlI.lIlIl-(sizeof(lIIlllIII)-\
-(0x1249+4364-0x2354)))
-typedef struct{llIlll IlllII;IIIlll IIlIIlIlII[(0x286+5947-0x19c0)];}
-__attribute__((packed))lIIlllIII,*IIIIIllIII;
-#define lllIlllIl		(0xf0b+1006-0x12f8)
-#define IIllllllI		(0x23d4+594-0x2624)
-typedef struct{llIlll IlllII;lllII lllIIIIl;}__attribute__((packed))llIlIIlll,*
-llIlIIllIl;typedef struct{llIlll IlllII;}__attribute__((packed))lIIlIIIll,*
-lllllIlIlI;typedef struct{llIlll IlllII;}__attribute__((packed))IlIllIIll,*
-lIIlIlllll;typedef struct{llIlll IlllII;IIIlll Endpoint;IIIlll Flags;}
-__attribute__((packed))IlllIlIIl,*lIlIIIIIll;
-typedef union{llIlll IIIlI;IIlllIllI lIlIll;llIllIllI IlIlIll;IIIIIllIl lIIlIlI;
-llllllIIl llIlII;IlIIIlIlI IlIll;IIlIlIIIl lIllIl;IIIIlIlIl IIlIIll;IllIlIIll 
-llIlIllI;IlIlIIll lIIIl;lIIlllIII IllIIlIII;llIlIIlll llIlIIll;lIIlIIIll 
-IllIllIIl;IlIllIIll IIIlIllII;IlllIlIIl lIlIIllI;}__attribute__((packed))
-IIlIllIll,*IllII;
+#define IlIllIllIl(lIIIlIIII) ((lIIIlIIII)->IlIII.IIIII-(sizeof(lIIIlllll)-\
+(0x502+1883-0xc5c)))
+typedef struct{IlIllI llllll;lIllIl IIllIIIIII[(0x1324+3922-0x2275)];}
+__attribute__((packed))lIIIlllll,*IIIlIlllIl;
+#define IIlIlIlIl		(0x337+4259-0x13d9)
+#define IllIlIIlI		(0x73b+5072-0x1b09)
+typedef struct{IlIllI llllll;lllII IIllIIll;}__attribute__((packed))lllIIIIlI,*
+IIIIllIlll;typedef struct{IlIllI llllll;}__attribute__((packed))IIIlIIllI,*
+IlllIlIIII;typedef struct{IlIllI llllll;}__attribute__((packed))lllllIlIl,*
+IlllIIIlIl;typedef struct{IlIllI llllll;lIllIl Endpoint;lIllIl Flags;}
+__attribute__((packed))IIllIllII,*IIlllllIIl;
+typedef union{IlIllI IlIII;IIIIlIlll IIlllI;lIIlllIlI lIllIll;IllIIllll IlIIIIl;
+IllIIlIll lllIII;IIIlIlllI lllllI;lIIllIllI llIIlI;IIlllllIl lIllIII;IlIIIIllll 
+llIllIII;lIIllIIlI llIll;lIIIlllll IIIIIIlIIl;lllIIIIlI lIlIlIll;IIIlIIllI 
+lllIIlIII;lllllIlIl llIIlIlIl;IIllIllII IlIlllll;}__attribute__((packed))
+llIIIlIlIl,*IIlII;
 #pragma pack(pop)
 #endif 
 

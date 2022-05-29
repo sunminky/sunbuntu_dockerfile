@@ -9,11 +9,11 @@
  *
  */
 
-#ifndef lIIlIllII
-#define lIIlIllII
+#ifndef lllIIllII
+#define lllIIllII
 #ifdef _USBD_ENABLE_STUB_
 #include "cdev.h"
-struct IIIIII*lIlllIIlI(void);void lllIIIII(struct IIIIII*lllll);
+struct IIIlll*IIIlllIIl(void);void lIlIIIIlI(struct IIIlll*lllll);
 #endif 
 #endif 
 

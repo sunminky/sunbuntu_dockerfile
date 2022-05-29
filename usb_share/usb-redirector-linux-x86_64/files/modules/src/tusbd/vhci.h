@@ -9,79 +9,79 @@
  *
  */
 
-#ifndef IlIIIIIll
-#define IlIIIIIll
+#ifndef llIlIllII
+#define llIlIllII
 #ifdef _USBD_ENABLE_VHCI_
 #include "vhci_hcd.h"
 
 
-#if KERNEL_LT((0x4ea+6582-0x1e9e),(0xb96+864-0xef0),(0x8a0+4208-0x18fc))
-#  define lIIllII	(0x20f+5116-0x15fc)
+#if KERNEL_LT((0x83b+1786-0xf33),(0x3ba+174-0x462),(0x911+4069-0x18e2))
+#  define IllIIIl	(0xa3c+309-0xb62)
 #else
-#  if USB_MAXCHILDREN < (0x902+4237-0x1980)
-#    define lIIllII USB_MAXCHILDREN
+#  if USB_MAXCHILDREN < (0xeff+5689-0x2529)
+#    define IllIIIl USB_MAXCHILDREN
 #  else
-#    define lIIllII (0xcb6+271-0xdb6)
+#    define IllIIIl (0x111b+4351-0x220b)
 #  endif
 #endif
 
-#define IlIIllII ((lIIllII / (0x3dc+6768-0x1e44)) + (0x9a5+2610-0x13d6))
-struct IlIlIl{struct list_head lIlIII;struct IIIIII*lllll;struct kref lIIlll;int
- lIIlI;int llIIIll;int speed;int IlIIlIlI;u16 vid;u16 IlIIlIl;u16 llIlllI;struct
- usb_hcd*parent;wait_queue_head_t IIIIlI;spinlock_t IlIIll;struct list_head 
-IIlllII;struct list_head IIIIlII;struct list_head IIlIIlIl;void*IlllllII;
-size_t llIIIlll;void*lllIlIIl;
-size_t IllllIll;};struct IlIIIll{struct list_head lIlIII;struct urb*lIlll;};
+#define lIIIIIlI ((IllIIIl / (0x664+4833-0x193d)) + (0x3e0+4626-0x15f1))
+struct lIlIIl{struct list_head IIIIll;struct IIIlll*lllll;struct kref IllIll;int
+ lIIlI;int IllIlIl;int speed;int IlIlIIll;u16 vid;u16 IlIlIII;u16 lIlIlll;struct
+ usb_hcd*parent;wait_queue_head_t lIIllI;spinlock_t IIllII;struct list_head 
+IllIIlI;struct list_head llIllIl;struct list_head lllIlllI;void*IIlIIlIl;
+size_t llIlllll;void*lllIllll;
+size_t IIlIIIIl;};struct lllllII{struct list_head IIIIll;struct urb*IlllI;};
 
-struct llIIIl{struct list_head lIlIIl;struct IlIlIl*lIllI;lllIII lllIl;struct 
-list_head IIIllIl;struct IlIIIll urb;IllII IIlIl;};struct IIllIl{spinlock_t lock
-;struct IlIlIl*IIIlIII[lIIllII];int IlllIIll[lIIllII];int lIlIllI[lIIllII];
-unsigned short IIIllII[lIIllII];unsigned short IllllIl[lIIllII];unsigned long 
-IlllIll[lIIllII];struct usb_hcd*llIlI;struct usb_hcd*lIIIllll;unsigned llIlIIIIl
-:(0x1a4d+2432-0x23cc);};enum IIlIIlllll{IllIIIII=(0xaf0+5716-0x2144),
-IlIIIIlI,
-IIIlIlI,
-IlllIIl,
-IlIllll,
-IlIllII,
-IIlIlIlll,
-IIIIIIII,
-};enum lIllIlllIl{IlIlIIIl,
-IIIlllll,
-lIllllIl,
-llIIlIIl,
-llIIlllI,
-lIllIIll,
-llIIIlII,
-lIIlIlll,
-IllIlIII,
-lIlIlIIII,
-lIIllIIIl,
-IIIlllIII,
-llIllllI,
-lIlllIIl,
-IlIlllII,
-IllIllIll,
-IIIlIIIlI,
-IIIIllII,
-IllllIlIl,
-lIlIllIlI,
-};int IlIlIlIll(void);void lIIllIlI(void);struct IlIlIl*lIIlIIIII(u16 vid,u16 
-IlIIlIl,u16 llIlllI,int speed);void IlIIlIll(struct IlIlIl*lIllI);void llllIllIl
-(void);int llllIllll(struct IlIlIl*lIllI);void llIIlIIlI(struct IlIlIl*lIllI);
-struct IlIlIl*lIlllIlIl(int IIlllIIll);struct IlIlIl*IlllIIlIl(struct usb_hcd*
-llIlI,int llIIIll);struct IlIlIl*IIIIIIIII(struct usb_hcd*llIlI,int lIIlI);void 
-IlIlIlIl(struct IlIlIl*lIllI);struct llIIIl*llIlllll(struct IlIlIl*lIllI,gfp_t 
-IlIIl);void IlIIIlll(struct llIIIl*lIIll);int IlIIllIII(struct llIIIl*lIIll);
-void llllIllII(struct IlIlIl*lIllI,int status);void IIIIlIlI(struct llIIIl*lIIll
-,int status);int IlIllllll(struct IlIlIl*lIllI,struct llIIIl*IllIIIlIl,void*
-IllIl,size_t IIlIll);int llIlllllI(struct IlIlIl*lIllI,struct llIIIl*lIIll,IllII
- IIlIl,int*status);int IlIlIlIIl(struct IlIlIl*lIllI,struct llIIIl**IIlIlllI,
-struct urb*lIlll);int lIIlIlIl(struct llIIIl*lIIll);void IllIlllII(struct IlIlIl
-*lIllI,lllII*busnum,lllII*devnum);void lIlIlIlII(struct kref*IIIIllI);static 
-inline struct IlIlIl*IIIlIlll(struct IlIlIl*lIllI){kref_get(&lIllI->lIIlll);
-return lIllI;}static inline void IIlllIll(struct IlIlIl*lIllI){kref_put(&lIllI->
-lIIlll,lIlIlIlII);}
+struct lllIIl{struct list_head llllIl;struct lIlIIl*lIllI;llIIII lIlIl;struct 
+list_head lllIlll;struct lllllII urb;IIlII IIlIl;};struct lIIIII{spinlock_t lock
+;struct lIlIIl*IlIIlII[IllIIIl];int lllllIIl[IllIIIl];int IlIIIll[IllIIIl];
+unsigned short lIIIIIl[IllIIIl];unsigned short lIIlIII[IllIIIl];unsigned long 
+IlllIII[IllIIIl];struct usb_hcd*lllIl;struct usb_hcd*llllllll;unsigned IllllIlII
+:(0x10e5+2363-0x1a1f);};enum llIlIIIlIl{IIlllllI=(0x148d+1437-0x1a2a),
+llIlIIIl,
+lllIIll,
+llIlIII,
+IIIlIIll,
+lllIllI,
+IlIlIlIlI,
+lIIllIlI,
+};enum lllIlIllll{IlIllllI,
+lIllIlII,
+IIlIIlII,
+lIIIIlll,
+IIIIlIll,
+lIIlIllI,
+IIIlllII,
+IIlIIlll,
+llllIlII,
+llllIlIIl,
+IIlIlIIlI,
+llIIIllIl,
+lIlIlIIl,
+IlIIIIll,
+lllllIII,
+lIlllIlIl,
+IIllllllI,
+lllIlIll,
+IIIIIIlIl,
+lIIlIlllI,
+};int IlIIlIlII(void);void IllIIIlI(void);struct lIlIIl*llIIIIlIl(u16 vid,u16 
+IlIlIII,u16 lIlIlll,int speed);void IlIIllII(struct lIlIIl*lIllI);void lIlllllII
+(void);int lllIIlllI(struct lIlIIl*lIllI);void IlllIIIll(struct lIlIIl*lIllI);
+struct lIlIIl*lIlIIIIll(int lIllllIlI);struct lIlIIl*IlIIlIIll(struct usb_hcd*
+lllIl,int IllIlIl);struct lIlIIl*IIIIIlIII(struct usb_hcd*lllIl,int lIIlI);void 
+llIIIlIIl(struct lIlIIl*lIllI);struct lllIIl*IIIIlllll(struct lIlIIl*lIllI,gfp_t
+ llllI);void IIlIlllI(struct lllIIl*IllII);int lIllIIIll(struct lllIIl*IllII);
+void lllllIIIl(struct lIlIIl*lIllI,int status);void IllIIllI(struct lllIIl*IllII
+,int status);int IIIIlIIIl(struct lIlIIl*lIllI,struct lllIIl*IIlIIIIlIl,void*
+llIIl,size_t IlIIIl);int IlIIlIllI(struct lIlIIl*lIllI,struct lllIIl*IllII,IIlII
+ IIlIl,int*status);int IIllIlllI(struct lIlIIl*lIllI,struct lllIIl**lIllIIlI,
+struct urb*IlllI);int lIIIlIII(struct lllIIl*IllII);void IllIlIlII(struct lIlIIl
+*lIllI,lllII*busnum,lllII*devnum);void lIlIllIlI(struct kref*IIllIlI);static 
+inline struct lIlIIl*IlllllII(struct lIlIIl*lIllI){kref_get(&lIllI->IllIll);
+return lIllI;}static inline void IlIllIIl(struct lIlIIl*lIllI){kref_put(&lIllI->
+IllIll,lIlIllIlI);}
 #endif 
 #endif 
 

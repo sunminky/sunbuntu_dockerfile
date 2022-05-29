@@ -9,11 +9,11 @@
  *
  */
 
-#ifndef lIlIlllll
-#define lIlIlllll
+#ifndef IlIIlllll
+#define IlIIlllll
 #ifdef _USBD_ENABLE_VHCI_
 #include "cdev.h"
-struct IIIIII*llllIIIII(void);void llIllllII(struct IIIIII*lllll);
+struct IIIlll*IIIlIllIl(void);void IIlIIIIlI(struct IIIlll*lllll);
 #endif 
 #endif 
 

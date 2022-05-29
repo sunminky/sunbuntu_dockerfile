@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  duckdns:
+    image: duckdns
+    container_name: duckdns
+    restart: always
+    networks:
+      web_bridge:
+        ipv4_address: 172.19.0.99
+      
+networks:
+  web_bridge:
+    external: true
+  
+#docker run -itd --restart always --name duckdns duckdns:0.0.1

@@ -9,8 +9,8 @@
  *
  */
 
-#ifndef lIIlllIll
-#define lIIlllIll
-typedef enum{llllIIIIIl,llIIlIIIll,lIllIIIIl,lllllIIIll}IlllllIlII;
+#ifndef lIIIllIlII
+#define lIIIllIlII
+typedef enum{lllllIIlIl,IlIIlIlllI,IIlIlIIIll,IIIllIIlIl}llllIllIIl;
 #endif 
 

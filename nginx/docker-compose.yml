@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx
+    container_name: nginx
+    restart: always
+    ports:
+       - "80:80"
+       - "443:443"
+    networks:
+      web_bridge:
+        ipv4_address: 172.19.0.2
+    volumes:
+      - /home/sunbuntu/certification:/home/certification:ro
+      
+networks:
+  web_bridge:
+    external: true
+  
+# docker-compose up -d
+
+#docker run -itd --restart always --name nginx_s --network web_bridge --ip 172.19.0.2 -p 80:80 -p 443:443 -v "/home/sunbuntu/certification:/home/certification:ro" nginx_s:latest
