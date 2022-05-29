@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 MAINTAINER Minky
 
@@ -24,21 +24,17 @@ RUN apt-get update && apt-get -y upgrade
 RUN apt-get install -y build-essential
 RUN apt-get install -y kmod
 RUN apt-get install -y linux-headers-$(uname -r)
+RUN apt-get install -y psmisc
 
 #build
 WORKDIR /home/usb
-RUN ./installer.sh install-server
-
-#Drop external IP
-RUN apt-get -y install iptables
-ADD iptables.sh /home/usb/iptables.sh
-RUN chmod a+x /home/usb/iptables.sh
+RUN echo "y" | ./installer.sh install-server
 
 #Sharing usb
-ENTRYPOINT /home/usb/iptables.sh && /home/usb/check.sh
+ENTRYPOINT /home/usb/check.sh
 
 #Run Command
-#docker run -it --restart always --name usb --privileged --cap-add=all -v /lib/modules:/lib/modules:ro -p 32032:32032 usb:0.0.1
+#docker run -it --restart always --name usb --privileged --cap-add=all -v /lib/modules:/lib/modules:ro -p 32032:32032 usb
 
 ##lsmod##
 #tusbd                  61440  2

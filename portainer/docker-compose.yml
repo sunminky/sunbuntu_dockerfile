@@ -5,12 +5,18 @@ services:
     image: portainer/portainer-ce:alpine
     container_name: portainer
     restart: always
-    ports:
-      - 9000:9000
+    networks:
+      web_bridge:
+        ipv4_address: 172.19.0.3
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-
+      
+networks:
+  web_bridge:
+    external: true
   
-#docker-compose up -d
+# docker-compose up -d
 
-#docker run -d -v /var/run/docker.sock:/var/run/docker.sock --restart=always --name portainer --network web_bridge --ip 172.19.0.3 portainer/portainer
+# docker run -d -v /var/run/docker.sock:/var/run/docker.sock --restart=always --name portainer --network web_bridge --ip 172.19.0.3 portainer/portainer
+
+# docker network create --gateway 172.19.0.1 --subnet 172.19.0.0/16 web_bridge
