@@ -1,0 +1,29 @@
+version: '3.6'
+
+services:
+  flame:
+    image: pawelmalak/flame
+    container_name: flame
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock # optional but required for Docker integration
+    expose:
+      - 5005
+    #secrets:
+    # - password # optional but required for (1)
+    environment:
+      - PASSWORD=${PASSWORD}
+     #- PASSWORD_FILE=/run/secrets/password # optional but required for (1)
+    restart: unless-stopped
+    networks:
+      web_bridge:
+        ipv4_address: 172.19.0.17
+
+# optional but required for Docker secrets (1)
+#secrets:
+#  password:
+#    file: /path/to/secrets/password
+
+networks: 
+  web_bridge: 
+    external: 
+      name: web_bridge

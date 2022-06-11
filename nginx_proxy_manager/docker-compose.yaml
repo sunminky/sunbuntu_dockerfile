@@ -1,0 +1,17 @@
+version: '3'
+services:
+  app:
+    image: 'jc21/nginx-proxy-manager:latest'
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '443:443'
+    networks:
+      web_bridge:
+        ipv4_address: 172.19.0.2
+    volumes:
+      - /home/sunbuntu/certification:/etc/letsencrypt
+      
+networks:
+  web_bridge:
+    external: true
