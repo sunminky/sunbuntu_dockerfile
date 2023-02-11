@@ -1,5 +1,5 @@
 리눅스 서버에서 사용방법
 
-1. usbclnt -list-devices : 현재 장치 목록 표시
-2. usbsrv -share 1 : 1번 장치 공유
-3. usbsrv -unshare 1 : 1번 장치 공유 해제
+1. /usr/local/usb-redirector/bin/usbsrv -list-devices : 현재 장치 목록 표시
+2. /usr/local/usb-redirector/bin/usbsrv -share 1 : 1번 장치 공유
+3. /usr/local/usb-redirector/bin/usbsrv -unshare 1 : 1번 장치 공유 해제

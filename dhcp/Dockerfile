@@ -1,8 +1,14 @@
 FROM ubuntu:20.04
 
+# Time setting for local time(Seoul) 
+RUN ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+
+#Replace apt repository
+RUN sed -i 's/kr.archive.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list
+
 RUN apt-get update \
- && apt-get install -y isc-dhcp-server \
- && rm -rf /var/lib/apt/lists/*
+&& apt install -y isc-dhcp-server \
+&& rm -rf /var/lib/apt/lists/*
 
 RUN touch /var/lib/dhcp/dhcpd.leases
 RUN mkdir -p /etc/dhcp
